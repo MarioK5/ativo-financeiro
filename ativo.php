@@ -1,1 +1,1 @@
-echo "teste01"
+echo "teste01";
