@@ -1,0 +1,8 @@
+***** acessar banco de dados
+sudo mysql -u mariok5 -p
+informar senha: mariok5
+
+**** atualizar ubuntu github
+git add .
+git commit -m 'mensame'
+git pull origin main
