@@ -198,7 +198,7 @@ function clientes($conn,$email,$senha)  {
                                         </div>
                                     </div>
                                 </div>
-				<div class="col-xs-4 col-md-4">
+							<div class="col-xs-4 col-md-4">
                                     <div class="form-group">
                                         <label>Senha</label>
                                         <div id="sandbox-container">
