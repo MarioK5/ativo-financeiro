@@ -89,16 +89,11 @@ function busca_dados($dados)   {
 
 function clientes($conn,$email,$senha)  {
 	
-
    $sql = "SELECT * FROM CLIENTES WHERE EMAIL = '{$email}' AND SENHA = '{$senha}'";
 
-$arq = fopen("log_query.txt","w") or die("Problemas para criar o arquivo");
-        fputs($arq,$sql);
-        fclose($arq);
+   $result = mysqli_query($conn,$sql);
 
-    $result = mysqli_query($conn,$sql);
-
-    return $result;
+   return $result;
 }
 
 ?>
