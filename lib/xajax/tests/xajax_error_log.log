@@ -1,0 +1,9 @@
+** xajax Error Log - Feb 28 2007 09:11:55 AM **
+----
+[WARNING] include(file_doesnt_exist.php) [<a href='function.include'>function.include</a>]: failed to open stream: Arquivo ou diretório não encontrado
+error in line 14 of file /usr/local/apache2/htdocs/xajax/tests/errorHandlingTest.php
+----
+[WARNING] include() [<a href='function.include'>function.include</a>]: Failed opening 'file_doesnt_exist.php' for inclusion (include_path='.:/usr/local/lib/php')
+error in line 14 of file /usr/local/apache2/htdocs/xajax/tests/errorHandlingTest.php
+
+
