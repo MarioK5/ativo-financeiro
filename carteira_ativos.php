@@ -5,6 +5,7 @@ include 'ativos_db.php';
 require_once("lib/xajax/xajax.inc.php");
 
 $xajax = new xajax();
+<<<<<<< HEAD
 $xajax->setCharEncoding('ISO-8859-1');
 $xajax->registerFunction("busca_dados");
 $xajax->processRequest();
@@ -15,6 +16,18 @@ $_SESSION['conn']      = $conn;
   
 
 function busca_dados($dados)   {
+=======
+$xajax->setCharEncoding('UTF-8');
+$xajax->registerFunction("busca_dados");
+$xajax->processRequest();
+  
+
+function busca_dados($dados)   {
+
+   $conn = OpenCon();
+   $_SESSION['data_base'] = date('d/m/Y');
+
+>>>>>>> 58c0e16c2ee252e2e4c723731537ec71f26fafbb
     
     $resp = new xajaxResponse();
 
@@ -26,15 +39,23 @@ function busca_dados($dados)   {
     $senha    = $dados['senha'];
    
         
+<<<<<<< HEAD
     $result = clientes($usuario);
     
     if (mysqli_num_rows($result) > 0) {
     
+=======
+    $result = clientes($conn,$usuario);
+    
+    if (mysqli_num_rows($result) > 0) {
+
+>>>>>>> 58c0e16c2ee252e2e4c723731537ec71f26fafbb
             
     $tela .= '<table border="0" width=100%>
 
                 <tr style="color:white; background-color: #337ab7;">
                     <TH> ID</TH>
+<<<<<<< HEAD
                     <TH> Cliente</TH>
                     <TH> Senha</TH>
                     <TH> Token/TH>
@@ -46,13 +67,36 @@ function busca_dados($dados)   {
                         $cliente = $row["NOME"];
                         $senha   = $row["SENHA"];
                         $token   = $row["TOKEN"];
+=======
+		    <TH> Token</TH>
+                    <TH> Nome</TH>
+                    <TH> Sobrenome</TH>
+                    <TH> e-mail</TH>
+                </tr> ';
+
+            while ($row = mysqli_fetch_array($result)) {
+
+                        $id        = $row["ID"];
+			$token     = $row["TOKEN"];
+                        $nome      = $row["NOME"];
+                        $sobreNome = $row["SOBRENOME"];
+                        $email     = $row["EMAIL"];
+			
+>>>>>>> 58c0e16c2ee252e2e4c723731537ec71f26fafbb
                        
           
     $tela .= '      <TR>
                         <TD> '.$id.'</TD>
+<<<<<<< HEAD
                         <TD> '.$cliente.'</TD>
                         <TD> '.$senha.'</TD>
                         <TD> '.$token.'</TD>
+=======
+			<TD> '.$token.'</TD>
+                        <TD> '.$nome .'</TD>
+                        <TD> '.$sobreNome.'</TD>
+                        <TD> '.$email.'</TD>
+>>>>>>> 58c0e16c2ee252e2e4c723731537ec71f26fafbb
                     </TR> ';		
         
         }
@@ -71,25 +115,45 @@ function busca_dados($dados)   {
     $resp->assign("tela_inicio","innerHTML",'');   
     
         } else { $tela = '<tr>
+<<<<<<< HEAD
                              <td align="center">Não foram encontrados dados para essa consulta.</b></font></td>
+=======
+                             <td align="center">Nâo foram encontrados dados para essa consulta.</b></font></td>
+>>>>>>> 58c0e16c2ee252e2e4c723731537ec71f26fafbb
                         </tr>';
         } 
 
     $resp->assign("tela_saida","innerHTML",$tela);
+<<<<<<< HEAD
+=======
+
+	CloseCon($conn);
+>>>>>>> 58c0e16c2ee252e2e4c723731537ec71f26fafbb
   
    return $resp;
 }
 
+<<<<<<< HEAD
 function clientes($usuario)  {
 
     $sql = "SELECT * FROM CLIENTES WHERE NOME = '{$usuario}'";
+=======
+function clientes($conn,$usuario)  {
+	
+
+   $sql = "SELECT * FROM CLIENTES WHERE NOME = '{$usuario}'";
+>>>>>>> 58c0e16c2ee252e2e4c723731537ec71f26fafbb
 
 $arq = fopen("log_query.txt","w") or die("Problemas para criar o arquivo");
         fputs($arq,$sql);
         fclose($arq);
 
 
+<<<<<<< HEAD
     $result = mysqli_query($_SESSION['conn'], $sql);
+=======
+    $result = mysqli_query($conn,$sql);
+>>>>>>> 58c0e16c2ee252e2e4c723731537ec71f26fafbb
 
    
 	
@@ -97,7 +161,11 @@ $arq = fopen("log_query.txt","w") or die("Problemas para criar o arquivo");
 }
 
 
+<<<<<<< HEAD
 CloseCon($conn);
+=======
+
+>>>>>>> 58c0e16c2ee252e2e4c723731537ec71f26fafbb
 
 ?>
 <!DOCTYPE html> 
@@ -105,7 +173,11 @@ CloseCon($conn);
 <html>
     <head>
         <title>Carteira de Ativos IFRS</title>
+<<<<<<< HEAD
         <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+=======
+        <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+>>>>>>> 58c0e16c2ee252e2e4c723731537ec71f26fafbb
         
         <!-- JQuery -->
         <script src="lib/jquery/jquery-1.11.2.min.js"></script>
@@ -193,7 +265,11 @@ CloseCon($conn);
                             <div class="row">
                                 <div class="col-xs-4 col-md-4">
                                     <div class="form-group">
+<<<<<<< HEAD
                                         <label for="dataAdicional">Usuario</label>
+=======
+                                        <label>Usuario</label>
+>>>>>>> 58c0e16c2ee252e2e4c723731537ec71f26fafbb
                                         <div id="sandbox-container">
                                             <div class="input-group">
                                                 <input type="text" class="form-control" name="usuario" id="usuario" value=""/>
@@ -203,7 +279,11 @@ CloseCon($conn);
                                 </div>
 								<div class="col-xs-4 col-md-4">
                                     <div class="form-group">
+<<<<<<< HEAD
                                         <label for="dataAdicional">Senha</label>
+=======
+                                        <label>Senha</label>
+>>>>>>> 58c0e16c2ee252e2e4c723731537ec71f26fafbb
                                         <div id="sandbox-container">
                                             <div class="input-group">
                                                 <input type="password" class="form-control" name="senha" id="senha" value=""/>
