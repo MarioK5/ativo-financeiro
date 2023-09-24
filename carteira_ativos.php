@@ -193,7 +193,7 @@ function clientes($conn,$email,$senha)  {
                                         <label>E-mail</label>
                                         <div id="sandbox-container">
                                             <div class="input-group">
-                                                <input type="text" class="form-control" name="email" id="email" value="" style="width: 200px;"/>
+                                                <input type="text" class="form-control" name="email" id="email" value="" style="width: 300px;"/>
                                             </div>
                                         </div>
                                     </div>
