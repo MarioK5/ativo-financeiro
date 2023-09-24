@@ -6,12 +6,13 @@ function validaLogin($dados){
 	
 	$conn = OpenCon();
 
-	$usuario = strtoupper($dados['usuario']);
-    $senha   = $dados['senha'];
+//	$usuario = strtoupper($dados['usuario']);
+	$email  = $dados['email'];
+    $senha  = $dados['senha'];
 	
 	$ret = 0;
 	
-	$sql = "SELECT 1 FROM CLIENTES WHERE NOME = '{$usuario}' AND SENHA = '{$senha}'";
+	$sql = "SELECT 1 FROM CLIENTES WHERE EMAIL = '{$email}' AND SENHA = '{$senha}'";
 
     $result = mysqli_query($conn,$sql);
 	if (mysqli_num_rows($result) > 0) {
@@ -43,18 +44,53 @@ function validaToken($dados){
 	return $ret;
 }
 
+function existeEmail($dados){
+	
+	$conn = OpenCon();
+
+    $email  = $dados['email'];
+	
+	$ret = 0;
+	
+	$sql = "SELECT 1 FROM CLIENTES WHERE EMAIL = '{$email}'";
+
+    $result = mysqli_query($conn,$sql);
+	if (mysqli_num_rows($result) > 0) {
+		$ret = 1;
+	}
+
+	CloseCon($conn);
+	
+	return $ret;
+}
+
 function novoCliente($dados){
 	
 	$conn = OpenCon();
 	
-	$usuario = strtoupper($dados['usuario']);
-    $senha   = $dados['senha'];
+	$nome      = strtoupper($dados['nome']);
+	$sobreNome = strtoupper($dados['sobrenome']);
+    $senha     = $dados['senha'];
+	$email     = $dados['email'];
+	$endereco  = strtoupper($dados['endereco']);
+	$token     = $dados['token'];
 	
 	$ret = 0;
 	
-	
+	$sql = "UPDATE CLIENTES 
+			SET NOME      = '{$nome}',
+				SOBRENOME = '{$sobreNome}',
+				SENHA     = '{$senha}',
+				EMAIL     = '{$email}',
+				ENDERECO  = '{$endereco}'
+			WHERE TOKEN   = '{$token}'";
 
+	$result = mysqli_query($conn,$sql);
+		mysqli_commit($conn);
 	
+	if(mysql_affected_rows() > 0){
+		$ret = 1;
+	}
 
 	CloseCon($conn);
 	
@@ -65,11 +101,16 @@ function alteraCliente($dados){
 	
 	$conn = OpenCon();
 	
-	$usuario = strtoupper($dados['usuario']);
-    $senha   = $dados['senha'];
+	$nome      = strtoupper($dados['nome']);
+	$sobreNome = strtoupper($dados['sobrenome']);
+    $senha     = $dados['senha'];
+	$email     = $dados['email'];
+	$endereco  = strtoupper($dados['endereco']);
+	$token     = $dados['token'];
 	
-	$ret = 0;
-	
+	$ret   = 0;
+	$lista = "";
+	// oque pose ser alterado?
 	
 
 	
