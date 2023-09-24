@@ -193,7 +193,7 @@ $arq = fopen("log_query.txt","w") or die("Problemas para criar o arquivo");
                     <form role="form" id="form_cadastro" class="small">
                         <!--<div id="tela_inicio">-->
                             <div class="row">
-                                <div class="col-xs-4 col-md-4">
+                                <div class="col-xs-6 col-md-6">
                                     <div class="form-group">
                                         <label>E-mail</label>
                                         <div id="sandbox-container">
@@ -203,7 +203,7 @@ $arq = fopen("log_query.txt","w") or die("Problemas para criar o arquivo");
                                         </div>
                                     </div>
                                 </div>
-								<div class="col-xs-4 col-md-4">
+				<div class="col-xs-4 col-md-4">
                                     <div class="form-group">
                                         <label>Senha</label>
                                         <div id="sandbox-container">
