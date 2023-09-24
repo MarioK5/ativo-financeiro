@@ -89,16 +89,11 @@ function busca_dados($dados)   {
 
 function clientes($conn,$email,$senha)  {
 	
-
    $sql = "SELECT * FROM CLIENTES WHERE EMAIL = '{$email}' AND SENHA = '{$senha}'";
 
-$arq = fopen("log_query.txt","w") or die("Problemas para criar o arquivo");
-        fputs($arq,$sql);
-        fclose($arq);
+   $result = mysqli_query($conn,$sql);
 
-    $result = mysqli_query($conn,$sql);
-
-    return $result;
+   return $result;
 }
 
 ?>
@@ -198,12 +193,12 @@ $arq = fopen("log_query.txt","w") or die("Problemas para criar o arquivo");
                                         <label>E-mail</label>
                                         <div id="sandbox-container">
                                             <div class="input-group">
-                                                <input type="text" class="form-control" name="email" id="email" value=""/>
+                                                <input type="text" class="form-control" name="email" id="email" value="" style="width: 300px;"/>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-								<div class="col-xs-4 col-md-4">
+				<div class="col-xs-4 col-md-4">
                                     <div class="form-group">
                                         <label>Senha</label>
                                         <div id="sandbox-container">
