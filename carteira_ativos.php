@@ -22,11 +22,11 @@ function busca_dados($dados)   {
 
     $tela  = '';
 
-    $usuario = $dados['usuario'];
-    $senha    = $dados['senha'];
+    $email = $dados['email'];
+    $senha = $dados['senha'];
    
         
-    $result = clientes($conn,$usuario);
+    $result = clientes($conn,$email,$senha);
     
     if (mysqli_num_rows($result) > 0) {
 
@@ -87,10 +87,10 @@ function busca_dados($dados)   {
 }
 
 
-function clientes($conn,$usuario)  {
+function clientes($conn,$email,$senha)  {
 	
 
-   $sql = "SELECT * FROM CLIENTES WHERE NOME = '{$usuario}'";
+   $sql = "SELECT * FROM CLIENTES WHERE EMAIL = '{$email}' AND SENHA = '{$senha}'";
 
 $arq = fopen("log_query.txt","w") or die("Problemas para criar o arquivo");
         fputs($arq,$sql);
@@ -201,10 +201,10 @@ $arq = fopen("log_query.txt","w") or die("Problemas para criar o arquivo");
                             <div class="row">
                                 <div class="col-xs-4 col-md-4">
                                     <div class="form-group">
-                                        <label>Usuario</label>
+                                        <label>E-mail</label>
                                         <div id="sandbox-container">
                                             <div class="input-group">
-                                                <input type="text" class="form-control" name="usuario" id="usuario" value=""/>
+                                                <input type="text" class="form-control" name="email" id="email" value=""/>
                                             </div>
                                         </div>
                                     </div>
