@@ -1,11 +1,23 @@
 <?php
-// replace the "demo" apikey below with your own key from https://www.alphavantage.co/support/#api-key
-$json = file_get_contents('https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=IBM&apikey=demo');
 
-$data = json_decode($json,true);
+include 'ativos_sql.php';
 
-print_r($data);
+$result = apiListaAtivos();
 
-exit;
+	while ($row = mysqli_fetch_array($result)) {
+
+	//	$imbolo = $row["CODIGO"];
+	$imbolo = 'AZUL4';
+
+			
+	$json = file_get_contents('https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=".$imbolo."&apikey=3ECHBP4OZJTNEIK1');
+
+	$data = json_decode($json,true);
+
+	print_r($data);
+
+	exit;
+
+}
 
 ?>

@@ -264,5 +264,33 @@ function alteraAtivoCarteira($dados){
 	return $ret;
 }
 
+function apiListaAtivos(){
+	
+	$conn = OpenCon();
+	
+	$sql = "SELECT * FROM ATIVOS";
+
+    $result = mysqli_query($conn,$sql);
+	
+	CloseCon($conn);
+	
+	return $result;
+}
+
+function apiAtualizaValorAtivo(){
+	
+	$conn = OpenCon();
+	
+
+	
+	
+
+	
+
+	CloseCon($conn);
+	
+	return $ret;
+}
+
 
 ?>
