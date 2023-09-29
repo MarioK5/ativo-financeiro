@@ -17,8 +17,8 @@ while ($row = mysqli_fetch_array($result)) {
 		$valor = $res['regularMarketPrice'];
 	};
 
-	apiAtualizaValorAtivo($imbolo, $valor);
-	
+$resposta = apiAtualizaValorAtivo($imbolo, $valor);
+echo $resposta;	
 	exit;
 }
 
