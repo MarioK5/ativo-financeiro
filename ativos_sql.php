@@ -103,7 +103,7 @@ function alteraCliente($dados){
 	
 	$nome      = strtoupper($dados['nome']);
 	$sobreNome = strtoupper($dados['sobrenome']);
-    $senha     = $dados['senha'];
+    	$senha     = $dados['senha'];
 	$email     = $dados['email'];
 	$endereco  = strtoupper($dados['endereco']);
 	$token     = $dados['token'];
@@ -277,16 +277,17 @@ function apiListaAtivos(){
 	return $result;
 }
 
-function apiAtualizaValorAtivo(){
+function apiAtualizaValorAtivo($simbolo, $valor){
 	
 	$conn = OpenCon();
 	
+	$sql = "UPDATE ATIVOS 
+			SET VALOR      = '{$valor}'
+			WHERE CODIGO   = '{$simbolo}'";
 
+	$result = mysqli_query($conn,$sql);
+		mysqli_commit($conn);
 	
-	
-
-	
-
 	CloseCon($conn);
 	
 	return $ret;
