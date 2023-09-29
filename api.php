@@ -19,7 +19,8 @@ while ($row = mysqli_fetch_array($result)) {
 
 	apiAtualizaValorAtivo($imbolo, $valor);
 	
-	exit;
 }
+
+exit;
 
 ?>
