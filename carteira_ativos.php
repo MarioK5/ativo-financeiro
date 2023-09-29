@@ -130,14 +130,6 @@ function clientes($conn,$email,$senha)  {
         <script type="text/javascript" LANGUAGE="JavaScript"></script>
 <script>
      
-    $(document).ready(function () {
-                
-                    
-                    $('#processo').multiselect({
-                        includeSelectAllOption: true
-                    });
-                
-            });
 
 
 </script>
@@ -227,7 +219,7 @@ function clientes($conn,$email,$senha)  {
                                     <input type="button" value="Entrar"  class="btn btn-success btn-md btn-block" onclick="xajax_busca_dados(xajax.getFormValues('form_cadastro')); return false;">
                                 </div>
                                 <div class="col-xs-6 col-md-2">
-                                <button class="btn btn-danger btn-md btn-block" onclick="location.reload(true)">Limpar</button>
+                                <button class="btn btn-danger btn-md btn-block" onclick="location.reload(false)">Limpar</button>
                             </div>
                             </div>
                         <!--</div>-->
