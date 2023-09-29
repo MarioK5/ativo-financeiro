@@ -10,11 +10,11 @@ $result = apiListaAtivos();
 	$imbolo = 'PETR4';
 
 			
-	$json = file_get_contents('https://brapi.dev/api/quote/PETR4?token=eRg6zdxD8QHqJwMjKDLDAj');
+	$json = file_get_contents('https://brapi.dev/api/quote/".$imbolo."?token=eRg6zdxD8QHqJwMjKDLDAj');
 
 	$data = json_decode($json,true);
 
-	print_r($data);
+	echo $data->regularMarketPrice;
 
 	exit;
 
