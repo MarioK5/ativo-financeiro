@@ -20,6 +20,6 @@ while ($row = mysqli_fetch_array($result)) {
 	exit;
 }
 
-$result = apiListaAtivos();
+apiAtualizaValorAtivo($imbolo, $valor);
 
 ?>
