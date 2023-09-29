@@ -12,7 +12,11 @@ $result = apiListaAtivos();
 
 	$data = json_decode($json,true);
 
-	print_r($data);
+//	print_r($data);
+	foreach ($data['results'] as $res)
+{
+	echo "items:". $res['regularMarketPrice'] ."\n";
+};
 
 	exit;
 
