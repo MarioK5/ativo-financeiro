@@ -289,7 +289,8 @@ function apiAtualizaValorAtivo($simbolo, $valor){
 		mysqli_commit($conn);
 	
 	CloseCon($conn);
-	
+
+	$ret ='Simbolo: '.$simbolo.' com valor: '.$valor;
 	return $ret;
 }
 
