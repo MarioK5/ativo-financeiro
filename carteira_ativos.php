@@ -130,14 +130,6 @@ function clientes($conn,$email,$senha)  {
         <script type="text/javascript" LANGUAGE="JavaScript"></script>
 <script>
      
-    $(document).ready(function () {
-                
-                    
-                    $('#processo').multiselect({
-                        includeSelectAllOption: true
-                    });
-                
-            });
 
 
 </script>
