@@ -15,7 +15,7 @@ $result = apiListaAtivos();
 //	print_r($data);
 	foreach ($data['results'] as $res)
 {
-	echo "items:". $res['regularMarketPrice'] ."\n";
+	echo "Valor do ativo:".$res['regularMarketPrice'];
 };
 
 	exit;
