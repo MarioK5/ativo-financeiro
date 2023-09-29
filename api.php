@@ -4,7 +4,7 @@ include 'ativos_sql.php';
 
 $result = apiListaAtivos();
 
-	while ($row = mysqli_fetch_array($result)) {
+while ($row = mysqli_fetch_array($result)) {
 
 	$imbolo = $row["CODIGO"];
 			
@@ -12,14 +12,14 @@ $result = apiListaAtivos();
 
 	$data = json_decode($json,true);
 
-//	print_r($data);
-	foreach ($data['results'] as $res)
-{
-	echo "Valor do ativo:".$res['regularMarketPrice'];
-};
+	foreach ($data['results'] as $res){
+		
+		$valor = $res['regularMarketPrice'];
+	};
 
 	exit;
-
 }
+
+$result = apiListaAtivos();
 
 ?>
