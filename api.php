@@ -6,9 +6,7 @@ $result = apiListaAtivos();
 
 	while ($row = mysqli_fetch_array($result)) {
 
-	//	$imbolo = $row["CODIGO"];
-	$imbolo = 'PETR4';
-
+	$imbolo = $row["CODIGO"];
 			
 	$json = file_get_contents('https://brapi.dev/api/quote/'.$imbolo.'?token=eRg6zdxD8QHqJwMjKDLDAj');
 
