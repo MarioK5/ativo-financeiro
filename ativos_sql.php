@@ -268,7 +268,7 @@ function apiListaAtivos(){
 	
 	$conn = OpenCon();
 	
-	$sql = "SELECT * FROM ATIVOS WHERE CODIGO = 'PETR4' ";
+	$sql = "SELECT * FROM ATIVOS";
 
     $result = mysqli_query($conn,$sql);
 	
@@ -290,8 +290,8 @@ function apiAtualizaValorAtivo($simbolo, $valor){
 	
 	CloseCon($conn);
 
-	$ret ='Simbolo: '.$simbolo.' com valor: '.$valor;
-	return $ret;
+//	$ret ='Simbolo: '.$simbolo.' com valor: '.$valor;
+//	return $ret;
 }
 
 
