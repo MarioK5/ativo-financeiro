@@ -12,7 +12,7 @@ $result = apiListaAtivos();
 
 	$data = json_decode($json,true);
 
-	print_r($data[0][0]["regularMarketPrice"]);
+	echo ($data[0][0]["regularMarketPrice"]);
 
 	exit;
 
