@@ -7,10 +7,10 @@ $result = apiListaAtivos();
 	while ($row = mysqli_fetch_array($result)) {
 
 	//	$imbolo = $row["CODIGO"];
-	$imbolo = 'AZUL4';
+	$imbolo = 'PETR4';
 
 			
-	$json = file_get_contents('https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=AZUL4&apikey=3ECHBP4OZJTNEIK1');
+	$json = file_get_contents('https://brapi.dev/api/quote/PETR4?token=eRg6zdxD8QHqJwMjKDLDAj');
 
 	$data = json_decode($json,true);
 
