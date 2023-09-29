@@ -10,7 +10,7 @@ $result = apiListaAtivos();
 	$imbolo = 'AZUL4';
 
 			
-	$json = file_get_contents('https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=".$imbolo."&apikey=3ECHBP4OZJTNEIK1');
+	$json = file_get_contents('https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=AZUL4&apikey=3ECHBP4OZJTNEIK1');
 
 	$data = json_decode($json,true);
 
