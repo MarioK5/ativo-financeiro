@@ -6,18 +6,61 @@ require_once("lib/xajax/xajax.inc.php");
 
 $xajax = new xajax();
 $xajax->setCharEncoding('UTF-8');
-$xajax->registerFunction("salvar_carteiras");
+$xajax->registerFunction("busca_dados");
 $xajax->processRequest();
+  
 
-function salvar_carteiras($dados){
+function busca_dados($dados)   {
+
+
+    
     $resp = new xajaxResponse();
 
-    //$resp->alert($dados['descricao']); return $resp;
-    salvar_carteira($dados);
+ //$resp->alert($dados['email']); return $resp;
+
+    $tela  = '';
+
+   
+    $result = array();    
+    $result = listar_carteiras(1);
+    
+    if (count($result) > 0) {
+            
+    $tela .= '<table border="0" width=100%>
+
+                <tr style="color:white; background-color: #337ab7;">
+                    <TH> ID</TH>
+		    <TH> Descrição</TH>
+                    <TH> Cliente</TH>
+
+                </tr> ';
+
+                foreach ($result as $carteira) {
+                    // $carteira contém os dados de cada carteira no array
+                    $nome = $carteira['nome']; // Supondo que o índice 'nome' exista no seu array
+                    $descricao = $carteira['descricao']; // Supondo que o índice 'descricao' exista no seu array
+                    
+                    // Adiciona uma nova linha à tabela com os dados da carteira
+                    $tela .= "<tr><td>$nome</td><td>$descricao</td></tr>";
+                }
+                
+                $tela .= '</table>';
+
+    
+
+            }
+    $resp->assign("lista_carteira","innerHTML",$tela);
+
+
+  
+   return $resp;
+}
 }
 
 
 ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,7 +76,7 @@ function salvar_carteiras($dados){
 
 
 
-    <title>Cadastro de Carteiras</title>
+    <title>Vizualizar Carteiras</title>
 </head>
 <body>
     <div class="d-flex" id="wrapper">
@@ -42,7 +85,7 @@ function salvar_carteiras($dados){
             <div class="sidebar-heading border-bottom bg-light">Ativos Financeiros</div>
             <div class="list-group list-group-flush">
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="cadastroCarteira.php">Cadastrar Carteiras</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Shortcuts</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Vizualizar Carteiras</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Overview</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Events</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Profile</a>
@@ -66,17 +109,13 @@ function salvar_carteiras($dados){
             <!-- Page content-->
 
             <div class="container-fluid">
-                <h1 class="mt-4">Cadastro de Carteiras</h1>
-                <form role="form" id="form_cadastro">
+                <h1 class="mt-4">Vizualizar Carteiras</h1>
+                <input type="button" class="btn btn-primary mb-2" value="Nova Carteira" name="salvar" id="salvar" onclick="xajax_salvar_carteiras(xajax.getFormValues('form_cadastro')); return false;">
                     <div class="form-group">
-                      <label for="formGroupExampleInput">Digite a descrição</label>
-                      <input type="text" class="form-control" id="descricaoCarteira" placeholder="Digite a descrição">
+                        <div id="lista_carteira" class="panel-body"></div>
                     </div>
-                    <div class="form-group">
-                        <div id="lista_ativos" class="panel-body"></div>
-                    </div>
-                    <input type="button" class="btn btn-primary mb-2" value="Salvar" name="salvar" id="salvar" onclick="xajax_salvar_carteiras(xajax.getFormValues('form_cadastro')); return false;">
-                    <button type="submit" class="btn btn-primary mb-2" name="cancelar" id="cancelar">Cancelar</button>
+                   
+                    <input type="button" value="Entrar"  class="btn btn-success btn-md btn-block" onclick="xajax_salvar_carteiras(xajax.getFormValues('form_cadastro')); return false;">
                   </form>
             </div>
 
