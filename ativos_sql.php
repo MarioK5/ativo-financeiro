@@ -44,6 +44,19 @@ function validaToken($dados){
 	return $ret;
 }
 
+function MaxIdToken(){
+	
+	$conn = OpenCon();
+	
+	$sql = "SELECT MAX(ID) ID FROM CLIENTES";
+
+    $ret = mysqli_query($conn,$sql);
+
+	CloseCon($conn);
+	
+	return $ret;
+}
+
 function existeEmail($dados){
 	
 	$conn = OpenCon();
