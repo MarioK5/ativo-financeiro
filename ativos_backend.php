@@ -2,19 +2,13 @@
 
 include 'ativos_sql.php';
 
-require_once("lib/xajax/xajax.inc.php");
-
-$xajax = new xajax();
-$xajax->setCharEncoding('UTF-8');
-$xajax->processRequest();
-
 function salvar_carteira($dados) {
 
     $editar = $dados['editar'];
-    $idCliente = $dados['idcliente'];
+    $idCliente = 1;
     $descricaoCarteira = $dados['descricaoCarteira'];
     if ($descricaoCarteira != '') {
-        if ($editar = 1) {
+        if ($editar == 1) {
             alteraCarteira($descricaoCarteira, $idCliente);
         } else {
             cadastroCarteira($descricaoCarteira, $idCliente);
@@ -25,21 +19,23 @@ function salvar_carteira($dados) {
 
 function vizulizar_carteira($dados){
     $idCarteira = $dados['idCarteira'];
-    $result = listaCarteiras($idCarteira);
+    $idCliente = 1;
+    $result = listaCarteiras($idCarteira,$idCliente);
 
     $carteira = mysqli_fetch_array($result);
 
     return $carteira["DESCRICAO"];
 }
 
-function listar_carteiras($dados){
-    $result = listaCarteiras(-1);
+function listar_carteiras(){
+    $idCliente = 1;
+    $result = listaCarteiras(0,$idCliente);
     $carteiras = array();
     if ($result > 0) {
         while ($row = mysqli_fetch_array($result)) {
             $idCarteira = $row["ID"];
             $descricaoCarteira = $row["DESCRICAO"];
-            $carteiras[] = array($idCarteira, $descricaoCarteira);
+            $carteiras[] = array("ID" => $idCarteira, "DESCRICAO" => $descricaoCarteira);
         }
     }
     return $carteiras;
