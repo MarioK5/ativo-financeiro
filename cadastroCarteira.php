@@ -42,11 +42,11 @@ function salvar_carteiras($dados){
             <div class="sidebar-heading border-bottom bg-light">Ativos Financeiros</div>
             <div class="list-group list-group-flush">
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="cadastroCarteira.php">Cadastrar Carteiras</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Shortcuts</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Overview</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Events</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Profile</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">Status</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="visualizar_carteira.php">Visualizar Carteiras</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">..</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">..</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">..</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">..</a>
             </div>
         </div>
         <!-- Page content wrapper-->
@@ -83,6 +83,12 @@ function salvar_carteiras($dados){
 
         </div>
     </div>
+    <script>
+        document.getElementById('cancelar').addEventListener('click', function(event) {
+            event.preventDefault(); // Impede o envio do formulário
+            document.getElementById('form_cadastro').reset(); // Limpa o formulário
+        });
+    </script>
     <script src="js/bootstrap.bundle.min.js"></script>
  
     <script src="js/bootstrap.js"></script>
