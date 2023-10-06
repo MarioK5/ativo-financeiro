@@ -133,19 +133,23 @@ function alteraCliente($dados){
 	return $ret;
 }
 
-function cadastroCarteira($dados){
+function cadastroCarteira($descricao, $idCliente){
 	
 	$conn = OpenCon();
 	
-	$usuario = strtoupper($dados['usuario']);
-    $senha   = $dados['senha'];
+	$descricao = strtoupper($descricao);
 	
 	$ret = 0;
-	
-	
 
-	
+	$sql = "INSERT INTO CARTEIRA (DESCRICAO, ID_CLIENTE) VALUES ('{$descricao}', '{$idCliente}')";
 
+	$result = mysqli_query($conn,$sql);
+		mysqli_commit($conn);
+	
+	if(mysql_affected_rows() > 0){
+		$ret = 1;
+	}
+	
 	CloseCon($conn);
 	
 	return $ret;
@@ -187,22 +191,26 @@ function cadastroAtivoCarteira($dados){
 	return $ret;
 }
 
-function listaCarteiras($dados){
+function listaCarteiras($idCarteira, $idCliente){
 	
 	$conn = OpenCon();
-	
-	$usuario = strtoupper($dados['usuario']);
-    $senha   = $dados['senha'];
-	
-	$ret = 0;
-	
-	
 
+	if($idCarteira){
+		$temCarteira = "AND ID = '{$idCarteira}'";
+	}else{
+		$temCarteira = "";
+	};
 	
+	$sql = "SELECT ID,
+ 		       DESCRICAO,
+	  	       ID_CLIENTE
+ 		FROM CARTEIRA WHERE ID_CLIENTE = '{$idCliente}' $temCarteira";
+
+   	$result = mysqli_query($conn,$sql);
 
 	CloseCon($conn);
 	
-	return $ret;
+	return $result;
 }
 
 function listaInvestimentos($dados){
@@ -241,16 +249,25 @@ function listaAtivosCarteira($dados){
 	return $ret;
 }
 
-function alteraCarteira($dados){
+function alteraCarteira($descricao, $idCliente, $idCarteira){ /* falta passar o ID da carteira a ser alterada backend */
 	
 	$conn = OpenCon();
 	
-	$usuario = strtoupper($dados['usuario']);
-    $senha   = $dados['senha'];
+	$descricao = strtoupper($descricao);
 	
 	$ret = 0;
 	
+	$sql = "UPDATE CARTEIRA 
+			SET DESCRICAO    = '{$descricao}'
+			WHERE ID_CLIENTE = '{$idCliente}'
+			  AND ID         = '{$idCarteira}'";
+
+	$result = mysqli_query($conn,$sql);
+		  mysqli_commit($conn);
 	
+	if(mysql_affected_rows() > 0){
+		$ret = 1;
+	}
 
 	
 
