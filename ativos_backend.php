@@ -2,18 +2,18 @@
 
 include 'ativos_sql.php';
 
-function salvar_carteira($dados, $editar) {    
+function salvar_carteira($dados) {    
     $idCliente = 1;
-    $editar = 0;
+    //$editar = 0;
     $descricaoCarteira = $dados['descricaoCarteira'];
-    if ($descricaoCarteira !== '') {
-        if ($editar == 1) {
+   // if ($descricaoCarteira !== '') {
+       /* if ($editar == 1) {
             $idCarteira = $dados['idCarteira'];
            alteraCarteira($descricaoCarteira, $idCliente, $idCarteira);
-        } else {
+        } else {*/
             cadastroCarteira($descricaoCarteira, $idCliente);
-        }        
-    } 
+       // }        
+    //} 
 }
 
 function vizualizar_carteira($dados){
@@ -34,7 +34,7 @@ function listar_carteiras(){
         while ($row = mysqli_fetch_array($result)) {
             $idCarteira = $row["ID"];
             $descricaoCarteira = $row["DESCRICAO"];
-            $carteiras[] = array("ID" => $idCarteira, "DESCRICAO" => $descricaoCarteira, "ID_CLIENTE" => $idCliente);
+            $carteiras[] = array($idCarteira, $descricaoCarteira, $idCliente);
         }
     }
     return $carteiras;

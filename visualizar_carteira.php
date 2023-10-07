@@ -13,9 +13,10 @@ function busca_dados($dados)
     $resp = new xajaxResponse();
     $tela = '';
 
+    $result = array();
     $result = listar_carteiras();
 
-    if (count($result) > 0) {
+    if (!empty($result)) {
         $tela .= '<table border="1" width="100%">
                     <tr style="color:white; background-color: #337ab7;">
                         <th>ID</th>
@@ -25,9 +26,9 @@ function busca_dados($dados)
                     </tr>';
 
         foreach ($result as $carteira) {
-            $id = $carteira['ID'];
-            $descricao = $carteira['DESCRICAO'];
-            $idCliente = $carteira['ID_CLIENTE'];
+            $id = $carteira[0];
+            $descricao = $carteira[1];
+            $idCliente = $carteira[2];
 
             // Adiciona um botão de edição para cada item na lista
             $tela .= "<tr><td>$id</td><td>$descricao</td><td>$idCliente</td><td><button onclick='editarCarteira($id)'>Editar</button></td></tr>";
@@ -42,7 +43,7 @@ function busca_dados($dados)
 
 function editar_carteiras($dados){
     $resp = new xajaxResponse();
-    salvar_carteira($dados,1);
+    //salvar_carteira($dados);
 }
 
 ?>
