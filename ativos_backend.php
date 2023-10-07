@@ -5,15 +5,14 @@ include 'ativos_sql.php';
 function salvar_carteira($dados, $editar) {    
     $idCliente = 1;
     $descricaoCarteira = $dados['descricaoCarteira'];
-    if ($descricaoCarteira != '') {
+    if ($descricaoCarteira !== '') {
         if ($editar == 1) {
             $idCarteira = $dados['idCarteira'];
            alteraCarteira($descricaoCarteira, $idCliente, $idCarteira);
         } else {
             cadastroCarteira($descricaoCarteira, $idCliente);
-        }
-        return 1;
-    } else return 0;
+        }        
+    } 
 }
 
 function vizualizar_carteira($dados){
