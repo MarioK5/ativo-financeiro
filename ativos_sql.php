@@ -195,7 +195,7 @@ function listaCarteiras($idCarteira, $idCliente){
 	
 	$conn = OpenCon();
 
-	if($idCarteira){
+	if($idCarteira > 0){
 		$temCarteira = "AND ID = '{$idCarteira}'";
 	}else{
 		$temCarteira = "";
