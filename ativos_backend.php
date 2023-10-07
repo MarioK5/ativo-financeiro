@@ -4,12 +4,12 @@ include 'ativos_sql.php';
 
 function salvar_carteira($dados) {
 
-    $editar = $dados['editar'];
+    $editar = 0;
     $idCliente = 1;
     $descricaoCarteira = $dados['descricaoCarteira'];
     if ($descricaoCarteira != '') {
         if ($editar == 1) {
-            alteraCarteira($descricaoCarteira, $idCliente);
+           // alteraCarteira($descricaoCarteira, $idCliente);
         } else {
             cadastroCarteira($descricaoCarteira, $idCliente);
         }
