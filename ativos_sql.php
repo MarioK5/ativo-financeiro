@@ -305,7 +305,7 @@ function apiListaAtivos(){
 	
 	$conn = OpenCon();
 	
-	$sql = "SELECT * FROM ATIVOS WHERE CODIGO = ''PETR4";
+	$sql = "SELECT * FROM ATIVOS WHERE CODIGO = 'PETR4'";
 
     $result = mysqli_query($conn,$sql);
 	
