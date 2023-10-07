@@ -19,6 +19,7 @@ function busca_dados($dados) {
                         <th>ID</th>
                         <th>Descrição</th>
                         <th>Cliente</th>
+                        <th>Ação</th>
                     </tr>';
 
         foreach ($result as $carteira) {
@@ -26,7 +27,8 @@ function busca_dados($dados) {
             $descricao = $carteira['DESCRICAO'];
             $idCliente = $carteira['ID_CLIENTE'];
 
-            $tela .= "<tr><td>$id</td><td>$descricao</td><td>$idCliente</td></tr>";
+            // Adiciona um botão de edição para cada item na lista
+            $tela .= "<tr><td>$id</td><td>$descricao</td><td>$idCliente</td><td><button onclick='editarCarteira($id)'>Editar</button></td></tr>";
         }
 
         $tela .= '</table>';
@@ -35,6 +37,20 @@ function busca_dados($dados) {
     $resp->assign("lista_carteira", "innerHTML", $tela);
     return $resp;
 }
+
+function editarCarteira(id) {
+    var novaDescricao = prompt("Digite a nova descrição da carteira:");
+    if (novaDescricao !== null) {
+        var dados = {
+            editar: 1,
+            descricaoCarteira: novaDescricao,
+            idCarteira: id
+        };
+        xajax_salvar_carteiras(dados);
+    }
+}
+
+
 ?>
 
 <!DOCTYPE html>
