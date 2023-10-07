@@ -7,11 +7,12 @@ $xajax->setCharEncoding('UTF-8');
 $xajax->registerFunction("busca_dados");
 $xajax->processRequest();
 
-function busca_dados($dados) {
+function busca_dados($dados)
+{
     $resp = new xajaxResponse();
     $tela = '';
 
-    $result = vizualizar_carteira(1);
+    $result = listar_carteiras(1);
 
     if (count($result) > 0) {
         $tela .= '<table border="1" width="100%">
@@ -38,23 +39,16 @@ function busca_dados($dados) {
     return $resp;
 }
 
-function editarCarteira(id) {
-    var novaDescricao = prompt("Digite a nova descrição da carteira:");
-    if (novaDescricao !== null) {
-        var dados = {
-            editar: 1,
-            descricaoCarteira: novaDescricao,
-            idCarteira: id
-        };
-        xajax_salvar_carteiras(dados);
-    }
+function editar_carteiras($dados){
+    $resp = new xajaxResponse();
+    salvar_carteira($dados,1);
 }
-
 
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <?php $xajax->printJavascript('lib/xajax'); ?>
     <meta charset="UTF-8">
@@ -64,6 +58,7 @@ function editarCarteira(id) {
     <link href="css/styles.css" rel="stylesheet">
     <title>Visualizar Carteiras</title>
 </head>
+
 <body>
     <div class="d-flex" id="wrapper">
         <!-- Sidebar-->
@@ -100,5 +95,18 @@ function editarCarteira(id) {
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/bootstrap.js"></script>
     <script src="js/sidebarToggle.js"></script>
+    <script>
+        function editarCarteira(id) {
+            var novaDescricao = prompt("Digite a nova descrição da carteira:");
+            if (novaDescricao !== null) {
+                var dados = {                    
+                    descricaoCarteira: novaDescricao,
+                    idCarteira: id
+                };
+                xajax_editar_carteiras(dados);
+            }
+        }
+    </script>
 </body>
+
 </html>

@@ -10,10 +10,9 @@ $xajax->registerFunction("salvar_carteiras");
 $xajax->processRequest();
 
 function salvar_carteiras($dados){
-    $resp = new xajaxResponse();
-
+    $resp = new xajaxResponse();    
     //$resp->alert($dados['descricao']); return $resp;
-    salvar_carteira($dados);
+    salvar_carteira($dados,0);
 }
 
 
