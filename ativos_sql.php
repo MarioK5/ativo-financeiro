@@ -137,7 +137,7 @@ function cadastroCarteira($descricao, $idCliente){
 	
 	$conn = OpenCon();
 	
-	$descricao = strtoupper($descricao);
+//	$descricao = strtoupper($descricao);
 	
 	$ret = 0;
 
