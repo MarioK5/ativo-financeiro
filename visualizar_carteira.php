@@ -5,6 +5,7 @@ require_once("lib/xajax/xajax.inc.php");
 $xajax = new xajax();
 $xajax->setCharEncoding('UTF-8');
 $xajax->registerFunction("busca_dados");
+$xajax->registerFunction("editar_carteiras");
 $xajax->processRequest();
 
 function busca_dados($dados)
@@ -12,7 +13,7 @@ function busca_dados($dados)
     $resp = new xajaxResponse();
     $tela = '';
 
-    $result = listar_carteiras(1);
+    $result = listar_carteiras();
 
     if (count($result) > 0) {
         $tela .= '<table border="1" width="100%">
