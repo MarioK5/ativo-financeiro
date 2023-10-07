@@ -35,7 +35,7 @@ function listar_carteiras(){
         while ($row = mysqli_fetch_array($result)) {
             $idCarteira = $row["ID"];
             $descricaoCarteira = $row["DESCRICAO"];
-            $carteiras[] = array("ID" => $idCarteira, "DESCRICAO" => $descricaoCarteira);
+            $carteiras[] = array("ID" => $idCarteira, "DESCRICAO" => $descricaoCarteira, "ID_CLIENTE" => $idCliente);
         }
     }
     return $carteiras;
