@@ -17,7 +17,7 @@ function salvar_carteira($dados) {
     } else return 0;
 }
 
-function vizulizar_carteira($dados){
+function vizualizar_carteira($dados){
     $idCarteira = $dados['idCarteira'];
     $idCliente = 1;
     $result = listaCarteiras($idCarteira,$idCliente);

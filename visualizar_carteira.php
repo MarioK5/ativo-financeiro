@@ -11,7 +11,7 @@ function busca_dados($dados) {
     $resp = new xajaxResponse();
     $tela = '';
 
-    $result = listar_carteiras(1);
+    $result = vizualizar_carteira(1);
 
     if (count($result) > 0) {
         $tela .= '<table border="1" width="100%">
