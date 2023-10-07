@@ -2,19 +2,15 @@
 
 include 'ativos_db.php';
 
-function validaLogin($dados){
+function validaLogin($email, $senha){
 	
 	$conn = OpenCon();
-
-//	$usuario = strtoupper($dados['usuario']);
-	$email  = $dados['email'];
-    $senha  = $dados['senha'];
 	
 	$ret = 0;
 	
 	$sql = "SELECT 1 FROM CLIENTES WHERE EMAIL = '{$email}' AND SENHA = '{$senha}'";
 
-    $result = mysqli_query($conn,$sql);
+    	$result = mysqli_query($conn,$sql);
 	if (mysqli_num_rows($result) > 0) {
 		$ret = 1;
 	}
@@ -24,17 +20,15 @@ function validaLogin($dados){
 	return $ret;
 }
 
-function validaToken($dados){
+function validaToken($token){
 	
 	$conn = OpenCon();
-
-    $token   = $dados['token'];
 	
 	$ret = 0;
 	
 	$sql = "SELECT 1 FROM CLIENTES WHERE TOKEN = '{$token}' AND EMAIL IS NULL";
 
-    $result = mysqli_query($conn,$sql);
+    	$result = mysqli_query($conn,$sql);
 	if (mysqli_num_rows($result) > 0) {
 		$ret = 1;
 	}
@@ -44,13 +38,26 @@ function validaToken($dados){
 	return $ret;
 }
 
-function MaxIdToken(){
+function maxIdToken(){
 	
 	$conn = OpenCon();
 	
 	$sql = "SELECT MAX(ID) ID FROM CLIENTES";
 
-    $ret = mysqli_query($conn,$sql);
+    	$ret = mysqli_query($conn,$sql);
+
+	CloseCon($conn);
+	
+	return $ret;
+}
+
+function listaTokens(){
+	
+	$conn = OpenCon();
+	
+	$sql = "SELECT TOKEN FROM CLIENTES WHERE EMAIL IS NULL";
+
+    	$ret = mysqli_query($conn,$sql);
 
 	CloseCon($conn);
 	
