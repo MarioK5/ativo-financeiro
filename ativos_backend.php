@@ -4,6 +4,7 @@ include 'ativos_sql.php';
 
 function salvar_carteira($dados, $editar) {    
     $idCliente = 1;
+    $editar = 0;
     $descricaoCarteira = $dados['descricaoCarteira'];
     if ($descricaoCarteira !== '') {
         if ($editar == 1) {
