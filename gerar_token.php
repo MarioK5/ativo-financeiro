@@ -5,6 +5,7 @@ require_once("lib/xajax/xajax.inc.php");
 
 $xajax = new xajax();
 $xajax->setCharEncoding('UTF-8');
+$xajax->registerFunction("busca_dados");
 $xajax->registerFunction("gera_token");
 $xajax->processRequest();
   
@@ -19,11 +20,10 @@ function busca_dados($dados)   {
     $senha = $dados['senha'];
    
         
-    $result = validaUser($user, $senha);
+    $result = validaAdmin($user, $senha);
     
     if (mysqli_num_rows($result) > 0) {
-
-            
+  
     $tela .= '<table border="0" width=100%>
 
 	<tr style="color:white; background-color: #337ab7;">
@@ -52,35 +52,43 @@ function busca_dados($dados)   {
 		    </form>
 		</div>
 	    </td>
-	</tr>
-			';
+	</tr> ";
 	    
+	$result = listaTokens();
 
-            
+ 	if (mysqli_num_rows($result) > 0) {
+  
+	$tela .= '
+                <tr style="color:white; background-color: #337ab7;">
+		    <TH> Token</TH>
+                </tr> ';
 
+	        while ($row = mysqli_fetch_array($result)) {
+	
+				$token     = $row["TOKEN"];
+	                       
+	    	$tela .= ' <TR>
+				<TD> '.$token.'</TD>
+	                    </TR> ';		
+	        
+	       }
+        }
 
-
-
-    $tela .= '  <tr style="height: 20px;"></tr>
+	$tela .= '  <tr style="height: 20px;"></tr>
                 <tr>
                     <td colspan="16">
                         <div class="col-xs-3 col-md-3">
-                            <input type="button" value="Nova Consulta"  class="btn btn-success btn-md btn-block"  onclick="location.reload(true);"></td>
+                            <input type="button" value="Sair"  class="btn btn-success btn-md btn-block"  onclick="location.reload(true);"></td>
                         </div>
                 </tr>
             </table>
                             ';
 
-    $resp->assign("tela_inicio","innerHTML",'');   
+	$resp->assign("tela_inicio","innerHTML",'');   
     
-        } else { $tela = '<tr>
-                             <td align="center">E-mail ou senha incorreta.</b></font></td>
-                        </tr>';
         } 
 
-    $resp->assign("tela_saida","innerHTML",$tela);
-
-	CloseCon($conn);
+	$resp->assign("tela_saida","innerHTML",$tela);
   
    return $resp;
 }
