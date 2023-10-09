@@ -10,6 +10,9 @@ $xajax->registerFunction("busca_dados");
 $xajax->registerFunction("busca_carteiras");
 $xajax->registerFunction("busca_ativos");
 $xajax->registerFunction("busca_investimentos");
+
+$xajax->registerFunction("cadastrar_cliente");
+$xajax->registerFunction("recuperar_senha");
 $xajax->processRequest();
   
 
@@ -138,6 +141,34 @@ function busca_investimentos($idCliente)   {
 	return $resp;
 }
 
+function cadastrar_cliente()   {
+
+	$resp = new xajaxResponse();
+
+	$resp->alert('Cadastrar cliente: '); return $resp;
+
+	
+
+
+	$resp->assign("tela_saida","innerHTML",$tela);
+  
+	return $resp;
+}
+
+function recuperar_senha()   {
+
+	$resp = new xajaxResponse();
+
+	$resp->alert('Recuperar senha: '); return $resp;
+
+	
+
+
+	$resp->assign("tela_saida","innerHTML",$tela);
+  
+	return $resp;
+}
+
 
 ?>
 <!DOCTYPE html> 
@@ -250,7 +281,18 @@ function busca_investimentos($idCliente)   {
                                         <div id="sandbox-container">
                                             <div class="input-group">
                                                 <div>
-                                                    <a href="#" class="link-primary">Cacastrar novo Cliente.</a>
+                                                    <a href="#" class="link-primary" onclick="xajax_cadastrar_cliente();">Cacastrar novo Cliente.</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+				<div class="col-xs-4 col-md-4">
+                                    <div class="form-group">
+                                        <div id="sandbox-container">
+                                            <div class="input-group">
+                                                <div>
+                                                    <a href="#" class="link-danger" onclick="xajax_recuperar_senha();">Esqueceu a senha, Recupere por aqui...</a>
                                                 </div>
                                             </div>
                                         </div>
