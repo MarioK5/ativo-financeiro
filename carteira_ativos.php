@@ -47,7 +47,12 @@ function busca_dados($dados)   {
 		    		</div>
        			</div>
 		    <td>
-                </tr> ';
+                </tr>
+		    <div class="row">
+			<div class="col-xs-4 col-md-4">
+			    <img src="mercado-financeiro.jpg" class="rounded mx-auto d-block" alt="...">
+			</div>
+		    </div> ';
 
             
 
