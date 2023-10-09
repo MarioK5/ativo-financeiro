@@ -20,7 +20,7 @@ function busca_dados($dados)   {
 
 	$resp = new xajaxResponse();
 
-//	$resp->alert($dados['email']); return $resp;
+	$resp->alert($dados['email']); return $resp;
 
 	$tela  = '';
 
@@ -90,7 +90,7 @@ function busca_dados($dados)   {
 		$resp->alert('Email ou senha incotera!'); return $resp;
         } 
 
-    $resp->script('xajax_busca_carteiras($idCliente)');
+//    $resp->script('xajax_busca_carteiras($idCliente)');
     $resp->assign("tela_saida","innerHTML",$tela);
   
    return $resp;
@@ -148,6 +148,8 @@ function cadastrar_carteira($idCliente)   {
 
 	$resp = new xajaxResponse();
 
+	$tela = '';
+	
 	$resp->alert('Cadastrar carteira do cliente: '.$idCliente); return $resp;
 
 	
