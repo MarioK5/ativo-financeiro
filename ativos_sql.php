@@ -24,17 +24,13 @@ function buscaID($email){
 	
 	$conn = OpenCon();
 	
-	$sql = "SELECT ID FROM CLIENTES WHERE EMAIL = '{$email}'";
+	$sql = "SELECT ID, NOME, SOBRENOME FROM CLIENTES WHERE EMAIL = '{$email}'";
 
     	$result = mysqli_query($conn,$sql);
 	
-	if (mysqli_num_rows($result) > 0) {
-		$idCliente = mysqli_fetch_array($result);
-	}
-
 	CloseCon($conn);
 	
-	return $idCliente["ID"];;
+	return $result;
 }
 
 function validaToken($token){
