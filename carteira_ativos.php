@@ -41,7 +41,7 @@ function busca_dados($dados)   {
    
 	$tela .= '<table border="0" width=100%>
 
-                <tr style="color:white; background-color: LightGray;">
+                <tr style="color:white; background-color: DodgerBlue;">
                     <td>
 		    	<div class="row">
 			    <div class="col-xs-8 col-md-8">
@@ -262,9 +262,6 @@ function busca_investimentos($idCliente)   {
                                 <div class="col-xs-6 col-md-2">
                                     <input type="button" value="Entrar"  class="btn btn-success btn-md btn-block" onclick="xajax_busca_dados(xajax.getFormValues('form_cadastro')); return false;">
                                 </div>
-                                <div class="col-xs-6 col-md-2">
-                                <button class="btn btn-danger btn-md btn-block" onclick="location.reload(false)">Limpar</button>
-                            </div>
                             </div>
                             </div>
                         <!--</div>-->
