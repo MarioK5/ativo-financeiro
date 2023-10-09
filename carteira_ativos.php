@@ -182,7 +182,7 @@ function busca_investimentos($idCliente)   {
 </style>
 <style type="text/css">
     .container{
-  width: 900px;
+  width: 1000px;
 }
     a.info{
         position:relative; /*this is the key*/
@@ -233,7 +233,7 @@ function busca_investimentos($idCliente)   {
                                         </div>
                                     </div>
                                 </div>
-				<div class="col-xs-4 col-md-4">
+				<div class="col-xs-2 col-md-2">
                                     <div class="form-group">
                                         <label>Senha</label>
                                         <div id="sandbox-container">
