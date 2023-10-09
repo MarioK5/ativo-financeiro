@@ -104,7 +104,7 @@ function busca_carteiras($idCliente)   {
 
 //	$resp->alert('Carteiras do cliente: '.$idCliente); return $resp;
 
-	$result = listaCarteiras(0,$idCliente);
+	$result = listaCarteiras($idCliente);
 	
 	if (mysqli_num_rows($result) > 0) {
 		
