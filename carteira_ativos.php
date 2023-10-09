@@ -1,72 +1,62 @@
 <?php
 
-include 'ativos_db.php';
+include 'ativos_sql.php';
 
 require_once("lib/xajax/xajax.inc.php");
 
 $xajax = new xajax();
 $xajax->setCharEncoding('UTF-8');
 $xajax->registerFunction("busca_dados");
+$xajax->registerFunction("busca_carteiras");
+$xajax->registerFunction("busca_ativos");
+$xajax->registerFunction("busca_investimentos");
 $xajax->processRequest();
   
 
 function busca_dados($dados)   {
 
-   $conn = OpenCon();
-   $_SESSION['data_base'] = date('d/m/Y');
-
-    
-    $resp = new xajaxResponse();
+	$resp = new xajaxResponse();
 
  //$resp->alert($dados['email']); return $resp;
 
-    $tela  = '';
+	$tela  = '';
 
-    $email = $dados['email'];
-    $senha = $dados['senha'];
+	$email = $dados['email'];
+	$senha = $dados['senha'];
    
         
-    $result = clientes($conn,$email,$senha);
+	$result = validaLogin($email,$senha);
     
-    if (mysqli_num_rows($result) > 0) {
+	if (mysqli_num_rows($result) > 0) {
 
-            
-    $tela .= '<table border="0" width=100%>
+	$idCliente = validaLogin($email);
+   
+	$tela .= '<table border="0" width=100%>
 
                 <tr style="color:white; background-color: #337ab7;">
-                    <TH> ID</TH>
-		    <TH> Token</TH>
-                    <TH> Nome</TH>
-                    <TH> Sobrenome</TH>
-                    <TH> e-mail</TH>
+                    <td>
+		    	<div class="row">
+                                <div class="col-xs-6 col-md-2">
+                                    <input type="button" value="Carteiras"  class="btn btn-success btn-md btn-block" onclick="xajax_busca_carteiras('.$idCliente.'); return false;">
+				</div>
+				<div class="col-xs-6 col-md-2">
+                                     <input type="button" value="Ativos"  class="btn btn-success btn-md btn-block" onclick="xajax_busca_ativos('.$idCliente.'); return false;">
+		    		</div>
+				<div class="col-xs-6 col-md-2">
+                                     <input type="button" value="Investimentos"  class="btn btn-success btn-md btn-block" onclick="xajax_busca_investimentos('.$idCliente.'); return false;">
+		    		</div>
+       			</div>
+		    <td>
                 </tr> ';
 
-            while ($row = mysqli_fetch_array($result)) {
-
-                        $id        = $row["ID"];
-			$token     = $row["TOKEN"];
-                        $nome      = $row["NOME"];
-                        $sobreNome = $row["SOBRENOME"];
-                        $email     = $row["EMAIL"];
-			
-                       
-          
-    $tela .= '      <TR>
-                        <TD> '.$id.'</TD>
-			<TD> '.$token.'</TD>
-                        <TD> '.$nome .'</TD>
-                        <TD> '.$sobreNome.'</TD>
-                        <TD> '.$email.'</TD>
-                    </TR> ';		
-        
-        }
+            
 
 
     $tela .= '  <tr style="height: 20px;"></tr>
                 <tr>
                     <td colspan="16">
                         <div class="col-xs-3 col-md-3">
-                            <input type="button" value="Nova Consulta"  class="btn btn-success btn-md btn-block"  onclick="location.reload(true);"></td>
+                            <input type="button" value="Sair"  class="btn btn-success btn-md btn-block"  onclick="location.reload(true);"></td>
                         </div>
                 </tr>
             </table>
@@ -80,21 +70,52 @@ function busca_dados($dados)   {
         } 
 
     $resp->assign("tela_saida","innerHTML",$tela);
-
-	CloseCon($conn);
   
    return $resp;
 }
 
+function busca_carteiras($idCliente)   {
 
-function clientes($conn,$email,$senha)  {
+	$resp = new xajaxResponse();
+
+	$resp->alert('Carteiras do cliente: '.$idCliente); return $resp;
+
 	
-   $sql = "SELECT * FROM CLIENTES WHERE EMAIL = '{$email}' AND SENHA = '{$senha}'";
 
-   $result = mysqli_query($conn,$sql);
 
-   return $result;
+	$resp->assign("tela_saida","innerHTML",$tela);
+  
+	return $resp;
 }
+
+function busca_ativos($idCliente)   {
+
+	$resp = new xajaxResponse();
+
+	$resp->alert('Ativos do cliente: '.$idCliente); return $resp;
+
+	
+
+
+	$resp->assign("tela_saida","innerHTML",$tela);
+  
+	return $resp;
+}
+
+function busca_investimentos($idCliente)   {
+
+	$resp = new xajaxResponse();
+
+	$resp->alert('Investimentos do cliente: '.$idCliente); return $resp;
+
+	
+
+
+	$resp->assign("tela_saida","innerHTML",$tela);
+  
+	return $resp;
+}
+
 
 ?>
 <!DOCTYPE html> 
@@ -220,6 +241,12 @@ function clientes($conn,$email,$senha)  {
                                 </div>
                                 <div class="col-xs-6 col-md-2">
                                 <button class="btn btn-danger btn-md btn-block" onclick="location.reload(false)">Limpar</button>
+                            </div>
+                            </div>
+			    <div class="row">
+                                <div class="col-xs-4 col-md-4">
+                                    <img src="mercado-financeiro.jpg" class="rounded mx-auto d-block" alt="...">
+                                </div>
                             </div>
                             </div>
                         <!--</div>-->
