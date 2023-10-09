@@ -76,7 +76,9 @@ function busca_dados($dados)   {
                         	</div>
        			</div>
 		    <td>
-                </tr>';
+                </tr>
+		<div id="tela_cliente" class="panel-body">
+		';
 
             
 
@@ -108,7 +110,7 @@ function busca_carteiras($idCliente)   {
 	
 
 
-	$resp->assign("tela_saida","innerHTML",$tela);
+	$resp->assign("tela_cliente","innerHTML",$tela);
   
 	return $resp;
 }
@@ -122,7 +124,7 @@ function busca_ativos($idCliente)   {
 	
 
 
-	$resp->assign("tela_saida","innerHTML",$tela);
+	$resp->assign("tela_cliente","innerHTML",$tela);
   
 	return $resp;
 }
@@ -136,7 +138,7 @@ function busca_investimentos($idCliente)   {
 	
 
 
-	$resp->assign("tela_saida","innerHTML",$tela);
+	$resp->assign("tela_cliente","innerHTML",$tela);
   
 	return $resp;
 }
@@ -252,7 +254,6 @@ function recuperar_senha()   {
                 </div>
                 <div class="panel-body" id="tela_inicio">
                     <form role="form" id="form_cadastro" class="small">
-                        <!--<div id="tela_inicio">-->
                             <div class="row">
                                 <div class="col-xs-4 col-md-4">
                                     <div class="form-group">
@@ -292,7 +293,7 @@ function recuperar_senha()   {
                                         <div id="sandbox-container">
                                             <div class="input-group">
                                                 <div>
-                                                    <a href="#" class="link-danger" onclick="xajax_recuperar_senha();">Esqueceu a senha, Recupere por aqui...</a>
+                                                    <a href="#" class="link-danger" onclick="xajax_recuperar_senha();">Esqueceu a senha! Recupere por aqui...</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -305,7 +306,6 @@ function recuperar_senha()   {
                                 </div>
                             </div>
                             </div>
-                        <!--</div>-->
                     </form>    
                 </div>
                 <div id="tela_saida" class="panel-body">
