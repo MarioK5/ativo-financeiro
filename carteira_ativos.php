@@ -28,9 +28,9 @@ function busca_dados($dados)   {
         
 	$result = validaLogin($email,$senha);
     
-	if (mysqli_num_rows($result) > 0) {
+	if ($result > 0) {
 
-	$idCliente = validaLogin($email);
+	$idCliente = buscaID($email);
    
 	$tela .= '<table border="0" width=100%>
 
