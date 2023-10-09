@@ -1,3 +1,5 @@
+ip da VM: 35.209.55.178
+Usuário: ubuntu
 ***** acessar banco de dados
 sudo mysql -u mariok5 -p
 informar senha: mariok5

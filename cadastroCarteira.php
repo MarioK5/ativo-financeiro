@@ -11,9 +11,9 @@ $xajax->processRequest();
 
 function salvar_carteiras($dados){
     $resp = new xajaxResponse();    
-    //$resp->alert($dados['descricao']); return $resp;
-    salvar_carteira($dados);
-    return $resp;
+    $resp->alert($dados['descricaoCarteira']); return $resp;
+    //salvar_carteira($dados);
+    //return $resp;
 }
 
 
