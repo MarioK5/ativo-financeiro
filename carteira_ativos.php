@@ -27,7 +27,6 @@ function busca_dados($dados)   {
 	$email = $dados['email'];
 	$senha = $dados['senha'];
    
-        
 	$result = validaLogin($email,$senha);
     
 	if ($result > 0) {
@@ -83,12 +82,7 @@ function busca_dados($dados)   {
             
 
 
-    $tela .= '  <tr style="height: 20px;"></tr>
-                <tr>
-                    <td>Aqui vai o primeiro conteudo! </td>
-                </tr>
-            </table>
-                            ';
+    $tela .= ' </table> ';
 
     $resp->assign("tela_inicio","innerHTML",'');   
     
@@ -96,6 +90,7 @@ function busca_dados($dados)   {
 		$resp->alert('Email ou senha incotera!'); return $resp;
         } 
 
+    $resp->script('xajax_busca_carteiras($idCliente)');
     $resp->assign("tela_saida","innerHTML",$tela);
   
    return $resp;
@@ -104,11 +99,36 @@ function busca_dados($dados)   {
 function busca_carteiras($idCliente)   {
 
 	$resp = new xajaxResponse();
+	
+	$tela = '';
 
 	$resp->alert('Carteiras do cliente: '.$idCliente); return $resp;
 
+	$result = listaCarteiras(0,$idCliente);
 	
-
+	if (mysqli_num_rows($result) > 0) {
+		
+		$tela .= '<table border="0" width=100%>
+                <tr>
+                    <th>Nome da Carteira</th>
+		    <th>Valor Investido</th>
+		    <th>Editar</th>
+                </tr> ';
+		
+		while ($row = mysqli_fetch_array($result)) {
+            		$idCarteira = $row["ID"];
+            		$descricao  = $row["DESCRICAO"];
+            		$idCliente  = $row["ID_CLIENTE"];
+					
+		$tela .= '<tr>
+                    <td>'.$descricao.'</td>
+					<td> 0 </td>
+					<td> # </td>
+                </tr> ';	
+        	}
+			
+		$tela .= '</table>';	
+	}
 
 	$resp->assign("tela_cliente","innerHTML",$tela);
   
