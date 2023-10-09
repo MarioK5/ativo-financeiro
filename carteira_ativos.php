@@ -182,7 +182,7 @@ function busca_investimentos($idCliente)   {
 </style>
 <style type="text/css">
     .container{
-  width: 1400px;
+  width: 900px;
 }
     a.info{
         position:relative; /*this is the key*/
