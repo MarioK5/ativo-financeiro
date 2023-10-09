@@ -75,7 +75,11 @@ function busca_dados($dados)   {
        			</div>
 		    <td>
                 </tr>
-		<div id="tela_cliente" class="panel-body"></div>
+		<tr>
+  		     <td>
+			<div id="tela_cliente" class="panel-body"></div>
+  		     </td>
+  		</tr>
   	</table> ';
 
 
