@@ -45,6 +45,9 @@ function busca_dados($dados)   {
 				<div class="col-xs-6 col-md-2">
                                      <input type="button" value="Investimentos"  class="btn btn-primary btn-md btn-block" onclick="xajax_busca_investimentos('.$idCliente.'); return false;">
 		    		</div>
+				<div class="col-xs-3 col-md-3">
+                            	     <input type="button" value="Sair"  class="btn btn-danger btn-md btn-block"  onclick="location.reload(true);"></td>
+                        	</div>
        			</div>
 		    <td>
                 </tr> ';
@@ -54,10 +57,7 @@ function busca_dados($dados)   {
 
     $tela .= '  <tr style="height: 20px;"></tr>
                 <tr>
-                    <td colspan="16">
-                        <div class="col-xs-3 col-md-3">
-                            <input type="button" value="Sair"  class="btn btn-success btn-md btn-block"  onclick="location.reload(true);"></td>
-                        </div>
+                    <td>Aqui vai o primeiro conteudo! </td>
                 </tr>
             </table>
                             ';
