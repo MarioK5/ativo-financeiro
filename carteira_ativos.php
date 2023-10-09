@@ -41,7 +41,7 @@ function busca_dados($dados)   {
    
 	$tela .= '<table border="0" width=100%>
 
-                <tr style="color:white; ">
+                <tr style="color:white; background-color: #337ab7;">
                     <td>
 		    	<div class="row">
 			    <div class="col-xs-8 col-md-8">
