@@ -10,7 +10,7 @@ $xajax->registerFunction("busca_dados");
 $xajax->registerFunction("busca_carteiras");
 $xajax->registerFunction("busca_ativos");
 $xajax->registerFunction("busca_investimentos");
-
+$xajax->registerFunction("cadastrar_carteira")
 $xajax->registerFunction("cadastrar_cliente");
 $xajax->registerFunction("recuperar_senha");
 $xajax->processRequest();
@@ -102,14 +102,23 @@ function busca_carteiras($idCliente)   {
 	
 	$tela = '';
 
-	$resp->alert('Carteiras do cliente: '.$idCliente); return $resp;
+//	$resp->alert('Carteiras do cliente: '.$idCliente); return $resp;
 
 	$result = listaCarteiras(0,$idCliente);
 	
 	if (mysqli_num_rows($result) > 0) {
 		
 		$tela .= '<table border="0" width=100%>
-                <tr>
+                <tr style="color:white; ">
+                    <td>
+		    	<div class="row">
+                                <div class="col-xs-6 col-md-2">
+                                    <input type="button" value="Carteiras"  class="btn btn-primary btn-md btn-block" onclick="xajax_cadastrar_carteira('.$idCliente.'); return false;">
+				</div>
+       			</div>
+		    <td>
+                </tr>
+		<tr>
                     <th>Nome da Carteira</th>
 		    <th>Valor Investido</th>
 		    <th>Editar</th>
@@ -129,6 +138,20 @@ function busca_carteiras($idCliente)   {
 			
 		$tela .= '</table>';	
 	}
+
+	$resp->assign("tela_cliente","innerHTML",$tela);
+  
+	return $resp;
+}
+
+function cadastrar_carteira($idCliente)   {
+
+	$resp = new xajaxResponse();
+
+	$resp->alert('Cadastrar carteira do cliente: '.$idCliente); return $resp;
+
+	
+
 
 	$resp->assign("tela_cliente","innerHTML",$tela);
   
