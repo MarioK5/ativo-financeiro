@@ -29,11 +29,35 @@ function busca_dados($dados)   {
     
 	if ($result > 0) {
 
-	$idCliente = buscaID($email);
+	$resultID = buscaID($email);
+
+	if (mysqli_num_rows($resultID) > 0) {
+		while ($row = mysqli_fetch_array($resultID)) {
+            		$idCliente = $row["ID"];
+            		$nome      = $row["NOME"];
+            		$sobrenome = $row["SOBRENOME"];
+        	}
+	}
    
 	$tela .= '<table border="0" width=100%>
 
                 <tr style="color:white; ">
+                    <td>
+		    	<div class="row">
+			    <div class="col-xs-8 col-md-8">
+			        <div class="form-group">
+				    <label>Cliente</label>
+				    <div id="sandbox-container">
+				        <div class="input-group">
+						'.$nome.' '.$sobrenome.'
+				        </div>
+				    </div>
+			         </div>
+	    		    </div>
+			</div>
+		    <td>
+                </tr> 
+		<tr style="color:white; ">
                     <td>
 		    	<div class="row">
                                 <div class="col-xs-6 col-md-2">
@@ -50,7 +74,7 @@ function busca_dados($dados)   {
                         	</div>
        			</div>
 		    <td>
-                </tr> ';
+                </tr>';
 
             
 
