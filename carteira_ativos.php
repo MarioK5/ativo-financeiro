@@ -101,7 +101,7 @@ function busca_carteiras($idCliente)   {
 	
 	$tela = '';
 
-	$resp->alert('Carteiras do cliente: '.$idCliente); return $resp;
+//	$resp->alert('Carteiras do cliente: '.$idCliente); return $resp;
 
 	$result = listaCarteiras($idCliente);
 	
