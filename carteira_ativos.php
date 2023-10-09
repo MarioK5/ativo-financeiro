@@ -76,12 +76,8 @@ function busca_dados($dados)   {
 		    <td>
                 </tr>
 		<div id="tela_cliente" class="panel-body"></div>
-		';
+  	</table> ';
 
-            
-
-
-    $tela .= ' </table> ';
 
     $resp->assign("tela_inicio","innerHTML",'');   
     
