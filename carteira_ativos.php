@@ -107,7 +107,7 @@ function busca_carteiras($idCliente)   {
 	
 	if (mysqli_num_rows($result) > 0) {
 		
-		$tela .= '<table border="0" width=100%>
+		$tela .= '<table border="1" width=100%>
 		<tr>
                     <th>Nome da Carteira</th>
 		    <th>Valor Investido</th>
