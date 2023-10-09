@@ -19,7 +19,7 @@ function busca_dados($dados)   {
 
 	$resp = new xajaxResponse();
 
-	$resp->alert($dados['email']); return $resp;
+//	$resp->alert($dados['email']); return $resp;
 
 	$tela  = '';
 
