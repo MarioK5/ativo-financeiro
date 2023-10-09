@@ -33,7 +33,7 @@ function busca_dados($dados)   {
    
 	$tela .= '<table border="0" width=100%>
 
-                <tr style="color:white; background-color: #337ab7;">
+                <tr style="color:white; ">
                     <td>
 		    	<div class="row">
                                 <div class="col-xs-6 col-md-2">
