@@ -211,20 +211,14 @@ function cadastroAtivoCarteira($dados){
 	return $ret;
 }
 
-function listaCarteiras($idCarteira, $idCliente){
+function listaCarteiras($idCliente){
 	
 	$conn = OpenCon();
-
-	if($idCarteira > 0){
-		$temCarteira = "AND ID = '{$idCarteira}'";
-	}else{
-		$temCarteira = "";
-	};
 	
 	$sql = "SELECT ID,
  		       DESCRICAO,
 	  	       ID_CLIENTE
- 		FROM CARTEIRA WHERE ID_CLIENTE = '{$idCliente}' $temCarteira";
+ 		FROM CARTEIRA WHERE ID_CLIENTE = '{$idCliente}' ";
 
    	$result = mysqli_query($conn,$sql);
 
@@ -318,7 +312,7 @@ function apiListaAtivos(){
 	
 	$conn = OpenCon();
 	
-	$sql = "SELECT * FROM ATIVOS WHERE CODIGO = 'AZUL4'";
+	$sql = "SELECT * FROM ATIVOS";
 
     $result = mysqli_query($conn,$sql);
 	
