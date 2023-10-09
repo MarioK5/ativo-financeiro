@@ -37,22 +37,17 @@ function busca_dados($dados)   {
                     <td>
 		    	<div class="row">
                                 <div class="col-xs-6 col-md-2">
-                                    <input type="button" value="Carteiras"  class="btn btn-success btn-md btn-block" onclick="xajax_busca_carteiras('.$idCliente.'); return false;">
+                                    <input type="button" value="Carteiras"  class="btn btn-primary btn-md btn-block" onclick="xajax_busca_carteiras('.$idCliente.'); return false;">
 				</div>
 				<div class="col-xs-6 col-md-2">
-                                     <input type="button" value="Ativos"  class="btn btn-success btn-md btn-block" onclick="xajax_busca_ativos('.$idCliente.'); return false;">
+                                     <input type="button" value="Ativos"  class="btn btn-primary btn-md btn-block" onclick="xajax_busca_ativos('.$idCliente.'); return false;">
 		    		</div>
 				<div class="col-xs-6 col-md-2">
-                                     <input type="button" value="Investimentos"  class="btn btn-success btn-md btn-block" onclick="xajax_busca_investimentos('.$idCliente.'); return false;">
+                                     <input type="button" value="Investimentos"  class="btn btn-primary btn-md btn-block" onclick="xajax_busca_investimentos('.$idCliente.'); return false;">
 		    		</div>
        			</div>
 		    <td>
-                </tr>
-		    <div class="row">
-			<div class="col-xs-4 col-md-4">
-			    <img src="mercado-financeiro.jpg" class="rounded mx-auto d-block" alt="...">
-			</div>
-		    </div> ';
+                </tr> ';
 
             
 
@@ -246,11 +241,6 @@ function busca_investimentos($idCliente)   {
                                 <div class="col-xs-6 col-md-2">
                                 <button class="btn btn-danger btn-md btn-block" onclick="location.reload(false)">Limpar</button>
                             </div>
-                            </div>
-			    <div class="row">
-                                <div class="col-xs-8 col-md-8">
-                                    <img src="mercado-financeiro.jpg" class="rounded mx-auto d-block" alt="...">
-                                </div>
                             </div>
                             </div>
                         <!--</div>-->
