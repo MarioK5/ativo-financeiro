@@ -20,6 +20,23 @@ function validaLogin($email, $senha){
 	return $ret;
 }
 
+function buscaID($email){
+	
+	$conn = OpenCon();
+	
+	$sql = "SELECT ID FROM CLIENTES WHERE EMAIL = '{$email}'";
+
+    	$result = mysqli_query($conn,$sql);
+	
+	if (mysqli_num_rows($result) > 0) {
+		$idCliente = mysqli_fetch_array($result);
+	}
+
+	CloseCon($conn);
+	
+	return $idCliente["ID"];;
+}
+
 function validaToken($token){
 	
 	$conn = OpenCon();
