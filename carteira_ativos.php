@@ -17,7 +17,8 @@ function busca_dados($dados)   {
 
 	$resp = new xajaxResponse();
 
- //$resp->alert($dados['email']); return $resp;
+ 	$resp->alert($dados['email']); 
+	$resp->alert($dados['senha']); return $resp;
 
 	$tela  = '';
 
@@ -69,9 +70,8 @@ function busca_dados($dados)   {
 
     $resp->assign("tela_inicio","innerHTML",'');   
     
-        } else { $tela = '<tr>
-                             <td align="center">E-mail ou senha incorreta.</b></font></td>
-                        </tr>';
+        } else { 
+		$resp->alert('Email ou senha incotera!'); return $resp;
         } 
 
     $resp->assign("tela_saida","innerHTML",$tela);
@@ -249,7 +249,7 @@ function busca_investimentos($idCliente)   {
                             </div>
                             </div>
 			    <div class="row">
-                                <div class="col-xs-4 col-md-4">
+                                <div class="col-xs-8 col-md-8">
                                     <img src="mercado-financeiro.jpg" class="rounded mx-auto d-block" alt="...">
                                 </div>
                             </div>
