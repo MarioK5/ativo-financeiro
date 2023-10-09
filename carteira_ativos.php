@@ -89,7 +89,7 @@ function busca_dados($dados)   {
 		$resp->alert('Email ou senha incotera!'); return $resp;
         } 
 
-//    $resp->script('xajax_busca_carteiras($idCliente)');
+    $resp->script('xajax_busca_carteiras($idCliente)');
     $resp->assign("tela_saida","innerHTML",$tela);
   
    return $resp;
