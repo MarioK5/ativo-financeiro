@@ -157,7 +157,7 @@ function cadastroCarteira($descricao, $idCliente){
 	
 	$conn = OpenCon();
 	
-	$ret = 0;
+	$ret = 2;
 
 	$sql = "INSERT INTO CARTEIRA (DESCRICAO, ID_CLIENTE) VALUES ('{$descricao}', '{$idCliente}')";
 
