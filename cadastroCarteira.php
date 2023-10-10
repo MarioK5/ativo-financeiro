@@ -16,11 +16,12 @@ $xajax->processRequest();
 function salvar_carteiras($dados){
     $resp = new xajaxResponse();
     
-    $descricaoCarteira = $dados['descricaoCarteira'];
+    //$descricaoCarteira = $dados['descricaoCarteira'];
     //echo "<script>alert('$descricaoCarteira');</script>";
 
     //$resp->alert($descricaoCarteira); return $resp;
     salvar_carteira($dados);
+    $resp->assign("descricaoCarteira","Value","");
     return $resp;
 }
 
