@@ -110,12 +110,14 @@ function busca_carteiras($idCliente)   {
 	if (mysqli_num_rows($result) > 0) {
 		
 	$tela .= '<table border="0" width=100%>
- 			<tr style="color:white; background-color:#8ecae6;">
-			    <td rowspan="3">
-      			        	<input type="button" value="Gravar Nova Carteira"  class="btn btn-success btn-sm" onclick="xajax_cadastrar_carteira('.$idCliente.'); return false;">
-                                	<input type="text" class="form-control" name="desc_carteira" id="desc_carteira" value=""/>
-      		            </td>
-                       </tr>
+  			<form role="f_carteira" id="form_carteira" class="small">
+	 			<tr style="color:white; background-color:#8ecae6;">
+				    <td rowspan="3">
+	                                	<input type="text" class="form-control" name="desc_carteira" id="desc_carteira" value=""/>
+					 	<input type="button" value="Entrar"  class="btn btn-success btn-md btn-block" onclick="xajax_cadastrar_carteira(xajax.getFormValues('form_carteira','.$idCliente.')); return false;">
+	      		            </td>
+	                       </tr>
+		       <form>
 		</table>
 		<table border="0" width=100%>
 			<tr>
@@ -144,7 +146,7 @@ function busca_carteiras($idCliente)   {
 	return $resp;
 }
 
-function cadastrar_carteira($idCliente)   {
+function cadastrar_carteira($dados,$idCliente)   {
 
 	$resp = new xajaxResponse();
 
