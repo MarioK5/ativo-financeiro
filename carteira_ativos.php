@@ -113,7 +113,7 @@ function busca_carteiras($idCliente)   {
   			<form role="f_carteira" id="form_carteira" class="small">
 	 			<tr style="color:white; background-color:#8ecae6;">
 				    <td rowspan="3">
-       						<input type="button" value="Criar Nova Carteira"  class="btn btn-success btn-sm" onclick="xajax_cadastrar_carteira('.$idCliente.'); return false;">
+       						<input type="button" value="Criar Nova Carteira"  class="btn btn-success btn-sm" onclick="xajax_cadastrar_carteira(xajax.getFormValues('form_carteira','.$idCliente.')); return false;">
 	     					<input type="text" class="form-control" name="desc_carteira" id="desc_carteira" value=""/>
 	      		            </td>
 	                       </tr>
@@ -146,7 +146,7 @@ function busca_carteiras($idCliente)   {
 	return $resp;
 }
 
-function cadastrar_carteira($idCliente)   {
+function cadastrar_carteira(1,$idCliente)   {
 
 	$resp = new xajaxResponse();
 
