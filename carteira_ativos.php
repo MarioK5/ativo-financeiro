@@ -109,11 +109,7 @@ function busca_carteiras($idCliente)   {
 	if (mysqli_num_rows($result) > 0) {
 		
 		$tela .= '<table border="0" width=100%>
-		<tr style="color:white; background-color:#8ecae6;">
-                    <td rowspan="3">
-      			<input type="button" value="Nova Carteira"  class="btn btn-secondary btn-sm" onclick="xajax_cadastrar_carteira('.$idCliente.'); return false;">
-      		    </td>
-                </tr><br><br>
+
 		<tr>
                     <th>Nome da Carteira</th>
 		    <th>Valor Investido</th>
@@ -144,6 +140,8 @@ function cadastrar_carteira($idCliente)   {
 
 	$resp = new xajaxResponse();
 
+	$tela = '';
+	
 	$resp->alert('Cadastrar carteira do cliente: '.$idCliente); return $resp;
 
 	
@@ -159,7 +157,9 @@ function busca_ativos($idCliente)   {
 
 	$resp = new xajaxResponse();
 
-	$resp->alert('Ativos do cliente: '.$idCliente); return $resp;
+	$tela = '';
+	
+	$resp->alert('Ativos do cliente: '.$idCliente);
 
 	
 
@@ -173,7 +173,9 @@ function busca_investimentos($idCliente)   {
 
 	$resp = new xajaxResponse();
 
-	$resp->alert('Investimentos do cliente: '.$idCliente); return $resp;
+	$tela = '';
+	
+	$resp->alert('Investimentos do cliente: '.$idCliente);
 
 	
 
