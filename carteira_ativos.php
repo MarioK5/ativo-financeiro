@@ -164,7 +164,7 @@ function cadastrar_carteira($desc_carteira, $idCliente)   {
 
 	$script = "xajax_busca_carteiras($idCliente)";
     	$resp->script($script);
-  
+  	$resp->assign("tela_cliente","innerHTML",$tela);
 	return $resp;
 }
 
