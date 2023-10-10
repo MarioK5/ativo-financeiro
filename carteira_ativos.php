@@ -70,7 +70,7 @@ function busca_dados($dados)   {
 				<div class="col-xs-6 col-md-2">
                                      <input type="button" value="Investimentos"  class="btn btn-primary btn-md btn-block" onclick="xajax_busca_investimentos('.$idCliente.'); return false;">
 		    		</div>
-				<div class="col-xs-3 col-md-3">
+				<div class="col-xs-3 col-md-2">
                             	     <input type="button" value="Sair"  class="btn btn-danger btn-md btn-block"  onclick="location.reload(true);"></td>
                         	</div>
        			</div>
@@ -111,8 +111,10 @@ function busca_carteiras($idCliente)   {
 		
 	$tela .= '<table border="0" width=100%>
 			    <div class="row">
-				<div class="col-xs-6 col-md-6">
+				<div class="col-xs-6 col-md-2">
 				    <input type="button" value="Criar Nova Carteira"  class="btn btn-success btn-sm" onclick="xajax_cadastrar_carteira('.$idCliente.'); return false;">
+				</div>
+				<div class="col-xs-6 col-md-6">
 				    <input type="text" class="form-control" name="desc_carteira" id="desc_carteira" value=""/>
 				</div>
 			    </div>
