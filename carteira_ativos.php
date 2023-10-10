@@ -153,19 +153,16 @@ function cadastrar_carteira($desc_carteira, $idCliente)   {
 	$tela = '';
 
 	$d_carteira = strtoupper($desc_carteira);
-	$resp->alert('desc : '.$d_carteira); return $resp;
 
 	$result = cadastroCarteira($d_carteira, $idCliente);
 
 	if($result > 0){
-		$resp->alert('Carteira '.$desc_carteira.' cadastrada!');
+		$resp->alert('Carteira '.$d_carteira.' cadastrada!');
 	}else{
 		$resp->alert('Erro ao gravar a nova carteira...');
 	}
 
-	//$script = "xajax_busca_carteiras($idCliente)";
-  //  	$resp->script($script);
-//  	$resp->assign("tela_cliente","innerHTML",$tela);
+  	$resp->assign("tela_cliente","innerHTML",$tela);
 	return $resp;
 }
 
