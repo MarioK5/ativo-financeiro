@@ -61,13 +61,13 @@ function busca_dados($dados)   {
 		<tr style="color:white; ">
                     <td>
 		    	<div class="row">
-                                <div class="col-xs-6 col-md-2">
+                                <div class="col-xs-6 col-md-3">
                                     <input type="button" id="busca_carteira" value="Carteiras"  class="btn btn-primary btn-md btn-block" onclick="xajax_busca_carteiras('.$idCliente.'); return false;">
 				</div>
-				<div class="col-xs-6 col-md-2">
+				<div class="col-xs-6 col-md-3">
                                      <input type="button" value="Ativos"  class="btn btn-primary btn-md btn-block" onclick="xajax_busca_ativos('.$idCliente.'); return false;">
 		    		</div>
-				<div class="col-xs-6 col-md-2">
+				<div class="col-xs-6 col-md-3">
                                      <input type="button" value="Investimentos"  class="btn btn-primary btn-md btn-block" onclick="xajax_busca_investimentos('.$idCliente.'); return false;">
 		    		</div>
 				<div class="col-xs-3 col-md-2">
