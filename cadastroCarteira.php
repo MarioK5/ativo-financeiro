@@ -20,8 +20,10 @@ function salvar_carteiras($dados){
     //echo "<script>alert('$descricaoCarteira');</script>";
 
     //$resp->alert($descricaoCarteira); return $resp;
+    //console.log(xajax.getFormValues('form_cadastro'));
+
     salvar_carteira($dados);
-    $resp->assign("descricaoCarteira","Value","");
+    $resp->assign("descricaoCarteira", "value", "");
     return $resp;
 }
 
