@@ -12,15 +12,16 @@ $xajax->processRequest();
 
 
 
+
 function salvar_carteiras($dados){
     $resp = new xajaxResponse();
     
     $descricaoCarteira = $dados['descricaoCarteira'];
     //echo "<script>alert('$descricaoCarteira');</script>";
 
-    $resp->alert($descricaoCarteira); return $resp;
-    //salvar_carteira($dados);
-    //return $resp;
+    //$resp->alert($descricaoCarteira); return $resp;
+    salvar_carteira($dados);
+    return $resp;
 }
 
 
@@ -77,7 +78,7 @@ function salvar_carteiras($dados){
                 <form role="form" id="form_cadastro">
                     <div class="form-group">
                       <label for="formGroupExampleInput">Digite a descrição</label>
-                      <input type="text" class="form-control" id="descricaoCarteira" placeholder="Digite a descrição">
+                      <input type="text" class="form-control" id="descricaoCarteira" name="descricaoCarteira" placeholder="Digite a descrição">
                     </div>
                     <div class="form-group">
                         <div id="lista_ativos" class="panel-body"></div>
