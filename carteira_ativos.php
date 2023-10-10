@@ -127,12 +127,12 @@ function busca_carteiras($idCliente)   {
 					<td> # </td>
                 </tr> ';	
         	}
-		<tr style="color:white; background-color:#8ecae6;">
+			
+		$tela .= '<tr style="color:white; background-color:#8ecae6;">
                     <td rowspan="3">
       			<input type="button" value="Nova Carteira"  class="btn btn-secondary btn-sm" onclick="xajax_cadastrar_carteira('.$idCliente.'); return false;">
       		    </td>
-                </tr>	
-		$tela .= '</table>';	
+                </tr></table>';	
 	}
 
 	$resp->assign("tela_cliente","innerHTML",$tela);
