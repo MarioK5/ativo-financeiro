@@ -92,6 +92,8 @@ function busca_dados($dados)   {
         } 
 
     $resp->script('xajax_busca_carteiras($idCliente)');
+    $script = "document.getElementById('desc_carteira').focus()";
+    $resp->script($script);
     $resp->assign("tela_saida","innerHTML",$tela);
   
    return $resp;
@@ -255,9 +257,6 @@ function recuperar_senha()   {
         <script language="JavaScript" ></script>
         <script type="text/javascript" LANGUAGE="JavaScript"></script>
 <script>
-	document.getElementById("busca_carteira").onclick = function() {
-	document.getElementById("desc_carteira").focus();
-	}
 
 
 </script>
