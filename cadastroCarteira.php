@@ -20,8 +20,8 @@ function salvar_carteiras($dados){
     //echo "<script>alert('$descricaoCarteira');</script>";
 
     //$resp->alert($descricaoCarteira); return $resp;
-    console.log(xajax.getFormValues('form_cadastro'));
-    console.log(document.getElementById('descricaoCarteira'));
+    //console.log(xajax.getFormValues('form_cadastro'));
+    //console.log(document.getElementById('descricaoCarteira'));
 
 
     salvar_carteira($dados);
