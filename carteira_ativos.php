@@ -110,10 +110,10 @@ function busca_carteiras($idCliente)   {
 		
 		$tela .= '<table border="0" width=100%>
 		<tr style="color:white; background-color:#8ecae6;">
-                    <th rowspan="3">
+                    <td rowspan="3">
       			<input type="button" value="Nova Carteira"  class="btn btn-secondary btn-sm" onclick="xajax_cadastrar_carteira('.$idCliente.'); return false;">
-      		    </th>
-                </tr>
+      		    </td>
+                </tr><br><br>
 		<tr>
                     <th>Nome da Carteira</th>
 		    <th>Valor Investido</th>
