@@ -112,10 +112,8 @@ function busca_carteiras($idCliente)   {
 	$tela .= '<table border="0" width=100%>
  			<tr style="color:white; background-color:#8ecae6;">
 			    <td rowspan="3">
-      			        	<input type="button" value="Nova Carteira"  class="btn btn-success btn-sm" onclick="xajax_cadastrar_carteira('.$idCliente.'); return false;">
-		 		<div class="input-group">
+      			        	<input type="button" value="Gravar Nova Carteira"  class="btn btn-success btn-sm" onclick="xajax_cadastrar_carteira('.$idCliente.'); return false;">
                                 	<input type="text" class="form-control" name="descricao" id="descricao" value=""/>
-                                </div>
       		            </td>
                        </tr>
 		</table>
