@@ -150,13 +150,13 @@ function cadastrar_carteira($desc_carteira, $idCliente)   {
 
 	$resp = new xajaxResponse();
 
-	$tela = '';
+	$tela = "";
 
 	$d_carteira = strtoupper($desc_carteira);
 
 	$result = cadastroCarteira($d_carteira, $idCliente);
 
-
+$resp->alert($result); return $resp;
 
   	$script = "xajax_busca_carteiras($idCliente)";
     	$resp->script($script);
