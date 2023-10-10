@@ -115,7 +115,7 @@ function busca_carteiras($idCliente)   {
 				    <input type="button" value="Criar Nova Carteira"  class="btn btn-success btn-sm" onclick="xajax_cadastrar_carteira(document.getElementById(\'desc_carteira\').value,'.$idCliente.'); return false;">
 				</div>
     				<div class="col-xs-6 col-md-6">
-				    <input type="text" class="form-control" name="desc_carteira" id="desc_carteira" value="" style="width: 300px;"/>
+				    <input type="text" class="form-control" name="desc_carteira" id="desc_carteira" value=""  autocomplete="off" />
 				</div>
 			    </div>
 		</table>
@@ -151,13 +151,19 @@ function cadastrar_carteira($desc_carteira, $idCliente)   {
 	$resp = new xajaxResponse();
 
 	$tela = '';
-	
-	$resp->alert('Cadastrar carteira do cliente: '.$desc_carteira); return $resp;
 
+	$desc_carteira = strtoupper($desc_carteira);
 
+	$result = cadastroCarteira($desc_carteira, $idCliente);
 
+	if($result ;. 0){
+		$resp->alert('Carteira '.$desc_carteira.' cadastrada!');
+	}else{
+		$resp->alert('Erro ao gravar a nova carteira...');
+	}
 
-	$resp->assign("tela_cliente","innerHTML",$tela);
+	$script = "xajax_busca_carteiras($idCliente)";
+    	$resp->script($script);
   
 	return $resp;
 }
