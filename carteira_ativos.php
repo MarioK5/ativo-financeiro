@@ -11,7 +11,6 @@ $xajax->registerFunction("busca_carteiras");
 $xajax->registerFunction("busca_ativos");
 $xajax->registerFunction("busca_investimentos");
 $xajax->registerFunction("cadastrar_carteira");
-$xajax->registerFunction("gravar_carteira");
 $xajax->registerFunction("cadastrar_cliente");
 $xajax->registerFunction("recuperar_senha");
 $xajax->processRequest();
@@ -147,50 +146,9 @@ function cadastrar_carteira($idCliente)   {
 
 	$tela = '';
 	
-//	$resp->alert('Cadastrar carteira do cliente: '.$idCliente); return $resp;
-
-	$tela .= ' <form role="form" id="form_carteira" class="small">
- 			<div class="row">
-                                <div class="col-xs-4 col-md-4">
-                                    <div class="form-group">
-                                        <label>Informe o nome da nova carteira</label>
-                                        <div id="sandbox-container">
-                                            <div class="input-group">
-                                                <input type="text" class="form-control" name="desc_carteira" id="desc_carteira" value="" style="width: 300px;"/>
-						<input type="hidden" class="form-control" name="idCliente" id="idCliente" value="'.$idCliente.'" style="width: 300px;"/>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-				<div class="row">
-                                <div class="col-xs-4 col-md-4">
-                                    <div class="form-group">
-                                        <div id="sandbox-container">
-                                            <div class="input-group">
-                                                <div>
-                                                     <input type="button" value="Entrar"  class="btn btn-success btn-md btn-block" onclick="xajax_gravar_carteira(xajax.getFormValues('form_carteira')); return false;">
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-		</form> ';
+	$resp->alert('Cadastrar carteira do cliente: '.$idCliente); return $resp;
 
 
-	$resp->assign("tela_cliente","innerHTML",$tela);
-  
-	return $resp;
-}
-
-function gravar_carteira($dados)   {
-
-	$resp = new xajaxResponse();
-
-	$tela = '';
-	
-	$resp->alert('Gravar carteira do cliente);
-
-	
 
 
 	$resp->assign("tela_cliente","innerHTML",$tela);
