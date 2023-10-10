@@ -9,11 +9,18 @@ $xajax->setCharEncoding('UTF-8');
 $xajax->registerFunction("salvar_carteiras");
 $xajax->processRequest();
 
+
+
+
 function salvar_carteiras($dados){
-    $resp = new xajaxResponse();    
-    $resp->alert($dados['descricaoCarteira']); return $resp;
+    $resp = new xajaxResponse();
+    
+    $descricaoCarteira = $dados['descricaoCarteira'];
+    echo "<script>alert('$descricaoCarteira');</script>";
+
+    //$resp->alert($dados['descricaoCarteira']); return $resp;
     //salvar_carteira($dados);
-    //return $resp;
+    return $resp;
 }
 
 
