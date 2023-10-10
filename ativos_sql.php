@@ -157,14 +157,12 @@ function cadastroCarteira($descricao, $idCliente){
 	
 	$conn = OpenCon();
 	
-//	$descricao = strtoupper($descricao);
-	
 	$ret = 0;
 
 	$sql = "INSERT INTO CARTEIRA (DESCRICAO, ID_CLIENTE) VALUES ('{$descricao}', '{$idCliente}')";
 
 	$result = mysqli_query($conn,$sql);
-		mysqli_commit($conn);
+		  mysqli_commit($conn);
 	
 	if(mysql_affected_rows() > 0){
 		$ret = 1;
@@ -312,7 +310,7 @@ function apiListaAtivos(){
 	
 	$conn = OpenCon();
 	
-	$sql = "SELECT * FROM ATIVOS";
+	$sql = "SELECT * FROM ATIVOS WHERE CODIGO = 'AZUL4' ";
 
     $result = mysqli_query($conn,$sql);
 	
