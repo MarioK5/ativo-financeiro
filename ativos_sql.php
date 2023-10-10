@@ -170,7 +170,7 @@ function cadastroCarteira($descricao, $idCliente){
 	
 	CloseCon($conn);
 	
-	return $ret;
+//	return $ret;
 }
 
 function cadastroInvestimento($dados){
