@@ -111,11 +111,11 @@ function busca_carteiras($idCliente)   {
 		
 	$tela .= '<table border="0" width=100%>
 			    <div class="row" style="color:white; background-color:#8ecae6;">
-				<div class="col-xs-6 col-md-2">
-				    <input type="button" value="Criar Nova Carteira"  class="btn btn-success btn-sm" onclick="xajax_cadastrar_carteira(xajax.getFormValues(\'form_cadastro\'),'.$idCliente.'); return false;">
-				</div>
 				<div class="col-xs-6 col-md-6">
 				    <input type="text" class="form-control" name="desc_carteira" id="desc_carteira" value=""/>
+				</div>
+    				<div class="col-xs-6 col-md-2">
+				    <input type="button" value="Criar Nova Carteira"  class="btn btn-success btn-sm" onclick="xajax_cadastrar_carteira(xajax.getFormValues(\'form_cadastro\'),'.$idCliente.'); return false;">
 				</div>
 			    </div>
 		</table>
