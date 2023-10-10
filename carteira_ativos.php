@@ -80,6 +80,7 @@ function busca_dados($dados)   {
   		     <td>
 			<div id="tela_cliente" class="panel-body"></div>
   		     </td>
+	 
   		</tr>
   	</table> ';
 
@@ -108,13 +109,19 @@ function busca_carteiras($idCliente)   {
 	
 	if (mysqli_num_rows($result) > 0) {
 		
-		$tela .= '<table border="0" width=100%>
-
-		<tr>
-                    <th>Nome da Carteira</th>
-		    <th>Valor Investido</th>
-		    <th>Editar</th>
-                </tr> ';
+	$tela .= '<table border="0" width=100%>
+ 			<tr style="color:white; background-color:#8ecae6;">
+			    <td rowspan="3">
+      			        <input type="button" value="Nova Carteira"  class="btn btn-secondary btn-sm" onclick="xajax_cadastrar_carteira('.$idCliente.'); return false;">
+      		            </td>
+                       </tr>
+		</table>
+		<table border="0" width=100%>
+			<tr>
+	                    <th>Nome da Carteira</th>
+			    <th>Valor Investido</th>
+			    <th>Editar</th>
+	                </tr> ';
 		
 		while ($row = mysqli_fetch_array($result)) {
             		$idCarteira = $row["ID"];
@@ -128,11 +135,7 @@ function busca_carteiras($idCliente)   {
                 </tr> ';	
         	}
 			
-		$tela .= '<tr style="color:white; background-color:#8ecae6;">
-                    <td rowspan="3">
-      			<input type="button" value="Nova Carteira"  class="btn btn-secondary btn-sm" onclick="xajax_cadastrar_carteira('.$idCliente.'); return false;">
-      		    </td>
-                </tr></table>';	
+		$tela .= '</table>';	
 	}
 
 	$resp->assign("tela_cliente","innerHTML",$tela);
