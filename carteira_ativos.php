@@ -62,7 +62,7 @@ function busca_dados($dados)   {
                     <td>
 		    	<div class="row">
                                 <div class="col-xs-6 col-md-2">
-                                    <input type="button" value="Carteiras"  class="btn btn-primary btn-md btn-block" onclick="xajax_busca_carteiras('.$idCliente.'); return false;">
+                                    <input type="button" id="busca_carteira" value="Carteiras"  class="btn btn-primary btn-md btn-block" onclick="xajax_busca_carteiras('.$idCliente.'); return false;">
 				</div>
 				<div class="col-xs-6 col-md-2">
                                      <input type="button" value="Ativos"  class="btn btn-primary btn-md btn-block" onclick="xajax_busca_ativos('.$idCliente.'); return false;">
@@ -113,7 +113,7 @@ function busca_carteiras($idCliente)   {
  			<tr style="color:white; background-color:#8ecae6;">
 			    <td rowspan="3">
       			        	<input type="button" value="Gravar Nova Carteira"  class="btn btn-success btn-sm" onclick="xajax_cadastrar_carteira('.$idCliente.'); return false;">
-                                	<input type="text" class="form-control" name="descricao" id="descricao" value=""/>
+                                	<input type="text" class="form-control" name="desc_carteira" id="desc_carteira" value=""/>
       		            </td>
                        </tr>
 		</table>
@@ -255,7 +255,9 @@ function recuperar_senha()   {
         <script language="JavaScript" ></script>
         <script type="text/javascript" LANGUAGE="JavaScript"></script>
 <script>
-     
+	document.getElementById("busca_carteira").onclick = function() {
+	document.getElementById("desc_carteira").focus();
+	}
 
 
 </script>
