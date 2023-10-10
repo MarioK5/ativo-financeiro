@@ -173,8 +173,8 @@ function cadastrar_carteira($idCliente)   {
                                             </div>
                                         </div>
                                     </div>
-                                </div>'
-		</form>;
+                                </div>
+		</form> ';
 
 
 	$resp->assign("tela_cliente","innerHTML",$tela);
