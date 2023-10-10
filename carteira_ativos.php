@@ -90,9 +90,7 @@ function busca_dados($dados)   {
         } else { 
 		$resp->alert('Email ou senha incotera!'); return $resp;
         } 
-
-    $resp->script('xajax_busca_carteiras($idCliente)');
-    $script = "document.getElementById('desc_carteira').focus()";
+    $script = "xajax_busca_carteiras($idCliente)";
     $resp->script($script);
     $resp->assign("tela_saida","innerHTML",$tela);
   
