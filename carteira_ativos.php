@@ -154,7 +154,7 @@ function cadastrar_carteira($dados, $idCliente)   {
 
 	$desc_carteira = $dados['desc_carteira'];
 	
-	$resp->alert('Cadastrar carteira do cliente: '.$idCliente); return $resp;
+	$resp->alert('Cadastrar carteira do cliente: '.$desc_carteira); return $resp;
 
 
 
