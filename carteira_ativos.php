@@ -152,11 +152,11 @@ function cadastrar_carteira($desc_carteira, $idCliente)   {
 
 	$tela = '';
 
-	$desc_carteira = strtoupper($desc_carteira);
+	$d_carteira = strtoupper($desc_carteira);
 
-	$result = cadastroCarteira($desc_carteira, $idCliente);
+	$result = cadastroCarteira($d_carteira, $idCliente);
 
-	if($result ;. 0){
+	if($result > 0){
 		$resp->alert('Carteira '.$desc_carteira.' cadastrada!');
 	}else{
 		$resp->alert('Erro ao gravar a nova carteira...');
