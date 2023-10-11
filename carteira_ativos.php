@@ -121,7 +121,7 @@ function busca_carteiras($idCliente)   {
 				</div>
 			    </div>
 		</table>
-		<table border="0" width=100%>
+		<table border="0" width=100% class="table">
 			<tr>
 	                    <th>Nome da Carteira</th>
 			    <th>Valor Investido</th>
