@@ -216,9 +216,8 @@ function busca_ativos($idCliente)   {
 
 	$resp = new xajaxResponse();
 
-	$tela = "";
 
-	$resp->alert('Ativos do cliente: '.$idCliente.' em desenvolvimento); return $resp;
+	$resp->alert('Ativos do cliente: '.$idCliente); return $resp;
 
 	
 	$resp->assign("tela_cliente","innerHTML",$tela);
