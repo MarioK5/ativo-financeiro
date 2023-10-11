@@ -154,10 +154,13 @@ function cadastrar_carteira($desc_carteira, $idCliente)   {
 
 	$d_carteira = strtoupper($desc_carteira);
 
-	
-
 	$result = cadastroCarteira($d_carteira, $idCliente);
-$resp->alert('gravar carteira: '.$result); return $resp;
+
+	if($result > 0){
+		$resp->alert('Carteira: '.$d_carteira.' cadastrada!');
+	}else{
+		$resp->alert('Erro no cadastro...');
+	}
 
   //	$script = "xajax_busca_carteiras($idCliente)";
   //  	$resp->script($script);
