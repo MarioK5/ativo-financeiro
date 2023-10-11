@@ -113,7 +113,7 @@ function busca_carteiras($idCliente)   {
 	$tela .= '<table border="0" width=100%>
 			    <div class="row" style="color:white; background-color:#8ecae6;">
     				<div class="col-xs-6 col-md-2">
-				    <input type="button" value="Criar Nova Carteira"  class="btn btn-success btn-sm" onclick="xajax_cadastrar_carteira(document.getElementById(\'desc_carteira\').value,'.$idCliente.'); ">
+				    <input type="button" value="Criar Nova Carteira"  class="btn btn-success btn-sm" onclick="xajax_cadastrar_carteira(document.getElementById(\'desc_carteira\').value,'.$idCliente.',0); ">
 				</div>
     				<div class="col-xs-6 col-md-6">
 				    <input type="text" class="form-control" name="desc_carteira" id="desc_carteira" value=""  autocomplete="off" />
@@ -137,8 +137,7 @@ function busca_carteiras($idCliente)   {
                     		<td>'.$descricao.'</td>
 		    		<td>'.number_format($valor,2,",",".").'</td>
 				<td>
-     				     <input type="button" value="Editar"  class="btn btn-outline-dark" onclick="xajax_editar_carteira('.$idCliente.','.$idCarteira.'); ">
-	      				<button type="button" class="btn btn-outline-dark">Dark</button>
+     				     <input type="button" value="Editar"  class="btn btn-secondary btn-sm" onclick="xajax_editar_carteira('.$idCliente.','.$idCarteira.'); ">
      				</td>
                 	</tr> ';	
         	}
@@ -151,7 +150,7 @@ function busca_carteiras($idCliente)   {
 	return $resp;
 }
 
-function cadastrar_carteira($desc_carteira, $idCliente)   {
+function cadastrar_carteira($desc_carteira, $idCliente, $idCarteira)   {
 
 	$resp = new xajaxResponse();
 
@@ -159,7 +158,11 @@ function cadastrar_carteira($desc_carteira, $idCliente)   {
 
 	$d_carteira = strtoupper($desc_carteira);
 
-	$result = cadastroCarteira($d_carteira, $idCliente);
+	if($idCarteira == 0){
+		$result = cadastroCarteira($d_carteira, $idCliente);
+	}else{
+		$result = alteraCarteira($d_carteira, $idCliente, idCarteira);
+	}
 
 	if($result > 0){
 		$resp->alert('Carteira cadastrada!');
@@ -178,13 +181,20 @@ function editar_carteira($idCliente, $idCarteira)   {
 
 	$resp = new xajaxResponse();
 
-	$tela = '';
+	$tela = ' <div class="row">
+			<div class="col-xs-4 col-md-4">
+			    <div class="form-group">
+				<label>Informe o novo nome da carteira:</label>
+    				<div class="col-xs-6 col-md-6">
+				    <input type="text" class="form-control" name="novo_nome_carteira" id="novo_nome_carteira" value=""  autocomplete="off" />
+				</div>
+    				<div class="col-xs-6 col-md-2">
+				    <input type="button" value="Gravar"  class="btn btn-success btn-sm" onclick="xajax_cadastrar_carteira(document.getElementById(\'novo_nome_carteira\').value,'.$idCliente.','.$idCarteira.'); ">
+				</div>
+			    </div>
+			</div>
+		    </div> ';
 	
-	$resp->alert('Editar carteira do cliente: '.$idCliente); return $resp;
-
-	
-
-
 	$resp->assign("tela_cliente","innerHTML",$tela);
   
 	return $resp;
