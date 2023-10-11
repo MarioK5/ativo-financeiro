@@ -138,6 +138,7 @@ function busca_carteiras($idCliente)   {
 		    		<td>'.number_format($valor,2,",",".").'</td>
 				<td>
      				     <input type="button" value="Editar"  class="btn btn-outline-dark" onclick="xajax_editar_carteira('.$idCliente.','.$idCarteira.'); ">
+	      				<button type="button" class="btn btn-outline-dark">Dark</button>
      				</td>
                 	</tr> ';	
         	}
