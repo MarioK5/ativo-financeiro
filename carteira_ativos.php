@@ -62,13 +62,13 @@ function busca_dados($dados)   {
                     <td>
 		    	<div class="row">
                                 <div class="col-xs-6 col-md-3">
-                                    <input type="button" id="busca_carteira" value="Carteiras"  class="btn btn-primary btn-md btn-block" onclick="xajax_busca_carteiras('.$idCliente.'); return false;">
+                                    <input type="button" id="busca_carteira" value="Minhas Carteiras"  class="btn btn-primary btn-md btn-block" onclick="xajax_busca_carteiras('.$idCliente.'); return false;">
 				</div>
 				<div class="col-xs-6 col-md-3">
-                                     <input type="button" value="Ativos"  class="btn btn-primary btn-md btn-block" onclick="xajax_busca_ativos('.$idCliente.'); return false;">
+                                     <input type="button" value="Meus Ativos"  class="btn btn-primary btn-md btn-block" onclick="xajax_busca_ativos('.$idCliente.'); return false;">
 		    		</div>
 				<div class="col-xs-6 col-md-3">
-                                     <input type="button" value="Investimentos"  class="btn btn-primary btn-md btn-block" onclick="xajax_busca_investimentos('.$idCliente.'); return false;">
+                                     <input type="button" value="Meus Investimentos"  class="btn btn-primary btn-md btn-block" onclick="xajax_busca_investimentos('.$idCliente.'); return false;">
 		    		</div>
 				<div class="col-xs-3 col-md-2">
                             	     <input type="button" value="Sair"  class="btn btn-danger btn-md btn-block"  onclick="location.reload(true);"></td>
