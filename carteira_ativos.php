@@ -93,7 +93,7 @@ function busca_dados($dados)   {
         } 
     $script = "xajax_busca_carteiras($idCliente)";
     $resp->script($script);
-    $resp->assign("desc_carteira","value","");
+    
     $resp->assign("tela_saida","innerHTML",$tela);
   
    return $resp;
@@ -148,6 +148,7 @@ function busca_carteiras($idCliente)   {
 		$tela .= '</table>';	
 	}
 
+	$resp->assign("desc_carteira","value","");
 	$resp->assign("tela_cliente","innerHTML",$tela);
   
 	return $resp;
