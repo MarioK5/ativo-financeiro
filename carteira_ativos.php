@@ -137,7 +137,7 @@ function busca_carteiras($idCliente)   {
                     		<td>'.$descricao.'</td>
 		    		<td>'.number_format($valor,2,",",".").'</td>
 				<td>
-     				     <input type="button" value=""  class="btn btn-secondary btn-sm glyphicon glyphicon-edit" onclick="xajax_editar_carteira('.$idCliente.','.$idCarteira.'); ">
+     				     <input type="button" value=""  class="glyphicon glyphicon-edit" onclick="xajax_editar_carteira('.$idCliente.','.$idCarteira.'); ">
      				</td>
                 	</tr> ';	
         	}
@@ -327,6 +327,16 @@ function recuperar_senha()   {
         color:black;
         font-size: 15px;
         text-align: left}
+
+.btn-custom {
+	padding: 1px 15px 3px 2px;
+	border-radius: 50px;
+}
+
+.btn-icon {
+	padding: 8px;
+	background: #ffffff;
+}
 </style>
 
  <?php $xajax->printJavascript('lib/xajax'); ?>
