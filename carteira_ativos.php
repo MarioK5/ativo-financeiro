@@ -193,7 +193,7 @@ function editar_carteira($idCliente, $idCarteira)   {
 	$resp = new xajaxResponse();
 
 	$tela = ' <div class="row">
-			<div class="col-xs-4 col-md-4">
+			<div class="col-xs-8 col-md-8">
 			    <div class="form-group">
 				<label>Informe o novo nome da carteira:</label>
     				<div class="col-xs-6 col-md-6">
