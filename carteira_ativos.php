@@ -138,7 +138,7 @@ function busca_carteiras($idCliente)   {
 		    		<td>'.number_format($valor,2,",",".").'</td>
 				<td>
      				     <button type="button" class="btn btn-default btn-sm" onclick="xajax_editar_carteira('.$idCliente.','.$idCarteira.'); ">
-					 <span class="glyphicon glyphicon-th-list"></span>
+					 <span class="glyphicon glyphicon-edit"></span>
 				     </button>
      				</td>
                 	</tr> ';	
@@ -159,7 +159,7 @@ function cadastrar_carteira($desc_carteira, $idCliente, $idCarteira)   {
 	$tela = "";
 
 	$d_carteira = strtoupper($desc_carteira);
-
+$resp->alert($idCarteira); return $resp;
 	if($idCarteira == 0){
 		$result = cadastroCarteira($d_carteira, $idCliente);
 	}else{
