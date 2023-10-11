@@ -158,7 +158,8 @@ function cadastrar_carteira($desc_carteira, $idCliente, $idCarteira)   {
 
 	$resp = new xajaxResponse();
 
-	$tela = "";
+	$tela   = "";
+	$result = 0;
 
 	$d_carteira = strtoupper($desc_carteira);
 
@@ -166,7 +167,7 @@ function cadastrar_carteira($desc_carteira, $idCliente, $idCarteira)   {
 		$result = cadastroCarteira($d_carteira, $idCliente);
 		$mensagem = 'Carteira cadastrada!';
 	}else{
-	//	$result = alteraCarteira($d_carteira, $idCliente, idCarteira);
+		$result = alteraCarteira($d_carteira, $idCliente, idCarteira);
 		$mensagem = 'Carteira atualizada!';
 	}
 
