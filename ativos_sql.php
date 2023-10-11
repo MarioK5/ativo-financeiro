@@ -266,10 +266,7 @@ function alteraCarteira($descricao, $idCliente, $idCarteira){
 	
 	$ret = 0;
 	
-	$sql = "UPDATE CARTEIRA 
-			SET DESCRICAO    = '{$descricao}'
-			WHERE ID_CLIENTE = '{$idCliente}'
-			  AND ID         = '{$idCarteira}' ";
+	$sql = "UPDATE CARTEIRA SET DESCRICAO  = '{$descricao}'	WHERE ID_CLIENTE = '{$idCliente}' AND ID = '{$idCarteira}' ";
 
 	$result = mysqli_query($conn,$sql);
 		  mysqli_commit($conn);
