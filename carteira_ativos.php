@@ -136,8 +136,8 @@ function busca_carteiras($idCliente)   {
 		$tela .= '<tr>
                     		<td>'.$descricao.'</td>
 		    		<td>'.number_format($valor,2,",",".").'</td>
-				<td style="color:white; ">
-     				     <input type="button" value="Editar"  class="btn btn-info btn-sm" onclick="xajax_editar_carteira('.$idCliente.','.$idCarteira.'); ">
+				<td>
+     				     <input type="button" value="Editar"  class="btn btn-outline-dark" onclick="xajax_editar_carteira('.$idCliente.','.$idCarteira.'); ">
      				</td>
                 	</tr> ';	
         	}
@@ -179,7 +179,7 @@ function editar_carteira($idCliente, $idCarteira)   {
 
 	$tela = '';
 	
-	$resp->alert('Editar carteira do cliente: '.$idCliente);
+	$resp->alert('Editar carteira do cliente: '.$idCliente); return $resp;
 
 	
 
