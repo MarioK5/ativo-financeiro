@@ -162,7 +162,7 @@ function cadastrar_carteira($desc_carteira, $idCliente, $idCarteira)   {
 	$result = 0;
 
 	if(!$desc_carteira){
-		$resp->alert('Falta informar o nome da nova carteira!'); return $resp;
+		$resp->alert('Falta informar o nome da carteira!'); return $resp;
 	}
 
 	$d_carteira = strtoupper($desc_carteira);
