@@ -165,13 +165,17 @@ function cadastrar_carteira($desc_carteira, $idCliente, $idCarteira)   {
 		$resp->alert('Falta informar o nome da carteira!'); return $resp;
 	}
 
-	$d_carteira = strtoupper($desc_carteira);
+	$descri_carteira = strtoupper($desc_carteira);
+
+	$resp->alert($descri_carteira);
+	$resp->alert($idCliente);
+	$resp->alert($idCarteira);
 
 	if($idCarteira == 0){
-		$result = cadastroCarteira($d_carteira, $idCliente);
+		$result = cadastroCarteira($descri_carteira, $idCliente);
 		$mensagem = 'Carteira cadastrada!';
 	}else{
-		$result = alteraCarteira($d_carteira, $idCliente, idCarteira);
+		$result = alteraCarteira($descri_carteira, $idCliente, idCarteira);
 		$mensagem = 'Carteira atualizada!';
 	}
 
