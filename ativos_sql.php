@@ -271,9 +271,10 @@ function alteraCarteira($descricao, $idCliente, $idCarteira){
     		WHERE ID_CLIENTE = '{$idCliente}'
       		  AND ID = '{$idCarteira}'";
 
-	$arq = fopen("log.txt","w") or die("Problemas para criar o arquivo");
+/*	$arq = fopen("log.txt","w") or die("Problemas para criar o arquivo");
         fputs($arq,$sql);
-        fclose($arq);
+        fclose($arq); */
+	
 	$result = mysqli_query($conn,$sql);
 		  mysqli_commit($conn);
 
