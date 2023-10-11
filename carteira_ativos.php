@@ -11,6 +11,7 @@ $xajax->registerFunction("busca_carteiras");
 $xajax->registerFunction("busca_ativos");
 $xajax->registerFunction("busca_investimentos");
 $xajax->registerFunction("cadastrar_carteira");
+$xajax->registerFunction("editar_carteira");
 $xajax->registerFunction("cadastrar_cliente");
 $xajax->registerFunction("recuperar_senha");
 $xajax->processRequest();
@@ -130,12 +131,15 @@ function busca_carteiras($idCliente)   {
             		$idCarteira = $row["ID"];
             		$descricao  = $row["DESCRICAO"];
             		$idCliente  = $row["ID_CLIENTE"];
+			$valor = 0;
 					
 		$tela .= '<tr>
-                    <td>'.$descricao.'</td>
-					<td> 0 </td>
-					<td> # </td>
-                </tr> ';	
+                    		<td>'.$descricao.'</td>
+		    		<td>'.number_format($valor,2,",",".").'</td>
+				<td style="color:white; ">
+     				     <input type="button" value="Editar"  class="btn btn-dark btn-sm" onclick="xajax_editar_carteira('.$idCliente.','.$idCarteira.'); ">
+     				</td>
+                	</tr> ';	
         	}
 			
 		$tela .= '</table>';	
@@ -166,6 +170,22 @@ function cadastrar_carteira($desc_carteira, $idCliente)   {
     	$resp->script($script);
     	$resp->assign("tela_cliente","innerHTML",$tela);
 	
+	return $resp;
+}
+
+function editar_carteira($idCliente, $idCarteira)   {
+
+	$resp = new xajaxResponse();
+
+	$tela = '';
+	
+	$resp->alert('Editar carteira do cliente: '.$idCliente);
+
+	
+
+
+	$resp->assign("tela_cliente","innerHTML",$tela);
+  
 	return $resp;
 }
 
