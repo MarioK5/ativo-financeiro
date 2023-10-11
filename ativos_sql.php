@@ -229,7 +229,7 @@ function listaInvestimentos($dados){
 	$conn = OpenCon();
 	
 	$usuario = strtoupper($dados['usuario']);
-    $senha   = $dados['senha'];
+    	$senha   = $dados['senha'];
 	
 	$ret = 0;
 	
@@ -267,9 +267,9 @@ function alteraCarteira($descricao, $idCliente, $idCarteira){
 	$ret = 0;
 	
 	$sql = "UPDATE CARTEIRA SET
- 			DESCRICAO  = 'NOVO'
-    		WHERE ID_CLIENTE = '1'
-      		  AND ID = '33' ";
+ 			DESCRICAO  = '{$descricao}'
+    		WHERE ID_CLIENTE = '{$idCliente}'
+      		  AND ID = '{$idCarteira}'";
 
 	$result = mysqli_query($conn,$sql);
 		  mysqli_commit($conn);
