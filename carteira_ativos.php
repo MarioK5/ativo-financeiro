@@ -154,6 +154,8 @@ function cadastrar_carteira($desc_carteira, $idCliente)   {
 
 	$d_carteira = strtoupper($desc_carteira);
 
+	$resp->alert('gravar carteira: '.$d_carteira); return $resp;
+
 	cadastroCarteira($d_carteira, $idCliente);
 
 
