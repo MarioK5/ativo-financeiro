@@ -157,14 +157,14 @@ function cadastroCarteira($descricao, $idCliente){
 	
 	$conn = OpenCon();
 	
-	$ret = 2;
+	$ret = 0;
 
 	$sql = "INSERT INTO CARTEIRA (DESCRICAO, ID_CLIENTE) VALUES ('{$descricao}', '{$idCliente}')";
 
-	$result = mysqli_query($conn,$sql);
-		  mysqli_commit($conn);
-	
-
+	is(mysqli_query($conn,$sql)){
+		$ret = 1;
+	}
+		  
 	CloseCon($conn);
 	
 	return $ret;
