@@ -272,6 +272,7 @@ function alteraCarteira($descricao, $idCliente, $idCarteira){
 			  AND ID         = '{$idCarteira}' ";
 
 	$result = mysqli_query($conn,$sql);
+		  mysqli_commit($conn);
 	
 	if($result){
 		$ret = 1;
