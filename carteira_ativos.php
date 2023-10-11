@@ -195,7 +195,7 @@ function editar_carteira($idCliente, $idCarteira)   {
 	$tela = ' <div class="row">
 			<div class="col-xs-12 col-md-12">
 			    <div class="form-group">
-				<label>Informe o novo nome da carteira:</label>
+				<label>Informe o novo nome da carteira!</label>
     				<div class="col-xs-6 col-md-6">
 				    <input type="text" class="form-control" name="novo_nome_carteira" id="novo_nome_carteira" value=""  autocomplete="off" />
 				</div>
