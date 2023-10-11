@@ -164,10 +164,7 @@ function cadastroCarteira($descricao, $idCliente){
 	$result = mysqli_query($conn,$sql);
 		  mysqli_commit($conn);
 	
-	if(mysql_affected_rows() > 0){
-		$ret = 1;
-	}
-	
+
 	CloseCon($conn);
 	
 	return $ret;
