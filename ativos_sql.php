@@ -264,8 +264,6 @@ function alteraCarteira($descricao, $idCliente, $idCarteira){
 	
 	$conn = OpenCon();
 	
-	$descricao = strtoupper($descricao);
-	
 	$ret = 0;
 	
 	$sql = "UPDATE CARTEIRA 
@@ -276,7 +274,7 @@ function alteraCarteira($descricao, $idCliente, $idCarteira){
 	$result = mysqli_query($conn,$sql);
 		  mysqli_commit($conn);
 	
-	if(mysql_affected_rows() > 0){
+	if($result){
 		$ret = 1;
 	}
 
