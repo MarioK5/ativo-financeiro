@@ -138,7 +138,7 @@ function busca_carteiras($idCliente)   {
                     		<td>'.$descricao.'</td>
 		    		<td style="text-align: center;">'.number_format($valor,2,",",".").'</td>
 				<td>
-     				     <button type="button" class="btn btn-default btn-sm" onclick="xajax_editar_carteira('.$idCliente.','.$idCarteira.'); ">
+     				     <button type="button" class="btn btn-default btn-sm" onclick="xajax_editar_carteira('.$descricao.','.$idCliente.','.$idCarteira.'); ">
 					 <span class="glyphicon glyphicon-edit"></span>
 				     </button>
      				</td>
@@ -188,7 +188,7 @@ function cadastrar_carteira($desc_carteira, $idCliente, $idCarteira)   {
 	return $resp;
 }
 
-function editar_carteira($idCliente, $idCarteira)   {
+function editar_carteira($descricao, $idCliente, $idCarteira)   {
 
 	$resp = new xajaxResponse();
 
@@ -197,7 +197,7 @@ function editar_carteira($idCliente, $idCarteira)   {
 			    <div class="form-group">
 				<label>Informe o novo nome da carteira!</label>
     				<div class="col-xs-6 col-md-6">
-				    <input type="text" class="form-control" name="novo_nome_carteira" id="novo_nome_carteira" value=""  autocomplete="off" />
+				    <input type="text" class="form-control" name="novo_nome_carteira" id="novo_nome_carteira" value="'.$descricao.'"  autocomplete="off" />
 				</div>
     				<div class="col-xs-2 col-md-2">
 				    <input type="button" value="Gravar"  class="btn btn-success btn-sm" onclick="xajax_cadastrar_carteira(document.getElementById(\'novo_nome_carteira\').value,'.$idCliente.','.$idCarteira.'); ">
