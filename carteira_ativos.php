@@ -157,14 +157,14 @@ function cadastrar_carteira($desc_carteira, $idCliente)   {
 	$result = cadastroCarteira($d_carteira, $idCliente);
 
 	if($result > 0){
-		$resp->alert('Carteira: '.$d_carteira.' cadastrada!');
+		$resp->alert('Carteira cadastrada!');
 	}else{
 		$resp->alert('Erro no cadastro...');
 	}
 
-  //	$script = "xajax_busca_carteiras($idCliente)";
-  //  	$resp->script($script);
-    	$resp->assign("tela_saida","innerHTML",$tela);
+  	$script = "xajax_busca_carteiras($idCliente)";
+    	$resp->script($script);
+    	$resp->assign("tela_cliente","innerHTML",$tela);
 	
 	return $resp;
 }
