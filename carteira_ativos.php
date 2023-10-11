@@ -93,6 +93,7 @@ function busca_dados($dados)   {
         } 
     $script = "xajax_busca_carteiras($idCliente)";
     $resp->script($script);
+    $resp->assign("desc_carteira","value","");
     $resp->assign("tela_saida","innerHTML",$tela);
   
    return $resp;
@@ -159,15 +160,17 @@ function cadastrar_carteira($desc_carteira, $idCliente, $idCarteira)   {
 	$tela = "";
 
 	$d_carteira = strtoupper($desc_carteira);
-$resp->alert($idCarteira); return $resp;
+
 	if($idCarteira == 0){
 		$result = cadastroCarteira($d_carteira, $idCliente);
+		$mensagem = 'Carteira cadastrada!';
 	}else{
-		$result = alteraCarteira($d_carteira, $idCliente, idCarteira);
+	//	$result = alteraCarteira($d_carteira, $idCliente, idCarteira);
+		$mensagem = 'Carteira atualizada!';
 	}
 
 	if($result > 0){
-		$resp->alert('Carteira cadastrada!');
+		$resp->alert($mensagem);
 	}else{
 		$resp->alert('Erro no cadastro...');
 	}
