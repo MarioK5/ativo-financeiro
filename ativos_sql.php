@@ -260,7 +260,7 @@ function listaAtivosCarteira($dados){
 	return $ret;
 }
 
-function alteraCarteira($descricao, $idCliente, $idCarteira){ /* falta passar o ID da carteira a ser alterada backend */
+function alteraCarteira($descricao, $idCliente, $idCarteira){
 	
 	$conn = OpenCon();
 	
@@ -279,8 +279,6 @@ function alteraCarteira($descricao, $idCliente, $idCarteira){ /* falta passar o 
 	if(mysql_affected_rows() > 0){
 		$ret = 1;
 	}
-
-	
 
 	CloseCon($conn);
 	
