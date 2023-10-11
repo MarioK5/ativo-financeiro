@@ -167,15 +167,11 @@ function cadastrar_carteira($desc_carteira, $idCliente, $idCarteira)   {
 
 	$descri_carteira = strtoupper($desc_carteira);
 
-	$resp->alert($descri_carteira);
-	$resp->alert($idCliente);
-	$resp->alert($idCarteira);
-
 	if($idCarteira == 0){
 		$result = cadastroCarteira($descri_carteira, $idCliente);
 		$mensagem = 'Carteira cadastrada!';
 	}else{
-		$result = alteraCarteira($descri_carteira, $idCliente, idCarteira);
+		$result = alteraCarteira($descri_carteira, $idCliente, $idCarteira);
 		$mensagem = 'Carteira atualizada!';
 	}
 
