@@ -420,6 +420,10 @@ body{
 	background: #6E7B8B; 
     }
 
+tbody{
+	background: white; 
+    }
+
 .btn-custom {
 	padding: 1px 15px 3px 2px;
 	border-radius: 50px;
