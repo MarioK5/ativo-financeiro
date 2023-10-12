@@ -273,7 +273,7 @@ function busca_ativos($idCliente)   {
       						<td>'.number_format($valor_atual_ativo,2,",",".").'</td>
 	    					<td>'.number_format($valor_atual_investido,2,",",".").'</td>
 						<td>
-		     				     <button type="button" class="btn btn-default btn-sm" onclick="xajax_editar_ativo_carteira('.$idAtivoCarteira.','.$idAtivo.','.$idCarteira.'); ">
+		     				     <button type="button" class="btn btn-default btn-sm" onclick="xajax_editar_ativo_carteira('.$idAtivoCarteira.'); ">
 							 <span class="glyphicon glyphicon-edit"></span>
 						     </button>
 		     				</td>
@@ -309,11 +309,11 @@ function cadastrar_ativo()   {
 	return $resp;
 }
 
-function editar_ativo_carteira($idCliente, $idCarteira)   {
+function editar_ativo_carteira($idAtivoCarteira)   {
 
 	$resp = new xajaxResponse();
 
-	$resp->alert('Editar ativo!'); return $resp;
+	$resp->alert('Editar ativo: '.$idAtivoCarteira); return $resp;
 
 	$tela   = "";
 	$result = 0;
