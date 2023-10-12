@@ -217,9 +217,9 @@ function busca_ativos($idCliente)   {
 	$resp = new xajaxResponse();
 
 
-//	$resp->alert('Ativos do cliente: '.$idCliente);
+	$resp->alert('Ativos do cliente: '.$idCliente);
 
-	$result = listaCarteiras($idCliente);
+	$result = listaAtivosCarteira($idCliente);
 	
 	if (mysqli_num_rows($result) > 0) {
 		
