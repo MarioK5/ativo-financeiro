@@ -417,11 +417,11 @@ function recuperar_senha()   {
   width: 1000px;
 }
 body{
-	background: #6E7B8B; 
+	background: #BEBEBE; 
     }
 
 tbody{
-	background: white; 
+	background: #D3D3D3; 
     }
 
 .btn-custom {
