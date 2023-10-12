@@ -233,11 +233,11 @@ function busca_ativos($idCliente)   {
 			    <div class="row" style="color:white; background-color:#8ecae6;">
     				<div class="col-xs-6 col-md-2">
 					<tr style="color:white; background-color:#8ecae6;">
-				     	     <th>Carteira: '.$descricao.'</th>
+				     	     <th colspan="8">Carteira: '.$descricao.'</th>
 	 				</tr>
       					<tr>
 	                    		     	<th>Codigo</th>
-			    		     	<th>Descrição</th>
+			    		     	<th>Empresa</th>
 			    		     	<th>Porcentagem</th>
 						<th>Qtde Ativos</th>
        						<th>Valor Invest.</th>
