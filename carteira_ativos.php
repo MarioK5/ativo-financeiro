@@ -138,7 +138,7 @@ function busca_carteiras($idCliente)   {
 					
 		$tela .= '<tr>
                     		<td>'.$descricao.'</td>
-		    		<td style="text-align: center;">'.number_format($valor,2,",",".").'</td>
+		    		<td>'.number_format($valor,2,",",".").'</td>
 				<td>
      				     <button type="button" class="btn btn-default btn-sm" onclick="xajax_editar_carteira('.$idCliente.','.$idCarteira.'); ">
 					 <span class="glyphicon glyphicon-edit"></span>
@@ -244,10 +244,10 @@ function busca_ativos($idCliente)   {
 							<th>Codigo</th>
 							<th>Empresa</th>
 							<th>Meta %</th>
-							<th>Qtde Ativos</th>
-       						<th>Valor Invest.</th>
-	     					<th>Valor Atual Ativo</th>
-							<th>Valor Invest. Atual</th>
+							<th>Qtde<br>Ativos</th>
+       						<th>Valor<br>Investido</th>
+	     					<th>Valor Atual<br>Ativo</th>
+							<th>Valor Atual<br>Investido</th>
 	    					<th>% Atual</th>
 							<th>Retorno</th>
 	    					<th>Editar</th>
