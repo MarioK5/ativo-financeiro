@@ -71,7 +71,7 @@ function busca_dados($dados)   {
 				<div class="col-xs-6 col-md-3">
                                      <input type="button" value="Meus Investimentos"  class="btn btn-primary btn-md btn-block" onclick="xajax_busca_investimentos('.$idCliente.'); return false;">
 		    		</div>
-				<div class="col-xs-3 col-md-2">
+				<div class="col-xs-6 col-md-3">
                             	     <input type="button" value="Sair"  class="btn btn-danger btn-md btn-block"  onclick="location.reload(true);"></td>
                         	</div>
        			</div>
