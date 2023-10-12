@@ -217,7 +217,48 @@ function busca_ativos($idCliente)   {
 	$resp = new xajaxResponse();
 
 
-	$resp->alert('Ativos do cliente: '.$idCliente);
+//	$resp->alert('Ativos do cliente: '.$idCliente);
+
+	$result = listaCarteiras($idCliente);
+	
+	if (mysqli_num_rows($result) > 0) {
+		
+	$tela .= '<table border="0" width=100%>
+			    <div class="row" style="color:white; background-color:#8ecae6;">
+    				<div class="col-xs-6 col-md-2">
+				    <input type="button" value="Criar Nova Carteira"  class="btn btn-success btn-sm" onclick="xajax_cadastrar_carteira(document.getElementById(\'desc_carteira\').value,'.$idCliente.',0); ">
+				</div>
+    				<div class="col-xs-6 col-md-6">
+				    <input type="text" class="form-control" name="desc_carteira" id="desc_carteira" value=""  autocomplete="off" />
+				</div>
+			    </div>
+		</table>
+		<table border="0" width=100% class="table">
+			<tr>
+	                    <th>Nome da Carteira</th>
+			    <th>Valor Investido</th>
+			    <th>Editar</th>
+	                </tr> ';
+		
+		while ($row = mysqli_fetch_array($result)) {
+            		$idCarteira = $row["ID"];
+            		$descricao  = $row["DESCRICAO"];
+            		$idCliente  = $row["ID_CLIENTE"];
+			$valor = 0;
+					
+		$tela .= '<tr>
+                    		<td>'.$descricao.'</td>
+		    		<td style="text-align: center;">'.number_format($valor,2,",",".").'</td>
+				<td>
+     				     <button type="button" class="btn btn-default btn-sm" onclick="xajax_editar_carteira('.$idCliente.','.$idCarteira.'); ">
+					 <span class="glyphicon glyphicon-edit"></span>
+				     </button>
+     				</td>
+                	</tr> ';	
+        	}
+			
+		$tela .= '</table>';	
+	}
 
 	
 	$resp->assign("tela_cliente","innerHTML",$tela);
