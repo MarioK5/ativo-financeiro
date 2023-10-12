@@ -216,46 +216,73 @@ function busca_ativos($idCliente)   {
 
 	$resp = new xajaxResponse();
 
-
 	$resp->alert('Ativos do cliente: '.$idCliente);
 
-	$result = listaAtivosCarteira($idCliente);
+	$result = listaCarteiras($idCliente);
 	
 	if (mysqli_num_rows($result) > 0) {
 		
-	$tela .= '<table border="0" width=100%>
-			    <div class="row" style="color:white; background-color:#8ecae6;">
-    				<div class="col-xs-6 col-md-2">
-				    <input type="button" value="Criar Nova Carteira"  class="btn btn-success btn-sm" onclick="xajax_cadastrar_carteira(document.getElementById(\'desc_carteira\').value,'.$idCliente.',0); ">
-				</div>
-    				<div class="col-xs-6 col-md-6">
-				    <input type="text" class="form-control" name="desc_carteira" id="desc_carteira" value=""  autocomplete="off" />
-				</div>
-			    </div>
-		</table>
-		<table border="0" width=100% class="table">
-			<tr>
-	                    <th>Nome da Carteira</th>
-			    <th>Valor Investido</th>
-			    <th>Editar</th>
-	                </tr> ';
+	$tela = '';
 		
 		while ($row = mysqli_fetch_array($result)) {
             		$idCarteira = $row["ID"];
             		$descricao  = $row["DESCRICAO"];
             		$idCliente  = $row["ID_CLIENTE"];
-			$valor = 0;
 					
-		$tela .= '<tr>
-                    		<td>'.$descricao.'</td>
-		    		<td style="text-align: center;">'.number_format($valor,2,",",".").'</td>
-				<td>
-     				     <button type="button" class="btn btn-default btn-sm" onclick="xajax_editar_carteira('.$idCliente.','.$idCarteira.'); ">
-					 <span class="glyphicon glyphicon-edit"></span>
-				     </button>
-     				</td>
-                	</tr> ';	
-        	}
+		$tela .= '<table border="0" width=100%>
+			    <div class="row" style="color:white; background-color:#8ecae6;">
+    				<div class="col-xs-6 col-md-2">
+					<tr style="color:white; background-color:#8ecae6;">
+				     	     <th>Carteira: '.$descricao.'</th>
+	 				</tr>
+      					<tr>
+	                    		     	<th>Codigo</th>
+			    		     	<th>Descrição</th>
+			    		     	<th>Porcentagem</th>
+						<th>Qtde Ativos</th>
+       						<th>Valor Invest.</th>
+	     					<th>Valor Atual Ativo</th>
+						<th>Valor Invest. Atual</th>
+      						<th>Editar</th>
+	                		</tr> 
+				</div>
+			    </div> ';	
+
+	$result2 = listaAtivosCarteira($idCarteira);
+			
+		if (mysqli_num_rows($result2) > 0) {
+			while ($row2 = mysqli_fetch_array($result2)) {
+
+				$idAtivoCarteira = $row2["ID"];
+				$idAtivo         = $row2["ID_ATIVO"];
+            			$idCarteira      = $row2["ID_CARTEIRA"];
+				$codigo          = $row2["CODIGO"];
+				$desc_Ativo      = $row2["DESCRICAO"];
+				$porcentagem     = $row2["PORCENTAGEM"];
+				$qtde_ativos     = $row2["QTDE_ATIVOS"];
+				$valor_investido = $row2["VALOR_INVESTIDO"];
+				$valor_atual_ativo = $row2["VALOR_ATUAL_ATIVO"];
+				$valor_atual_investido = ($qtde_ativos * $valor_atual_ativo);
+				
+				$tela .= '<tr>
+						<td>'.$codigo.'</td>
+      						<td>'.$desc_Ativo.'</td>
+	    					<td>'.$porcentagem.'</td>
+	  					<td>'.$qtde_ativos.'</td>
+						<td>'.number_format($valor_investido,2,",",".").'</td>
+      						<td>'.number_format($valor_atual_ativo,2,",",".").'</td>
+	    					<td>'.number_format($valor_atual_investido,2,",",".").'</td>
+						<td>
+		     				     <button type="button" class="btn btn-default btn-sm" >
+							 <span class="glyphicon glyphicon-edit"></span>
+						     </button>
+		     				</td>
+		                	</tr> ';
+			}
+			
+		}
+			
+	}
 			
 		$tela .= '</table>';	
 	}
