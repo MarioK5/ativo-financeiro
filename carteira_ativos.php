@@ -230,7 +230,7 @@ function busca_ativos($idCliente)   {
 		$tela .= '<table border="0" width=100%>
 			    <div class="row">
     				<div class="col-xs-6 col-md-4">
-					<tr style="color:white; background-color:#4682B4;">
+					<tr style="color:white; background-color:#2F4F4F;">
 				     	     <th colspan="8">Carteira: '.$descricao.'</th>
 	 				</tr>
       					<tr>
