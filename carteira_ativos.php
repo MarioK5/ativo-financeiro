@@ -218,6 +218,8 @@ function busca_ativos($idCliente)   {
 
 	$resp = new xajaxResponse();
 
+	$soma_valores = 0;
+
 	$result = listaCarteiras($idCliente);
 	
 	if (mysqli_num_rows($result) > 0) {
@@ -239,28 +241,33 @@ function busca_ativos($idCliente)   {
 					     <?th>
 	 				</tr>
       					<tr style="color:#696969; background-color:#DCDCDC;">
-	                    		     	<th>Codigo</th>
-			    		     	<th>Empresa</th>
-			    		     	<th>Meta %</th>
-						<th>Qtde Ativos</th>
+							<th>Codigo</th>
+							<th>Empresa</th>
+							<th>Meta %</th>
+							<th>Qtde Ativos</th>
        						<th>Valor Invest.</th>
 	     					<th>Valor Atual Ativo</th>
-						<th>Valor Invest. Atual</th>
-      						<th>Retorno</th>
+							<th>Valor Invest. Atual</th>
 	    					<th>% Atual</th>
+							<th>Retorno</th>
 	    					<th>Editar</th>
 	                		</tr> 
 				</div>
 			    </div> ';	
 
 	$result2 = listaAtivosCarteira($idCarteira);
+
+	if (mysqli_num_rows($result2) > 0) {
+		while ($row1 = mysqli_fetch_array($result2)) {
+			$soma_valores .= ($qtde_ativos * $valor_atual_ativo);
+		}
 			
 		if (mysqli_num_rows($result2) > 0) {
 			while ($row2 = mysqli_fetch_array($result2)) {
 
 				$idAtivoCarteira = $row2["ID"];
 				$idAtivo         = $row2["ID_ATIVO"];
-            			$idCarteira      = $row2["ID_CARTEIRA"];
+            	$idCarteira      = $row2["ID_CARTEIRA"];
 				$codigo          = $row2["CODIGO"];
 				$desc_Ativo      = $row2["DESCRICAO"];
 				$porcentagem     = $row2["PORCENTAGEM"];
@@ -269,7 +276,7 @@ function busca_ativos($idCliente)   {
 				$valor_atual_ativo = $row2["VALOR_ATUAL_ATIVO"];
 				$valor_atual_investido = ($qtde_ativos * $valor_atual_ativo);
 				$saldo = ($valor_atual_investido - $valor_investido);
-				$perc_atual = '0';
+				$perc_atual = ((valor_atual_investido/$soma_valores)*100);
 
 				if($saldo > 0){
 					$sit_saldo = 'style="color:#008B00; font-weight: bold;"';
@@ -278,21 +285,22 @@ function busca_ativos($idCliente)   {
 				}
 				
 				$tela .= '<tr>
-						<td>'.$codigo.'</td>
-      						<td>'.$desc_Ativo.'</td>
-	  					<td>'.number_format($porcentagem,0,",",".").'</td>
-	  					<td>'.$qtde_ativos.'</td>
-						<td>'.number_format($valor_investido,2,",",".").'</td>
-      						<td>'.number_format($valor_atual_ativo,2,",",".").'</td>
-	    					<td>'.number_format($valor_atual_investido,2,",",".").'</td>
-	  					<td '.$sit_saldo.'>'.number_format($saldo,2,",",".").'</td>
-						<td>'.number_format($perc_atual,2,",",".").'</td>
-						<td>
-		     				     <button type="button" class="btn btn-default btn-sm" onclick="xajax_editar_ativo_carteira('.$idAtivoCarteira.'); ">
-							 <span class="glyphicon glyphicon-edit"></span>
-						     </button>
-		     				</td>
+								<td>'.$codigo.'</td>
+								<td>'.$desc_Ativo.'</td>
+								<td>'.number_format($porcentagem,0,",",".").'</td>
+								<td>'.$qtde_ativos.'</td>
+								<td>'.number_format($valor_investido,2,",",".").'</td>
+								<td>'.number_format($valor_atual_ativo,2,",",".").'</td>
+								<td>'.number_format($valor_atual_investido,2,",",".").'</td>
+								<td>'.number_format($perc_atual,2,",",".").'</td>
+								<td '.$sit_saldo.'>'.number_format($saldo,2,",",".").'</td>
+								<td>
+		     				     	<button type="button" class="btn btn-default btn-sm" onclick="xajax_editar_ativo_carteira('.$idAtivoCarteira.'); ">
+									<span class="glyphicon glyphicon-edit"></span>
+									</button>
+								</td>
 		                	</tr> ';
+				$soma_valores = 0;
 			}
 			
 		}
