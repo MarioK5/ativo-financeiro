@@ -246,7 +246,7 @@ function busca_ativos($idCliente)   {
        						<th>Valor Invest.</th>
 	     					<th>Valor Atual Ativo</th>
 						<th>Valor Invest. Atual</th>
-      						<th>Saldo</th>
+      						<th>Retorno</th>
 	    					<th>Editar</th>
 	                		</tr> 
 				</div>
