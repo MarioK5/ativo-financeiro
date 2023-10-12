@@ -215,7 +215,8 @@ function listaCarteiras($idCliente){
 	$sql = "SELECT ID,
  		       DESCRICAO,
 	  	       ID_CLIENTE
- 		FROM CARTEIRA WHERE ID_CLIENTE = '{$idCliente}' ";
+ 		FROM CARTEIRA WHERE ID_CLIENTE = '{$idCliente}'
+   		ORDER BY DESCRICAO ";
 
    	$result = mysqli_query($conn,$sql);
 
@@ -257,7 +258,8 @@ function listaAtivosCarteira($idCarteira){
 			ATIVOS.VALOR
 		   FROM ATIVOS_CLIENTE, ATIVOS
 		  WHERE ATIVOS_CLIENTE.ID_ATIVO = ATIVOS.ID
-		    AND ATIVOS_CLIENTE.ID_CARTEIRA = '{$idCarteira}' ";
+		    AND ATIVOS_CLIENTE.ID_CARTEIRA = '{$idCarteira}'
+      		ORDER BY ATIVOS.DESCRICAO";
 
    	$result = mysqli_query($conn,$sql);
 
