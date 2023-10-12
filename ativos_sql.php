@@ -212,11 +212,15 @@ function listaCarteiras($idCliente){
 	
 	$conn = OpenCon();
 	
-	$sql = "SELECT ID,
- 		       DESCRICAO,
-	  	       ID_CLIENTE
- 		FROM CARTEIRA WHERE ID_CLIENTE = '{$idCliente}'
-   		ORDER BY DESCRICAO ";
+	$sql = "SELECT CARTEIRA.ID,
+ 			CARTEIRA.DESCRICAO,
+    			CARTEIRA.ID_CLIENTE,
+       			SUM(ATIVOS_CLIENTE.VALOR) VALOR
+			FROM CARTEIRA, ATIVOS_CLIENTE
+			WHERE ID_CLIENTE = '{$idCliente}'
+   			  AND CARTEIRA.ID = ATIVOS_CLIENTE.ID_CARTEIRA
+		GROUP BY CARTEIRA.ID, CARTEIRA.DESCRICAO, CARTEIRA.ID_CLIENTE
+		ORDER BY CARTEIRA.DESCRICAO; ";
 
    	$result = mysqli_query($conn,$sql);
 
