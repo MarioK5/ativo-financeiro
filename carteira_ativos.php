@@ -233,7 +233,7 @@ function busca_ativos($idCliente)   {
 					<tr style="color:white; background-color:#2F4F4F;">
 				     	     <th colspan="8">'.$descricao.'</th>
 	 				</tr>
-      					<tr style="color:#2F4F4F; background-color:#DCDCDC;">
+      					<tr style="color:#696969; background-color:#DCDCDC;">
 	                    		     	<th>Codigo</th>
 			    		     	<th>Empresa</th>
 			    		     	<th>Porcentagem</th>
