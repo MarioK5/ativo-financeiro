@@ -233,8 +233,8 @@ function busca_ativos($idCliente)   {
 			    <div class="row">
     				<div class="col-xs-6 col-md-4">
 					<tr style="color:white; background-color:#2F4F4F;">
-				     	     <th colspan="8">'.$descricao.'</th>
-	       				     <th>
+				     	     <th colspan="6">'.$descricao.'</th>
+	       				     <th colspan="2">
 				   		 <input type="button" value="Adicionar Novo Ativo"  class="btn btn-success btn-sm" onclick="xajax_cadastrar_ativo('.$idCarteira.'); ">
 					     <?th>
 	 				</tr>
