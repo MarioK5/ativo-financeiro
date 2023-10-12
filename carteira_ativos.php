@@ -256,12 +256,7 @@ function busca_ativos($idCliente)   {
 			    </div> ';	
 
 	$result2 = listaAtivosCarteira($idCarteira);
-
-	if (mysqli_num_rows($result2) > 0) {
-		while ($row1 = mysqli_fetch_array($result2)) {
-			$soma_valores .= ($row1["QTDE_ATIVOS"] * $row1["VALOR_ATUAL_ATIVO"]);
-		}
-	}	
+	
 		if (mysqli_num_rows($result2) > 0) {
 			while ($row2 = mysqli_fetch_array($result2)) {
 
@@ -277,7 +272,7 @@ function busca_ativos($idCliente)   {
 				
 				$valor_atual_investido = ($qtde_ativos * $valor_atual_ativo);
 				$saldo = ($valor_atual_investido - $valor_investido);
-				$perc_atual = (($valor_atual_investido/$soma_valores)*100);
+				$perc_atual = 0;
 
 				if($saldo > 0){
 					$sit_saldo = 'style="color:#008B00; font-weight: bold;"';
