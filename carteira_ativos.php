@@ -416,7 +416,7 @@ function recuperar_senha()   {
     .container{
   width: 1000px;
 }
-html{
+body{
 	background: #6E7B8B; 
     }
 
