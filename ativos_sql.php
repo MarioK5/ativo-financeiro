@@ -242,22 +242,28 @@ function listaInvestimentos($dados){
 	return $ret;
 }
 
-function listaAtivosCarteira($dados){
+function listaAtivosCarteira($idCarteira){
 	
 	$conn = OpenCon();
 	
-	$usuario = strtoupper($dados['usuario']);
-    $senha   = $dados['senha'];
-	
-	$ret = 0;
-	
-	
+	$sql = "SELECT  ATIVOS_CLIENTE.ID,
+			ATIVOS_CLIENTE.ID_ATIVO,
+			ATIVOS_CLIENTE.ID_CARTEIRA,
+			ATIVOS_CLIENTE.PORCENTAGEM,
+			ATIVOS_CLIENTE.QTDE_ATIVOS,
+			ATIVOS_CLIENTE.VALOR,
+			ATIVOS.CODIGO,
+			ATIVOS.DESCRICAO,
+			ATIVOS.VALOR
+		   FROM ATIVOS_CLIENTE, ATIVOS
+		  WHERE ATIVOS_CLIENTE.ID_ATIVO = ATIVOS.ID
+		    AND ATIVOS_CLIENTE.ID_CARTEIRA = '{$idCarteira}' ";
 
-	
+   	$result = mysqli_query($conn,$sql);
 
 	CloseCon($conn);
 	
-	return $ret;
+	return $result;
 }
 
 function alteraCarteira($descricao, $idCliente, $idCarteira){
