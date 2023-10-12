@@ -223,16 +223,15 @@ function busca_ativos($idCliente)   {
 	$result = listaCarteiras($idCliente);
 	
 	if (mysqli_num_rows($result) > 0) {
-		
-	$tela = '';
+
+		$tela = '<table border="0" width=100% class="table">';
 		
 		while ($row = mysqli_fetch_array($result)) {
             		$idCarteira = $row["ID"];
             		$descricao  = $row["DESCRICAO"];
             		$idCliente  = $row["ID_CLIENTE"];
 					
-		$tela .= '<table border="1" width=100% class="table">
-			    <div class="row">
+		$tela .= '<div class="row">
     				<div class="col-xs-6 col-md-4">
 					<tr style="color:white; background-color:#2F4F4F;">
 				     	     <th colspan="8">'.$descricao.'</th>
@@ -297,9 +296,9 @@ function busca_ativos($idCliente)   {
 								</td>
 		                	</tr> ';
 				$soma_valores = 0;
-			}
+				}
 			
-		}
+			}
 			
 		}	
 	}
