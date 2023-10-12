@@ -134,7 +134,7 @@ function busca_carteiras($idCliente)   {
             		$idCarteira = $row["ID"];
             		$descricao  = $row["DESCRICAO"];
             		$idCliente  = $row["ID_CLIENTE"];
-			$valor = 0;
+			$valor      = $row["VALOR"];
 					
 		$tela .= '<tr>
                     		<td>'.$descricao.'</td>
