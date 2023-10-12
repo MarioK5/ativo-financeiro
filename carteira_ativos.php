@@ -229,7 +229,7 @@ function busca_ativos($idCliente)   {
             		$descricao  = $row["DESCRICAO"];
             		$idCliente  = $row["ID_CLIENTE"];
 					
-		$tela .= '<table border="0" width=100% class="table table-striped">
+		$tela .= '<table border="0" width=100% class="table">
 			    <div class="row">
     				<div class="col-xs-6 col-md-4">
 					<tr style="color:white; background-color:#2F4F4F;">
