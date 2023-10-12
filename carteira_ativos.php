@@ -271,7 +271,17 @@ function busca_ativos($idCliente)   {
 				
 				$valor_atual_investido = ($qtde_ativos * $valor_atual_ativo);
 				$saldo = ($valor_atual_investido - $valor_investido);
-				$perc_atual = 0;
+
+				$result3 = somaValorTotalAtualAtivos($idCarteira);
+				if (mysqli_num_rows($result3) > 0) {
+					while ($row3 = mysqli_fetch_array($result3)) {
+						$valor_total_carteira = $row3["VALOR_TOTAL"];
+					}
+					$perc_atual = (($valor_atual_investido / $valor_total_carteira)*100);
+				}else{
+					$perc_atual = 0;
+				}
+				
 
 				if($saldo > 0){
 					$sit_saldo = 'style="color:#008B00; font-weight: bold;"';
