@@ -197,7 +197,7 @@ function editar_carteira($idCliente, $idCarteira)   {
 	$tela = ' <div class="row">
 			<div class="col-xs-12 col-md-12">
 			    <div class="form-group">
-				<label>Informe o novo nome da carteira!</label>
+				<label>rme o novo nome da carteira!</label>
     				<div class="col-xs-6 col-md-6">
 				    <input type="text" class="form-control" name="novo_nome_carteira" id="novo_nome_carteira" value=""  autocomplete="off" />
 				</div>
@@ -416,27 +416,9 @@ function recuperar_senha()   {
     .container{
   width: 1000px;
 }
-    a.info{
-        position:relative; /*this is the key*/
-        z-index:1;
-        color:black;
-        font-size: 16px;
-        cursor:pointer;
-        text-decoration:none}
-
-    a.info:hover{z-index:2;}
-
-    a.info span{display: none}
-
-    a.info:hover span{ /*the span will display just on :hover state*/
-        display:block;
-        position:absolute;
-        top:2em; left:2em; width:15em;
-        border:1px solid black;
-        background-color:#FAFAFA;
-        color:black;
-        font-size: 15px;
-        text-align: left}
+html{
+	background: #6E7B8B; 
+    }
 
 .btn-custom {
 	padding: 1px 15px 3px 2px;
