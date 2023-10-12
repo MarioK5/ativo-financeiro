@@ -12,6 +12,8 @@ $xajax->registerFunction("busca_ativos");
 $xajax->registerFunction("busca_investimentos");
 $xajax->registerFunction("cadastrar_carteira");
 $xajax->registerFunction("editar_carteira");
+$xajax->registerFunction("cadastrar_ativo");
+$xajax->registerFunction("editar_ativo_carteira");
 $xajax->registerFunction("cadastrar_cliente");
 $xajax->registerFunction("recuperar_senha");
 $xajax->processRequest();
@@ -271,7 +273,7 @@ function busca_ativos($idCliente)   {
       						<td>'.number_format($valor_atual_ativo,2,",",".").'</td>
 	    					<td>'.number_format($valor_atual_investido,2,",",".").'</td>
 						<td>
-		     				     <button type="button" class="btn btn-default btn-sm" >
+		     				     <button type="button" class="btn btn-default btn-sm" onclick="xajax_editar_ativo_carteira('.$idAtivoCarteira.','.$idAtivo.','.$idCarteira.'); ">
 							 <span class="glyphicon glyphicon-edit"></span>
 						     </button>
 		     				</td>
@@ -285,6 +287,37 @@ function busca_ativos($idCliente)   {
 		$tela .= '</table>';	
 	}
 
+	
+	$resp->assign("tela_cliente","innerHTML",$tela);
+  
+	return $resp;
+}
+
+function cadastrar_ativo()   {
+
+	$resp = new xajaxResponse();
+
+	$resp->alert('Cadastrar ativo!');  return $resp;
+
+	$tela   = "";
+	$result = 0;
+
+
+	
+    	$resp->assign("tela_cliente","innerHTML",$tela);
+	
+	return $resp;
+}
+
+function editar_ativo_carteira($idCliente, $idCarteira)   {
+
+	$resp = new xajaxResponse();
+
+	$resp->alert('Editar ativo!'); return $resp;
+
+	$tela   = "";
+	$result = 0;
+	
 	
 	$resp->assign("tela_cliente","innerHTML",$tela);
   
