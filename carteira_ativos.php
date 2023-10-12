@@ -280,7 +280,7 @@ function busca_ativos($idCliente)   {
 				$tela .= '<tr>
 						<td>'.$codigo.'</td>
       						<td>'.$desc_Ativo.'</td>
-	    					<td>'.$porcentagem.'</td>
+	  					<td>'.number_format($porcentagem,0,",",".").'</td>
 	  					<td>'.$qtde_ativos.'</td>
 						<td>'.number_format($valor_investido,2,",",".").'</td>
       						<td>'.number_format($valor_atual_ativo,2,",",".").'</td>
