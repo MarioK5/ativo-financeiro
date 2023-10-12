@@ -286,7 +286,7 @@ function busca_ativos($idCliente)   {
       						<td>'.number_format($valor_atual_ativo,2,",",".").'</td>
 	    					<td>'.number_format($valor_atual_investido,2,",",".").'</td>
 	  					<td '.$sit_saldo.'>'.number_format($saldo,2,",",".").'</td>
-						<td '.$sit_saldo.'>'.number_format($perc_atual,2,",",".").'</td>
+						<td>'.number_format($perc_atual,2,",",".").'</td>
 						<td>
 		     				     <button type="button" class="btn btn-default btn-sm" onclick="xajax_editar_ativo_carteira('.$idAtivoCarteira.'); ">
 							 <span class="glyphicon glyphicon-edit"></span>
