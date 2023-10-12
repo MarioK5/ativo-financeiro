@@ -233,7 +233,7 @@ function busca_ativos($idCliente)   {
 			    <div class="row">
     				<div class="col-xs-6 col-md-4">
 					<tr style="color:white; background-color:#2F4F4F;">
-				     	     <th colspan="7">'.$descricao.'</th>
+				     	     <th colspan="8">'.$descricao.'</th>
 	       				     <th colspan="2" style="text-align: right;">
 				   		 <input type="button" value="Adicionar Ativo"  class="btn btn-success btn-xs" onclick="xajax_cadastrar_ativo('.$idCarteira.'); ">
 					     <?th>
@@ -241,12 +241,13 @@ function busca_ativos($idCliente)   {
       					<tr style="color:#696969; background-color:#DCDCDC;">
 	                    		     	<th>Codigo</th>
 			    		     	<th>Empresa</th>
-			    		     	<th>Porcentagem</th>
+			    		     	<th>Meta %</th>
 						<th>Qtde Ativos</th>
        						<th>Valor Invest.</th>
 	     					<th>Valor Atual Ativo</th>
 						<th>Valor Invest. Atual</th>
       						<th>Retorno</th>
+	    					<th>% Atual</th>
 	    					<th>Editar</th>
 	                		</tr> 
 				</div>
@@ -268,6 +269,7 @@ function busca_ativos($idCliente)   {
 				$valor_atual_ativo = $row2["VALOR_ATUAL_ATIVO"];
 				$valor_atual_investido = ($qtde_ativos * $valor_atual_ativo);
 				$saldo = ($valor_atual_investido - $valor_investido);
+				$perc_atual = '0';
 
 				if($saldo > 0){
 					$sit_saldo = 'style="color:#008B00; font-weight: bold;"';
@@ -284,6 +286,7 @@ function busca_ativos($idCliente)   {
       						<td>'.number_format($valor_atual_ativo,2,",",".").'</td>
 	    					<td>'.number_format($valor_atual_investido,2,",",".").'</td>
 	  					<td '.$sit_saldo.'>'.number_format($saldo,2,",",".").'</td>
+						<td '.$sit_saldo.'>'.number_format($perc_atual,2,",",".").'</td>
 						<td>
 		     				     <button type="button" class="btn btn-default btn-sm" onclick="xajax_editar_ativo_carteira('.$idAtivoCarteira.'); ">
 							 <span class="glyphicon glyphicon-edit"></span>
