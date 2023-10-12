@@ -218,7 +218,7 @@ function busca_ativos($idCliente)   {
 
 	$resp = new xajaxResponse();
 
-	$soma_valores = 0;
+	$perc_atual = 0;
 
 	$result = listaCarteiras($idCliente);
 	
@@ -278,10 +278,7 @@ function busca_ativos($idCliente)   {
 						$valor_total_carteira = $row3["VALOR_TOTAL"];
 					}
 					$perc_atual = (($valor_atual_investido / $valor_total_carteira)*100);
-				}else{
-					$perc_atual = 0;
 				}
-				
 
 				if($saldo > 0){
 					$sit_saldo = 'style="color:#008B00; font-weight: bold;"';
@@ -305,7 +302,7 @@ function busca_ativos($idCliente)   {
 									</button>
 								</td>
 		                	</tr> ';
-				$soma_valores = 0;
+				$perc_atual = 0;
 				}
 			
 			}
