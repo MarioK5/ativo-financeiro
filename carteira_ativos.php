@@ -231,7 +231,7 @@ function busca_ativos($idCliente)   {
 			    <div class="row">
     				<div class="col-xs-6 col-md-4">
 					<tr style="background-color:#D3D3D3;">
-				     	     <th colspan="8">Carteira: '.$descricao.'</th>
+				     	     <th colspan="8">'.$descricao.'</th>
 	 				</tr>
       					<tr>
 	                    		     	<th>Codigo</th>
