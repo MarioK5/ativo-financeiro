@@ -261,7 +261,7 @@ function busca_ativos($idCliente)   {
 		while ($row1 = mysqli_fetch_array($result2)) {
 			$soma_valores .= ($row1["QTDE_ATIVOS"] * $row1["VALOR_ATUAL_ATIVO"]);
 		}
-			
+	}	
 		if (mysqli_num_rows($result2) > 0) {
 			while ($row2 = mysqli_fetch_array($result2)) {
 
