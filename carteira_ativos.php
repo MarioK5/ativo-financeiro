@@ -267,16 +267,17 @@ function busca_ativos($idCliente)   {
 
 				$idAtivoCarteira = $row2["ID"];
 				$idAtivo         = $row2["ID_ATIVO"];
-            	$idCarteira      = $row2["ID_CARTEIRA"];
+            			$idCarteira      = $row2["ID_CARTEIRA"];
 				$codigo          = $row2["CODIGO"];
 				$desc_Ativo      = $row2["DESCRICAO"];
 				$porcentagem     = $row2["PORCENTAGEM"];
 				$qtde_ativos     = $row2["QTDE_ATIVOS"];
 				$valor_investido = $row2["VALOR_INVESTIDO"];
 				$valor_atual_ativo = $row2["VALOR_ATUAL_ATIVO"];
+				
 				$valor_atual_investido = ($qtde_ativos * $valor_atual_ativo);
 				$saldo = ($valor_atual_investido - $valor_investido);
-				$perc_atual = ((valor_atual_investido/$soma_valores)*100);
+				$perc_atual = (($valor_atual_investido/$soma_valores)*100);
 
 				if($saldo > 0){
 					$sit_saldo = 'style="color:#008B00; font-weight: bold;"';
