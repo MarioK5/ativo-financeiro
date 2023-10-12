@@ -234,6 +234,9 @@ function busca_ativos($idCliente)   {
     				<div class="col-xs-6 col-md-4">
 					<tr style="color:white; background-color:#2F4F4F;">
 				     	     <th colspan="8">'.$descricao.'</th>
+	       				     <th>
+				   		 <input type="button" value="Adicionar Novo Ativo"  class="btn btn-success btn-sm" onclick="xajax_cadastrar_ativo('.$idCarteira.'); ">
+					     <?th>
 	 				</tr>
       					<tr style="color:#696969; background-color:#DCDCDC;">
 	                    		     	<th>Codigo</th>
@@ -293,11 +296,11 @@ function busca_ativos($idCliente)   {
 	return $resp;
 }
 
-function cadastrar_ativo()   {
+function cadastrar_ativo($idCarteira)   {
 
 	$resp = new xajaxResponse();
 
-	$resp->alert('Cadastrar ativo!');  return $resp;
+	$resp->alert('Incluir ativo na carteira: '.$idCarteira);  return $resp;
 
 	$tela   = "";
 	$result = 0;
