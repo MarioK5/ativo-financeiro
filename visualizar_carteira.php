@@ -1,4 +1,5 @@
 <?php
+header('Content-Type: text/html; charset=utf-8');
 include 'ativos_backend.php';
 require_once("lib/xajax/xajax.inc.php");
 
@@ -44,6 +45,8 @@ function busca_dados()
 function editar_carteiras($dados){
     $resp = new xajaxResponse();
     salvar_carteira($dados,1);
+    $resp->script("window.location.reload();");
+    $resp->alert("Cadastrado com sucesso");
     return $resp;
 }
 
