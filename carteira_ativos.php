@@ -589,8 +589,8 @@ tbody,#tela_saida,#tela_inicio{
                         </h1>
                     </div>
                 </div>
-                <div class="panel-body" id="tela_inicio">
-                    <form role="form" id="form_cadastro" class="small">
+		   <form role="form" id="form_cadastro" class="small">
+        		<div class="panel-body" id="tela_inicio">
                             <div class="row">
                                 <div class="col-xs-4 col-md-4">
                                     <div class="form-group">
@@ -643,10 +643,9 @@ tbody,#tela_saida,#tela_inicio{
                                 </div>
                             </div>
 		        </div>
-			    <div id="tela_saida" class="panel-body">
-			    </div>
-                    </form>    
-                </div>
+			<div id="tela_saida" class="panel-body">
+			</div>
+	    	</form>    
             </div>
         </div>
     </body>
