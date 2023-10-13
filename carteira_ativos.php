@@ -248,13 +248,13 @@ function busca_ativos($idCliente)   {
 		$tela .= '<div class="row">
     				<div class="col-xs-6 col-md-4">
 					<tr style="color:white; background-color:#2F4F4F;">
-				     	     <th colspan="5">'.$descricao.'</th>
-	       				     <th colspan="2" style="text-align: right;">
-							<button type="button" class="btn btn-default btn-sm" onclick="xajax_editar_ativo_carteira('.$idAtivoCarteira.'); ">
-							<span class="glyphicon glyphicon-edit">Editar</span>
+				     	     <th colspan="7">'.$descricao.'</th>
+	       				     <th colspan="1" style="text-align: right;">
+							<button type="button" class="btn btn-default btn-xs" onclick="xajax_editar_ativo_carteira('.$idAtivoCarteira.'); ">
+							<span class="glyphicon glyphicon-edit"> Editar</span>
 							</button>
 					     </th>
-	  				     <th colspan="2" style="text-align: right;">
+	  				     <th colspan="1" style="text-align: right;">
 				   		 <input type="button" value="Adicionar Ativo"  class="btn btn-success btn-xs" onclick="xajax_cadastrar_ativo('.$idCarteira.'); ">
 					     </th>
 	 				</tr>
