@@ -367,7 +367,7 @@ function editar_ativo_carteira($idCarteira)   {
       						<th>Valor Investido</th>
 						<th>Qtde Ativos</th>
       						<th>Meta %</th>
-						<th>#</th>
+						<th>Excluir</th>
 	                		</tr> 
 				</div>
 			    </div> ';
@@ -386,6 +386,12 @@ function editar_ativo_carteira($idCarteira)   {
 				$qtde_ativos     = $row["QTDE_ATIVOS"];
 				$valor_investido = $row["VALOR_INVESTIDO"];
 
+				if($qtde_ativos > 0 || $valor_investido > 0){
+					$disabled = 'disabled';
+				} else {
+					$disabled = '';
+				}
+
 				$tela .= '<tr>
 						<td>'.$codigo.'</td>
 						<td>'.$desc_Ativo.'</td>
@@ -403,7 +409,7 @@ function editar_ativo_carteira($idCarteira)   {
 			                                </div>	
 				      		</td>
 						<td>
-					      		<button type="button" class="btn btn-default btn-sm" onclick="xajax_excluir_ativo_carteira('.$idAtivoCarteira.'); ">
+					      		<button '.$disabled.' type="button" class="btn btn-default btn-sm" onclick="xajax_excluir_ativo_carteira('.$idAtivoCarteira.'); ">
 							<span class="glyphicon glyphicon-remove-circle"></span>
 						        </button>
 					      </td>
