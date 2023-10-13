@@ -429,7 +429,7 @@ function editar_ativo_carteira($idCarteira, $idCliente)   {
 			}
 		$tela .= '<tr> 
 				<td colspan="6" style="text-align: right;">
-				 <input type="button" value="Gravar"  class="btn btn-success btn-sm" onclick="xajax_gravar_editar_ativo('.$idCarteira.'); ">
+				 <input type="button" value="Gravar"  class="btn btn-success btn-sm" onclick="xajax_gravar_editar_ativo(xajax.getFormValues(\'form_cadastro\')); return false;">
      				</td>
 			</tr>
       		</table>';
@@ -440,11 +440,11 @@ function editar_ativo_carteira($idCarteira, $idCliente)   {
 }
 
 
-function gravar_editar_ativo($idAtivoCarteira)   {
+function gravar_editar_ativo($dados)   {
 
 	$resp = new xajaxResponse();
 
-	$resp->alert('Gravar se meta for igual a 100% ... '.$idAtivoCarteira); return $resp;
+	$resp->alert('Gravar se meta for igual a 100%  '); return $resp;
 
 	
 
