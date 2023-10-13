@@ -642,10 +642,10 @@ tbody{
                                     <input type="button" value="Entrar"  class="btn btn-success btn-md btn-block" onclick="xajax_busca_dados(xajax.getFormValues('form_cadastro')); return false;">
                                 </div>
                             </div>
-                            </div>
+		        </div>
+			    <div id="tela_saida" class="panel-body">
+			    </div>
                     </form>    
-                </div>
-                <div id="tela_saida" class="panel-body">
                 </div>
             </div>
         </div>
