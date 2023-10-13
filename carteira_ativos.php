@@ -418,7 +418,7 @@ function editar_ativo_carteira($idCarteira)   {
 		                	 </tr> 
 					 <tr> 
 					 	<td colspan="6" style="text-align: right;">
-				   		 <input type="button" value="Gravar"  class="btn btn-success btn-xs" onclick="xajax_gravar_editar_ativo('.$idAtivoCarteira.'); ">
+				   		 <input type="button" value="Gravar"  class="btn btn-success btn-xs" onclick="xajax_gravar_editar_ativo(); ">
 					 	</td>
 	 				</tr>';
 				}
@@ -430,7 +430,7 @@ function editar_ativo_carteira($idCarteira)   {
 	return $resp;
 }
 
-function gravar_editar_ativo($dados)   {
+function gravar_editar_ativo()   {
 
 	$resp = new xajaxResponse();
 
@@ -442,6 +442,20 @@ function gravar_editar_ativo($dados)   {
 
 
 	$resp->assign("tela_cliente","innerHTML",$tela);
+  
+	return $resp;
+}
+
+function excluir_ativo_carteira($idAtivoCarteira,$status)   {
+
+	$resp = new xajaxResponse();
+
+	$resp->alert('Esxcluir ativo de carteira se estivar com os valores zerados... '); return $resp;
+
+	
+
+
+	$resp->assign("tela_saida","innerHTML",$tela);
   
 	return $resp;
 }
@@ -458,20 +472,6 @@ function busca_investimentos($idCliente)   {
 
 
 	$resp->assign("tela_cliente","innerHTML",$tela);
-  
-	return $resp;
-}
-
-function excluir_ativo_carteira()   {
-
-	$resp = new xajaxResponse();
-
-	$resp->alert('Esxcluir ativo de carteira se estivar com os valores zerados... '); return $resp;
-
-	
-
-
-	$resp->assign("tela_saida","innerHTML",$tela);
   
 	return $resp;
 }
