@@ -353,6 +353,7 @@ function editar_ativo_carteira($idCarteira)   {
 
 	$tela   = "";
 	$result = 0;
+	
 	$descCarteira = 'ajustar';
 	
 	$tela .= '<table border="0" width=100% class="table">
@@ -443,7 +444,7 @@ function excluir_ativo_carteira()   {
 
 	$resp = new xajaxResponse();
 
-	$resp->alert('Esxcluir ativo de carteira se não tem informação cadastrada... '); return $resp;
+	$resp->alert('Esxcluir ativo de carteira se estivar com os valores zerados... '); return $resp;
 
 	
 
