@@ -8,7 +8,7 @@ $xajax->registerFunction("busca_dados");
 $xajax->registerFunction("editar_carteiras");
 $xajax->processRequest();
 
-function busca_dados($dados)
+function busca_dados()
 {
     $resp = new xajaxResponse();
     $tela = '';
