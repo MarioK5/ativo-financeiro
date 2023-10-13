@@ -113,6 +113,9 @@ function editar_carteiras($dados){
                 xajax_editar_carteiras(dados);
 
                 location.reload();
+
+                alert("Editado com sucesso!");
+
             }
         }
     </script>
