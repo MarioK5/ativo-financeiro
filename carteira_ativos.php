@@ -252,7 +252,7 @@ function busca_ativos($idCliente)   {
 					<tr style="color:white; background-color:#2F4F4F;">
 				     	     <th colspan="7">'.$descricao.'</th>
 	       				     <th colspan="1" style="text-align: right;">
-							<button type="button" class="btn btn-default btn-xs" onclick="xajax_editar_ativo_carteira('.$idCarteira.','"'.$descricao.'"');">
+							<button type="button" class="btn btn-default btn-xs" onclick="xajax_editar_ativo_carteira('.$idCarteira.','\'.$descricao.\'');">
 							<span class="glyphicon glyphicon-edit"> Editar</span>
 							</button>
 					     </th>
