@@ -411,7 +411,7 @@ function editar_ativo_carteira($idCarteira)   {
 			                                </div>	
 				      		</td>
 						<td>
-					      		<button type="button" class="btn btn-default btn-sm" onclick="xajax_excluir_ativo_carteira('.$idAtivoCarteira.','.$excluir.'); ">
+					      		<button type="button" class="btn btn-default btn-sm" onclick="xajax_excluir_ativo_carteira(); ">
 							<span class="glyphicon glyphicon-remove"></span>
 						        </button>
 					      </td>
@@ -446,7 +446,7 @@ function gravar_editar_ativo()   {
 	return $resp;
 }
 
-function excluir_ativo_carteira($idAtivoCarteira,$status)   {
+function excluir_ativo_carteira()   {
 
 	$resp = new xajaxResponse();
 
