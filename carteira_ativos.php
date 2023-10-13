@@ -444,7 +444,7 @@ function gravar_editar_ativo($dados)   {
 
 	$resp = new xajaxResponse();
 
-	$resp->alert('Gravar se meta for igual a 100%  '); return $resp;
+	$resp->alert('Gravar se meta for igual a 100%  '.$dados['idAtivo1']); return $resp;
 
 	
 
