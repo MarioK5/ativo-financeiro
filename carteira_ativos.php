@@ -376,14 +376,14 @@ function editar_ativo_carteira($idCarteira)   {
 		if (mysqli_num_rows($result) > 0) {
 			while ($row = mysqli_fetch_array($result)) {
 
-				$idAtivoCarteira = $row2["ID"];
-				$idAtivo         = $row2["ID_ATIVO"];
-            			$idCarteira      = $row2["ID_CARTEIRA"];
-				$codigo          = $row2["CODIGO"];
-				$desc_Ativo      = $row2["DESCRICAO"];
-				$porcentagem     = $row2["PORCENTAGEM"];
-				$qtde_ativos     = $row2["QTDE_ATIVOS"];
-				$valor_investido = $row2["VALOR_INVESTIDO"];
+				$idAtivoCarteira = $row["ID"];
+				$idAtivo         = $row["ID_ATIVO"];
+            			$idCarteira      = $row["ID_CARTEIRA"];
+				$codigo          = $row["CODIGO"];
+				$desc_Ativo      = $row["DESCRICAO"];
+				$porcentagem     = $row["PORCENTAGEM"];
+				$qtde_ativos     = $row["QTDE_ATIVOS"];
+				$valor_investido = $row["VALOR_INVESTIDO"];
 
 				$tela .= '<tr>
 						<td>'.$codigo.'</td>
