@@ -246,14 +246,13 @@ function busca_ativos($idCliente)   {
             		$idCarteira = $row["ID"];
             		$descricao  = $row["DESCRICAO"];
             		$idCliente  = $row["ID_CLIENTE"];
-			$teste = string($descricao)
 					
 		$tela .= '<div class="row">
     				<div class="col-xs-6 col-md-4">
 					<tr style="color:white; background-color:#2F4F4F;">
 				     	     <th colspan="7">'.$descricao.'</th>
 	       				     <th colspan="1" style="text-align: right;">
-							<button type="button" class="btn btn-default btn-xs" onclick="xajax_editar_ativo_carteira('.$idCarteira.','.$teste.');">
+							<button type="button" class="btn btn-default btn-xs" onclick="xajax_editar_ativo_carteira('.$idCarteira.',\'.$descricao.\');">
 							<span class="glyphicon glyphicon-edit"> Editar</span>
 							</button>
 					     </th>
