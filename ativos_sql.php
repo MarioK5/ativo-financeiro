@@ -335,6 +335,27 @@ function alteraAtivoCarteira($dados){
 	return $ret;
 }
 
+function listaDescri($id,$tipo){
+	
+	$conn = OpenCon();
+
+	if($tipo == 1){
+	$sql = "SELECT CARTEIRA.DESCRICAO
+		FROM CARTEIRA
+		WHERE CARTEIRA.ID = '{$id}' ";
+	}
+
+   	$result = mysqli_query($conn,$sql);
+	
+	while ($row = mysqli_fetch_array($result)) {
+            		$ret  = $row["DESCRICAO"];
+		}
+
+	CloseCon($conn);
+	
+	return $ret;
+}
+
 function somaValorTotalAtualAtivos($idCarteira){
 	
 	$conn = OpenCon();
