@@ -61,7 +61,7 @@ function editar_carteiras($dados){
     <title>Visualizar Carteiras</title>
 </head>
 
-<body>
+<body onload="xajax_busca_dados();">
     <div class="d-flex" id="wrapper">
         <!-- Sidebar-->
         <div class="border-end bg-white" id="sidebar-wrapper">
