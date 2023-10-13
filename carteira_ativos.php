@@ -34,6 +34,20 @@ function busca_dados($dados)   {
     
 	if ($result > 0) {
 
+	$result = validaAdmin($email);
+
+	if ($result > 0) {
+	/* nessa parte deve ser listado e gerado os tokens para o Administrador Financeiro */
+		
+	$resp->alert('Admin, criar regra para listar e gerar tokens!');
+		
+
+	$resp->assign("tela_saida","innerHTML",$tela);
+  
+   return $resp;
+		
+	}else{
+
 	$resultID = buscaID($email);
 
 	if (mysqli_num_rows($resultID) > 0) {
@@ -89,8 +103,8 @@ function busca_dados($dados)   {
 
 
     $resp->assign("tela_inicio","innerHTML",'');   
-    
-        } else { 
+	}
+} else { 
 		$resp->alert('Email ou senha incotera!'); return $resp;
         } 
     $script = "xajax_busca_carteiras($idCliente)";
