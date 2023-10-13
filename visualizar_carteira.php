@@ -43,7 +43,8 @@ function busca_dados()
 
 function editar_carteiras($dados){
     $resp = new xajaxResponse();
-    //salvar_carteira($dados);
+    salvar_carteira($dados,1);
+    return $resp;
 }
 
 ?>

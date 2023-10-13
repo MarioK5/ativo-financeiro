@@ -2,18 +2,17 @@
 
 include 'ativos_sql.php';
 
-function salvar_carteira($dados) {    
+function salvar_carteira($dados,$editar) {
     $idCliente = 1;
-    //$editar = 0;
     $descricaoCarteira = $dados['descricaoCarteira'];
-   // if ($descricaoCarteira !== '') {
-       /* if ($editar == 1) {
+    if (!empty(descricaoCarteira)) {
+       if ($editar == 1) {
             $idCarteira = $dados['idCarteira'];
            alteraCarteira($descricaoCarteira, $idCliente, $idCarteira);
-        } else {*/
+        } else {
             cadastroCarteira($descricaoCarteira, $idCliente);
-       // }        
-    //} 
+        }
+    }
 }
 
 function vizualizar_carteira($dados){
