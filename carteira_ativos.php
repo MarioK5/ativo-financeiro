@@ -14,6 +14,7 @@ $xajax->registerFunction("cadastrar_carteira");
 $xajax->registerFunction("editar_carteira");
 $xajax->registerFunction("cadastrar_ativo");
 $xajax->registerFunction("editar_ativo_carteira");
+$xajax->registerFunction("excluir_ativo_carteira");
 $xajax->registerFunction("cadastrar_cliente");
 $xajax->registerFunction("recuperar_senha");
 $xajax->processRequest();
@@ -391,9 +392,21 @@ function editar_ativo_carteira($idCarteira)   {
 						<td>'.number_format($valor_investido,2,",",".").'</td>
 						<td>'.$qtde_ativos.'</td>
 						<td>
-							<input type="text" value="'.number_format($porcentagem,0,",",".").'" class="form-control" name="porcentagem" id="porcentagem" >
+      							<div class="col-xs-2 col-md-2">
+			                                    <div class="form-group">
+			                                        <div id="sandbox-container">
+			                                            <div class="input-group">
+			                                                <input type="text" value="'.number_format($porcentagem,0,",",".").'" class="form-control" name="porcentagem" id="porcentagem" >
+			                                            </div>
+			                                        </div>
+			                                    </div>
+			                                </div>	
 				      		</td>
-						<td></td>
+						<td>
+					      		<button type="button" class="btn btn-default btn-sm" onclick="xajax_excluir_ativo_carteira('.$idAtivoCarteira.'); ">
+							<span class="glyphicon glyphicon-remove"></span>
+						        </button>
+					      </td>
 		                	</tr> ';
 				}
 			}
@@ -416,6 +429,20 @@ function busca_investimentos($idCliente)   {
 
 
 	$resp->assign("tela_cliente","innerHTML",$tela);
+  
+	return $resp;
+}
+
+function excluir_ativo_carteira()   {
+
+	$resp = new xajaxResponse();
+
+	$resp->alert('Esxcluir ativo de carteira se não tem informação cadastrada... '); return $resp;
+
+	
+
+
+	$resp->assign("tela_saida","innerHTML",$tela);
   
 	return $resp;
 }
