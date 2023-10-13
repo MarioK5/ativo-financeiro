@@ -562,7 +562,7 @@ body{
 	background: #D3D3D3; 
     }
 
-tbody{
+tbody,#tela_saida,#tela_inicio{
 	background: #BEBEBE; 
     }
 
