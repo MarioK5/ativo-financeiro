@@ -447,7 +447,7 @@ function gravar_editar_ativo($dados)   {
 //	$resp->alert('Gravar se meta for igual a 100%  '.$dados['idAtivo'][1]);
 
 	for($i = 0; $i < count($dados);$i++){
-		$soma_perc += $dados['idAtivo'][$i];
+		$soma_perc += $dados['n_perc'][$i];
 	}
 
 	$resp->alert('Gravar se meta for igual a 100%  '.$soma_perc); return $resp;
