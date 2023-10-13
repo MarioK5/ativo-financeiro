@@ -14,6 +14,7 @@ $xajax->registerFunction("cadastrar_carteira");
 $xajax->registerFunction("editar_carteira");
 $xajax->registerFunction("cadastrar_ativo");
 $xajax->registerFunction("editar_ativo_carteira");
+$xajax->registerFunction("gravar_editar_ativo");
 $xajax->registerFunction("excluir_ativo_carteira");
 $xajax->registerFunction("cadastrar_cliente");
 $xajax->registerFunction("recuperar_senha");
@@ -388,9 +389,9 @@ function editar_ativo_carteira($idCarteira)   {
 				$valor_investido = $row["VALOR_INVESTIDO"];
 
 				if($qtde_ativos > 0 || $valor_investido > 0){
-					$disabled = 'disabled';
+					$excluir = 0;
 				} else {
-					$disabled = '';
+					$excluir = 1;
 				}
 
 				$tela .= '<tr>
@@ -410,15 +411,36 @@ function editar_ativo_carteira($idCarteira)   {
 			                                </div>	
 				      		</td>
 						<td>
-					      		<button '.$disabled.' type="button" class="btn btn-default btn-sm" onclick="xajax_excluir_ativo_carteira('.$idAtivoCarteira.'); ">
-							<span class="glyphicon glyphicon-remove-circle"></span>
+					      		<button type="button" class="btn btn-default btn-sm" onclick="xajax_excluir_ativo_carteira('.$idAtivoCarteira.','.$excluir.'); ">
+							<span class="glyphicon glyphicon-remove"></span>
 						        </button>
 					      </td>
-		                	</tr> ';
+		                	 </tr> 
+					 <tr> 
+					 	<td colspan="6" style="text-align: right;">
+				   		 <input type="button" value="Gravar"  class="btn btn-success btn-xs" onclick="xajax_gravar_editar_ativo('.$idAtivoCarteira.'); ">
+					 	</td>
+	 				</tr>';
 				}
 			}
 	$tela .= '</table>';
 	
+	$resp->assign("tela_cliente","innerHTML",$tela);
+  
+	return $resp;
+}
+
+function gravar_editar_ativo($dados)   {
+
+	$resp = new xajaxResponse();
+
+	$tela = '';
+	
+	$resp->alert('Gravar o editarativos da carteira do cliente.); return $resp;
+
+	
+
+
 	$resp->assign("tela_cliente","innerHTML",$tela);
   
 	return $resp;
