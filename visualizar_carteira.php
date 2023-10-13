@@ -92,7 +92,7 @@ function editar_carteiras($dados){
             </nav>
             <!-- Page content-->
             <div class="container-fluid">
-                <h1 class="mt-4">Visualizar Carteiras</h1>
+                <h1 class="mt-4">Visualizar Carteiras descrição</h1>
                 <div class="form-group">
                     <div id="lista_carteira" name="lista_carteira" class="panel-body"></div>
                 </div>
