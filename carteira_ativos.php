@@ -213,7 +213,7 @@ function editar_carteira($idCliente, $idCarteira)   {
 			    <div class="form-group">
 				<label>Informe o novo nome da carteira!</label>
     				<div class="col-xs-6 col-md-6">
-				    <input type="text" class="form-control" name="novo_nome_carteira" id="novo_nome_carteira" value=""  autocomplete="off" />
+				    <input type="text" class="form-control" name="novo_nome_carteira" id="novo_nome_carteira" value="" placeholder="Digite aqui o novo nome da carteira..." autocomplete="off" />
 				</div>
     				<div class="col-xs-2 col-md-2">
 				    <input type="button" value="Gravar"  class="btn btn-success btn-sm" onclick="xajax_cadastrar_carteira(document.getElementById(\'novo_nome_carteira\').value,'.$idCliente.','.$idCarteira.'); ">
