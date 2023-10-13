@@ -420,7 +420,7 @@ function editar_ativo_carteira($idCarteira)   {
 			}
 		$tela .= '<tr> 
 				<td colspan="6" style="text-align: right;">
-				 <input type="button" value="Gravar"  class="btn btn-success btn-xs" >
+				 <input type="button" value="Gravar"  class="btn btn-success btn-sm" onclick="xajax_gravar_editar_ativo('.$idAtivoCarteira.'); ">
      				</td>
 			</tr>
       		</table>';
@@ -431,7 +431,21 @@ function editar_ativo_carteira($idCarteira)   {
 }
 
 
-function excluir_ativo_carteira($idAtivoCarteira, $excluir)   {
+function gravar_editar_ativo($idAtivoCarteira, $excluir)   {
+
+	$resp = new xajaxResponse();
+
+	$resp->alert('Gravar se meta for igual a 100% ... '.$idAtivoCarteira); return $resp;
+
+	
+
+
+	$resp->assign("tela_saida","innerHTML",$tela);
+  
+	return $resp;
+}
+
+function excluir_ativo_carteira($idAtivoCarteira)   {
 
 	$resp = new xajaxResponse();
 
