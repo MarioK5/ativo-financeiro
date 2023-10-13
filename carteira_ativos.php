@@ -431,7 +431,7 @@ function editar_ativo_carteira($idCarteira)   {
 }
 
 
-function gravar_editar_ativo($idAtivoCarteira, $excluir)   {
+function gravar_editar_ativo($idAtivoCarteira)   {
 
 	$resp = new xajaxResponse();
 
@@ -445,7 +445,7 @@ function gravar_editar_ativo($idAtivoCarteira, $excluir)   {
 	return $resp;
 }
 
-function excluir_ativo_carteira($idAtivoCarteira)   {
+function excluir_ativo_carteira($idAtivoCarteira, $excluir)   {
 
 	$resp = new xajaxResponse();
 
