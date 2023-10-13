@@ -19,6 +19,7 @@ function busca_dados()
 
     if (!empty($result)) {
         $tela .= '<table border="1" width="100%">
+        <meta charset="UTF-8">
                     <tr style="color:white; background-color: #337ab7;">
                         <th>ID</th>
                         <th>Descrição</th>
