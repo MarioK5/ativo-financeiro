@@ -334,7 +334,7 @@ function cadastrar_ativo($idCarteira)   {
 
 	$resp = new xajaxResponse();
 
-	$resp->alert('Incluir ativo na carteira: '.$idCarteira);  return $resp;
+	$resp->alert('Incluir ativo na carteira: '.$idCarteira);
 
 	$tela   = "";
 	$result = 0;
