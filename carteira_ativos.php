@@ -246,14 +246,13 @@ function busca_ativos($idCliente)   {
             		$idCarteira = $row["ID"];
             		$descricao  = $row["DESCRICAO"];
             		$idCliente  = $row["ID_CLIENTE"];
-			$teste = 'teste';
 					
 		$tela .= '<div class="row">
     				<div class="col-xs-6 col-md-4">
 					<tr style="color:white; background-color:#2F4F4F;">
 				     	     <th colspan="7">'.$descricao.'</th>
 	       				     <th colspan="1" style="text-align: right;">
-							<button type="button" class="btn btn-default btn-xs" onclick="xajax_editar_ativo_carteira('.$idCarteira.','.$teste.');">
+							<button type="button" class="btn btn-default btn-xs" onclick="xajax_editar_ativo_carteira('.$idCarteira.');">
 							<span class="glyphicon glyphicon-edit"> Editar</span>
 							</button>
 					     </th>
@@ -349,18 +348,20 @@ function cadastrar_ativo($idCarteira)   {
 	return $resp;
 }
 
-function editar_ativo_carteira($idCarteira, $descCarteira)   {
+function editar_ativo_carteira($idCarteira, $idCliente)   {
 
 	$resp = new xajaxResponse();
 
 	$tela   = "";
 	$result = 0;
+
+	$descrCarteira = listaDescri($idCliente,1);
 	
 	$tela .= '<table border="0" width=100% class="table">
  			<div class="row">
     				<div class="col-xs-6 col-md-4">
 					<tr style="color:white; background-color:#2F4F4F;">
-				     	     <th colspan="6">'.$descCarteira.'</th>
+				     	     <th colspan="6">'.$descrCarteira.'</th>
 	 				</tr>
       					<tr style="color:#696969; background-color:#DCDCDC;">
 						<th>Codigo</th>
