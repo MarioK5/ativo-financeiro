@@ -412,6 +412,7 @@ function editar_ativo_carteira($idCarteira, $idCliente)   {
 						   			<input type="hidden" id="idAtivoCliente'.$ind.'" name="idAtivoCliente'.$ind.'" value="'.$idAtivoCliente.'" />
 	    								<input type="hidden" id="idAtivo[]'.$ind.'" name="idAtivo[]'.$ind.'" value="'.$idAtivo.'" />
      									<input type="hidden" id="idCarteiraAtivo'.$ind.'" name="idCarteiraAtivo'.$ind.'" value="'.$idCarteiraAtivo.'" />
+	      							<input type="hidden" id="teste55" name="teste55" value="55" />
 			                                            </div>
 			                                        </div>
 			                                    </div>
@@ -444,7 +445,7 @@ function gravar_editar_ativo($dados)   {
 
 	$resp = new xajaxResponse();
 
-	$resp->alert('Gravar se meta for igual a 100%  '.$dados['idAtivo'][1]); return $resp;
+	$resp->alert('Gravar se meta for igual a 100%  '.$dados['teste55']); return $resp;
 
 	
 
