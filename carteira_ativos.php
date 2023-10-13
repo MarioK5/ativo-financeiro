@@ -252,14 +252,14 @@ function busca_ativos($idCliente)   {
 		$tela .= '<div class="row">
     				<div class="col-xs-6 col-md-4">
 					<tr style="color:white; background-color:#2F4F4F;">
-				     	     <th colspan="7">'.$descricao.'</th>
+				     	     <th colspan="7">'.$descricao[$ind].'</th>
 	       				     <th colspan="1" style="text-align: right;">
 							<button type="button" class="btn btn-default btn-xs" onclick="xajax_editar_ativo_carteira('.$idCarteira[$ind].','.$idCliente[$ind].');">
 							<span class="glyphicon glyphicon-edit"> Editar</span>
 							</button>
 					     </th>
 	  				     <th colspan="1" style="text-align: right;">
-				   		 <input type="button" value="Adicionar Ativo"  class="btn btn-success btn-xs" onclick="xajax_cadastrar_ativo('.$idCarteira.'); ">
+				   		 <input type="button" value="Adicionar Ativo"  class="btn btn-success btn-xs" onclick="xajax_cadastrar_ativo('.$idCarteira[$ind].'); ">
 					     </th>
 	 				</tr>
       					<tr style="color:#696969; background-color:#DCDCDC;">
@@ -276,14 +276,14 @@ function busca_ativos($idCliente)   {
 				</div>
 			    </div> ';	
 
-	$result2 = listaAtivosCarteira($idCarteira);
+	$result2 = listaAtivosCarteira($idCarteira[$ind]);
 	
 		if (mysqli_num_rows($result2) > 0) {
 			while ($row2 = mysqli_fetch_array($result2)) {
 
 				$idAtivoCarteira = $row2["ID"];
 				$idAtivo         = $row2["ID_ATIVO"];
-            			$idCarteira      = $row2["ID_CARTEIRA"];
+            			$idCarteiraAtivo = $row2["ID_CARTEIRA"];
 				$codigo          = $row2["CODIGO"];
 				$desc_Ativo      = $row2["DESCRICAO"];
 				$porcentagem     = $row2["PORCENTAGEM"];
@@ -294,7 +294,7 @@ function busca_ativos($idCliente)   {
 				$valor_atual_investido = ($qtde_ativos * $valor_atual_ativo);
 				$saldo = ($valor_atual_investido - $valor_investido);
 
-				$result3 = somaValorTotalAtualAtivos($idCarteira);
+				$result3 = somaValorTotalAtualAtivos($idCarteiraAtivo);
 				
 				while ($row3 = mysqli_fetch_array($result3)) {
 					$valor_total_carteira = $row3["VALOR_TOTAL"];
