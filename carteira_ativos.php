@@ -418,8 +418,7 @@ function editar_ativo_carteira($idCarteira)   {
 		                	 </tr> 
 					 <tr> 
 					 	<td colspan="6" style="text-align: right;">
-				   		 <input type="button" value="Gravar"  class="btn btn-success btn-xs" onclick="xajax_gravar_editar_ativo(); ">
-					 	</td>
+				   		 <input type="button" value="Gravar"  class="btn btn-success btn-xs" >
 	 				</tr>';
 				}
 			}
@@ -430,21 +429,6 @@ function editar_ativo_carteira($idCarteira)   {
 	return $resp;
 }
 
-function gravar_editar_ativo()   {
-
-	$resp = new xajaxResponse();
-
-	$tela = '';
-	
-	$resp->alert('Gravar o editarativos da carteira do cliente.); return $resp;
-
-	
-
-
-	$resp->assign("tela_cliente","innerHTML",$tela);
-  
-	return $resp;
-}
 
 function excluir_ativo_carteira()   {
 
