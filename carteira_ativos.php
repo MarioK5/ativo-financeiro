@@ -346,7 +346,7 @@ function cadastrar_ativo($idCarteira)   {
 	return $resp;
 }
 
-function editar_ativo_carteira($idCarteira,'.$descricao.')   {
+function editar_ativo_carteira($idCarteira,$descricao)   {
 
 	$resp = new xajaxResponse();
 
