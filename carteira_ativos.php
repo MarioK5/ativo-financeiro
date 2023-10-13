@@ -408,10 +408,10 @@ function editar_ativo_carteira($idCarteira, $idCliente)   {
 			                                    <div class="form-group">
 			                                        <div id="sandbox-container">
 			                                            <div class="input-group">
-			                                                <input type="text" name="n_perc'.$ind.'" id="n_perc'.$ind.'" value="'.number_format($porcentagem,0,",",".").'" class="form-control" name="porcentagem" id="porcentagem" >
-						   			<input type="hidden" id="idAtivoCliente'.$ind.'" name="idAtivoCliente'.$ind.'" value="'.$idAtivoCliente.'" />
+			                                                <input type="text" name="n_perc[]'.$ind.'" id="n_perc[]'.$ind.'" value="'.number_format($porcentagem,0,",",".").'" class="form-control" name="porcentagem" id="porcentagem" >
+						   			<input type="hidden" id="idAtivoCliente[]'.$ind.'" name="idAtivoCliente[]'.$ind.'" value="'.$idAtivoCliente.'" />
 	    								<input type="hidden" id="idAtivo[]'.$ind.'" name="idAtivo[]'.$ind.'" value="'.$idAtivo.'" />
-     									<input type="hidden" id="idCarteiraAtivo'.$ind.'" name="idCarteiraAtivo'.$ind.'" value="'.$idCarteiraAtivo.'" />
+     									<input type="hidden" id="idCarteiraAtivo[]'.$ind.'" name="idCarteiraAtivo[]'.$ind.'" value="'.$idCarteiraAtivo.'" />
 			                                            </div>
 			                                        </div>
 			                                    </div>
@@ -444,10 +444,13 @@ function gravar_editar_ativo($dados)   {
 
 	$resp = new xajaxResponse();
 
-	$resp->alert('Gravar se meta for igual a 100%  '.$dados['idAtivo'][1]); return $resp;
+//	$resp->alert('Gravar se meta for igual a 100%  '.$dados['idAtivo'][1]);
 
-	
+	for($i = 0; $i < count($dados);$i++){
+		$soma_perc += $dados['idAtivo'][$i];
+	}
 
+	$resp->alert('Gravar se meta for igual a 100%  '.$soma_perc); return $resp;
 
 	$resp->assign("tela_saida","innerHTML",$tela);
   
