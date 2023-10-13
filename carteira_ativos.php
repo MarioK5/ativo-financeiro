@@ -350,11 +350,52 @@ function editar_ativo_carteira($idCarteira)   {
 
 	$resp = new xajaxResponse();
 
-	$resp->alert('Editar ativo da carteira: '.$descricao); return $resp;
 	$tela   = "";
 	$result = 0;
+	$descCarteira = 'ajustar';
 	
+	$tela .= '<div class="row">
+    				<div class="col-xs-6 col-md-4">
+					<tr style="color:white; background-color:#2F4F4F;">
+				     	     <th colspan="6">'.$descCarteira.'</th>
+	 				</tr>
+      					<tr style="color:#696969; background-color:#DCDCDC;">
+						<th>Codigo</th>
+						<th>Empresa</th>
+      						<th>Valor<br>Investido</th>
+						<th>Qtde<br>Ativos</th>
+      						<th>Meta %</th>
+						<th></th>
+	                		</tr> 
+				</div>
+			    </div> ';
+
+	$result = listaAtivosCarteira($idCarteira);
 	
+		if (mysqli_num_rows($result) > 0) {
+			while ($row = mysqli_fetch_array($result)) {
+
+				$idAtivoCarteira = $row2["ID"];
+				$idAtivo         = $row2["ID_ATIVO"];
+            			$idCarteira      = $row2["ID_CARTEIRA"];
+				$codigo          = $row2["CODIGO"];
+				$desc_Ativo      = $row2["DESCRICAO"];
+				$porcentagem     = $row2["PORCENTAGEM"];
+				$qtde_ativos     = $row2["QTDE_ATIVOS"];
+				$valor_investido = $row2["VALOR_INVESTIDO"];
+
+				$tela .= '<tr>
+						<td>'.$codigo.'</td>
+						<td>'.$desc_Ativo.'</td>
+						<td>'.number_format($valor_investido,2,",",".").'</td>
+						<td>'.$qtde_ativos.'</td>
+						<td>
+							<input type="text" value="'.number_format($porcentagem,0,",",".").'" class="form-control" name="porcentagem" id="porcentagem" >
+				      		</td>
+						<td></td>
+		                	</tr> ';
+				}
+			}
 	
 	$resp->assign("tela_cliente","innerHTML",$tela);
   
