@@ -47,6 +47,7 @@ function editar_carteiras($dados){
     salvar_carteira($dados,1);
     //$resp->script("window.location.reload();");
     $resp->alert("Cadastrado com sucesso");
+ 
     return $resp;
 }
 
@@ -111,7 +112,7 @@ function editar_carteiras($dados){
                 };
                 xajax_editar_carteiras(dados);
 
-                xajax_busca_dados();
+                location.reload();
             }
         }
     </script>
