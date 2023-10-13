@@ -248,22 +248,26 @@ function busca_ativos($idCliente)   {
 		$tela .= '<div class="row">
     				<div class="col-xs-6 col-md-4">
 					<tr style="color:white; background-color:#2F4F4F;">
-				     	     <th colspan="8">'.$descricao.'</th>
+				     	     <th colspan="5">'.$descricao.'</th>
 	       				     <th colspan="2" style="text-align: right;">
+							<button type="button" class="btn btn-default btn-sm" onclick="xajax_editar_ativo_carteira('.$idAtivoCarteira.'); ">
+							<span class="glyphicon glyphicon-edit">Editar</span>
+							</button>
+					     </th>
+	  				     <th colspan="2" style="text-align: right;">
 				   		 <input type="button" value="Adicionar Ativo"  class="btn btn-success btn-xs" onclick="xajax_cadastrar_ativo('.$idCarteira.'); ">
-					     <?th>
+					     </th>
 	 				</tr>
       					<tr style="color:#696969; background-color:#DCDCDC;">
-							<th>Codigo</th>
-							<th>Empresa</th>
-							<th>Meta %</th>
-							<th>Qtde<br>Ativos</th>
+						<th>Codigo</th>
+						<th>Empresa</th>
+						<th>Meta %</th>
+						<th>Qtde<br>Ativos</th>
        						<th>Valor<br>Investido</th>
 	     					<th>Valor Atual<br>Ativo</th>
-							<th>Valor Atual<br>Investido</th>
+						<th>Valor Atual<br>Investido</th>
 	    					<th>% Atual</th>
-							<th>Retorno</th>
-	    					<th>Editar</th>
+						<th>Retorno</th>
 	                		</tr> 
 				</div>
 			    </div> ';	
@@ -311,11 +315,6 @@ function busca_ativos($idCliente)   {
 								<td>'.number_format($valor_atual_investido,2,",",".").'</td>
 								<td>'.number_format($perc_atual,2,",",".").'</td>
 								<td '.$sit_saldo.'>'.number_format($saldo,2,",",".").'</td>
-								<td>
-		     				     	<button type="button" class="btn btn-default btn-sm" onclick="xajax_editar_ativo_carteira('.$idAtivoCarteira.'); ">
-									<span class="glyphicon glyphicon-edit"></span>
-									</button>
-								</td>
 		                	</tr> ';
 				$perc_atual = 0;
 				}
