@@ -355,7 +355,7 @@ function editar_ativo_carteira($idCarteira)   {
 	$result = 0;
 	$descCarteira = 'ajustar';
 	
-	$tela .= '<table border="0" width=100% class="table">
+	$tela .= '<table border="1" width=100% class="table">
  			<div class="row">
     				<div class="col-xs-6 col-md-4">
 					<tr style="color:white; background-color:#2F4F4F;">
