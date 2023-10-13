@@ -358,7 +358,7 @@ function editar_ativo_carteira($idCarteira, $idCliente)   {
 	$tela   = "";
 	$result = 0;
 
-	$descrCarteira = listaDescri($idCliente,1);
+	$descrCarteira = listaDescri($idCarteira,1);
 	
 	$tela .= '<table border="0" width=100% class="table">
  			<div class="row">
