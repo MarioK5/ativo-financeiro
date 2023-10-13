@@ -34,9 +34,9 @@ function busca_dados($dados)   {
     
 	if ($result > 0) {
 
-	$result = validaAdmin($email);
+	$admin = validaAdmin($email);
 
-	if ($result > 0) {
+	if ($admin > 0) {
 	/* nessa parte deve ser listado e gerado os tokens para o Administrador Financeiro */
 		
 	$resp->alert('Admin, criar regra para listar e gerar tokens!');
@@ -44,7 +44,7 @@ function busca_dados($dados)   {
 
 	$resp->assign("tela_saida","innerHTML",$tela);
   
-   return $resp;
+   	return $resp;
 		
 	}else{
 
