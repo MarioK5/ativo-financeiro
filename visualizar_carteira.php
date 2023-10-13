@@ -49,7 +49,7 @@ function editar_carteiras($dados){
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <?php $xajax->printJavascript('lib/xajax'); ?>

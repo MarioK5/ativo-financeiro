@@ -25,6 +25,7 @@ function salvar_carteiras($dados){
 
 
     salvar_carteira($dados);
+    $resp->alert("Cadastrado com sucesso");
     $resp->assign("descricaoCarteira", "value", "");
     return $resp;
 }
@@ -32,7 +33,7 @@ function salvar_carteiras($dados){
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <?php $xajax->printJavascript('lib/xajax'); ?>
     <meta charset="UTF-8">
