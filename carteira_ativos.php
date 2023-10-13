@@ -357,6 +357,10 @@ function editar_ativo_carteira($dados)   {
 	$idCarteira   = $explod[0];
 	$descCarteira = $explod[1];
 
+	$resp->alert('dados '.$dados);
+	$resp->alert('idCarteira '.$dados);
+	$resp->alert('descCarteira '.$dados);
+
 	$tela   = "";
 	$result = 0;
 	
