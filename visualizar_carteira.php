@@ -45,8 +45,8 @@ function busca_dados()
 function editar_carteiras($dados){
     $resp = new xajaxResponse();
     salvar_carteira($dados,1);
-    //$resp->script("window.location.reload();");
-    $resp->alert("Cadastrado com sucesso");
+ 
+    //$resp->alert("Cadastrado com sucesso");
  
     return $resp;
 }
