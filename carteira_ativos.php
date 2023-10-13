@@ -396,7 +396,7 @@ function editar_ativo_carteira($idCarteira)   {
 
 				$tela .= '<tr>
 						<td>'.$codigo.'</td>
-						<td style="width: 200px;">'.$desc_Ativo.'</td>
+						<td style="width: 350px;">'.$desc_Ativo.'</td>
 						<td>'.number_format($valor_investido,2,",",".").'</td>
 						<td>'.$qtde_ativos.'</td>
 						<td>
