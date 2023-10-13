@@ -110,6 +110,8 @@ function editar_carteiras($dados){
                     idCarteira: id
                 };
                 xajax_editar_carteiras(dados);
+
+                xajax_busca_dados();
             }
         }
     </script>
