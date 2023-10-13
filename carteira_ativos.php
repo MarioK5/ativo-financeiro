@@ -364,10 +364,10 @@ function editar_ativo_carteira($idCarteira)   {
       					<tr style="color:#696969; background-color:#DCDCDC;">
 						<th>Codigo</th>
 						<th>Empresa</th>
-      						<th>Valor<br>Investido</th>
-						<th>Qtde<br>Ativos</th>
+      						<th>Valor Investido</th>
+						<th>Qtde Ativos</th>
       						<th>Meta %</th>
-						<th></th>
+						<th>#</th>
 	                		</tr> 
 				</div>
 			    </div> ';
