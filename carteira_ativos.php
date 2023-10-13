@@ -525,7 +525,7 @@ function recuperar_senha()   {
 </style>
 <style type="text/css">
     .container{
-  width: 1100px;
+  width: 1000px;
 }
 body{
 	background: #D3D3D3; 
