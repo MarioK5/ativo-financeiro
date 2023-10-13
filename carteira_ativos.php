@@ -350,8 +350,7 @@ function editar_ativo_carteira($idAtivoCarteira)   {
 
 	$resp = new xajaxResponse();
 
-	$resp->alert('Editar ativo: '.$idAtivoCarteira); return $resp;
-
+	$resp->alert('Editar ativo da carteira: '.$idAtivoCarteira);
 	$tela   = "";
 	$result = 0;
 	
