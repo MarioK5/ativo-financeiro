@@ -408,7 +408,7 @@ function editar_ativo_carteira($idCarteira, $idCliente)   {
 			                                    <div class="form-group">
 			                                        <div id="sandbox-container">
 			                                            <div class="input-group">
-			                                                <input type="text" value="'.number_format($porcentagem,0,",",".").'" class="form-control" name="porcentagem" id="porcentagem" >
+			                                                <input type="text" name="n_perc[]" id="n_perc[]" value="'.number_format($porcentagem,0,",",".").'" class="form-control" name="porcentagem" id="porcentagem" >
 			                                            </div>
 			                                        </div>
 			                                    </div>
