@@ -382,47 +382,44 @@ function editar_ativo_carteira($idCarteira, $idCliente)   {
 	
 		if (mysqli_num_rows($result) > 0) {
 			while ($row = mysqli_fetch_array($result)) {
-				$ind++;
-				$idAtivoCliente[$ind]  = $row["ID"];
-				$idAtivo[$ind]         = $row["ID_ATIVO"];
-            			$idCarteiraAtivo[$ind] = $row["ID_CARTEIRA"];
-				$codigo[$ind]          = $row["CODIGO"];
-				$desc_Ativo[$ind]      = $row["DESCRICAO"];
-				$porcentagem[$ind]     = $row["PORCENTAGEM"];
-				$qtde_ativos[$ind]     = $row["QTDE_ATIVOS"];
-				$valor_investido[$ind] = $row["VALOR_INVESTIDO"];
+				$idAtivoCliente  = $row["ID"];
+				$idAtivo         = $row["ID_ATIVO"];
+            			$idCarteiraAtivo = $row["ID_CARTEIRA"];
+				$codigo          = $row["CODIGO"];
+				$desc_Ativo      = $row["DESCRICAO"];
+				$porcentagem     = $row["PORCENTAGEM"];
+				$qtde_ativos     = $row["QTDE_ATIVOS"];
+				$valor_investido = $row["VALOR_INVESTIDO"];
 
-				$array[$ind] = $idAtivoCliente[$ind]
 
-				if($qtde_ativos[$ind] > 0 || $valor_investido[$ind] > 0){
+				if($qtde_ativos > 0 || $valor_investido > 0){
 					$excluir = 0;
 				} else {
 					$excluir = 1;
 				}
 
 				$tela .= '<tr>
-						<td>'.$codigo[$ind].'</td>
-						<td style="width: 350px;">'.$desc_Ativo[$ind].'</td>
-						<td>'.number_format($valor_investido[$ind],2,",",".").'</td>
-						<td>'.$qtde_ativos[$ind].'</td>
+						<td>'.$codigo.'</td>
+						<td style="width: 350px;">'.$desc_Ativo.'</td>
+						<td>'.number_format($valor_investido,2,",",".").'</td>
+						<td>'.$qtde_ativos.'</td>
 						<td>
       							<div class="col-xs-4 col-md-4">
 			                                    <div class="form-group">
 			                                        <div id="sandbox-container">
 			                                            <div class="input-group">
-			                                                <input type="text" value="'.number_format($porcentagem[$ind],0,",",".").'" class="form-control" name="porcentagem" id="porcentagem" >
+			                                                <input type="text" value="'.number_format($porcentagem,0,",",".").'" class="form-control" name="porcentagem" id="porcentagem" >
 			                                            </div>
 			                                        </div>
 			                                    </div>
 			                                </div>	
 				      		</td>
 						<td>
-					      		<button type="button" class="btn btn-default btn-sm" onclick="xajax_excluir_ativo_carteira('.$idAtivoCliente[$ind].','.$excluir.'); ">
+					      		<button type="button" class="btn btn-default btn-sm" onclick="xajax_excluir_ativo_carteira('.$idAtivoCliente.','.$excluir.'); ">
 							<span class="glyphicon glyphicon-remove"></span>
 						        </button>
 					      </td>
 		                	 </tr> ';
-				$ind = 0;
 				}
 			}
 		$tela .= '<tr> 
