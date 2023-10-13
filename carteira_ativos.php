@@ -408,7 +408,10 @@ function editar_ativo_carteira($idCarteira, $idCliente)   {
 			                                    <div class="form-group">
 			                                        <div id="sandbox-container">
 			                                            <div class="input-group">
-			                                                <input type="text" name="n_perc[]" id="n_perc[]" value="'.number_format($porcentagem,0,",",".").'" class="form-control" name="porcentagem" id="porcentagem" >
+			                                                <input type="text" name="n_perc'.$ind.'" id="n_perc'.$ind.'" value="'.number_format($porcentagem,0,",",".").'" class="form-control" name="porcentagem" id="porcentagem" >
+						   			<input type="hidden" id="idAtivoCliente'.$ind.'" name="idAtivoCliente'.$ind.'" value="'.$idAtivoCliente.'" />
+	    								<input type="hidden" id="idAtivo'.$ind.'" name="idAtivo'.$ind.'" value="'.$idAtivo.'" />
+     									<input type="hidden" id="idCarteiraAtivo'.$ind.'" name="idCarteiraAtivo'.$ind.'" value="'.$idCarteiraAtivo.'" />
 			                                            </div>
 			                                        </div>
 			                                    </div>
@@ -420,7 +423,9 @@ function editar_ativo_carteira($idCarteira, $idCliente)   {
 						        </button>
 					      </td>
 		                	 </tr> ';
+				$ind++;
 				}
+			$ind = 0;
 			}
 		$tela .= '<tr> 
 				<td colspan="6" style="text-align: right;">
