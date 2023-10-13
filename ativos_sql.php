@@ -20,6 +20,24 @@ function validaLogin($email, $senha){
 	return $ret;
 }
 
+function validaAdmin($email){
+	
+	$conn = OpenCon();
+	
+	$ret = 0;
+	
+	$sql = "SELECT 1 FROM CLIENTES WHERE EMAIL = '{$email}' AND TOKEN = 1 ";
+
+    	$result = mysqli_query($conn,$sql);
+	if (mysqli_num_rows($result) > 0) {
+		$ret = 1;
+	}
+
+	CloseCon($conn);
+	
+	return $ret;
+}
+
 function buscaID($email){
 	
 	$conn = OpenCon();
