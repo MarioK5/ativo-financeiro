@@ -244,7 +244,7 @@ function busca_ativos($idCliente)   {
             		$idCarteira = $row["ID"];
             		$descricao  = $row["DESCRICAO"];
             		$idCliente  = $row["ID_CLIENTE"];
-			$desc_carteira = strval($descricao);
+			$desc_carteira = strval(new $descricao);
 					
 		$tela .= '<div class="row">
     				<div class="col-xs-6 col-md-4">
