@@ -411,18 +411,19 @@ function editar_ativo_carteira($idCarteira)   {
 			                                </div>	
 				      		</td>
 						<td>
-					      		<button type="button" class="btn btn-default btn-sm" onclick="xajax_excluir_ativo_carteira(); ">
+					      		<button type="button" class="btn btn-default btn-sm" onclick="xajax_excluir_ativo_carteira('.$idAtivoCarteira.','.$excluir.'); ">
 							<span class="glyphicon glyphicon-remove"></span>
 						        </button>
 					      </td>
-		                	 </tr> 
-					 <tr> 
-					 	<td colspan="6" style="text-align: right;">
-				   		 <input type="button" value="Gravar"  class="btn btn-success btn-xs" >
-	 				</tr>';
+		                	 </tr> ';
 				}
 			}
-	$tela .= '</table>';
+		$tela .= '<tr> 
+				<td colspan="6" style="text-align: right;">
+				 <input type="button" value="Gravar"  class="btn btn-success btn-xs" >
+     				</td>
+			</tr>
+      		</table>';
 	
 	$resp->assign("tela_cliente","innerHTML",$tela);
   
@@ -430,11 +431,11 @@ function editar_ativo_carteira($idCarteira)   {
 }
 
 
-function excluir_ativo_carteira()   {
+function excluir_ativo_carteira($idAtivoCarteira, $excluir)   {
 
 	$resp = new xajaxResponse();
 
-	$resp->alert('Esxcluir ativo de carteira se estivar com os valores zerados... '); return $resp;
+	$resp->alert('Esxcluir ativo de carteira se estivar com os valores zerados... '.$idAtivoCarteira); return $resp;
 
 	
 
