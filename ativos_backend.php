@@ -28,7 +28,7 @@ function vizualizar_carteira($dados){
 
 function listar_carteiras(){
     $idCliente = 1;
-    $result = listaCarteiras(0,$idCliente);
+    $result = listaCarteiras($idCliente);
     $carteiras = array();
     if ($result > 0) {
         while ($row = mysqli_fetch_array($result)) {
