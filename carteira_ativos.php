@@ -451,7 +451,7 @@ function gravar_editar_ativo($dados)   {
 	}
 
 	if($soma_perc == 100){
-		$resp->alert('Ajuste gravado!'; 
+		$resp->alert('Ajuste gravado!'); 
 	}else{
 		$resp->alert('A meta informada esta diferente de 100%, soma do valor atual: '.$soma_perc); return $resp;
 
