@@ -19,7 +19,6 @@ function busca_dados()
 
     if (!empty($result)) {
         $tela .= '<table border="1" width="100%">
-        <meta charset="UTF-8">
                     <tr style="color:white; background-color: #337ab7;">
                         <th>ID</th>
                         <th>Descrição</th>
@@ -104,21 +103,12 @@ function editar_carteiras($dados){
     <script src="js/bootstrap.js"></script>
     <script src="js/sidebarToggle.js"></script>
     <script>
+ 
+
         function editarCarteira(id) {
-            var novaDescricao = prompt("Digite a nova descrição da carteira:");
-            if (novaDescricao !== null) {
-                var dados = {                    
-                    descricaoCarteira: novaDescricao,
-                    idCarteira: id
-                };
-                xajax_editar_carteiras(dados);
-
-                location.reload();
-
-                alert("Editado com sucesso!");
-
-            }
+            window.location.href = 'editarCarteira.php?id=' + id;
         }
+
     </script>
 </body>
 
