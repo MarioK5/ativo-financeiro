@@ -410,8 +410,8 @@ function editar_ativo_carteira($idCarteira, $idCliente)   {
 			                                            <div class="input-group">
 			                                                <input type="text" name="n_perc[]'.$ind.'" id="n_perc[]'.$ind.'" value="'.number_format($porcentagem,0,",",".").'" class="form-control" name="porcentagem" id="porcentagem" >
 						   			<input type="hidden" id="idAtivoCliente[]'.$ind.'" name="idAtivoCliente[]'.$ind.'" value="'.$idAtivoCliente.'" />
-	    								<input type="hidden" id="idAtivo[]'.$ind.'" name="idAtivo[]'.$ind.'" value="'.$idAtivo.'" />
      									<input type="hidden" id="idCarteiraAtivo[]'.$ind.'" name="idCarteiraAtivo[]'.$ind.'" value="'.$idCarteiraAtivo.'" />
+	      								<input type="hidden" id="idCliente" name="idCliente" value="'.$idCliente.'" />
 			                                            </div>
 			                                        </div>
 			                                    </div>
@@ -458,7 +458,9 @@ function gravar_editar_ativo($dados)   {
 		$resp->alert('A meta informada esta diferente de 100%, soma do valor atual: '.$soma_perc); return $resp;
 	}
 	$resp->alert('Ajuste gravado!'); 
-	$resp->assign("tela_cliente","innerHTML",$tela);
+
+	$script = "xajax_busca_ativos($dados['idCliente'])";
+    	$resp->script($script);
   
 	return $resp;
 }
