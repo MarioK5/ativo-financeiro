@@ -444,7 +444,7 @@ function gravar_editar_ativo($dados)   {
 
 	$resp = new xajaxResponse();
 
-//	$resp->alert('Gravar se meta for igual a 100%  '.$dados['idAtivo'][1]);
+	$resp->alert('ID do cliente '.$dados['idCliente']);  return $resp;
 
 	for($i = 0; $i < count($dados);$i++){
 		$soma_perc += $dados['n_perc'][$i];
