@@ -8,7 +8,7 @@ $xajax = new xajax();
 $xajax->setCharEncoding('UTF-8');
 $xajax->registerFunction("busca_dados");
 $xajax->registerFunction("busca_carteiras");
-$xajax->registerFunction("busca_ativos");f
+$xajax->registerFunction("busca_ativos");
 $xajax->registerFunction("busca_investimentos");
 $xajax->registerFunction("cadastrar_carteira");
 $xajax->registerFunction("editar_carteira");
