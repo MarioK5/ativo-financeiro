@@ -451,12 +451,13 @@ function gravar_editar_ativo($dados)   {
 	}
 
 	if($soma_perc == 100){
-		$resp->alert('Ajuste gravado!'); 
+		for($j = 0; $j < count($dados);$j++){
+		alteraAtivoCarteira($dados['idAtivoCliente'][$j], $dados['n_perc'][$j]);
+		}
 	}else{
 		$resp->alert('A meta informada esta diferente de 100%, soma do valor atual: '.$soma_perc); return $resp;
-
 	}
-	
+	$resp->alert('Ajuste gravado!'); 
 	$resp->assign("tela_cliente","innerHTML",$tela);
   
 	return $resp;
