@@ -457,7 +457,7 @@ function gravar_editar_ativo($dados)   {
 
 	}
 	
-	$resp->assign("tela_saida","innerHTML",$tela);
+	$resp->assign("tela_cliente","innerHTML",$tela);
   
 	return $resp;
 }
@@ -471,7 +471,7 @@ function excluir_ativo_carteira($idAtivoCarteira, $excluir)   {
 	
 
 
-	$resp->assign("tela_saida","innerHTML",$tela);
+	$resp->assign("tela_cliente","innerHTML",$tela);
   
 	return $resp;
 }
