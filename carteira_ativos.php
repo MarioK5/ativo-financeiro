@@ -444,7 +444,9 @@ function gravar_editar_ativo($dados)   {
 
 	$resp = new xajaxResponse();
 
-//	$resp->alert('ID do cliente '.$dados['idCliente']);  return $resp;
+	$idCliente = $dados['idCliente'];
+	
+	$tela "";
 
 	for($i = 0; $i < count($dados);$i++){
 		$soma_perc += $dados['n_perc'][$i];
@@ -459,7 +461,7 @@ function gravar_editar_ativo($dados)   {
 	}
 	$resp->alert('Ajuste gravado!'); 
 
-	$script = "xajax_busca_ativos($dados['idCliente'])";
+	$script = "xajax_busca_ativos($idCliente)";
     	$resp->script($script);
 	$resp->assign("tela_cliente","innerHTML",$tela);
 	return $resp;
