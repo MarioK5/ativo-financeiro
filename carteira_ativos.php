@@ -259,7 +259,7 @@ function busca_ativos($idCliente)   {
 							</button>
 					     </th>
 	  				     <th colspan="1" style="text-align: right;">
-				   		 <input type="button" value="Adicionar Ativo"  class="btn btn-success btn-xs" onclick="xajax_cadastrar_ativo('.$idCarteira[$ind].'); ">
+				   		 <input type="button" value="Adicionar Ativo"  class="btn btn-success btn-xs" onclick="xajax_cadastrar_ativo('.$idCarteira[$ind].','.$idCliente[$ind].'); ">
 					     </th>
 	 				</tr>
       					<tr style="color:#696969; background-color:#DCDCDC;">
@@ -335,11 +335,11 @@ function busca_ativos($idCliente)   {
 	return $resp;
 }
 
-function cadastrar_ativo($idCarteira)   {
+function cadastrar_ativo($idCarteira, $idCliente)   {
 
 	$resp = new xajaxResponse();
 
-	$resp->alert('Incluir ativo na carteira: '.$idCarteira);
+	$descrCarteira = listaDescri($idCarteira,1);
 
 	$tela   = "";
 	$result = 0;
@@ -427,7 +427,6 @@ function editar_ativo_carteira($idCarteira, $idCliente)   {
 						   			<input type="hidden" id="idAtivoCliente[]'.$ind.'" name="idAtivoCliente[]'.$ind.'" value="'.$idAtivoCliente.'" />
      									<input type="hidden" id="idCarteiraAtivo[]'.$ind.'" name="idCarteiraAtivo[]'.$ind.'" value="'.$idCarteiraAtivo.'" />
 	      								<input type="hidden" id="idCliente" name="idCliente" value="'.$idCliente.'" />
-	       								<input type="hidden" id="descrCarteira" name="descrCarteira" value="'.$descrCarteira.'" />
 			                                            </div>
 			                                        </div>
 			                                    </div>
@@ -461,7 +460,6 @@ function gravar_editar_ativo($dados)   {
 	$resp = new xajaxResponse();
 
 	$idCliente = $dados['idCliente'];
-	$resp->alert('Descri '.$dados['descrCarteira']); return $resp;
 
 	for($i = 0; $i < count($dados);$i++){
 		$soma_perc += $dados['n_perc'][$i];
