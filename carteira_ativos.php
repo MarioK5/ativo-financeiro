@@ -461,6 +461,7 @@ function gravar_editar_ativo($dados)   {
 	$resp = new xajaxResponse();
 
 	$idCliente = $dados['idCliente'];
+	$resp->alert('Descri '.$dados['descrCarteira']); return $resp;
 
 	for($i = 0; $i < count($dados);$i++){
 		$soma_perc += $dados['n_perc'][$i];
