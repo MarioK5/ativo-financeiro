@@ -459,9 +459,9 @@ function gravar_editar_ativo($dados)   {
 	}
 	$resp->alert('Ajuste gravado!'); 
 
-	$script = "xajax_busca_ativos($dados['idCliente'])";
-    	$resp->script($script);
-  
+//	$script = "xajax_busca_ativos($dados['idCliente'])";
+//    	$resp->script($script);
+	$resp->assign("tela_cliente","innerHTML",$tela);
 	return $resp;
 }
 
