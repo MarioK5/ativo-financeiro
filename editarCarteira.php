@@ -121,19 +121,20 @@ function busca_carteira()
             <!-- Page content-->
 
             <div class="container-fluid">
-                <h1 class="mt-4">Cadastro de Carteiras</h1>
+                <h1 class="mt-4">Atualizar Carteira</h1>
                 <form role="form" id="form_cadastro">
                     <div class="form-group">
                       <label for="formGroupExampleInput">Digite a descrição</label>
                       <input type="text" class="form-control" id="descricaoCarteira" name="descricaoCarteira" placeholder="Digite a descrição">
                     </div>
-                    <div class="form-group">
-                        <div id="lista_ativos" class="panel-body"></div>
-                    </div>
                     <input type="button" class="btn btn-primary mb-2" value="Salvar" name="salvar" id="salvar" onclick="xajax_salvar_carteiras(xajax.getFormValues('form_cadastro')); return false;">
                     <a class="btn btn-primary mb-2" href="visualizar_carteira.php">Cancelar</a>
                   </form>
+                  <div class="form-group">
+                        <div id="lista_ativos" class="panel-body"></div>
+                    </div>
             </div>
+
 
 
         </div>
