@@ -450,8 +450,13 @@ function gravar_editar_ativo($dados)   {
 		$soma_perc += $dados['n_perc'][$i];
 	}
 
-	$resp->alert('Gravar se meta for igual a 100%  '.$soma_perc); return $resp;
+	if($soma_perc == 100){
+		
+	}else{
+		$resp->alert('A meta informada é diferente de 100%, soma do valor é '.$soma_perc); return $resp;
 
+	}
+	
 	$resp->assign("tela_saida","innerHTML",$tela);
   
 	return $resp;
