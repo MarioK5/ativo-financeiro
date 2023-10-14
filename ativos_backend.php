@@ -14,10 +14,8 @@ function salvar_carteira($dados,$idCarteira,$editar) {
     }
 }
 
-function listaDescri($idCarteira){
-    $result = listaCarteiras($idCarteira,1);
-
-    $carteira = mysqli_fetch_array($result);
+function vizualizar_carteira($idCarteira){
+    $result = listaDescri($idCarteira,1);
 
     return $result;
 }
