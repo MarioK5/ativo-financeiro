@@ -470,7 +470,7 @@ function excluir_ativo_carteira($idAtivoCarteira, $excluir)   {
 
 	$resp = new xajaxResponse();
 
-	$resp->alert('Esxcluir ativo de carteira se estivar com os valores zerados... '.$idAtivoCarteira); return $resp;
+	$resp->alert('Excluir ativo de carteira se estivar com os valores zerados... '.$idAtivoCarteira); return $resp;
 
 	
 
