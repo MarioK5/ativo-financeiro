@@ -444,12 +444,12 @@ function gravar_editar_ativo($dados)   {
 
 	$resp = new xajaxResponse();
 
-	$resp->alert('teste '); return $resp;
+	
 
 	for($i = 0; $i < count($dados);$i++){
 		$soma_perc += $dados['n_perc'][$i];
 	}
-
+$resp->alert('teste5 '); return $resp;
 	if($soma_perc == 100){
 		for($j = 0; $j < count($dados);$j++){
 		alteraAtivoCarteira($dados['idAtivoCliente'][$j], $dados['n_perc'][$j]);
