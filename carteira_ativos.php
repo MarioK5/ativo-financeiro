@@ -356,7 +356,21 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
       						<th colspan="2">Segmentos</th>
 						<th colspan="2">Ativos</th>
 	                		</tr> 
-				</div>
+		   			<tr>
+     						<td>
+		   					<input type="text" name="n_setor" id="n_setor" value="" class="form-control" >
+						</td>
+      						<td>
+		   					<input type="text" name="n_sub_setor" id="n_sub_setor" value="" class="form-control" >
+						</td>
+      						<td>
+		   					<input type="text" name="n_segmento" id="n_segmento" value="" class="form-control" >
+						</td>
+      						<td>
+		   					<input type="text" name="n_ativo" id="n_ativo" value="" class="form-control" >
+						</td>
+	                		</tr> 
+    				</div>
 			    </div> ';
 
 
@@ -423,7 +437,7 @@ function editar_ativo_carteira($idCarteira, $idCliente)   {
 			                                    <div class="form-group">
 			                                        <div id="sandbox-container">
 			                                            <div class="input-group">
-			                                                <input type="text" name="n_perc[]'.$ind.'" id="n_perc[]'.$ind.'" value="'.number_format($porcentagem,0,",",".").'" class="form-control" name="porcentagem" id="porcentagem" >
+			                                                <input type="text" name="n_perc[]'.$ind.'" id="n_perc[]'.$ind.'" value="'.number_format($porcentagem,0,",",".").'" class="form-control" >
 						   			<input type="hidden" id="idAtivoCliente[]'.$ind.'" name="idAtivoCliente[]'.$ind.'" value="'.$idAtivoCliente.'" />
      									<input type="hidden" id="idCarteiraAtivo[]'.$ind.'" name="idCarteiraAtivo[]'.$ind.'" value="'.$idCarteiraAtivo.'" />
 	      								<input type="hidden" id="idCliente" name="idCliente" value="'.$idCliente.'" />
