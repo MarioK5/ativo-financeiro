@@ -317,22 +317,19 @@ function alteraCarteira($descricao, $idCliente, $idCarteira){
 	return $ret;
 }
 
-function alteraAtivoCarteira($dados){
+function alteraAtivoCarteira($idAtivoCliente, $novaPorcentagem){
 	
 	$conn = OpenCon();
-	
-	$usuario = strtoupper($dados['usuario']);
-    $senha   = $dados['senha'];
-	
-	$ret = 0;
-	
-	
 
+	$sql = "UPDATE ATIVOS_CLIENTE
+ 		SET PORCENTAGEM  = '{$novaPorcentagem}'
+    		WHERE ATIVOS_CLIENTE.ID = '{$idAtivoCliente}'";
 	
-
+	$result = mysqli_query($conn,$sql);
+		  mysqli_commit($conn);
+	
 	CloseCon($conn);
 	
-	return $ret;
 }
 
 function listaDescri($id,$tipo){
