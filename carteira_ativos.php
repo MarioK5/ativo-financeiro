@@ -1,12 +1,11 @@
 <?php
-header('Content-Type: text/html; charset=iso-8859-1');
 
 include 'ativos_sql.php';
 
 require_once("lib/xajax/xajax.inc.php");
 
 $xajax = new xajax();
-$xajax->setCharEncoding('iso-8859-1');
+$xajax->setCharEncoding('UTF-8');
 $xajax->registerFunction("busca_dados");
 $xajax->registerFunction("busca_carteiras");
 $xajax->registerFunction("busca_ativos");
@@ -561,7 +560,7 @@ function recuperar_senha()   {
 <html>
     <head>
         <title>Carteira de Ativos IFRS</title>
-        <meta http-equiv="Content-Type" content="text/html" charset="iso-8859-1">
+        <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
         
         <!-- JQuery -->
         <script src="lib/jquery/jquery-1.11.2.min.js"></script>
