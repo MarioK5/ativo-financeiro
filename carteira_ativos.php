@@ -350,7 +350,7 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
 					<tr style="color:white; background-color:#2F4F4F;">
 				     	     <th colspan="8">'.$descrCarteira.'</th>
 	 				</tr>
-      					<tr style="color:#696969; background-color:#DCDCDC;">
+      					<tr>
 						<th colspan="2">Setores</th>
 						<th colspan="2">Sub Setores</th>
       						<th colspan="2">Segmentos</th>
