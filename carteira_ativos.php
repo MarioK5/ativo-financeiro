@@ -444,12 +444,10 @@ function gravar_editar_ativo($dados)   {
 
 	$resp = new xajaxResponse();
 
-	
-
 	for($i = 0; $i < count($dados);$i++){
 		$soma_perc += $dados['n_perc'][$i];
 	}
-$resp->alert('teste5 '); return $resp;
+
 	if($soma_perc == 100){
 		for($j = 0; $j < count($dados);$j++){
 		alteraAtivoCarteira($dados['idAtivoCliente'][$j], $dados['n_perc'][$j]);
@@ -457,6 +455,7 @@ $resp->alert('teste5 '); return $resp;
 	}else{
 		$resp->alert('A meta informada esta diferente de 100%, soma do valor atual: '.$soma_perc); return $resp;
 	}
+	
 	$resp->alert('Ajuste gravado!'); 
 
 	$resp->assign("tela_cliente","innerHTML","");
