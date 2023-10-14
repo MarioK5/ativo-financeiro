@@ -5,7 +5,7 @@ include 'ativos_sql.php';
 require_once("lib/xajax/xajax.inc.php");
 
 $xajax = new xajax();
-$xajax->setCharEncoding('UTF-8');
+$xajax->setCharEncoding('iso-8859-1');
 $xajax->registerFunction("busca_dados");
 $xajax->registerFunction("busca_carteiras");
 $xajax->registerFunction("busca_ativos");
