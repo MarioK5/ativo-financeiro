@@ -131,19 +131,14 @@ function busca_carteira()
                         <div id="lista_ativos" class="panel-body"></div>
                     </div>
                     <input type="button" class="btn btn-primary mb-2" value="Salvar" name="salvar" id="salvar" onclick="xajax_salvar_carteiras(xajax.getFormValues('form_cadastro')); return false;">
-                    <button type="submit" class="btn btn-primary mb-2" name="cancelar" id="cancelar">Cancelar</button>
+                    <button type="submit" class="btn btn-primary mb-2" name="cancelar" id="cancelar" href="visualizar_carteira.php">Cancelar</button>
                   </form>
             </div>
 
 
         </div>
     </div>
-    <script>
-        document.getElementById('cancelar').addEventListener('click', function(event) {
-            event.preventDefault(); // Impede o envio do formulário
-            document.getElementById('form_cadastro').reset(); // Limpa o formulário
-        });
-    </script>
+
     <script src="js/bootstrap.bundle.min.js"></script>
  
     <script src="js/bootstrap.js"></script>
