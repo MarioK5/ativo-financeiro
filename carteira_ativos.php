@@ -344,6 +344,21 @@ function cadastrar_ativo($idCarteira)   {
 	$tela   = "";
 	$result = 0;
 
+	$tela .= '<table border="0" width=100% class="table">
+ 			<div class="row">
+    				<div class="col-xs-6 col-md-4">
+					<tr style="color:white; background-color:#2F4F4F;">
+				     	     <th colspan="8">'.$descrCarteira.'</th>
+	 				</tr>
+      					<tr style="color:#696969; background-color:#DCDCDC;">
+						<th colspan="2">Setores</th>
+						<th colspan="2">Sub Setores</th>
+      						<th colspan="2">Segmentos</th>
+						<th colspan="2">Ativos</th>
+	                		</tr> 
+				</div>
+			    </div> ';
+
 
 	
     	$resp->assign("tela_cliente","innerHTML",$tela);
@@ -412,6 +427,7 @@ function editar_ativo_carteira($idCarteira, $idCliente)   {
 						   			<input type="hidden" id="idAtivoCliente[]'.$ind.'" name="idAtivoCliente[]'.$ind.'" value="'.$idAtivoCliente.'" />
      									<input type="hidden" id="idCarteiraAtivo[]'.$ind.'" name="idCarteiraAtivo[]'.$ind.'" value="'.$idCarteiraAtivo.'" />
 	      								<input type="hidden" id="idCliente" name="idCliente" value="'.$idCliente.'" />
+	       								<input type="hidden" id="descrCarteira" name="descrCarteira" value="'.$descrCarteira.'" />
 			                                            </div>
 			                                        </div>
 			                                    </div>
