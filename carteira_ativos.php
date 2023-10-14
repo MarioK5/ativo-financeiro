@@ -8,7 +8,7 @@ $xajax = new xajax();
 $xajax->setCharEncoding('UTF-8');
 $xajax->registerFunction("busca_dados");
 $xajax->registerFunction("busca_carteiras");
-$xajax->registerFunction("busca_ativos");
+$xajax->registerFunction("busca_ativos");f
 $xajax->registerFunction("busca_investimentos");
 $xajax->registerFunction("cadastrar_carteira");
 $xajax->registerFunction("editar_carteira");
@@ -484,7 +484,7 @@ function gravar_editar_ativo($dados)   {
 		alteraAtivoCarteira($dados['idAtivoCliente'][$j], $dados['n_perc'][$j]);
 		}
 	}else{
-		$resp->alert('A meta informada esta diferente de 100%, soma do valor atual: '.$soma_perc); return $resp;
+		$resp->alert('A meta informada é diferente de 100%, soma do valor atual: '.$soma_perc); return $resp;
 	}
 	
 	$resp->alert('Ajuste gravado!'); 
@@ -560,7 +560,7 @@ function recuperar_senha()   {
 <html>
     <head>
         <title>Carteira de Ativos IFRS</title>
-        <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html" charset="iso-8859-1">
         
         <!-- JQuery -->
         <script src="lib/jquery/jquery-1.11.2.min.js"></script>
