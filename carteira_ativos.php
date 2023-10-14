@@ -357,16 +357,16 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
 						<th colspan="2">Ativos</th>
 	                		</tr> 
 		   			<tr>
-     						<td>
+     						<td colspan="2">
 		   					<input type="text" name="n_setor" id="n_setor" value="" class="form-control" >
 						</td>
-      						<td>
+      						<td colspan="2">
 		   					<input type="text" name="n_sub_setor" id="n_sub_setor" value="" class="form-control" >
 						</td>
-      						<td>
+      						<td colspan="2">
 		   					<input type="text" name="n_segmento" id="n_segmento" value="" class="form-control" >
 						</td>
-      						<td>
+      						<td colspan="2">
 		   					<input type="text" name="n_ativo" id="n_ativo" value="" class="form-control" >
 						</td>
 	                		</tr> 
