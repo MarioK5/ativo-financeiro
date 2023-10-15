@@ -352,10 +352,20 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
 				     	     <th colspan="8">'.$descrCarteira.'</th>
 	 				</tr>
       					<tr>
-						<th colspan="2">Setores</th>
-						<th colspan="2">Sub Setores</th>
-      						<th colspan="2">Segmentos</th>
-						<th colspan="2">Ativos</th>
+					    <th colspan="2">
+					        <div class="ui-widget"> 
+					            <label for="input">Setor: </label> 
+					            <input id="input"/><br>               
+						            Setor: <div id="setorOption"></div>             
+						</div>
+      					    </th>
+					    <th colspan="2">Sub Setores
+	 
+	 				    </th>
+      					    <th colspan="2">Segmentos
+	       				    </th>
+					    <th colspan="2">Ativos
+	 				    </th>
 	                		</tr> 
 		   			<tr>
      						<td colspan="2">
@@ -589,7 +599,26 @@ function recuperar_senha()   {
         <script language="JavaScript" ></script>
         <script type="text/javascript" LANGUAGE="JavaScript"></script>
 <script>
-
+	
+	$(document).ready(function() { 
+           
+             var tags = [ 
+                 "Washington", "Cincinnati", 
+                 "Dubai", "Dublin", "Colombo", 
+                 "Culcutta" 
+            ]; 
+                 
+            $('#input').autocomplete({ 
+                source : tags,               
+                select : showResult, 
+                focus : showResult, 
+                change :showResult 
+            }) 
+                   
+            function showResult(event, ui) { 
+                $('#setorOption').text(ui.item.label) 
+            } 
+        }); 
 
 </script>
 <style type="text/css" media="print">
