@@ -487,7 +487,7 @@ function gravar_editar_ativo($dados)   {
 		alteraAtivoCarteira($dados['idAtivoCliente'][$j], $dados['n_perc'][$j]);
 		}
 	}else{
-		$resp->alert('A meta informada é diferente de 100%, soma do valor atual: '.$soma_perc); return $resp;
+		$resp->alert('A meta informada esta diferente de 100%, soma do valor atual: '.$soma_perc); return $resp;
 	}
 	
 	$resp->alert('Ajuste gravado!'); 
@@ -606,10 +606,7 @@ function recuperar_senha()   {
         }); 
 
 </script>
-<style type="text/css" media="print">
-    .container { position: absolute; top: 0px; left: 0px; margin-top: 5px; height:50px; margin-left: 2px; width: 100%; display: block; line-height: 1.5;}
-    .btn {display: none;}
-</style>
+
 <style type="text/css">
     .container{
   width: 1000px;
