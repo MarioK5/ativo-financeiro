@@ -1,5 +1,6 @@
 <?php
 
+ini_set(default_charset, "iso-8859-1");
 include 'ativos_sql.php';
 
 require_once("lib/xajax/xajax.inc.php");
