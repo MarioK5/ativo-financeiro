@@ -569,9 +569,6 @@ function recuperar_senha()   {
         <!-- JQuery -->
         <script src="lib/jquery/jquery-1.11.2.min.js"></script>
         <link rel="stylesheet" href="lib/jquery/jquery-ui-1.11.4/jquery-ui.css">
-	<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.3/themes/ui-lightness/jquery-ui.css"/>
-	<script src="http://code.jquery.com/jquery-2.1.3.js"></script> 
-	<script src="http://code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
         <script src="lib/jquery/jquery-ui-1.11.4/external/jquery/jquery.js"></script>
         <script src="lib/jquery/jquery-ui-1.11.4/jquery-ui.js"></script>
         
