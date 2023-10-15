@@ -1,5 +1,6 @@
 <?php
 
+header('Content-Type: text/html; charset=utf-8');
 include 'ativos_sql.php';
 
 require_once("lib/xajax/xajax.inc.php");
@@ -556,7 +557,6 @@ function recuperar_senha()   {
 
 ?>
 
-header('Content-Type: text/html; charset=utf-8');
 <!DOCTYPE html> 
 
 <html>
