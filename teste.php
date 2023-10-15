@@ -20,15 +20,9 @@
 			]; 
 				
 			$('#input').autocomplete({ 
-				source : tags,			 
-				select : showResult, 
-				focus : showResult, 
-				change :showResult 
+				source : tags
 			}) 
-				
-			function showResult(event, ui) { 
-				$('#cityName').text(ui.item.label) 
-			} 
+
 		}); 
 	</script> 
 </head> 
@@ -36,10 +30,7 @@
 <body> 
 	<form>	 
 		<div class="ui-widget"> 
-			<label for="input">City Name : </label> 
-			<input id="input"/><br> 
-			
-			Label of City Name: <div id="cityName"></div>			 
+			<input id="input"/><br> 	 
 		</div> 
 	</form> 
 </body> 
