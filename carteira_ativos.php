@@ -360,8 +360,7 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
 		   			<tr>
      						<td colspan="2">
 		   				    <div class="ui-widget"> 
-					            	<input id="inputSetor"/>              
-							<div id="n_setor"></div>             
+					            	<input type="text" name="n_setor" id="n_setor" value="" class="form-control" >                        
 						    </div>
 						</td>
       						<td colspan="2">
@@ -601,16 +600,9 @@ function recuperar_senha()   {
                  "Culcutta" 
             ]; 
                  
-            $('#inputSetor').autocomplete({ 
-                source : tags,               
-                select : showResult, 
-                focus : showResult, 
-                change :showResult 
+            $('#n_setor').autocomplete({ 
+                source : tags
             }) 
-                   
-            function showResult(event, ui) { 
-                $('#n_setor').text(ui.item.label) 
-            } 
         }); 
 
 </script>
