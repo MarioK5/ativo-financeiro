@@ -360,12 +360,14 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
 	                		</tr> 
 		   			<tr>
      						<td colspan="2">
-		   				    <div name="n_sub_setor" id="n_sub_setor" value="" class="form-control" > 
+		   				    <div name="n_setor" id="n_setor" value="" class="form-control" > 
 					            	'.combo_setor().'                        
 						    </div>
 						</td>
       						<td colspan="2">
-		   					<input type="text" name="n_sub_setor" id="n_sub_setor" value="" class="form-control" >
+		   				    <div name="n_sub_setor" id="n_sub_setor" value="" class="form-control" > 
+					            	'.tipo_subSetor(0).'                        
+						    </div>
 						</td>
       						<td colspan="2">
 		   					<input type="text" name="n_segmento" id="n_segmento" value="" class="form-control" >
@@ -563,7 +565,7 @@ function tipo_subSetor($dados) {
     
     	$ret .= '</select>';
 	
-//	$resp->assign("tela_cliente","innerHTML",$tela);
+	$resp->assign("n_sub_setor","value",$ret);
   
 	return $resp;
 }
