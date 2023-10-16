@@ -548,7 +548,7 @@ function combo_setor() {
 function tipo_subSetor($dados) {
 
 	$resp = new xajaxResponse();
-	$resp->alert('Investimentos do cliente: '.$dados['tipo_subSetor']); return $resp;
+//	$resp->alert('Investimentos do cliente: '.$dados['tipo_subSetor']); return $resp;
 	
 	$ret = '<select  id="subSetor" name="subSetor">
                 <option value="" disabled selected></option>';
