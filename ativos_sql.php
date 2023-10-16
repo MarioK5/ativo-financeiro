@@ -373,8 +373,8 @@ function apiListaAtivos(){
 	
 	$conn = OpenCon();
 	
-	$sql = "SELECT * FROM ATIVOS WHERE CODIGO = 'AZUL4' ";
-//	$sql = "SELECT * FROM ATIVOS ";
+//	$sql = "SELECT * FROM ATIVOS WHERE CODIGO = 'AZUL4' ";
+	$sql = "SELECT * FROM ATIVOS ";
 
     $result = mysqli_query($conn,$sql);
 	
@@ -396,9 +396,39 @@ function apiAtualizaValorAtivo($simbolo, $valor){
 	
 	CloseCon($conn);
 
-//	$ret ='Simbolo: '.$simbolo.' com valor: '.$valor;
-//	return $ret;
 }
 
+function buscaSetor(){
+	
+	$conn = OpenCon();
+	
+	$sql = "SELECT ID, DESCRICAO FROM SETOR";
+
+	$result = mysqli_query($conn,$sql);
+
+	CloseCon($conn);
+	
+	return $result;
+}
+
+function buscaSubSetor($setor){
+	
+	$conn = OpenCon();
+
+	if($setor > 0){
+		$temSetor = "WHERE ID_SETOR = '{$setor}'";
+	}else{
+		$temSetor = '';
+	}
+	
+	$sql = "SELECT ID, DESCRICAO, ID_SETOR FROM SUBSETOR
+ 		$temSetor ";
+
+	$result = mysqli_query($conn,$sql);
+
+	CloseCon($conn);
+	
+	return $result;
+}
 
 ?>
