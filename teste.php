@@ -14,12 +14,12 @@
 		$(document).ready(function() { 
 
 			var tags  =  [
-			               "ActionScript",
-			               "Bootstrap",
-			               "C",
-			               "C++",
-					"Java",
-					"JavaScript"
+			        "ActionScript",
+			        "Bootstrap",
+			        "C",
+			        "C++",
+				"Java",
+				"JavaScript"
             		];
 				
 			$('#input').autocomplete({ 
