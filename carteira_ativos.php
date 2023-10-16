@@ -592,12 +592,23 @@ function recuperar_senha()   {
         <script type="text/javascript" LANGUAGE="JavaScript"></script>
 <script>
 	
-	$(function() {
-            $( "#n_setor" ).autocomplete({
-               source: "search.php",
-               minLength: 2
-            });
-         }); 
+	$(document).ready(function() { 
+
+			var tags  =  [
+			               "ActionScript",
+			               "Bootstrap",
+			               "C",
+			               "C++",
+					"Java",
+					"JavaScript"
+            		];
+				
+			$('#input').autocomplete({ 
+				source : tags,
+               			minLength: 2
+			}) 
+
+		}); 
 
 </script>
 
