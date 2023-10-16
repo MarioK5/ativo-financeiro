@@ -591,19 +591,17 @@ function recuperar_senha()   {
         <link href="lib/bootstrap/css/bootstrap-multiselect.css" rel="stylesheet">
         <link href="lib/bootstrap-select-master/dist/css/bootstrap-select.min.css" rel="stylesheet">
         
-        <script language="JavaScript" ></script>
-        <script type="text/javascript" LANGUAGE="JavaScript"></script>
-<script>
-	
-	$(document).ready(function() { 
+        <script type="text/javascript" language="JavaScript"></script>
+<script> 
+		$(document).ready(function() { 
 
 			var tags  =  [
-			               "ActionScript",
-			               "Bootstrap",
-			               "C",
-			               "C++",
-					"Java",
-					"JavaScript"
+			        "ActionScript",
+			        "Bootstrap",
+			        "C",
+			        "C++",
+				"Java",
+				"JavaScript"
             		];
 				
 			$('#n_setor').autocomplete({ 
@@ -612,8 +610,7 @@ function recuperar_senha()   {
 			}) 
 
 		}); 
-
-</script>
+	</script> 
 
 <style type="text/css">
     .container{
