@@ -17,6 +17,7 @@ $xajax->registerFunction("cadastrar_ativo");
 $xajax->registerFunction("editar_ativo_carteira");
 $xajax->registerFunction("gravar_editar_ativo");
 $xajax->registerFunction("excluir_ativo_carteira");
+$xajax->registerFunction("tipo_subSetor");
 $xajax->registerFunction("cadastrar_cliente");
 $xajax->registerFunction("recuperar_senha");
 $xajax->processRequest();
@@ -359,8 +360,8 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
 	                		</tr> 
 		   			<tr>
      						<td colspan="2">
-		   				    <div class="ui-widget"> 
-					            	<input type="text" name="n_setor" id="n_setor" value="" class="form-control" >                        
+		   				    <div name="n_sub_setor" id="n_sub_setor" value="" class="form-control" > 
+					            	'.combo_setor().'                        
 						    </div>
 						</td>
       						<td colspan="2">
@@ -526,6 +527,38 @@ function busca_investimentos($idCliente)   {
 	$resp->assign("tela_cliente","innerHTML",$tela);
   
 	return $resp;
+}
+
+function combo_setor() {
+	$ret = '<select onchange="xajax_tipo_subSetor(xajax.getFormValues(\'form_cadastro\'))" id="tipo_subSetor" name="tipo_subSetor">
+                <option value="" disabled selected></option>';
+
+	$result = buscaSetor();
+	
+		if (mysqli_num_rows($result) > 0) {
+			while ($row = mysqli_fetch_array($result)) {
+				$ret .= '<option value='.$row["ID"].'>'.$row["DESCRICAO"].'</option>' ;
+			}
+		}
+    
+    	$ret .= '</select>';
+    return $ret;
+}
+
+function tipo_subSetor($dados) {
+	$ret = '<select  id="subSetor" name="subSetor">
+                <option value="" disabled selected></option>';
+
+	$result = buscaSetor($dados['tipo_subSetor']);
+	
+		if (mysqli_num_rows($result) > 0) {
+			while ($row = mysqli_fetch_array($result)) {
+				$ret .= '<option value='.$row["ID"].'>'.$row["DESCRICAO"].'</option>' ;
+			}
+		}
+    
+    	$ret .= '</select>';
+    return $ret;
 }
 
 function cadastrar_cliente()   {
