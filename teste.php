@@ -12,9 +12,18 @@
 	
 	<script> 
 		$(document).ready(function() { 
+
+			var tags  =  [
+			               "ActionScript",
+			               "Bootstrap",
+			               "C",
+			               "C++",
+					"Java",
+					"JavaScript"
+            		];
 				
 			$('#input').autocomplete({ 
-				source : "search.php",
+				source : tags,
                			minLength: 2
 			}) 
 
