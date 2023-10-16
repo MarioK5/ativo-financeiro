@@ -593,7 +593,7 @@ function recuperar_senha()   {
 <script>
 	
 	$(function() {
-            $( "#autocomplete-4" ).autocomplete({
+            $( "#n_setor" ).autocomplete({
                source: [
                   { label: "India", value: "IND" },
                   { label: "Australia", value: "AUS" }
