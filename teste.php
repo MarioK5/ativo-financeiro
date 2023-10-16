@@ -14,7 +14,7 @@
 		$(document).ready(function() { 
 				
 			$('#input').autocomplete({ 
-				source : 'search.php',
+				source : search.php,
                			minLength: 2
 			}) 
 
