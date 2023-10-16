@@ -366,7 +366,7 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
 						</td>
       						<td colspan="2">
 		   				    <div name="n_sub_setor" id="n_sub_setor" value="" class="form-control" > 
-					            	'.tipo_subSetor(0).'                        
+					                              
 						    </div>
 						</td>
       						<td colspan="2">
