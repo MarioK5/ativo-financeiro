@@ -12,15 +12,10 @@
 	
 	<script> 
 		$(document).ready(function() { 
-		
-			var tags = [ 
-				"Washington", "Cincinnati", 
-				"Dubai", "Dublin", "Colombo", 
-				"Culcutta" 
-			]; 
 				
 			$('#input').autocomplete({ 
-				source : tags
+				source : "search.php",
+               			minLength: 2
 			}) 
 
 		}); 
