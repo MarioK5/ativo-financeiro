@@ -594,10 +594,8 @@ function recuperar_senha()   {
 	
 	$(function() {
             $( "#n_setor" ).autocomplete({
-               source: [
-                  { label: "India", value: "IND" },
-                  { label: "Australia", value: "AUS" }
-               ]
+               source: "search.php",
+               minLength: 2
             });
          }); 
 
