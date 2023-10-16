@@ -1,4 +1,4 @@
-<?
+<?php
 $term = $_GET[ "term" ];
 $companies = array(
    array( "label" => "JAVA", "value" => "1" ),
