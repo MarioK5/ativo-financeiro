@@ -553,7 +553,7 @@ function tipo_subSetor($dados) {
 	$ret = '<select  id="subSetor" name="subSetor">
                 <option value="" disabled selected></option>';
 
-	$result = buscaSetor($dados['tipo_subSetor']);
+	$result = buscaSubSetor($dados['tipo_subSetor']);
 	
 		if (mysqli_num_rows($result) > 0) {
 			while ($row = mysqli_fetch_array($result)) {
