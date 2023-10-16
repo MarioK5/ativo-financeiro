@@ -564,7 +564,7 @@ function tipo_subSetor($dados) {
 		}
     
     	$ret .= '</select>';
-	
+	console.log($ret);
 	$resp->assign("n_sub_setor","value",$ret);
   
 	return $resp;
