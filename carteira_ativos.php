@@ -598,8 +598,8 @@ function recuperar_senha()   {
 			var tags  =  [
 			        "ActionScript",
 			        "Bootstrap",
-			        "C",
-			        "C++",
+			        "PHP",
+			        "Python",
 				"Java",
 				"JavaScript"
             		];
