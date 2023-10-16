@@ -563,7 +563,7 @@ function tipo_subSetor($dados) {
     
     	$ret .= '</select>';
 	
-	$resp->assign("tela_cliente","innerHTML",$tela);
+//	$resp->assign("tela_cliente","innerHTML",$tela);
   
 	return $resp;
 }
