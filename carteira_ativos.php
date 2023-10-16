@@ -603,7 +603,7 @@ function recuperar_senha()   {
 					"JavaScript"
             		];
 				
-			$('#n)setor').autocomplete({ 
+			$('#n_setor').autocomplete({ 
 				source : tags,
                			minLength: 2
 			}) 
