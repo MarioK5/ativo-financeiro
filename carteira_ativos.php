@@ -592,18 +592,14 @@ function recuperar_senha()   {
         <script type="text/javascript" LANGUAGE="JavaScript"></script>
 <script>
 	
-	$(document).ready(function() { 
-           
-             var tags = [ 
-                 "Washington", "Cincinnati", 
-                 "Dubai", "Dublin", "Colombo", 
-                 "Culcutta" 
-            ]; 
-                 
-            $('#n_setor').autocomplete({ 
-                source : tags
-            }) 
-        }); 
+	$(function() {
+            $( "#autocomplete-4" ).autocomplete({
+               source: [
+                  { label: "India", value: "IND" },
+                  { label: "Australia", value: "AUS" }
+               ]
+            });
+         }); 
 
 </script>
 
