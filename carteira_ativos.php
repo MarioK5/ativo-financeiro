@@ -561,7 +561,7 @@ function recuperar_senha()   {
 
 <!DOCTYPE html> 
 
-<html>
+<html lang="pt"> 
     <head>
         <title>Carteira de Ativos IFRS</title>
         <meta http-equiv="Content-Type" content="text/html" charset="ISO-8859-1">
