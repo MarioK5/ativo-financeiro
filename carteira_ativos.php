@@ -361,19 +361,22 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
 					    <th colspan="2">Ativos</th>
 	                		</tr> 
 		   			<tr>
-     						<td colspan="8">
-		   				    <div name="n_setor" id="n_setor" value="" class="form-control" style="width: 200px;" > 
+     						<td colspan="2">
+		   				    <div name="n_setor" id="n_setor" value="" style="width: 200px;" > 
 					            	'.combo_setor().'                        
 						    </div>
-
+	  					</td>
+						<td colspan="2">
 		   				    <div name="n_sub_setor" id="n_sub_setor" value="" class="form-control" style="width: 200px;" > 
 					                              
 						    </div>
-
+	  					</td>
+						<td colspan="2">
 		   				    <div name="n_segmento" id="n_segmento" value="" class="form-control" style="width: 200px;" > 
 					                              
 						    </div>
-
+	  					</td>
+						<td colspan="2">
 		   				    <div name="n_ativo" id="n_ativo" value="" class="form-control" style="width: 200px;" > 
 					                              
 						    </div>
