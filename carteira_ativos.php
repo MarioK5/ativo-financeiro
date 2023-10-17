@@ -362,22 +362,22 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
 	                		</tr> 
 		   			<tr>
      						<td colspan="2">
-		   				    <div name="n_setor" id="n_setor" value="" class="form-control" > 
+		   				    <div name="n_setor" id="n_setor" value="" class="form-control" style="width: 200px;" > 
 					            	'.combo_setor().'                        
 						    </div>
 						</td>
       						<td colspan="2">
-		   				    <div name="n_sub_setor" id="n_sub_setor" value="" class="form-control" > 
+		   				    <div name="n_sub_setor" id="n_sub_setor" value="" class="form-control" style="width: 200px;" > 
 					                              
 						    </div>
 						</td>
       						<td colspan="2">
-		   				    <div name="n_segmento" id="n_segmento" value="" class="form-control" > 
+		   				    <div name="n_segmento" id="n_segmento" value="" class="form-control" style="width: 200px;" > 
 					                              
 						    </div>
 						</td>
       						<td colspan="2">
-		   				    <div name="n_ativo" id="n_ativo" value="" class="form-control" > 
+		   				    <div name="n_ativo" id="n_ativo" value="" class="form-control" style="width: 200px;" > 
 					                              
 						    </div>
 						</td>
@@ -607,7 +607,7 @@ function tipo_ativo($dados) {
 	$ret = '<select   id="tipo_ativo" name="tipo_ativo">
                 <option value="" disabled selected></option>';
 
-	$result = buscaSegmento($dados['tipo_segmento']);
+	$result = buscaAtivo($dados['tipo_segmento']);
 	
 		if (mysqli_num_rows($result) > 0) {
 			while ($row = mysqli_fetch_array($result)) {
