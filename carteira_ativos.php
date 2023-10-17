@@ -554,7 +554,7 @@ function tipo_subSetor($dados) {
 	$resp = new xajaxResponse();
 //	$resp->alert('Investimentos do cliente: '.$dados['tipo_subSetor']); return $resp;
 	
-	$ret = '<select  onchange="xajax_tipo_segmentor(xajax.getFormValues(\'form_cadastro\'))" id="tipo_segmento" name="tipo_segmento">
+	$ret = '<select  onchange="xajax_tipo_segmento(xajax.getFormValues(\'form_cadastro\'))" id="tipo_segmento" name="tipo_segmento">
                 <option value="" disabled selected></option>';
 
 	$result = buscaSubSetor($dados['tipo_subSetor']);
