@@ -575,7 +575,7 @@ function tipo_subSetor($dados) {
 function tipo_segmento($dados) {
 
 	$resp = new xajaxResponse();
-//	$resp->alert('Investimentos do cliente: '.$dados['tipo_subSetor']); return $resp;
+	$resp->alert('Investimentos do cliente: '.$dados['tipo_segmento']); return $resp;
 	
 	$ret = '<select  onchange="xajax_tipo_ativo(xajax.getFormValues(\'form_cadastro\'))" id="tipo_ativo" name="tipo_ativo">
                 <option value="" disabled selected></option>';
