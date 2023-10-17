@@ -362,22 +362,22 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
 	                		</tr> 
 		   			<tr>
      						<td colspan="2">
-		   				    <div name="n_setor" id="n_setor" value="" class="form-control" style="width: 150px;" > 
+		   				    <div name="n_setor" id="n_setor" value="" class="form-control" style="width: 200px;" > 
 					            	'.combo_setor().'                        
 						    </div>
 						</td>
       						<td colspan="2">
-		   				    <div name="n_sub_setor" id="n_sub_setor" value="" class="form-control" style="width: 150px;" > 
+		   				    <div name="n_sub_setor" id="n_sub_setor" value="" class="form-control" style="width: 200px;" > 
 					                              
 						    </div>
 						</td>
       						<td colspan="2">
-		   				    <div name="n_segmento" id="n_segmento" value="" class="form-control" style="width: 150px;" > 
+		   				    <div name="n_segmento" id="n_segmento" value="" class="form-control" style="width: 200px;" > 
 					                              
 						    </div>
 						</td>
       						<td colspan="2">
-		   				    <div name="n_ativo" id="n_ativo" value="" class="form-control" style="width: 150px;" > 
+		   				    <div name="n_ativo" id="n_ativo" value="" class="form-control" style="width: 200px;" > 
 					                              
 						    </div>
 						</td>
@@ -538,7 +538,7 @@ function busca_investimentos($idCliente)   {
 }
 
 function combo_setor() {
-	$ret = '<select onchange="xajax_tipo_subSetor(xajax.getFormValues(\'form_cadastro\'))" id="tipo_setor" name="tipo_setor">
+	$ret = '<select onchange="xajax_tipo_subSetor(xajax.getFormValues(\'form_cadastro\'))" id="tipo_setor" name="tipo_setor" class="form-control">
                 <option value="" disabled selected></option>';
 
 	$result = buscaSetor();
@@ -558,7 +558,7 @@ function tipo_subSetor($dados) {
 	$resp = new xajaxResponse();
 //	$resp->alert('Investimentos do cliente: '.$dados['tipo_subSetor']); return $resp;
 	
-	$ret = '<select  onchange="xajax_tipo_segmento(xajax.getFormValues(\'form_cadastro\'))" id="tipo_subSetor" name="tipo_subSetor">
+	$ret = '<select  onchange="xajax_tipo_segmento(xajax.getFormValues(\'form_cadastro\'))" id="tipo_subSetor" name="tipo_subSetor" class="form-control">
                 <option value="" disabled selected></option>';
 
 	$result = buscaSubSetor($dados['tipo_setor']);
@@ -581,7 +581,7 @@ function tipo_segmento($dados) {
 	$resp = new xajaxResponse();
 //	$resp->alert('Investimentos do cliente: '.$dados['tipo_subSetor']); return $resp;
 	
-	$ret = '<select  onchange="xajax_tipo_ativo(xajax.getFormValues(\'form_cadastro\'))" id="tipo_segmento" name="tipo_segmento">
+	$ret = '<select  onchange="xajax_tipo_ativo(xajax.getFormValues(\'form_cadastro\'))" id="tipo_segmento" name="tipo_segmento" class="form-control">
                 <option value="" disabled selected></option>';
 
 	$result = buscaSegmento($dados['tipo_subSetor']);
@@ -604,7 +604,7 @@ function tipo_ativo($dados) {
 	$resp = new xajaxResponse();
 //	$resp->alert('Investimentos do cliente: '.$dados['tipo_subSetor']); return $resp;
 	
-	$ret = '<select   id="tipo_ativo" name="tipo_ativo">
+	$ret = '<select   id="tipo_ativo" name="tipo_ativo" class="form-control">
                 <option value="" disabled selected></option>';
 
 	$result = buscaAtivo($dados['tipo_segmento']);
