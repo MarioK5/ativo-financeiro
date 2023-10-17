@@ -496,7 +496,7 @@ function gravar_editar_ativo($dados)   {
 		alteraAtivoCarteira($dados['idAtivoCliente'][$j], $dados['n_perc'][$j]);
 		}
 	}else{
-		$resp->alert('A meta informada esta diferente de 100%, soma do valor atual: '.$soma_perc); return $resp;
+		$resp->alert('A meta informada &eacute; diferente de 100%, soma do valor atual: '.$soma_perc); return $resp;
 	}
 	
 	$resp->alert('Ajuste gravado!'); 
