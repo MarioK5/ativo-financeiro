@@ -18,6 +18,8 @@ $xajax->registerFunction("editar_ativo_carteira");
 $xajax->registerFunction("gravar_editar_ativo");
 $xajax->registerFunction("excluir_ativo_carteira");
 $xajax->registerFunction("tipo_subSetor");
+$xajax->registerFunction("tipo_segmento");
+$xajax->registerFunction("tipo_ativo");
 $xajax->registerFunction("cadastrar_cliente");
 $xajax->registerFunction("recuperar_senha");
 $xajax->processRequest();
@@ -552,7 +554,7 @@ function tipo_subSetor($dados) {
 	$resp = new xajaxResponse();
 //	$resp->alert('Investimentos do cliente: '.$dados['tipo_subSetor']); return $resp;
 	
-	$ret = '<select  id="subSetor" name="subSetor">
+	$ret = '<select  onchange="xajax_tipo_segmentor(xajax.getFormValues(\'form_cadastro\'))" id="tipo_segmento" name="tipo_segmento">
                 <option value="" disabled selected></option>';
 
 	$result = buscaSubSetor($dados['tipo_subSetor']);
@@ -566,6 +568,52 @@ function tipo_subSetor($dados) {
     	$ret .= '</select>';
 
 	$resp->assign("n_sub_setor","innerHTML",$ret);
+  
+	return $resp;
+}
+
+function tipo_segmento($dados) {
+
+	$resp = new xajaxResponse();
+//	$resp->alert('Investimentos do cliente: '.$dados['tipo_subSetor']); return $resp;
+	
+	$ret = '<select  onchange="xajax_tipo_ativo(xajax.getFormValues(\'form_cadastro\'))" id="tipo_ativo" name="tipo_ativo">
+                <option value="" disabled selected></option>';
+
+	$result = buscaSegmento($dados['tipo_segmento']);
+	
+		if (mysqli_num_rows($result) > 0) {
+			while ($row = mysqli_fetch_array($result)) {
+				$ret .= '<option value='.$row["ID"].'>'.$row["DESCRICAO"].'</option>' ;
+			}
+		}
+    
+    	$ret .= '</select>';
+
+	$resp->assign("n_segmento","innerHTML",$ret);
+  
+	return $resp;
+}
+
+function tipo_ativo($dados) {
+
+	$resp = new xajaxResponse();
+//	$resp->alert('Investimentos do cliente: '.$dados['tipo_subSetor']); return $resp;
+	
+	$ret = '<select   id="sel_ativo" name="sel_ativo">
+                <option value="" disabled selected></option>';
+
+	$result = buscaSegmento($dados['tipo_ativo']);
+	
+		if (mysqli_num_rows($result) > 0) {
+			while ($row = mysqli_fetch_array($result)) {
+				$ret .= '<option value='.$row["ID"].'>'.$row["DESCRICAO"].'</option>' ;
+			}
+		}
+    
+    	$ret .= '</select>';
+
+	$resp->assign("n_ativo","innerHTML",$ret);
   
 	return $resp;
 }
