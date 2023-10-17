@@ -372,10 +372,14 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
 						    </div>
 						</td>
       						<td colspan="2">
-		   					<input type="text" name="n_segmento" id="n_segmento" value="" class="form-control" >
+		   				    <div name="n_segmento" id="n_segmento" value="" class="form-control" > 
+					                              
+						    </div>
 						</td>
       						<td colspan="2">
-		   					<input type="text" name="n_ativo" id="n_ativo" value="" class="form-control" >
+		   				    <div name="n_ativo" id="n_ativo" value="" class="form-control" > 
+					                              
+						    </div>
 						</td>
 	                		</tr> 
     				</div>
@@ -534,7 +538,7 @@ function busca_investimentos($idCliente)   {
 }
 
 function combo_setor() {
-	$ret = '<select onchange="xajax_tipo_subSetor(xajax.getFormValues(\'form_cadastro\'))" id="tipo_subSetor" name="tipo_subSetor">
+	$ret = '<select onchange="xajax_tipo_subSetor(xajax.getFormValues(\'form_cadastro\'))" id="tipo_setor" name="tipo_setor">
                 <option value="" disabled selected></option>';
 
 	$result = buscaSetor();
@@ -554,10 +558,10 @@ function tipo_subSetor($dados) {
 	$resp = new xajaxResponse();
 //	$resp->alert('Investimentos do cliente: '.$dados['tipo_subSetor']); return $resp;
 	
-	$ret = '<select  onchange="xajax_tipo_segmento(xajax.getFormValues(\'form_cadastro\'))" id="tipo_segmento" name="tipo_segmento">
+	$ret = '<select  onchange="xajax_tipo_segmento(xajax.getFormValues(\'form_cadastro\'))" id="tipo_subSetor" name="tipo_subSetor">
                 <option value="" disabled selected></option>';
 
-	$result = buscaSubSetor($dados['tipo_subSetor']);
+	$result = buscaSubSetor($dados['tipo_setor']);
 	
 		if (mysqli_num_rows($result) > 0) {
 			while ($row = mysqli_fetch_array($result)) {
@@ -575,15 +579,14 @@ function tipo_subSetor($dados) {
 function tipo_segmento($dados) {
 
 	$resp = new xajaxResponse();
-//	$resp->alert('Investimentos do cliente: '.$dados['tipo_segmento']); return $resp;
+//	$resp->alert('Investimentos do cliente: '.$dados['tipo_subSetor']); return $resp;
 	
-	$ret = '<select  onchange="xajax_tipo_ativo(xajax.getFormValues(\'form_cadastro\'))" id="tipo_ativo" name="tipo_ativo">
+	$ret = '<select  onchange="xajax_tipo_ativo(xajax.getFormValues(\'form_cadastro\'))" id="tipo_segmento" name="tipo_segmento">
                 <option value="" disabled selected></option>';
 
-	$result = buscaSegmento($dados['tipo_segmento']);
+	$result = buscaSegmento($dados['tipo_subSetor']);
 	
 		if (mysqli_num_rows($result) > 0) {
-			$resp->alert('Investimentos do cliente: '.$dados['tipo_segmento']); return $resp;
 			while ($row = mysqli_fetch_array($result)) {
 				$ret .= '<option value='.$row["ID"].'>'.$row["DESCRICAO"].'</option>' ;
 			}
@@ -601,10 +604,10 @@ function tipo_ativo($dados) {
 	$resp = new xajaxResponse();
 //	$resp->alert('Investimentos do cliente: '.$dados['tipo_subSetor']); return $resp;
 	
-	$ret = '<select   id="sel_ativo" name="sel_ativo">
+	$ret = '<select   id="tipo_ativo" name="tipo_ativo">
                 <option value="" disabled selected></option>';
 
-	$result = buscaSegmento($dados['tipo_ativo']);
+	$result = buscaSegmento($dados['tipo_segmento']);
 	
 		if (mysqli_num_rows($result) > 0) {
 			while ($row = mysqli_fetch_array($result)) {
