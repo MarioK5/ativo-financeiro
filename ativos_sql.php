@@ -431,4 +431,49 @@ function buscaSubSetor($setor){
 	return $result;
 }
 
+function buscaSegmento($subSetor){
+	
+	$conn = OpenCon();
+
+	if($subSetor > 0){
+		$temSubSetor = "WHERE ID_SUBSETOR = '{$subSetor}'";
+	}else{
+		$temSubSetor = '';
+	}
+	
+	$sql = "SELECT ID, DESCRICAO, ID_SUBSETOR FROM SEGMENTO
+ 		$temSubSetor ";
+
+	$result = mysqli_query($conn,$sql);
+
+	CloseCon($conn);
+	
+	return $result;
+}
+
+function buscaAtivo($segmento){
+	
+	$conn = OpenCon();
+
+	if($segmento > 0){
+		$temSegmento = "WHERE ID_SEGMENTO = '{$segmento}'";
+	}else{
+		$temSegmento = '';
+	}
+	
+	$sql = "SELECT  ID,
+ 			ID_SEGMENTO
+			CODIGO,
+			DESCRICAO,
+			ATIVOS.VALOR AS VALOR_ATUAL_ATIVO
+   			FROM ATIVOS
+ 		$temSegmento ";
+
+	$result = mysqli_query($conn,$sql);
+
+	CloseCon($conn);
+	
+	return $result;
+}
+
 ?>
