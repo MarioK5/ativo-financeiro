@@ -575,7 +575,7 @@ function tipo_subSetor($dados) {
 function tipo_segmento($dados) {
 
 	$resp = new xajaxResponse();
-	$resp->alert('Investimentos do cliente: '.$dados['tipo_segmento']); return $resp;
+//	$resp->alert('Investimentos do cliente: '.$dados['tipo_segmento']); return $resp;
 	
 	$ret = '<select  onchange="xajax_tipo_ativo(xajax.getFormValues(\'form_cadastro\'))" id="tipo_ativo" name="tipo_ativo">
                 <option value="" disabled selected></option>';
@@ -583,6 +583,7 @@ function tipo_segmento($dados) {
 	$result = buscaSegmento($dados['tipo_segmento']);
 	
 		if (mysqli_num_rows($result) > 0) {
+			$resp->alert('Investimentos do cliente: '.$dados['tipo_segmento']); return $resp;
 			while ($row = mysqli_fetch_array($result)) {
 				$ret .= '<option value='.$row["ID"].'>'.$row["DESCRICAO"].'</option>' ;
 			}
