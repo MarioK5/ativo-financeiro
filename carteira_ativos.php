@@ -386,7 +386,11 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
 			   </div>
        			   <div class="row">
     				<div class="col-xs-6 col-md-4">
-					<div id="tela_ativo" class="panel-body"></div>
+	                	     <tr> 
+		   			<td colspan="2">
+					    <div id="tela_ativo" class="panel-body"></div>
+    					 </td>
+	                	     </tr> 
 				</div>
 			    </div>';
 
