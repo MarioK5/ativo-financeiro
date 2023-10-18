@@ -631,50 +631,9 @@ function ativo_select($dados)   {
 
 	$resp = new xajaxResponse();
 
+	$tela = "";
 	$resp->alert('Ativo selecionado: '.$dados['tipo_ativo']); return $resp;
-	$tela = '<div class="row">
-		    <div class="col-xs-6 col-md-4">
-			<tr style="color:#696969; background-color:#DCDCDC;">
-				<th>Codigo</th>
-				<th>Empresa</th>
-				<th>Meta %</th>
-				<th>Qtde<br>Ativos</th>
-				<th>Valor<br>Investido</th>
-				<th>Valor Atual<br>Ativo</th>
-				<th>Valor Atual<br>Investido</th>
-				<th>% Atual</th>
-				<th>Retorno</th>
-			</tr> 
-		    </div>
-		</div>';
-	
-	$result = buscaAtivo($dados['tipo_ativo'],1);
 
-	if (mysqli_num_rows($result) > 0) {
-			while ($row = mysqli_fetch_array($result)) {
-				$idAtivo     = $row["ID"];
-            			$idSegmento  = $row["ID_SEGMENTO"];
-				$codigo      = $row["CODIGO"];
-				$desc_Ativo  = $row["DESCRICAO"];
-				$valor_ativo = $row["VALOR_ATUAL_ATIVO"];
-				$tela .= '$tela .= '<div class="row">
-		    					<div class="col-xs-6 col-md-4">
-							    <tr>
-								<td>'.$codigo.'</td>
-								<td>'.$desc_Ativo.'</td>
-								<td>
-									<input type="text" class="form-control" name="new_perc" id="new_perc" value="" />
-								</td>
-								<td>0</td>
-								<td>0</td>
-								<td>'.number_format($valor_atual_ativo,2,",",".").'</td>
-								<td>0</td>
-								<td>0</td>
-		                			    </tr>
-							</div>
-						    </div>';
-			}
-		}
 
 
 	$resp->assign("tela_ativo","innerHTML",$tela);
