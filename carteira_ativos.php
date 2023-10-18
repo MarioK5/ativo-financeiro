@@ -632,7 +632,7 @@ function ativo_select($dados)   {
 	$resp = new xajaxResponse();
 
 	$tela = "";
-	$resp->alert('Ativo selecionado: '.$dados['tipo_ativo']); return $resp;
+	$resp->alert('Ativo selecionado: '.$dados['tipo_ativo']); 
 
 
 
