@@ -4,7 +4,7 @@ ini_set('default_charset', 'utf-8');
 
 include 'ativos_sql.php';
 
-require_once("lib/xajax/xajax.inc.php");
+require_once("lib/xajax05/xajax.inc.php");
 
 $xajax = new xajax();
 $xajax->setCharEncoding('UTF-8');
@@ -758,7 +758,7 @@ tbody,#tela_saida,#tela_inicio{
 }
 </style>
 
- <?php $xajax->printJavascript('lib/xajax'); ?>
+ <?php $xajax->printJavascript('lib/xajax05'); ?>
  <?php header('Content-Type: charset=utf-8'); ?>
     </head>
     <body>
