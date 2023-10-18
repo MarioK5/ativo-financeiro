@@ -631,8 +631,23 @@ function ativo_select($dados)   {
 
 	$resp = new xajaxResponse();
 
-	$tela = "";
-	$resp->alert('Ativo selecionado: '.$dados['tipo_ativo']); 
+	$tela = '<div class="row">
+		    <div class="col-xs-6 col-md-4">
+			<tr style="color:#696969; background-color:#DCDCDC;">
+				<th>Codigo</th>
+				<th>Empresa</th>
+				<th>Meta %</th>
+				<th>Qtde<br>Ativos</th>
+				<th>Valor<br>Investido</th>
+				<th>Valor Atual<br>Ativo</th>
+				<th>Valor Atual<br>Investido</th>
+				<th>% Atual</th>
+				<th>Retorno</th>
+			</tr> 
+		    </div>
+		</div>';
+
+	$result = buscaAtivo($dados['tipo_ativo'],1);
 
 
 
