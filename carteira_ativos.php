@@ -743,7 +743,7 @@ tbody,#tela_saida,#tela_inicio{
 </style>
 
  <?php $xajax->printJavascript('lib/xajax'); ?>
- <?php header('Content-Type: charset=utf-8'); ?>
+ <?php header("Content-Type: text/html; charset=ISO-8859-1",true); ?>
     </head>
     <body>
         <div class="container">
