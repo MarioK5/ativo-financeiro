@@ -386,11 +386,7 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
 			   </div>
        			   <div class="row">
     				<div class="col-xs-6 col-md-4">
-	                	     <tr> 
-		   			<td colspan="8">
-					    <div id="tela_ativo" class="panel-body"></div>
-    					 </td>
-	                	     </tr> 
+					<div id="tela_ativo" class="panel-body"></div>
 				</div>
 			    </div>';
 
@@ -643,8 +639,7 @@ function ativo_select($dados)   {
 			<th>Valor<br>Investido</th>
 			<th>Valor Atual<br>Ativo</th>
 			<th>Valor Atual<br>Investido</th>
-			<th>% Atual</th>
-			<th>Retorno</th>
+   			<th>#</th>
 		</tr> ';
 
 	$result = buscaAtivo($dados['tipo_ativo'],1);
