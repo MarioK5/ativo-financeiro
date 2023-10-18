@@ -1,6 +1,5 @@
 <?php
 
-ini_set(default_charset, "utf-8");
 include 'ativos_sql.php';
 
 require_once("lib/xajax/xajax.inc.php");
@@ -20,6 +19,7 @@ $xajax->registerFunction("excluir_ativo_carteira");
 $xajax->registerFunction("tipo_subSetor");
 $xajax->registerFunction("tipo_segmento");
 $xajax->registerFunction("tipo_ativo");
+$xajax->registerFunction("ativo_select");
 $xajax->registerFunction("cadastrar_cliente");
 $xajax->registerFunction("recuperar_senha");
 $xajax->processRequest();
@@ -383,7 +383,12 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
 						</td>
 	                		</tr> 
     				</div>
-			    </div> ';
+			   </div>
+       			   <div class="row">
+    				<div class="col-xs-6 col-md-4">
+					<div id="tela_ativo" class="panel-body"></div>
+				</div>
+			    </div>';
 
 
 	
@@ -604,7 +609,7 @@ function tipo_ativo($dados) {
 	$resp = new xajaxResponse();
 //	$resp->alert('Investimentos do cliente: '.$dados['tipo_subSetor']); return $resp;
 	
-	$ret = '<select   id="tipo_ativo" name="tipo_ativo" class="form-control">
+	$ret = '<select onchange="xajax_ativo_select(xajax.getFormValues(\'form_cadastro\'))"  id="tipo_ativo" name="tipo_ativo" class="form-control">
                 <option value="" disabled selected></option>';
 
 	$result = buscaAtivo($dados['tipo_segmento']);
@@ -618,6 +623,20 @@ function tipo_ativo($dados) {
     	$ret .= '</select>';
 
 	$resp->assign("n_ativo","innerHTML",$ret);
+  
+	return $resp;
+}
+
+function ativo_select($dados)   {
+
+	$resp = new xajaxResponse();
+
+	$resp->alert('Ativo selecionado: '.$dados['tipo_ativo']); return $resp;
+
+	
+
+
+	$resp->assign("tela_ativo","innerHTML",$tela);
   
 	return $resp;
 }
