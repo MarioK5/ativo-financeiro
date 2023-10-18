@@ -760,7 +760,7 @@ tbody,#tela_saida,#tela_inicio{
                             <div class="row">
                                 <div class="col-xs-4 col-md-4">
                                     <div class="form-group">
-                                        <label>E-mail</label>
+                                        <label>E-mail é</label>
                                         <div id="sandbox-container">
                                             <div class="input-group">
                                                 <input type="text" class="form-control" name="email" id="email" value="" style="width: 300px;"/>
@@ -770,7 +770,7 @@ tbody,#tela_saida,#tela_inicio{
                                 </div>
 				<div class="col-xs-2 col-md-2">
                                     <div class="form-group">
-                                        <label>Senha</label>
+                                        <label>Senha canção</label>
                                         <div id="sandbox-container">
                                             <div class="input-group">
                                                 <input type="password" class="form-control" name="senha" id="senha" value=""/>
