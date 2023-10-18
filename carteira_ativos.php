@@ -4,8 +4,6 @@ include 'ativos_sql.php';
 
 require_once("lib/xajax/xajax.inc.php");
 
-header('Content-type: text/html; charset=utf-8');
-
 $xajax = new xajax();
 $xajax->setCharEncoding('UTF-8');
 $xajax->registerFunction("busca_dados");
@@ -759,6 +757,7 @@ tbody,#tela_saida,#tela_inicio{
 </style>
 
  <?php $xajax->printJavascript('lib/xajax'); ?>
+ <?php header('Content-Type: charset=utf-8'); ?>
     </head>
     <body>
         <div class="container">
