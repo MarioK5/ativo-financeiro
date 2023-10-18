@@ -384,7 +384,8 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
 	                		</tr>
 		   			<div id="tela_ativo" class="panel-body"></div>
     				</div>
-			   </div>';
+			   </div>
+			</table>';
 
     	$resp->assign("tela_cliente","innerHTML",$tela);
 	
