@@ -2,6 +2,8 @@
 
 ini_set('default_charset', 'utf-8');
 
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="UTF-8"%>
+
 include 'ativos_sql.php';
 
 require_once("lib/xajax/xajax.inc.php");
@@ -717,7 +719,6 @@ function recuperar_senha()   {
         <script type="text/javascript" language="JavaScript"></script>
 <script> 
 
-	<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="UTF-8"%>
 		
 </script> 
 
