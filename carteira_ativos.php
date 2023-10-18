@@ -684,6 +684,7 @@ function recuperar_senha()   {
 <html> 
     <head>
         <title>Carteira de Ativos IFRS</title>
+	<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="utf-8" isELIgnored="false"%>
         <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
         
         <!-- JQuery -->
