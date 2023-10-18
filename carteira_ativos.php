@@ -2,7 +2,7 @@
 
 include 'ativos_sql.php';
 
-require_once("lib/xajax/xajax.inc.php
+require_once("lib/xajax/xajax.inc.php");
 
 header('Content-type: text/html; charset=utf-8');
 
