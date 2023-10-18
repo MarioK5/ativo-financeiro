@@ -2,8 +2,6 @@
 
 ini_set('default_charset', 'utf-8');
 
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="UTF-8"%>
-
 include 'ativos_sql.php';
 
 require_once("lib/xajax/xajax.inc.php");
