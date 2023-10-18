@@ -612,7 +612,7 @@ function tipo_ativo($dados) {
 	$ret = '<select onchange="xajax_ativo_select(xajax.getFormValues(\'form_cadastro\'))"  id="tipo_ativo" name="tipo_ativo" class="form-control">
                 <option value="" disabled selected></option>';
 
-	$result = buscaAtivo($dados['tipo_segmento']);
+	$result = buscaAtivo($dados['tipo_segmento'],0);
 	
 		if (mysqli_num_rows($result) > 0) {
 			while ($row = mysqli_fetch_array($result)) {
@@ -633,7 +633,7 @@ function ativo_select($dados)   {
 
 	$resp->alert('Ativo selecionado: '.$dados['tipo_ativo']); return $resp;
 
-	
+	$result = buscaAtivo($dados['tipo_ativo'],1);
 
 
 	$resp->assign("tela_ativo","innerHTML",$tela);
