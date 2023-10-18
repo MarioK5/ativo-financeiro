@@ -716,24 +716,10 @@ function recuperar_senha()   {
         
         <script type="text/javascript" language="JavaScript"></script>
 <script> 
-		$(document).ready(function() { 
 
-			var tags  =  [
-			        "ActionScript",
-			        "Bootstrap",
-			        "PHP",
-			        "Python",
-				"Java",
-				"JavaScript"
-            		];
-				
-			$('#n_setor').autocomplete({ 
-				source : tags,
-               			minLength: 2
-			}) 
-
-		}); 
-	</script> 
+	<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="UTF-8"%>
+		
+</script> 
 
 <style type="text/css">
     .container{
