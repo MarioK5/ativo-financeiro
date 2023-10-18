@@ -414,15 +414,9 @@ function buscaSetor(){
 function buscaSubSetor($setor){
 	
 	$conn = OpenCon();
-
-	if($setor > 0){
-		$temSetor = "WHERE ID_SETOR = '{$setor}'";
-	}else{
-		$temSetor = '';
-	}
 	
 	$sql = "SELECT ID, DESCRICAO, ID_SETOR FROM SUBSETOR
- 		$temSetor ";
+ 		WHERE ID_SETOR = '{$setor}' ";
 
 	$result = mysqli_query($conn,$sql);
 
@@ -434,15 +428,9 @@ function buscaSubSetor($setor){
 function buscaSegmento($subSetor){
 	
 	$conn = OpenCon();
-
-	if($subSetor > 0){
-		$temSubSetor = "WHERE ID_SUBSETOR = '{$subSetor}'";
-	}else{
-		$temSubSetor = '';
-	}
 	
 	$sql = "SELECT ID, DESCRICAO, ID_SUBSETOR FROM SEGMENTO
- 		$temSubSetor ";
+ 		WHERE ID_SUBSETOR = '{$subSetor}' ";
 
 	$result = mysqli_query($conn,$sql);
 
@@ -451,14 +439,14 @@ function buscaSegmento($subSetor){
 	return $result;
 }
 
-function buscaAtivo($segmento){
+function buscaAtivo($ativo,$tipo){
 	
 	$conn = OpenCon();
 
-	if($segmento > 0){
-		$temSegmento = "WHERE ID_SEGMENTO = '{$segmento}'";
+	if($tipo == 0){
+		$temTipo = "WHERE ID_SEGMENTO = '{$ativo}'";
 	}else{
-		$temSegmento = '';
+		$temTipo = "WHERE ID = '{$ativo}'";
 	}
 	
 	$sql = "SELECT  ID,
@@ -467,7 +455,7 @@ function buscaAtivo($segmento){
 			DESCRICAO,
 			ATIVOS.VALOR AS VALOR_ATUAL_ATIVO
    			FROM ATIVOS
- 		$temSegmento ";
+ 		$temTipo ";
 
 	$result = mysqli_query($conn,$sql);
 
