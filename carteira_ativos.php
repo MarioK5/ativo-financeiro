@@ -615,7 +615,7 @@ function tipo_ativo($dados) {
 	
 		if (mysqli_num_rows($result) > 0) {
 			while ($row = mysqli_fetch_array($result)) {
-				$ret .= '<option value='.$row["ID"].'>'.$row["DESCRICAO"].'</option>' ;
+				$ret .= '<option value='.$row["ID"].'>'.$row["COD_EMPR"].'</option>' ;
 			}
 		}
     
