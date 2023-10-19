@@ -472,7 +472,6 @@ function editar_ativo_carteira($idCarteira, $idCliente)   {
 		                	 </tr> ';
 				$ind++;
 				}
-			$ind++;
 			}
 		$tela .= '<tr> 
 				<td colspan="6" style="text-align: right;">
@@ -498,7 +497,7 @@ function gravar_editar_ativo($dados)   {
 	}
 
 	if($soma_perc == 100){
-		for($j = 0; $j < $dados['n_cont'];$j++){
+		for($j = 0; $j < count($dados);$j++){
 			
 			if(($dados['tipoGravar'] == 1) && ($j == 0)){
 
