@@ -717,7 +717,12 @@ function ativo_select($dados)   {
 								<td>'.number_format($valorInvestidoAtual,2,",",".").'</td>
 		                			    </tr>
 							</div>
-						    </div>';
+						    </div>
+	  				<input type="hidden" id="idAtivoCliente[]'.$ind.'" name="idAtivoCliente[]'.$ind.'" value="'.$idAtivoCliente.'" />
+	 				<input type="hidden" id="idAtivoCodigo[]'.$ind.'" name="idAtivoCodigo[]'.$ind.'" value="'.$codigo.'" />
+					<input type="hidden" id="idCliente" name="idCliente" value="'.$dados['ididCliente'].'" />
+    					<input type="hidden" id="tipoGravar" name="tipoGravar" value="1" />
+					<input type="hidden" id="n_cont" name="n_cont" value="'.$ind.'" />';
 				$valorInvestidoAtual = 0;
 				$ind++;
 			}
@@ -726,11 +731,6 @@ function ativo_select($dados)   {
 		$tela .= '<tr> 
 				<td colspan="8" style="text-align: right;">
 				<input type="button" value="Gravar"  class="btn btn-success btn-sm" onclick="xajax_gravar_editar_ativo(xajax.getFormValues(\'form_cadastro\')); return false;">
-     				<input type="hidden" id="idAtivoCliente[]'.$ind.'" name="idAtivoCliente[]'.$ind.'" value="'.$idAtivoCliente.'" />
-	 			<input type="hidden" id="idAtivoCodigo[]'.$ind.'" name="idAtivoCodigo[]'.$ind.'" value="'.$codigo.'" />
-				<input type="hidden" id="idCliente" name="idCliente" value="'.$dados['ididCliente'].'" />
-    				<input type="hidden" id="tipoGravar" name="tipoGravar" value="1" />
-				<input type="hidden" id="n_cont" name="n_cont" value="'.$ind.'" />
      				</td>
 			</tr>
    		</table>';
