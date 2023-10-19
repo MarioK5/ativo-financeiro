@@ -542,7 +542,7 @@ function busca_investimentos($idCliente)   {
 }
 
 function combo_setor($idCarteira) {
-	$ret = '<select onchange="xajax_tipo_subSetor(xajax.getFormValues(\'form_cadastro\'),'$idCarteira')" id="tipo_setor" name="tipo_setor" class="form-control">
+	$ret = '<select onchange="xajax_tipo_subSetor(xajax.getFormValues(\'form_cadastro\'),\'$idCarteira\')" id="tipo_setor" name="tipo_setor" class="form-control">
                 <option value="" disabled selected></option>';
 
 	$result = buscaSetor();
