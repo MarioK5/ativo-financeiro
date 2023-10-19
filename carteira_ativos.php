@@ -642,7 +642,7 @@ function ativo_select($dados)   {
  		<tr style="color:#696969; background-color:#DCDCDC;">
 			<th>Codigo</th>
 			<th>Empresa</th>
-			<th>Meta %</th>
+			<th colspan="2">Meta %</th>
 			<th>Qtde<br>Ativos</th>
 			<th>Valor<br>Investido</th>
 			<th>Valor Atual<br>Ativo</th>
@@ -664,6 +664,7 @@ function ativo_select($dados)   {
 							    <tr>
 								<td>'.$codigo.'</td>
 								<td>'.$desc_Ativo.'</td>
+								<td></td>
 								<td>
 									<input type="text" class="form-control" name="n_perc[].0" id="n_perc[].0" value="" style="width: 50px;" />
 	 								<input type="hidden" class="form-control" name="n_idAtivo[].0" id="n_idAtivo[].0" value="'.$idAtivo.'" />
@@ -699,8 +700,9 @@ function ativo_select($dados)   {
 							    <tr>
 								<td>'.$codigo.'</td>
 								<td>'.$desc_Ativo.'</td>
+								<td>'.number_format($porcentagem,0,",",".").'</td>
 								<td>
-									<input type="text" class="form-control" name="n_perc[].$ind" id="n_perc[].$ind" value="'.number_format($porcentagem,0,",",".").'" style="width: 50px;" />
+									<input type="text" class="form-control" name="n_perc[].$ind" id="n_perc[].$ind" value="" style="width: 50px;" />
 								</td>
 								<td>'.$qtde_ativos.'</td>
 								<td>'.number_format($valor_investido,2,",",".").'</td>
