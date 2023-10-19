@@ -47,7 +47,7 @@ function busca_carteira()
         $resp->assign("descricaoCarteira", "value", $descricao_carteira);
 
         // Buscar ativos da carteira
-        $ativos = listar_ativosCarteira($idCarteira);
+       // $ativos = listar_ativosCarteira($idCarteira);
         
 /*
         if (!empty($ativos)) {
