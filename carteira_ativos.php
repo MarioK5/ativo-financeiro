@@ -549,18 +549,15 @@ function busca_investimentos($idCliente)   {
             		$idCarteira[$ind] = $row["ID"];
             		$descricao[$ind]  = $row["DESCRICAO"];
             		$idCliente[$ind]  = $row["ID_CLIENTE"];
+			$valorCarteira[$ind]  = $row["VALOR"];
 					
 		$tela .= '<div class="row">
     				<div class="col-xs-6 col-md-4">
 					<tr style="color:white; background-color:#2F4F4F;">
-				     	     <th colspan="7">'.$descricao[$ind].'</th>
-	       				     <th colspan="1" style="text-align: right;">
-							<button type="button" class="btn btn-default btn-xs" onclick="xajax_editar_ativo_carteira('.$idCarteira[$ind].','.$idCliente[$ind].');">
-							<span class="glyphicon glyphicon-edit"> Editar</span>
-							</button>
-					     </th>
+				     	     <th colspan="3">'.$descricao[$ind].'</th>
+	       				     <th colspan="4">R$ '.number_format($valorCarteira[$ind],2,",",".").'</th>
 	  				     <th colspan="1" style="text-align: right;">
-				   		 <input type="button" value="Adicionar Ativo"  class="btn btn-success btn-xs" onclick="xajax_cadastrar_ativo('.$idCarteira[$ind].','.$idCliente[$ind].'); ">
+				   		 <input type="button" value="Adicionar Investimento"  class="btn btn-success btn-xs" >
 					     </th>
 	 				</tr>
       					<tr style="color:#696969; background-color:#DCDCDC;">
