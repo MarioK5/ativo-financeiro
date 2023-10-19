@@ -123,7 +123,7 @@ function busca_dados($dados)   {
 
 function busca_carteiras($idCliente)   {
 
-	$resp = new xajaxResponse();
+	$resp = new xajaxResponse("UTF-8");
 	
 	$tela = '';
 
@@ -178,7 +178,7 @@ function busca_carteiras($idCliente)   {
 
 function cadastrar_carteira($desc_carteira, $idCliente, $idCarteira)   {
 
-	$resp = new xajaxResponse();
+	$resp = new xajaxResponse("UTF-8");
 
 	$tela   = "";
 	$result = 0;
@@ -212,7 +212,7 @@ function cadastrar_carteira($desc_carteira, $idCliente, $idCarteira)   {
 
 function editar_carteira($idCliente, $idCarteira)   {
 
-	$resp = new xajaxResponse();
+	$resp = new xajaxResponse("UTF-8");
 
 	$tela = ' <div class="row">
 			<div class="col-xs-12 col-md-12">
@@ -236,7 +236,7 @@ function editar_carteira($idCliente, $idCarteira)   {
 
 function busca_ativos($idCliente)   {
 
-	$resp = new xajaxResponse();
+	$resp = new xajaxResponse("UTF-8");
 
 	$perc_atual = 0;
 	$ind = 0;
@@ -341,7 +341,7 @@ function busca_ativos($idCliente)   {
 
 function cadastrar_ativo($idCarteira, $idCliente)   {
 
-	$resp = new xajaxResponse();
+	$resp = new xajaxResponse("UTF-8");
 
 	$descrCarteira = listaDescri($idCarteira,1);
 
@@ -396,7 +396,7 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
 
 function editar_ativo_carteira($idCarteira, $idCliente)   {
 
-	$resp = new xajaxResponse();
+	$resp = new xajaxResponse("UTF-8");
 
 	$tela   = "";
 	$result = 0;
@@ -485,7 +485,7 @@ function editar_ativo_carteira($idCarteira, $idCliente)   {
 
 function gravar_editar_ativo($dados)   {
 
-	$resp = new xajaxResponse();
+	$resp = new xajaxResponse("UTF-8");
 
 	$idCliente = $dados['idCliente'];
 
@@ -511,7 +511,7 @@ function gravar_editar_ativo($dados)   {
 
 function excluir_ativo_carteira($idAtivoCarteira, $excluir)   {
 
-	$resp = new xajaxResponse();
+	$resp = new xajaxResponse("UTF-8");
 
 	$resp->alert('Excluir ativo de carteira se estivar com os valores zerados... '.$idAtivoCarteira); return $resp;
 
@@ -525,7 +525,7 @@ function excluir_ativo_carteira($idAtivoCarteira, $excluir)   {
 
 function busca_investimentos($idCliente)   {
 
-	$resp = new xajaxResponse();
+	$resp = new xajaxResponse("UTF-8");
 
 	$tela = '';
 	
@@ -557,7 +557,7 @@ function combo_setor() {
 
 function tipo_subSetor($dados) {
 
-	$resp = new xajaxResponse();
+	$resp = new xajaxResponse("UTF-8");
 //	$resp->alert('Investimentos do cliente: '.$dados['tipo_subSetor']); return $resp;
 	
 	$ret = '<select  onchange="xajax_tipo_segmento(xajax.getFormValues(\'form_cadastro\'))" id="tipo_subSetor" name="tipo_subSetor" class="form-control">
@@ -580,7 +580,7 @@ function tipo_subSetor($dados) {
 
 function tipo_segmento($dados) {
 
-	$resp = new xajaxResponse();
+	$resp = new xajaxResponse("UTF-8");
 //	$resp->alert('Investimentos do cliente: '.$dados['tipo_subSetor']); return $resp;
 	
 	$ret = '<select  onchange="xajax_tipo_ativo(xajax.getFormValues(\'form_cadastro\'))" id="tipo_segmento" name="tipo_segmento" class="form-control">
@@ -603,7 +603,7 @@ function tipo_segmento($dados) {
 
 function tipo_ativo($dados) {
 
-	$resp = new xajaxResponse();
+	$resp = new xajaxResponse("UTF-8");
 //	$resp->alert('Investimentos do cliente: '.$dados['tipo_subSetor']); return $resp;
 	
 	$ret = '<select onchange="xajax_ativo_select(xajax.getFormValues(\'form_cadastro\'))"  id="tipo_ativo" name="tipo_ativo" class="form-control">
@@ -626,7 +626,7 @@ function tipo_ativo($dados) {
 
 function ativo_select($dados)   {
 
-	$resp = new xajaxResponse();
+	$resp = new xajaxResponse("UTF-8");
 
 	$tela = '<tr style="color:#696969; background-color:#DCDCDC;">
 			<th>Codigo</th>
@@ -650,7 +650,7 @@ function ativo_select($dados)   {
 
 function cadastrar_cliente()   {
 
-	$resp = new xajaxResponse();
+	$resp = new xajaxResponse("UTF-8");
 
 	$resp->alert('Cadastrar cliente: '); return $resp;
 
@@ -664,7 +664,7 @@ function cadastrar_cliente()   {
 
 function recuperar_senha()   {
 
-	$resp = new xajaxResponse();
+	$resp = new xajaxResponse("UTF-8");
 
 	$resp->alert('Recuperar senha: '); return $resp;
 
@@ -716,15 +716,6 @@ function recuperar_senha()   {
         <script type="text/javascript" language="JavaScript"></script>
 <script> 
 
-	$.ajax({
-        data: parameters,
-        type: "POST",
-        url: ajax_url,
-        timeout: 20000,
-        contentType: "application/x-www-form-urlencoded;charset=UTF-8",
-        dataType: 'json',
-        success: callback
-});
 		
 </script> 
 
@@ -752,7 +743,7 @@ tbody,#tela_saida,#tela_inicio{
 </style>
 
  <?php $xajax->printJavascript('lib/xajax'); ?>
- <?php header('Content-Type: text/html; charset=UTF-8',true); ?>
+
     </head>
     <body>
         <div class="container">
