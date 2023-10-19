@@ -498,7 +498,7 @@ function gravar_editar_ativo($dados)   {
 
 	if($soma_perc == 100){
 		for($j = 0; $j < count($dados);$j++){
-			if(($dados['tipoGravar'] == 1) && ($dados['n_perc'][0])){
+			if(($dados['tipoGravar'] == 1) && ($j == 0)){
 				$resp->alert('Valor de j '.$j); 
 				$resp->alert('ID do novo ativo '.$dados['$idAtivo'][0]); 
 				$resp->alert('ID da carteira '.$dados['idCarteiraAtivo'][$j]); 
@@ -716,7 +716,6 @@ function ativo_select($dados)   {
 				$valorInvestidoAtual = 0;
 				$ind++;
 			}
-			$ind = 1;
 		}
 	}
 		$tela .= '<tr> 
