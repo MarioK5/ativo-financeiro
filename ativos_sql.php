@@ -453,7 +453,7 @@ function buscaAtivo($ativo,$tipo){
  			ID_SEGMENTO,
 			CODIGO,
 			DESCRICAO,
-			ATIVOS.VALOR AS VALOR_ATUAL_ATIVO
+			VALOR AS VALOR_ATUAL_ATIVO
    			FROM ATIVOS
  		$temTipo ";
 
