@@ -383,7 +383,9 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
 						</td>
 	                		</tr>
 		   			<tr>
-		   			<div id="tela_ativo" class="panel-body"></div>
+						<td colspan="8">
+		   					<div id="tela_ativo" class="panel-body"></div>
+						</td>
 					</tr>
     				</div>
 			   </div>
@@ -628,7 +630,7 @@ function ativo_select($dados)   {
 
 	$resp = new xajaxResponse("UTF-8");
 
-	$tela = '<tr style="color:#696969; background-color:#DCDCDC;">
+	$tela = '<table><tr style="color:#696969; background-color:#DCDCDC;">
 			<th>Codigo</th>
 			<th>Empresa</th>
 			<th>Meta %</th>
@@ -637,7 +639,7 @@ function ativo_select($dados)   {
 			<th>Valor Atual<br>Ativo</th>
 			<th>Valor Atual<br>Investido</th>
    			<th>#</th>
-		</tr> ';
+		</tr> </table>';
 
 	$result = buscaAtivo($dados['tipo_ativo'],1);
 
