@@ -503,7 +503,7 @@ function gravar_editar_ativo($dados)   {
 				$resp->alert('ID do novo ativo '.$dados['$idAtivo'][0]); 
 				$resp->alert('ID da carteira '.$dados['idCarteiraAtivo'][$j]); 
 				$resp->alert('Porcentagem '.$dados['n_perc'][0]); 
-				cadastroAtivoCarteira($dados['$idAtivo'][0], $dados['idCarteiraAtivo'][$j], $dados['n_perc'][0]);
+				cadastroAtivoCarteira($dados['n_idAtivo'][0], $dados['idCarteiraAtivo'][$j], $dados['n_perc'][0]);
 			}
 		alteraAtivoCarteira($dados['idAtivoCliente'][$j], $dados['n_perc'][$j]);
 		}
