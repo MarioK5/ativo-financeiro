@@ -542,7 +542,8 @@ function busca_investimentos($idCliente)   {
 }
 
 function combo_setor($idCarteira) {
-	$ret = '<select onchange="xajax_tipo_subSetor(xajax.getFormValues(\'form_cadastro\'),\'$idCarteira\')" id="tipo_setor" name="tipo_setor" class="form-control">
+	$ret = '<input type="hidden" id="idCarteiraCliente" name="idCarteiraCliente" value="'.$idCarteira.'" />
+ 		<select onchange="xajax_tipo_subSetor(xajax.getFormValues(\'form_cadastro\'))" id="tipo_setor" name="tipo_setor" class="form-control">
                 <option value="" disabled selected></option>';
 
 	$result = buscaSetor();
@@ -557,11 +558,11 @@ function combo_setor($idCarteira) {
     return $ret;
 }
 
-function tipo_subSetor($dados,$idCarteira) {
+function tipo_subSetor($dados) {
 
 	$resp = new xajaxResponse("UTF-8");
-	$resp->alert('Investimentos do cliente: '.$dados['tipo_subSetor']); 
-	$resp->alert('ID carteira: '.$$idCarteira); 
+	$resp->alert('Investimentos do cliente: '.$dados['tipo_setor']); 
+	$resp->alert('ID carteira: '.$dados['idCarteiraCliente']); 
 	
 	$ret = '<select  onchange="xajax_tipo_segmento(xajax.getFormValues(\'form_cadastro\'))" id="tipo_subSetor" name="tipo_subSetor" class="form-control">
                 <option value="" disabled selected></option>';
