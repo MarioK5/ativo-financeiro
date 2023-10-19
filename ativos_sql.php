@@ -217,7 +217,8 @@ function cadastroAtivoCarteira($dados){
 	
 	$ret = 0;
 	
-	
+	$sql = "INSERT INTO ATIVOS_CLIENTE (ID_ATIVO, ID_CARTEIRA, PORCENTAGEM, QTDE_ATIVOS, VALOR)
+        	VALUES ('{$idCliente}', '{$idCliente}', '{$idCliente}', 0, 0)";
 
 	
 
