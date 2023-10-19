@@ -666,7 +666,7 @@ function ativo_select($dados)   {
 								<td>'.$desc_Ativo.'</td>
 								<td>
 									<input type="text" class="form-control" name="n_perc[].0" id="n_perc[].0" value="" style="width: 50px;" />
-	 								<input type="text" class="form-control" name="n_idAtivo[].0" id="n_idAtivo[].0" value="'.$idAtivo.'" />
+	 								<input type="hidden" class="form-control" name="n_idAtivo[].0" id="n_idAtivo[].0" value="'.$idAtivo.'" />
 								</td>
 								<td>0</td>
 								<td>0</td>
