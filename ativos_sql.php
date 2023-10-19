@@ -441,7 +441,11 @@ function buscaAtivo($ativo,$tipo){
 	$conn = OpenCon();
 
 	if($tipo == 0){
-		$temTipo = "WHERE ID_SEGMENTO = '{$ativo}'";
+		if($ativo == 999999){
+			$temTipo = "";
+		}else{
+			$temTipo = "WHERE ID_SEGMENTO = '{$ativo}'";
+		}
 	}else{
 		$temTipo = "WHERE ID = '{$ativo}'";
 	}
