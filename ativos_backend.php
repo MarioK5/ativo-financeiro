@@ -44,7 +44,7 @@ function listar_ativosCarteira($idCarteira){
             $row = mysqli_fetch_array($total);
             $valorTotal = $row["VALOR_TOTAL"];
         }
-        /*while ($row = mysqli_fetch_array($result)) {
+        while ($row = mysqli_fetch_array($result)) {
             $codAtivo = $row["CODIGO"];
             $descricaoAtivo = $row["DESCRICAO"];
             $valorInvestido = $row["VALOR_INVESTIDO"];
@@ -58,7 +58,7 @@ function listar_ativosCarteira($idCarteira){
             $saldo = ($row["VALOR_ATUAL_ATIVO"] * $row["QTDE_ATIVOS"]) - $valorInvestido;
             $quantAtivos = $row["QTDE_ATIVOS"];
             $ativos[] = array($codAtivo, $descricaoAtivo, $valorInvestido,$valorAtual,$porIncial,$porAtual,$saldo,$quantAtivos);
-        }*/
+        }
     }
     return 0;
 }
