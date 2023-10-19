@@ -4,6 +4,8 @@ include 'ativos_sql.php';
 
 require_once("lib/xajax/xajax.inc.php");
 
+setRequestHeader("Content-Type", "text/plain;charset=UTF-8");
+
 $xajax = new xajax();
 $xajax->setCharEncoding("UTF-8");
 $xajax->registerFunction("busca_dados");
