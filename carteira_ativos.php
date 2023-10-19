@@ -704,7 +704,7 @@ function ativo_select($dados)   {
 		}
 	}
 		$tela .= '<tr> 
-				<td colspan="6" style="text-align: right;">
+				<td colspan="8" style="text-align: right;">
 				 <input type="button" value="Gravar"  class="btn btn-success btn-sm" onclick="xajax_gravar_editar_ativo(xajax.getFormValues(\'form_cadastro\')); return false;">
      				</td>
 			</tr>
