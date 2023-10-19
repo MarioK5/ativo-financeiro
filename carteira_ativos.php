@@ -499,6 +499,10 @@ function gravar_editar_ativo($dados)   {
 	if($soma_perc == 100){
 		for($j = 0; $j < count($dados);$j++){
 			if(($dados['tipoGravar'] == 1) && ($dados['n_perc'][0])){
+				$resp->alert('Valor de j '.$j); 
+				$resp->alert('ID do novo ativo '.$dados['$idAtivo'][0]); 
+				$resp->alert('ID da carteira '.$dados['idCarteiraAtivo'][$j]); 
+				$resp->alert('Porcentagem '.$dados['n_perc'][0]); 
 				cadastroAtivoCarteira($dados['$idAtivo'][0], $dados['idCarteiraAtivo'][$j], $dados['n_perc'][0]);
 			}
 		alteraAtivoCarteira($dados['idAtivoCliente'][$j], $dados['n_perc'][$j]);
