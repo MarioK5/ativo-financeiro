@@ -11,7 +11,7 @@ $xajax->processRequest();
 
 function busca_dados()
 {
-    $resp = new xajaxResponse();
+    $resp = new xajaxResponse('UTF-8');
     $tela = '';
 
     $result = array();
@@ -43,7 +43,7 @@ function busca_dados()
 }
 
 function editar_carteiras($dados){
-    $resp = new xajaxResponse();
+    $resp = new xajaxResponse('UTF-8');
     salvar_carteira($dados,1);
  
     //$resp->alert("Cadastrado com sucesso");

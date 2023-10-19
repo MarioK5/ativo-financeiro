@@ -14,7 +14,7 @@ $xajax->processRequest();
 
 
 function salvar_carteiras($dados){
-    $resp = new xajaxResponse();
+    $resp = new xajaxResponse('UTF-8');
     
     //$descricaoCarteira = $dados['descricaoCarteira'];
     //echo "<script>alert('$descricaoCarteira');</script>";
