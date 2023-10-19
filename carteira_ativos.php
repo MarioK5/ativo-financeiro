@@ -363,7 +363,7 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
 		   			<tr>
      						<td colspan="2">
 		   				    <div name="n_setor" id="n_setor" style="width: 200px;" > 
-					            	'.combo_setor($idCarteira).'                        
+					            	'.combo_setor($idCarteira, $idCliente).'                        
 						    </div>
 	  					</td>
 						<td colspan="2">
@@ -456,7 +456,9 @@ function editar_ativo_carteira($idCarteira, $idCliente)   {
 			                                                <input type="text" name="n_perc[]'.$ind.'" id="n_perc[]'.$ind.'" value="'.number_format($porcentagem,0,",",".").'" class="form-control" >
 						   			<input type="hidden" id="idAtivoCliente[]'.$ind.'" name="idAtivoCliente[]'.$ind.'" value="'.$idAtivoCliente.'" />
      									<input type="hidden" id="idCarteiraAtivo[]'.$ind.'" name="idCarteiraAtivo[]'.$ind.'" value="'.$idCarteiraAtivo.'" />
+	      								<input type="hidden" id="idAtivoAtivo[]'.$ind.'" name="idAtivoAtivo[]'.$ind.'" value="'.$idCarteiraAtivo.'" />
 	      								<input type="hidden" id="idCliente" name="idCliente" value="'.$idCliente.'" />
+	       								<input type="hidden" id="tipoGravar" name="tipoGravar" value="0" />
 			                                            </div>
 			                                        </div>
 			                                    </div>
@@ -497,6 +499,11 @@ function gravar_editar_ativo($dados)   {
 
 	if($soma_perc == 100){
 		for($j = 0; $j < count($dados);$j++){
+			if($dados['tipoGravar'] == 1){
+				if($dados['n_perc'][0]){
+					cadastroAtivoCarteira($dados['idAtivoCliente'][$j], $dados['idCarteiraAtivo'][$j], $dados['n_perc'][$j], $dados['n_perc'][$j]);
+				}
+			}
 		alteraAtivoCarteira($dados['idAtivoCliente'][$j], $dados['n_perc'][$j]);
 		}
 	}else{
@@ -541,8 +548,9 @@ function busca_investimentos($idCliente)   {
 	return $resp;
 }
 
-function combo_setor($idCarteira) {
+function combo_setor($idCarteira, $idCliente) {
 	$ret = '<input type="hidden" id="idCarteiraCliente" name="idCarteiraCliente" value="'.$idCarteira.'" />
+ 		<input type="hidden" id="ididCliente" name="ididCliente" value="'.$idCliente.'" />
  		<select onchange="xajax_tipo_subSetor(xajax.getFormValues(\'form_cadastro\'))" id="tipo_setor" name="tipo_setor" class="form-control">
                 <option value="" disabled selected></option>';
 
@@ -629,6 +637,8 @@ function ativo_select($dados)   {
 
 	$resp = new xajaxResponse("UTF-8");
 
+	$ind = 1;
+
 	$tela = '<table  border="0" width=100%>
  		<tr style="color:#696969; background-color:#DCDCDC;">
 			<th>Codigo</th>
@@ -656,7 +666,7 @@ function ativo_select($dados)   {
 								<td>'.$codigo.'</td>
 								<td>'.$desc_Ativo.'</td>
 								<td>
-									<input type="text" class="form-control" name="new_perc" id="new_perc" value="" style="width: 50px;" />
+									<input type="text" class="form-control" name="n_perc[].0" id="n_perc[].0" value="" style="width: 50px;" />
 								</td>
 								<td>0</td>
 								<td>0</td>
@@ -690,7 +700,7 @@ function ativo_select($dados)   {
 								<td>'.$codigo.'</td>
 								<td>'.$desc_Ativo.'</td>
 								<td>
-									<input type="text" class="form-control" name="new_perc" id="new_perc" value="'.number_format($porcentagem,0,",",".").'" style="width: 50px;" />
+									<input type="text" class="form-control" name="n_perc[].$ind" id="n_perc[].$ind" value="'.number_format($porcentagem,0,",",".").'" style="width: 50px;" />
 								</td>
 								<td>'.$qtde_ativos.'</td>
 								<td>'.number_format($valor_investido,2,",",".").'</td>
@@ -700,12 +710,18 @@ function ativo_select($dados)   {
 							</div>
 						    </div>';
 				$valorInvestidoAtual = 0;
+				$ind = 1;
 			}
 		}
 	}
 		$tela .= '<tr> 
 				<td colspan="8" style="text-align: right;">
-				 <input type="button" value="Gravar"  class="btn btn-success btn-sm" onclick="xajax_gravar_editar_ativo(xajax.getFormValues(\'form_cadastro\')); return false;">
+				<input type="button" value="Gravar"  class="btn btn-success btn-sm" onclick="xajax_gravar_editar_ativo(xajax.getFormValues(\'form_cadastro\')); return false;">
+     				<input type="hidden" id="idAtivoCliente[]'.$ind.'" name="idAtivoCliente[]'.$ind.'" value="'.$idAtivoCliente.'" />
+				<input type="hidden" id="idCarteiraAtivo[]'.$ind.'" name="idCarteiraAtivo[]'.$ind.'" value="'.$idCarteiraAtivo.'" />
+    				<input type="hidden" id="idAtivoAtivo[]'.$ind.'" name="idAtivoAtivo[]'.$ind.'" value="'.$idCarteiraAtivo.'" />
+				<input type="hidden" id="idCliente" name="idCliente" value="'.$dados['ididCliente'].'" />
+    				<input type="hidden" id="tipoGravar" name="tipoGravar" value="1" />
      				</td>
 			</tr>
    		</table>';
