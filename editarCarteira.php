@@ -152,9 +152,9 @@ function busca_carteira()
                     </div>
                     <input type="button" class="btn btn-primary mb-2" value="Salvar" name="salvar" id="salvar" onclick="xajax_salvar_carteiras(xajax.getFormValues('form_cadastro')); return false;">
                     <a class="btn btn-primary mb-2" href="visualizar_carteira.php">Cancelar</a>
-                  </form>
-                  <div class="form-group">
-                        <div id="lista_ativos" class="panel-body"></div>
+                </form>
+                    <div class="form-group">
+                        <div id="lista_ativos" name="lista_ativos" class="panel-body"></div>
                     </div>
             </div>
 
