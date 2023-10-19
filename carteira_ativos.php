@@ -29,8 +29,6 @@ function busca_dados($dados)   {
 
 	$resp = new xajaxResponse();
 
-	new String(myData.getBytes("ISO-8859-1"), "UTF-8");
-
 	$resp->alert('O e-mail é : '.$dados['email']); return $resp;
 
 	$tela  = '';
@@ -718,6 +716,15 @@ function recuperar_senha()   {
         <script type="text/javascript" language="JavaScript"></script>
 <script> 
 
+	$.ajax({
+        data: parameters,
+        type: "POST",
+        url: ajax_url,
+        timeout: 20000,
+        contentType: "application/x-www-form-urlencoded;charset=UTF-8",
+        dataType: 'json',
+        success: callback
+});
 		
 </script> 
 
