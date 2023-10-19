@@ -36,13 +36,13 @@ function listar_carteiras(){
 
 function listar_ativosCarteira($idCarteira){
     $result = listaAtivosCarteira($idCarteira);
-    $total = somaValorTotalAtualAtivos($idCarteira);
-    $valorTotal = 0;
-    if ($total > 0){
-        $valorTotal = $total["VALOR_TOTAL"];
-    }
     $ativos = array();
     if ($result > 0) {
+        $total = somaValorTotalAtualAtivos($idCarteira);
+        $valorTotal = 0;
+        if ($total > 0){
+            $valorTotal = $total["VALOR_TOTAL"];
+        }
         while ($row = mysqli_fetch_array($result)) {
             $codAtivo = $row["CODIGO"];
             $descricaoAtivo = $row["DESCRICAO"];
