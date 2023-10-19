@@ -208,23 +208,19 @@ function cadastroInvestimento($dados){
 	return $ret;
 }
 
-function cadastroAtivoCarteira($dados){
+function cadastroAtivoCarteira($idAtivo, $idCarteira, $perc){
 	
 	$conn = OpenCon();
 	
-	$usuario = strtoupper($dados['usuario']);
-    $senha   = $dados['senha'];
-	
-	$ret = 0;
-	
 	$sql = "INSERT INTO ATIVOS_CLIENTE (ID_ATIVO, ID_CARTEIRA, PORCENTAGEM, QTDE_ATIVOS, VALOR)
-        	VALUES ('{$idCliente}', '{$idCliente}', '{$idCliente}', 0, 0)";
+        	VALUES ('{$idAtivo}', '{$idCarteira}', '{$perc}', 0, 0)";
 
-	
+	$result = mysqli_query($conn,$sql);
+		  mysqli_commit($conn);
 
 	CloseCon($conn);
 	
-	return $ret;
+	
 }
 
 function listaCarteiras($idCliente){
