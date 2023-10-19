@@ -456,7 +456,7 @@ function editar_ativo_carteira($idCarteira, $idCliente)   {
 			                                                <input type="text" name="n_perc[]'.$ind.'" id="n_perc[]'.$ind.'" value="'.number_format($porcentagem,0,",",".").'" class="form-control" >
 						   			<input type="hidden" id="idAtivoCliente[]'.$ind.'" name="idAtivoCliente[]'.$ind.'" value="'.$idAtivoCliente.'" />
 	    								<input type="hidden" id="idAtivoCodigo[]'.$ind.'" name="idAtivoCodigo[]'.$ind.'" value="'.$codigo.'" />
-	      								<input type="hidden" id="idCliente" name="idCliente" value="'.$idCliente.'" />
+	      								<input type="hidden" id="ididCliente" name="ididCliente" value="'.$idCliente.'" />
 	       								<input type="hidden" id="tipoGravar" name="tipoGravar" value="0" />
 									<input type="hidden" id="n_cont" name="n_cont" value="'.$ind.'" />
 			                                            </div>
