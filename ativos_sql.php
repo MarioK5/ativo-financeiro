@@ -450,7 +450,7 @@ function buscaAtivo($ativo,$tipo){
 	}
 	
 	$sql = "SELECT  ID,
- 			ID_SEGMENTO
+ 			ID_SEGMENTO,
 			CODIGO,
 			DESCRICAO,
 			ATIVOS.VALOR AS VALOR_ATUAL_ATIVO
