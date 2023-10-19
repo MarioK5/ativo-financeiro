@@ -455,7 +455,6 @@ function editar_ativo_carteira($idCarteira, $idCliente)   {
 			                                            <div class="input-group">
 			                                                <input type="text" name="n_perc[]'.$ind.'" id="n_perc[]'.$ind.'" value="'.number_format($porcentagem,0,",",".").'" class="form-control" >
 						   			<input type="hidden" id="idAtivoCliente[]'.$ind.'" name="idAtivoCliente[]'.$ind.'" value="'.$idAtivoCliente.'" />
-     									<input type="hidden" id="idCarteiraAtivo[]'.$ind.'" name="idCarteiraAtivo[]'.$ind.'" value="'.$idCarteiraAtivo.'" />
 	      								<input type="hidden" id="idCliente" name="idCliente" value="'.$idCliente.'" />
 	       								<input type="hidden" id="tipoGravar" name="tipoGravar" value="0" />
 									<input type="hidden" id="n_cont" name="n_cont" value="'.$ind.'" />
@@ -503,10 +502,10 @@ function gravar_editar_ativo($dados)   {
 
 				$resp->alert('j '.$j);
 				$resp->alert('ID ativo '.$dados['n_idAtivo'][0]);
-				$resp->alert('ID carteira '.$dados['idCarteiraAtivo'][0]);
+				$resp->alert('ID carteira '.$dados['idCarteiraCliente']);
 				$resp->alert('perc '.$dados['n_perc'][0]);
  
-				cadastroAtivoCarteira($dados['n_idAtivo'][0], $dados['idCarteiraAtivo'][0], $dados['n_perc'][0]);
+				cadastroAtivoCarteira($dados['n_idAtivo'][0], $dados['idCarteiraCliente'], $dados['n_perc'][0]);
 			}
 		alteraAtivoCarteira($dados['idAtivoCliente'][$j], $dados['n_perc'][$j]);
 		}
@@ -726,7 +725,6 @@ function ativo_select($dados)   {
 				<td colspan="8" style="text-align: right;">
 				<input type="button" value="Gravar"  class="btn btn-success btn-sm" onclick="xajax_gravar_editar_ativo(xajax.getFormValues(\'form_cadastro\')); return false;">
      				<input type="hidden" id="idAtivoCliente[]'.$ind.'" name="idAtivoCliente[]'.$ind.'" value="'.$idAtivoCliente.'" />
-				<input type="hidden" id="idCarteiraAtivo[]'.$ind.'" name="idCarteiraAtivo[]'.$ind.'" value="'.$idCarteiraAtivo.'" />
 				<input type="hidden" id="idCliente" name="idCliente" value="'.$dados['ididCliente'].'" />
     				<input type="hidden" id="tipoGravar" name="tipoGravar" value="1" />
 				<input type="hidden" id="n_cont" name="n_cont" value="'.$ind.'" />
