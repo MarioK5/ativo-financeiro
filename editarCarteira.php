@@ -49,6 +49,7 @@ function busca_carteira()
         // Buscar ativos da carteira
         $ativos = listar_ativosCarteira($idCarteira);
         
+/*
         if (!empty($ativos)) {
             $tela .= '<table border="1" width="100%">
                         <tr style="color:white; background-color: #337ab7;">
@@ -85,7 +86,7 @@ function busca_carteira()
             }
 
             $tela .= '</table>';
-        }
+        }*/
     }
 
     $resp->assign("lista_ativos", "innerHTML", $tela);
