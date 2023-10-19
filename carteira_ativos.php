@@ -29,7 +29,7 @@ function busca_dados($dados)   {
 
 	$resp = new xajaxResponse("UTF-8");
 
-	$resp->alert('O e-mail é : '.$dados['email']); return $resp;
+//	$resp->alert('O e-mail é : '.$dados['email']); return $resp;
 
 	$tela  = '';
 
