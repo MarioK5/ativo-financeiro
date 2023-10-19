@@ -640,16 +640,37 @@ function ativo_select($dados)   {
 			<th>Valor Atual<br>Ativo</th>
 			<th>Valor Atual<br>Investido</th>
    			<th>#</th>
-		</tr>
-  		</table>';
+		</tr>';
 
 	$result = buscaAtivo($dados['tipo_ativo'],1);
 
 	if (mysqli_num_rows($result) > 0) {
 			while ($row = mysqli_fetch_array($result)) {
-				
+				$idAtivo     = $row["ID"];
+            			$idSegmento  = $row["ID_SEGMENTO"];
+				$codigo      = $row["CODIGO"];
+				$desc_Ativo  = $row["DESCRICAO"];
+				$valor_ativo = $row["VALOR_ATUAL_ATIVO"];
+
+				$tela .= '<div class="row">
+		    					<div class="col-xs-6 col-md-4">
+							    <tr>
+								<td>'.$codigo.'</td>
+								<td>'.$desc_Ativo.'</td>
+								<td>
+									<input type="text" class="form-control" name="new_perc" id="new_perc" value="" />
+								</td>
+								<td>0</td>
+								<td>0</td>
+								<td>'.number_format($valor_atual_ativo,2,",",".").'</td>
+								<td>0</td>
+								<td>0</td>
+		                			    </tr>
+							</div>
+						    </div>';
 			}
 	}
+	$tela .= '</table>';
 
 
 	$resp->assign("tela_ativo","innerHTML",$tela);
