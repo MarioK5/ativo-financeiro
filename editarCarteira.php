@@ -36,7 +36,7 @@ function salvar_carteiras($dados){
 
 function busca_carteira()
 {
-    $resp = new xajaxResponse();
+    $resp = new xajaxResponse('UTF-8');
     $tela = '';
     
     if (isset($_GET['id'])) {
