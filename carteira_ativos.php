@@ -500,6 +500,7 @@ function gravar_editar_ativo($dados)   {
 		for($j = 0; $j < count($dados);$j++){
 			
 			if(($dados['tipoGravar'] == 1) && ($j == 0)){
+				$resp->alert('entrou!'); 
 				cadastroAtivoCarteira($dados['idAtivoCliente'][$j], $dados['idCarteiraCliente'], $dados['n_perc'][$j]);
 			}
 		alteraAtivoCarteira($dados['idAtivoCliente'][$j], $dados['n_perc'][$j]);
