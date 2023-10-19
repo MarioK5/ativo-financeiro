@@ -490,7 +490,7 @@ function gravar_editar_ativo($dados)   {
 
 	$resp = new xajaxResponse("UTF-8");
 
-	$idCliente = $dados['idCliente'];
+	$idCliente = $dados['ididCliente'];
 
 	for($i = 0; $i < count($dados);$i++){
 		$soma_perc += $dados['n_perc'][$i];
