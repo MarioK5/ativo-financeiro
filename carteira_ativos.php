@@ -666,6 +666,7 @@ function ativo_select($dados)   {
 							</div>
 						    </div>';
 			}
+		$resp->alert('Investimentos do cliente: '.$dados['idCarteiraCliente']);
 		$result = listaAtivosCarteira($dados['idCarteiraCliente']);
 	
 		if (mysqli_num_rows($result) > 0) {
