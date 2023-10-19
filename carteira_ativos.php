@@ -498,7 +498,10 @@ function gravar_editar_ativo($dados)   {
 
 	if($soma_perc == 100){
 		for($j = 0; $j <= count($dados['n_cont']);$j++){
+			
 			if(($dados['tipoGravar'] == 1) && ($j == 0)){
+
+				$resp->alert('n_cont '.$dados['n_cont']);
  
 				cadastroAtivoCarteira($dados['n_idAtivo'][0], $dados['idCarteiraAtivo'][$j], $dados['n_perc'][0]);
 			}
