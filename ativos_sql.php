@@ -453,6 +453,7 @@ function buscaAtivo($ativo,$tipo){
  			ID_SEGMENTO,
 			CODIGO,
 			DESCRICAO,
+   			(CODIGO|| '-' ||DESCRICAO) COD_EMPR
 			VALOR AS VALOR_ATUAL_ATIVO
    			FROM ATIVOS
  		$temTipo ";
