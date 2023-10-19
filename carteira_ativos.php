@@ -658,7 +658,7 @@ function ativo_select($dados)   {
 								<td>'.$codigo.'</td>
 								<td>'.$desc_Ativo.'</td>
 								<td>
-									<input type="text" class="form-control" name="new_perc" id="new_perc" value="" style="width: 100px;" />
+									<input type="text" class="form-control" name="new_perc" id="new_perc" value="" style="width: 50px;" />
 								</td>
 								<td>0</td>
 								<td>0</td>
