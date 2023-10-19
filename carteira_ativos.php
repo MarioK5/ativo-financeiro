@@ -535,9 +535,51 @@ function busca_investimentos($idCliente)   {
 
 	$resp = new xajaxResponse("UTF-8");
 
-	$tela = '';
+	$perc_atual = 0;
+	$ind = 0;
+
+	$result = listaCarteiras($idCliente);
 	
-	$resp->alert('Investimentos do cliente: '.$idCliente);
+	if (mysqli_num_rows($result) > 0) {
+
+		$tela = '<table border="0" width=100% class="table">';
+		
+		while ($row = mysqli_fetch_array($result)) {
+			$ind++;
+            		$idCarteira[$ind] = $row["ID"];
+            		$descricao[$ind]  = $row["DESCRICAO"];
+            		$idCliente[$ind]  = $row["ID_CLIENTE"];
+					
+		$tela .= '<div class="row">
+    				<div class="col-xs-6 col-md-4">
+					<tr style="color:white; background-color:#2F4F4F;">
+				     	     <th colspan="7">'.$descricao[$ind].'</th>
+	       				     <th colspan="1" style="text-align: right;">
+							<button type="button" class="btn btn-default btn-xs" onclick="xajax_editar_ativo_carteira('.$idCarteira[$ind].','.$idCliente[$ind].');">
+							<span class="glyphicon glyphicon-edit"> Editar</span>
+							</button>
+					     </th>
+	  				     <th colspan="1" style="text-align: right;">
+				   		 <input type="button" value="Adicionar Ativo"  class="btn btn-success btn-xs" onclick="xajax_cadastrar_ativo('.$idCarteira[$ind].','.$idCliente[$ind].'); ">
+					     </th>
+	 				</tr>
+      					<tr style="color:#696969; background-color:#DCDCDC;">
+						<th>Codigo</th>
+						<th>Empresa</th>
+						<th>Meta %</th>
+						<th>Qtde<br>Ativos</th>
+       						<th>Valor<br>Investido</th>
+	     					<th>Valor Atual<br>Ativo</th>
+						<th>Valor Atual<br>Investido</th>
+	    					<th>% Atual</th>
+						<th>Retorno</th>
+	                		</tr> 
+				</div>
+			    </div> ';	
+		}
+	}
+
+	
 
 	
 
