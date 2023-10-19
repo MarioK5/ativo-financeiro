@@ -682,7 +682,7 @@ function ativo_select($dados)   {
 				$qtde_ativos     = $row["QTDE_ATIVOS"];
 				$valor_investido = $row["VALOR_INVESTIDO"];
 				$valor_atual_ativo = $row["VALOR_ATUAL_ATIVO"];
-				$valorInvestidoAtual = ($valor_investido * $qtde_ativos);
+				$valorInvestidoAtual = ($valor_atual_ativo * $qtde_ativos);
 
 				$tela .= '<div class="row">
 		    					<div class="col-xs-6 col-md-4">
@@ -703,7 +703,12 @@ function ativo_select($dados)   {
 			}
 		}
 	}
-	$tela .= '</table>';
+		$tela .= '<tr> 
+				<td colspan="6" style="text-align: right;">
+				 <input type="button" value="Gravar"  class="btn btn-success btn-sm" onclick="xajax_gravar_editar_ativo(xajax.getFormValues(\'form_cadastro\')); return false;">
+     				</td>
+			</tr>
+   		</table>';
 
 
 	$resp->assign("tela_ativo","innerHTML",$tela);
