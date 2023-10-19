@@ -546,9 +546,9 @@ function busca_investimentos($idCliente)   {
 		
 		while ($row = mysqli_fetch_array($result)) {
 			$ind++;
-            		$idCarteira[$ind] = $row["ID"];
-            		$descricao[$ind]  = $row["DESCRICAO"];
-            		$idCliente[$ind]  = $row["ID_CLIENTE"];
+            		$idCarteira[$ind]     = $row["ID"];
+            		$descricao[$ind]      = $row["DESCRICAO"];
+            		$idCliente[$ind]      = $row["ID_CLIENTE"];
 			$valorCarteira[$ind]  = $row["VALOR"];
 					
 		$tela .= '<div class="row">
@@ -564,10 +564,38 @@ function busca_investimentos($idCliente)   {
 						<th colspan="2">Codigo</th>
 						<th colspan="2">Empresa</th>
        						<th colspan="2">Valor Investido</th>
-						<th colspan="2">Valor Atual Investimento</th>
+						<th colspan="2">Valor Atual do Investimento</th>
 	                		</tr> 
 				</div>
 			    </div> ';	
+
+			$result2 = listaAtivosCarteira($idCarteira[$ind]);
+	
+			if (mysqli_num_rows($result2) > 0) {
+			while ($row2 = mysqli_fetch_array($result2)) {
+
+				$idAtivoCarteira = $row2["ID"];
+				$idAtivo         = $row2["ID_ATIVO"];
+            			$idCarteiraAtivo = $row2["ID_CARTEIRA"];
+				$codigo          = $row2["CODIGO"];
+				$desc_Ativo      = $row2["DESCRICAO"];
+				$porcentagem     = $row2["PORCENTAGEM"];
+				$qtde_ativos     = $row2["QTDE_ATIVOS"];
+				$valor_investido = $row2["VALOR_INVESTIDO"];
+				$valor_atual_ativo = $row2["VALOR_ATUAL_ATIVO"];
+				
+				$valor_atual_investido = ($qtde_ativos * $valor_atual_ativo);
+				
+				$tela .= '<tr>
+						<td colspan="2">'.$codigo.'</td>
+						<td colspan="2">'.$desc_Ativo.'</td>
+						<td colspan="2">'.number_format($valor_investido,2,",",".").'</td>
+						<td colspan="2">'.number_format($valor_atual_investido,2,",",".").'</td>
+		                	</tr> ';
+				
+				}
+			}
+			
 		}
 	}
 
