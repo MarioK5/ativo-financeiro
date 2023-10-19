@@ -456,7 +456,6 @@ function editar_ativo_carteira($idCarteira, $idCliente)   {
 			                                                <input type="text" name="n_perc[]'.$ind.'" id="n_perc[]'.$ind.'" value="'.number_format($porcentagem,0,",",".").'" class="form-control" >
 						   			<input type="hidden" id="idAtivoCliente[]'.$ind.'" name="idAtivoCliente[]'.$ind.'" value="'.$idAtivoCliente.'" />
      									<input type="hidden" id="idCarteiraAtivo[]'.$ind.'" name="idCarteiraAtivo[]'.$ind.'" value="'.$idCarteiraAtivo.'" />
-	      								<input type="hidden" id="idAtivoAtivo[]'.$ind.'" name="idAtivoAtivo[]'.$ind.'" value="'.$idCarteiraAtivo.'" />
 	      								<input type="hidden" id="idCliente" name="idCliente" value="'.$idCliente.'" />
 	       								<input type="hidden" id="tipoGravar" name="tipoGravar" value="0" />
 			                                            </div>
@@ -501,7 +500,7 @@ function gravar_editar_ativo($dados)   {
 		for($j = 0; $j < count($dados);$j++){
 			if($dados['tipoGravar'] == 1){
 				if($dados['n_perc'][0]){
-					cadastroAtivoCarteira($dados['idAtivoCliente'][$j], $dados['idCarteiraAtivo'][$j], $dados['n_perc'][$j], $dados['n_perc'][$j]);
+					cadastroAtivoCarteira($dados['$idAtivo'][0], $dados['idCarteiraAtivo'][$j], $dados['n_perc'][0]);
 				}
 			}
 		alteraAtivoCarteira($dados['idAtivoCliente'][$j], $dados['n_perc'][$j]);
@@ -667,6 +666,7 @@ function ativo_select($dados)   {
 								<td>'.$desc_Ativo.'</td>
 								<td>
 									<input type="text" class="form-control" name="n_perc[].0" id="n_perc[].0" value="" style="width: 50px;" />
+	 								<input type="text" class="form-control" name="n_idAtivo[].0" id="n_idAtivo[].0" value="'.$idAtivo.'" />
 								</td>
 								<td>0</td>
 								<td>0</td>
@@ -710,8 +710,9 @@ function ativo_select($dados)   {
 							</div>
 						    </div>';
 				$valorInvestidoAtual = 0;
-				$ind = 1;
+				$ind++;
 			}
+			$ind = 1;
 		}
 	}
 		$tela .= '<tr> 
@@ -719,7 +720,6 @@ function ativo_select($dados)   {
 				<input type="button" value="Gravar"  class="btn btn-success btn-sm" onclick="xajax_gravar_editar_ativo(xajax.getFormValues(\'form_cadastro\')); return false;">
      				<input type="hidden" id="idAtivoCliente[]'.$ind.'" name="idAtivoCliente[]'.$ind.'" value="'.$idAtivoCliente.'" />
 				<input type="hidden" id="idCarteiraAtivo[]'.$ind.'" name="idCarteiraAtivo[]'.$ind.'" value="'.$idCarteiraAtivo.'" />
-    				<input type="hidden" id="idAtivoAtivo[]'.$ind.'" name="idAtivoAtivo[]'.$ind.'" value="'.$idCarteiraAtivo.'" />
 				<input type="hidden" id="idCliente" name="idCliente" value="'.$dados['ididCliente'].'" />
     				<input type="hidden" id="tipoGravar" name="tipoGravar" value="1" />
      				</td>
