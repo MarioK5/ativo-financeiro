@@ -501,7 +501,10 @@ function gravar_editar_ativo($dados)   {
 			
 			if(($dados['tipoGravar'] == 1) && ($j == 0)){
 
-				$resp->alert('n_cont '.$dados['n_cont']);
+				$resp->alert('j '.$j);
+				$resp->alert('ID ativo '.$dados['n_idAtivo'][0]);
+				$resp->alert('ID carteira '.$dados['idCarteiraAtivo'][$j]);
+				$resp->alert('perc '.$dados['n_perc'][0]);
  
 				cadastroAtivoCarteira($dados['n_idAtivo'][0], $dados['idCarteiraAtivo'][$j], $dados['n_perc'][0]);
 			}
