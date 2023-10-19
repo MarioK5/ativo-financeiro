@@ -458,6 +458,7 @@ function editar_ativo_carteira($idCarteira, $idCliente)   {
      									<input type="hidden" id="idCarteiraAtivo[]'.$ind.'" name="idCarteiraAtivo[]'.$ind.'" value="'.$idCarteiraAtivo.'" />
 	      								<input type="hidden" id="idCliente" name="idCliente" value="'.$idCliente.'" />
 	       								<input type="hidden" id="tipoGravar" name="tipoGravar" value="0" />
+									<input type="hidden" id="n_cont" name="n_cont" value="'.$ind.'" />
 			                                            </div>
 			                                        </div>
 			                                    </div>
@@ -471,7 +472,6 @@ function editar_ativo_carteira($idCarteira, $idCliente)   {
 		                	 </tr> ';
 				$ind++;
 				}
-			$ind = 0;
 			}
 		$tela .= '<tr> 
 				<td colspan="6" style="text-align: right;">
@@ -497,12 +497,9 @@ function gravar_editar_ativo($dados)   {
 	}
 
 	if($soma_perc == 100){
-		for($j = 0; $j < count($dados);$j++){
+		for($j = 0; $j <= count($dados['n_cont']);$j++){
 			if(($dados['tipoGravar'] == 1) && ($j == 0)){
-				$resp->alert('Valor de j '.$j); 
-				$resp->alert('ID do novo ativo '.$dados['$idAtivo'][0]); 
-				$resp->alert('ID da carteira '.$dados['idCarteiraAtivo'][$j]); 
-				$resp->alert('Porcentagem '.$dados['n_perc'][0]); 
+ 
 				cadastroAtivoCarteira($dados['n_idAtivo'][0], $dados['idCarteiraAtivo'][$j], $dados['n_perc'][0]);
 			}
 		alteraAtivoCarteira($dados['idAtivoCliente'][$j], $dados['n_perc'][$j]);
@@ -725,6 +722,7 @@ function ativo_select($dados)   {
 				<input type="hidden" id="idCarteiraAtivo[]'.$ind.'" name="idCarteiraAtivo[]'.$ind.'" value="'.$idCarteiraAtivo.'" />
 				<input type="hidden" id="idCliente" name="idCliente" value="'.$dados['ididCliente'].'" />
     				<input type="hidden" id="tipoGravar" name="tipoGravar" value="1" />
+				<input type="hidden" id="n_cont" name="n_cont" value="'.$ind.'" />
      				</td>
 			</tr>
    		</table>';
