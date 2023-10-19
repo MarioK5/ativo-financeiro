@@ -60,7 +60,7 @@ function listar_ativosCarteira($idCarteira){
             $ativos[] = array($codAtivo, $descricaoAtivo, $valorInvestido,$valorAtual,$porIncial,$porAtual,$saldo,$quantAtivos);
         }
     }
-    return 0;
+    return $ativos;
 }
 
 function salvar_Ativo($idAtivo, $idCarteira, $perc) {
