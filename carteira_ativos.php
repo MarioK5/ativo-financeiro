@@ -666,7 +666,7 @@ function ativo_select($dados)   {
 							</div>
 						    </div>';
 			}
-		$resp->alert('Investimentos do cliente: '.$dados['idCarteiraCliente']);
+
 		$result = listaAtivosCarteira($dados['idCarteiraCliente']);
 	
 		if (mysqli_num_rows($result) > 0) {
@@ -679,6 +679,7 @@ function ativo_select($dados)   {
 				$porcentagem     = $row["PORCENTAGEM"];
 				$qtde_ativos     = $row["QTDE_ATIVOS"];
 				$valor_investido = $row["VALOR_INVESTIDO"];
+				$valor_atual_ativo = $row["VALOR_ATUAL_ATIVO"];
 				$valorInvestidoAtual = ($valor_investido * $qtde_ativos);
 
 				$tela .= '<div class="row">
@@ -686,10 +687,12 @@ function ativo_select($dados)   {
 							    <tr>
 								<td>'.$codigo.'</td>
 								<td>'.$desc_Ativo.'</td>
-								<td>'.number_format($porcentagem,0,",",".").'</td>
+								<td>
+									<input type="text" class="form-control" name="new_perc" id="new_perc" value="'.number_format($porcentagem,0,",",".").'" style="width: 50px;" />
+								</td>
 								<td>'.$qtde_ativos.'</td>
 								<td>'.number_format($valor_investido,2,",",".").'</td>
-								<td>'.number_format($valor_ativo,2,",",".").'</td>
+								<td>'.number_format($valor_atual_ativo,2,",",".").'</td>
 								<td>'.number_format($valorInvestidoAtual,2,",",".").'</td>
 		                			    </tr>
 							</div>
