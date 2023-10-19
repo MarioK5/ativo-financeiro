@@ -28,7 +28,8 @@ $xajax->processRequest();
 function busca_dados($dados)   {
 
 	$resp = new xajaxResponse();
-	
+
+	new String(myData.getBytes("ISO-8859-1"), "UTF-8");
 
 	$resp->alert('O e-mail é : '.$dados['email']); return $resp;
 
@@ -761,7 +762,7 @@ tbody,#tela_saida,#tela_inicio{
                             <div class="row">
                                 <div class="col-xs-4 col-md-4">
                                     <div class="form-group">
-                                        <label>E-mail é</label>
+                                        <label>E-mail</label>
                                         <div id="sandbox-container">
                                             <div class="input-group">
                                                 <input type="text" class="form-control" name="email" id="email" value="" style="width: 300px;"/>
@@ -771,7 +772,7 @@ tbody,#tela_saida,#tela_inicio{
                                 </div>
 				<div class="col-xs-2 col-md-2">
                                     <div class="form-group">
-                                        <label>Senha canção</label>
+                                        <label>Senha</label>
                                         <div id="sandbox-container">
                                             <div class="input-group">
                                                 <input type="password" class="form-control" name="senha" id="senha" value=""/>
