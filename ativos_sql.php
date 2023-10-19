@@ -213,7 +213,7 @@ function cadastroAtivoCarteira($idAtivo, $idCarteira, $perc){
 	$conn = OpenCon();
 	
 	$sql = "INSERT INTO ATIVOS_CLIENTE (ID_ATIVO, ID_CARTEIRA, PORCENTAGEM, QTDE_ATIVOS, VALOR)
-        	VALUES ('{$idAtivo}', '{$idCarteira}', '{$perc}', 0, 0)";
+        	VALUES ('{$idAtivo}', '{$idCarteira}', '{$perc}', '0', '0')";
 
 	$result = mysqli_query($conn,$sql);
 		  mysqli_commit($conn);
