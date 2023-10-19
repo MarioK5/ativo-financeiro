@@ -561,8 +561,6 @@ function combo_setor($idCarteira) {
 function tipo_subSetor($dados) {
 
 	$resp = new xajaxResponse("UTF-8");
-	$resp->alert('Investimentos do cliente: '.$dados['tipo_setor']); 
-	$resp->alert('ID carteira: '.$dados['idCarteiraCliente']); 
 	
 	$ret = '<select  onchange="xajax_tipo_segmento(xajax.getFormValues(\'form_cadastro\'))" id="tipo_subSetor" name="tipo_subSetor" class="form-control">
                 <option value="" disabled selected></option>';
@@ -585,8 +583,6 @@ function tipo_subSetor($dados) {
 function tipo_segmento($dados) {
 
 	$resp = new xajaxResponse("UTF-8");
-//	$resp->alert('Investimentos do cliente: '.$dados['tipo_subSetor']); return $resp;
-	$resp->alert('ID carteira: '.$dados['idCarteiraCliente']); 
 	
 	$ret = '<select  onchange="xajax_tipo_ativo(xajax.getFormValues(\'form_cadastro\'))" id="tipo_segmento" name="tipo_segmento" class="form-control">
                 <option value="" disabled selected></option>';
@@ -632,6 +628,7 @@ function tipo_ativo($dados) {
 function ativo_select($dados)   {
 
 	$resp = new xajaxResponse("UTF-8");
+	$resp->alert('ID carteira: '.$dados['idCarteiraCliente']); 
 
 	$tela = '<table  border="0" width=100%>
  		<tr style="color:#696969; background-color:#DCDCDC;">
