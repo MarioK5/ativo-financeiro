@@ -38,38 +38,61 @@ function busca_carteira()
 {
     $resp = new xajaxResponse();
     $tela = '';
+    
     if (isset($_GET['id'])) {
         $idCarteira = $_GET['id'];
+        
+        // Buscar descrição da carteira
+        $descricao_carteira = vizualizar_carteira($idCarteira);
+        $resp->assign("descricaoCarteira", "value", $descricao_carteira);
 
-    $descricao_carteira = vizualizar_carteira($idCarteira);
-    $resp->assign("descricaoCarteira", "value", $descricao_carteira);
+        // Buscar ativos da carteira
+        $ativos = listar_ativosCarteira($idCarteira);
+        
+        if (!empty($ativos)) {
+            $tela .= '<table border="1" width="100%">
+                        <tr style="color:white; background-color: #337ab7;">
+                            <th>Código do Ativo</th>
+                            <th>Descrição do Ativo</th>
+                            <th>Valor Investido</th>
+                            <th>Valor Atual</th>
+                            <th>Porcentagem Inicial</th>
+                            <th>Porcentagem Atual</th>
+                            <th>Saldo</th>
+                            <th>Quantidade de Ativos</th>
+                        </tr>';
 
+            foreach ($ativos as $ativo) {
+                $codAtivo = $ativo[0];
+                $descricaoAtivo = $ativo[1];
+                $valorInvestido = $ativo[2];
+                $valorAtual = $ativo[3];
+                $porIncial = $ativo[4];
+                $porAtual = $ativo[5];
+                $saldo = $ativo[6];
+                $quantAtivos = $ativo[7];
 
-   /* if (!empty($result)) {
-        $tela .= '<table border="1" width="100%">
-                    <tr style="color:white; background-color: #337ab7;">
-                        <th>ID</th>
-                        <th>Descrição</th>
-                        <th>Cliente</th>
-                        <th>Ação</th>
-                    </tr>';
+                $tela .= "<tr>
+                            <td>$codAtivo</td>
+                            <td>$descricaoAtivo</td>
+                            <td>$valorInvestido</td>
+                            <td>$valorAtual</td>
+                            <td>$porIncial</td>
+                            <td>$porAtual</td>
+                            <td>$saldo</td>
+                            <td>$quantAtivos</td>
+                        </tr>";
+            }
 
-        foreach ($result as $ativos) {
-            $id = $ativos[0];
-            $descricao = $ativos[1];
-            $idCliente = $ativos[2];
-
-            // Adiciona um botão de edição para cada item na lista
-            $tela .= "<tr><td>$id</td><td>$descricao</td><td>$idCliente</td><td><button onclick='editarAtivo($id)'>Editar</button></td></tr>";
+            $tela .= '</table>';
         }
+    }
 
-        $tela .= '</table>';
-    }*/
-
-    //$resp->assign("lista_carteira", "innerHTML", $tela);
-}
+    $resp->assign("lista_ativos", "innerHTML", $tela);
+    
     return $resp;
 }
+
 
 
 ?>
