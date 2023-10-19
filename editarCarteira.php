@@ -50,7 +50,7 @@ function busca_carteira()
         $ativos = listar_ativosCarteira($idCarteira);
         
 
-        if (!empty($ativos)) {
+       /* if (!empty($ativos)) {
             $tela .= '<table border="1" width="100%">
                         <tr style="color:white; background-color: #337ab7;">
                             <th>Código do Ativo</th>
@@ -86,7 +86,8 @@ function busca_carteira()
             }
 
             $tela .= '</table>';
-        }
+        }*/
+        $tela = $ativos;
     }
 
     $resp->assign("lista_ativos", "innerHTML", $tela);
