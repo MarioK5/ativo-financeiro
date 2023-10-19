@@ -668,6 +668,8 @@ function ativo_select($dados)   {
 			}
 
 		$result = listaAtivosCarteira($dados['idCarteiraCliente']);
+
+		$valorInvestidoAtual = 0;
 	
 		if (mysqli_num_rows($result) > 0) {
 			while ($row = mysqli_fetch_array($result)) {
@@ -697,6 +699,7 @@ function ativo_select($dados)   {
 		                			    </tr>
 							</div>
 						    </div>';
+				$valorInvestidoAtual = 0;
 			}
 		}
 	}
