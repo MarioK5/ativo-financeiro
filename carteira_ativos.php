@@ -472,6 +472,7 @@ function editar_ativo_carteira($idCarteira, $idCliente)   {
 		                	 </tr> ';
 				$ind++;
 				}
+			$ind++;
 			}
 		$tela .= '<tr> 
 				<td colspan="6" style="text-align: right;">
