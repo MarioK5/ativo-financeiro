@@ -502,6 +502,7 @@ function gravar_editar_ativo($dados)   {
 
 				cadastroAtivoCarteira($dados['idAtivoCliente'][0], $dados['idCarteiraCliente'], $dados['n_perc'][0]);
 			}
+				$resp->alert('n_cont '.$dados['n_cont']);
 				$resp->alert('j '.$j);
 				$resp->alert('ID ativo '.$dados['idAtivoCliente'][$j]);
 				$resp->alert('ID carteira '.$dados['idCarteiraCliente']);
