@@ -35,9 +35,9 @@ function listar_carteiras(){
 }
 
 function listar_ativosCarteira($idCarteira){
-    /*$result = listaAtivosCarteira($idCarteira);
+    $result = listaAtivosCarteira($idCarteira);
     $ativos = array();
-    if ($result > 0) {
+    /*if ($result > 0) {
         $total = somaValorTotalAtualAtivos($idCarteira);
         $valorTotal = 0;
         if ($total > 0){
