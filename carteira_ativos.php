@@ -630,7 +630,8 @@ function ativo_select($dados)   {
 
 	$resp = new xajaxResponse("UTF-8");
 
-	$tela = '<table><tr style="color:#696969; background-color:#DCDCDC;">
+	$tela = '<table  border="0" width=100%>
+ 		<tr style="color:#696969; background-color:#DCDCDC;">
 			<th>Codigo</th>
 			<th>Empresa</th>
 			<th>Meta %</th>
@@ -639,7 +640,8 @@ function ativo_select($dados)   {
 			<th>Valor Atual<br>Ativo</th>
 			<th>Valor Atual<br>Investido</th>
    			<th>#</th>
-		</tr> </table>';
+		</tr>
+  		</table>';
 
 	$result = buscaAtivo($dados['tipo_ativo'],1);
 
