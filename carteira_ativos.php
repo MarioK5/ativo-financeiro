@@ -561,15 +561,10 @@ function busca_investimentos($idCliente)   {
 					     </th>
 	 				</tr>
       					<tr style="color:#696969; background-color:#DCDCDC;">
-						<th>Codigo</th>
-						<th>Empresa</th>
-						<th>Meta %</th>
-						<th>Qtde<br>Ativos</th>
-       						<th>Valor<br>Investido</th>
-	     					<th>Valor Atual<br>Ativo</th>
-						<th>Valor Atual<br>Investido</th>
-	    					<th>% Atual</th>
-						<th>Retorno</th>
+						<th colspan="2">Codigo</th>
+						<th colspan="2">Empresa</th>
+       						<th colspan="2">Valor Investido</th>
+						<th colspan="2">Valor Atual Investimento</th>
 	                		</tr> 
 				</div>
 			    </div> ';	
