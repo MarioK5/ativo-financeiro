@@ -363,7 +363,7 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
 		   			<tr>
      						<td colspan="2">
 		   				    <div name="n_setor" id="n_setor" style="width: 200px;" > 
-					            	'.combo_setor().'                        
+					            	'.combo_setor($idCarteira).'                        
 						    </div>
 	  					</td>
 						<td colspan="2">
@@ -541,8 +541,8 @@ function busca_investimentos($idCliente)   {
 	return $resp;
 }
 
-function combo_setor() {
-	$ret = '<select onchange="xajax_tipo_subSetor(xajax.getFormValues(\'form_cadastro\'))" id="tipo_setor" name="tipo_setor" class="form-control">
+function combo_setor($idCarteira) {
+	$ret = '<select onchange="xajax_tipo_subSetor(xajax.getFormValues(\'form_cadastro\'),'$idCarteira')" id="tipo_setor" name="tipo_setor" class="form-control">
                 <option value="" disabled selected></option>';
 
 	$result = buscaSetor();
@@ -557,10 +557,11 @@ function combo_setor() {
     return $ret;
 }
 
-function tipo_subSetor($dados) {
+function tipo_subSetor($dados,$idCarteira) {
 
 	$resp = new xajaxResponse("UTF-8");
-//	$resp->alert('Investimentos do cliente: '.$dados['tipo_subSetor']); return $resp;
+	$resp->alert('Investimentos do cliente: '.$dados['tipo_subSetor']); 
+	$resp->alert('ID carteira: '.$$idCarteira); 
 	
 	$ret = '<select  onchange="xajax_tipo_segmento(xajax.getFormValues(\'form_cadastro\'))" id="tipo_subSetor" name="tipo_subSetor" class="form-control">
                 <option value="" disabled selected></option>';
@@ -669,6 +670,21 @@ function ativo_select($dados)   {
 							</div>
 						    </div>';
 			}
+		$result = listaAtivosCarteira($idCarteira);
+	
+		if (mysqli_num_rows($result) > 0) {
+			while ($row = mysqli_fetch_array($result)) {
+				$idAtivoCliente  = $row["ID"];
+				$idAtivo         = $row["ID_ATIVO"];
+            			$idCarteiraAtivo = $row["ID_CARTEIRA"];
+				$codigo          = $row["CODIGO"];
+				$desc_Ativo      = $row["DESCRICAO"];
+				$porcentagem     = $row["PORCENTAGEM"];
+				$qtde_ativos     = $row["QTDE_ATIVOS"];
+				$valor_investido = $row["VALOR_INVESTIDO"];
+
+			}
+		}
 	}
 	$tela .= '</table>';
 
