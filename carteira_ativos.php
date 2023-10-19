@@ -379,7 +379,7 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
 						<td colspan="2">
 		   				    <div name="n_ativo" id="n_ativo" style="width: 200px;" > 
 					                <button type="button" class="btn btn-default btn-xs" onclick="xajax_tipo_ativo(xajax.getFormValues(\'form_cadastro\'))" id="tipo_segmento" name="tipo_segmento" value="999999">
-							<span class="glyphicon glyphicon-search">Listar</span>
+							<span class="glyphicon glyphicon-search"> Listar</span>
 							</button>
 						    </div>
 						</td>
