@@ -501,8 +501,9 @@ function gravar_editar_ativo($dados)   {
 			
 			if(($dados['tipoGravar'] == 1) && ($j == 0)){
 				cadastroAtivoCarteira($dados['idAtivoCliente'][$j], $dados['idCarteiraCliente'], $dados['n_perc'][$j]);
+			}else{
+				alteraAtivoCarteira($dados['idAtivoCliente'][$j], $dados['n_perc'][$j]); 
 			}
-		alteraAtivoCarteira($dados['idAtivoCliente'][$j], $dados['n_perc'][$j]);
 		}
 	}else{
 		$resp->alert('A meta informada é diferente de 100%, soma do valor atual: '.$soma_perc); return $resp;
