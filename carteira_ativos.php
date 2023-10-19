@@ -29,8 +29,7 @@ $xajax->processRequest();
 
 function busca_dados($dados)   {
 
-	$resp = new xajaxResponse();
-	$xajax->setCharEncoding("UTF-8");
+	$resp = new xajaxResponse("UTF-8");
 
 	$resp->alert('O e-mail é : '.$dados['email']); return $resp;
 
