@@ -38,13 +38,12 @@ function listar_ativosCarteira($idCarteira){
     $result = listaAtivosCarteira($idCarteira);
     $ativos = array();
     if ($result > 0) {
-        return 1;
-        /*$total = somaValorTotalAtualAtivos($idCarteira);
+        $total = somaValorTotalAtualAtivos($idCarteira);
         $valorTotal = 0;
         if ($total > 0){
             $valorTotal = $total["VALOR_TOTAL"];
         }
-        while ($row = mysqli_fetch_array($result)) {
+        /*while ($row = mysqli_fetch_array($result)) {
             $codAtivo = $row["CODIGO"];
             $descricaoAtivo = $row["DESCRICAO"];
             $valorInvestido = $row["VALOR_INVESTIDO"];
