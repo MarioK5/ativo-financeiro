@@ -35,7 +35,7 @@ function listar_carteiras(){
 }
 
 function listar_ativosCarteira($idCarteira){
-    $result = listaAtivosCarteira($idCarteira);
+    /*$result = listaAtivosCarteira($idCarteira);
     $ativos = array();
     if ($result > 0) {
         $total = somaValorTotalAtualAtivos($idCarteira);
@@ -58,7 +58,7 @@ function listar_ativosCarteira($idCarteira){
             $quantAtivos = $row["QTDE_ATIVOS"];
             $ativos[] = array($codAtivo, $descricaoAtivo, $valorInvestido,$valorAtual,$porIncial,$porAtual,$saldo,$quantAtivos);
         }
-    }
+    }*/
     return 0;
 }
 
