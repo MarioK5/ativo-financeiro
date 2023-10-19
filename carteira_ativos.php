@@ -500,13 +500,12 @@ function gravar_editar_ativo($dados)   {
 			
 			if(($dados['tipoGravar'] == 1) && ($j == 0)){
 
-				$resp->alert('j '.$j);
-				$resp->alert('ID ativo '.$dados['n_idAtivo'][0]);
-				$resp->alert('ID carteira '.$dados['idCarteiraCliente']);
-				$resp->alert('perc '.$dados['n_perc'][0]);
- 
-				cadastroAtivoCarteira($dados['n_idAtivo'][0], $dados['idCarteiraCliente'], $dados['n_perc'][0]);
+				cadastroAtivoCarteira($dados['idAtivoCliente'][0], $dados['idCarteiraCliente'], $dados['n_perc'][0]);
 			}
+				$resp->alert('j '.$j);
+				$resp->alert('ID ativo '.$dados['idAtivoCliente'][$j]);
+				$resp->alert('ID carteira '.$dados['idCarteiraCliente']);
+				$resp->alert('perc '.$dados['n_perc'][$j]);
 		alteraAtivoCarteira($dados['idAtivoCliente'][$j], $dados['n_perc'][$j]);
 		}
 	}else{
@@ -671,7 +670,7 @@ function ativo_select($dados)   {
 								<td></td>
 								<td>
 									<input type="text" class="form-control" name="n_perc[].$ind" id="n_perc[].$ind" value="" style="width: 50px;" />
-	 								<input type="hidden" class="form-control" name="n_idAtivo[].$ind" id="n_idAtivo[].$ind" value="'.$idAtivo.'" />
+	 								<input type="hidden" class="form-control" name="idAtivoCliente[].$ind" id="idAtivoCliente[].$ind" value="'.$idAtivo.'" />
 								</td>
 								<td>0</td>
 								<td>0</td>
