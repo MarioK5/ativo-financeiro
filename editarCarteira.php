@@ -152,8 +152,8 @@ function busca_carteira()
                       <label for="formGroupExampleInput">Digite a descrição</label>
                       <input type="text" class="form-control" id="descricaoCarteira" name="descricaoCarteira" placeholder="Digite a descrição">
                     </div>
-                    <button onclick=''>Novo Ativo</button>
-                    <button onclick=''>Editar Ativos</button>
+                    <button>Novo Ativo</button>
+                    <button>Editar Ativos</button>
                     <div class="form-group">
                         <div id="lista_ativos" name="lista_ativos" class="panel-body"></div>
                     </div>
