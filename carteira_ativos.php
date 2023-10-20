@@ -560,7 +560,7 @@ function busca_investimentos($idCliente)   {
 				     	     <th colspan="3">'.$descricao[$ind].'</th>
 	       				     <th colspan="4">R$ '.number_format($valorCarteira[$ind],2,",",".").'</th>
 	  				     <th colspan="1" style="text-align: right;">
-				   		 <input type="button" value="Adicionar Investimento" class="btn btn-success btn-xs" onclick="xajax_cadastrar_investimento('.$idCliente[$ind].','.$idCarteira[$ind].','.$descricao[$ind].')">
+				   		 <input type="button" value="Adicionar Investimento" class="btn btn-success btn-xs" onclick="xajax_cadastrar_investimento('.$idCliente[$ind].','.$idCarteira[$ind].')">
 					     </th>
 	 				</tr>
       					<tr style="color:#696969; background-color:#DCDCDC;">
@@ -612,15 +612,15 @@ function busca_investimentos($idCliente)   {
 	return $resp;
 }
 
-function cadastrar_investimento($idCliente, $idCarteira, $descriCarteira)   {
+function cadastrar_investimento($idCliente, $idCarteira)   {
 
 	$resp = new xajaxResponse("UTF-8");
 
+	$descrCarteira = listaDescri($idCarteira,1);
 	
-
 	$tela .= '<table border="0" width=100%>
 			 <tr style="color:white; background-color:#2F4F4F;">
-			     <th colspan="3">'.$descriCarteira.'</th>
+			     <th colspan="3">'.$descrCarteira.'</th>
 			</tr>
     			<tr>
 			     <div class="row" style="color:white; background-color:#BEBEBE;">
