@@ -1,51 +1,30 @@
 <?php
-header('Content-Type: text/html; charset=utf-8');
+
 include 'ativos_backend.php';
+
 require_once("lib/xajax/xajax.inc.php");
 
 $xajax = new xajax();
 $xajax->setCharEncoding('UTF-8');
-$xajax->registerFunction("busca_dados");
-$xajax->registerFunction("editar_carteiras");
+$xajax->registerFunction("salvar_ativo");
+$xajax->registerFunction("busca_ativos"); //preencher select do form
+$xajax->registerFunction("seleciona_setor");
+$xajax->registerFunction("seleciona_subsetor");
+$xajax->registerFunction("seleciona_seguemento");
+$xajax->registerFunction("seleciona_ativo");
 $xajax->processRequest();
 
-function busca_dados()
-{
-    $resp = new xajaxResponse('UTF-8');
-    $tela = '';
 
-    $result = array();
-    $result = listar_carteiras();
 
-    if (!empty($result)) {
-        $tela .= '<table border="1" width="100%">
-                    <tr style="color:white; background-color: #337ab7;">
-                        <th>ID</th>
-                        <th>Descrição</th>
-                        <th>Cliente</th>
-                        <th>Ação</th>
-                    </tr>';
 
-        foreach ($result as $carteira) {
-            $id = $carteira[0];
-            $descricao = $carteira[1];
-            $idCliente = $carteira[2];
 
-            // Adiciona um botão de edição para cada item na lista
-            $tela .= "<tr><td>$id</td><td>$descricao</td><td>$idCliente</td><td><button onclick='editarCarteira($id)'>Editar</button></td></tr>";
-        }
 
-        $tela .= '</table>';
-    }
 
-    $resp->assign("lista_carteira", "innerHTML", $tela);
-    return $resp;
-}
+
+
 ?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <?php $xajax->printJavascript('lib/xajax'); ?>
     <meta charset="UTF-8">
@@ -53,10 +32,15 @@ function busca_dados()
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/bootstrap.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
-    <title>Visualizar Carteiras</title>
-</head>
 
-<body onload="xajax_busca_dados();">
+
+    
+
+
+
+    <title>Novo Ativo</title>
+</head>
+<body>
     <div class="d-flex" id="wrapper">
         <!-- Sidebar-->
         <div class="border-end bg-white" id="sidebar-wrapper">
@@ -68,7 +52,6 @@ function busca_dados()
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">..</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">..</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">..</a>
-                <!-- Adicione outras opções de navegação conforme necessário -->
             </div>
         </div>
         <!-- Page content wrapper-->
@@ -77,29 +60,40 @@ function busca_dados()
             <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
                 <div class="container-fluid">
                     <button class="btn btn-primary" id="sidebarToggle">Alternar</button>
-                    <!-- Adicione mais elementos de navegação conforme necessário -->
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                            <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
+                        </ul>
+                    </div>
                 </div>
             </nav>
             <!-- Page content-->
+
             <div class="container-fluid">
-                <h1 class="mt-4">Visualizar Carteiras descrição</h1>
-                <div class="form-group">
-                    <div id="lista_carteira" name="lista_carteira" class="panel-body"></div>
-                </div>
+                <h1 class="mt-4">Cadastrar Novo Ativo</h1>
+                <form role="form" id="form_cadastro">
+                    <div class="form-group">
+                      <label for="formGroupExampleInput">Digite a descrição</label>
+                      <input type="text" class="form-control" id="descricaoCarteira" name="descricaoCarteira" placeholder="Digite a descrição">
+                    </div>
+
+                    
+                    <input type="button" class="btn btn-primary mb-2" value="Salvar" name="salvar" id="salvar">
+                    <a class="btn btn-primary mb-2" href="Editar_Carteira.php">Cancelar</a>
+                </form>
+                    
             </div>
+
+
+
         </div>
     </div>
+
     <script src="js/bootstrap.bundle.min.js"></script>
-    <script src="js/bootstrap.js"></script>
-    <script src="js/sidebarToggle.js"></script>
-    <script>
  
+    <script src="js/bootstrap.js"></script>
 
-        function editarCarteira(id) {
-            window.location.href = 'editarCarteira.php?id=' + id;
-        }
-
-    </script>
+    <script src="js/sidebarToggle.js"></script>
 </body>
-
 </html>

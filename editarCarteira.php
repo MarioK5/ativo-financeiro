@@ -15,6 +15,7 @@ $xajax->processRequest();
 
 
 
+
 function salvar_carteiras($dados){
     $resp = new xajaxResponse();
     
@@ -152,8 +153,8 @@ function busca_carteira()
                       <label for="formGroupExampleInput">Digite a descrição</label>
                       <input type="text" class="form-control" id="descricaoCarteira" name="descricaoCarteira" placeholder="Digite a descrição">
                     </div>
-                    <button>Novo Ativo</button>
-                    <button>Editar Ativos</button>
+                    <input type="button" class="btn btn-primary mb-2" value="Novo Ativo" name="novoAtivo" id="novoAtivo" onclick="redirecionarParaNovoAtivo();">
+                    <input type="button" class="btn btn-primary mb-2" value="Editar Ativos" name="editarAtivos" id="editarAtivos" onclick="xajax_salvar_carteiras(xajax.getFormValues('form_cadastro')); return false;">
                     <div class="form-group">
                         <div id="lista_ativos" name="lista_ativos" class="panel-body"></div>
                     </div>
@@ -173,5 +174,18 @@ function busca_carteira()
     <script src="js/bootstrap.js"></script>
 
     <script src="js/sidebarToggle.js"></script>
+    <script>
+        function redirecionarParaNovoAtivo() {
+        // Obtém a URL atual
+        var urlAtual = window.location.href;
+
+        // Extrai o valor do parâmetro "id" da URL
+        var urlParams = new URLSearchParams(urlAtual);
+        var idCarteira = urlParams.get('id');
+
+        // Redireciona para novoAtivo.php com o idCarteira como parâmetro de consulta
+        window.location.href = 'novoAtivo.php?id=' + idCarteira;
+        }
+    </script>
 </body>
 </html>
