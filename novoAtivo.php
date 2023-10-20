@@ -14,7 +14,32 @@ $xajax->registerFunction("seleciona_seguemento");
 $xajax->registerFunction("seleciona_ativo");
 $xajax->processRequest();
 
+function busca_ativos()
+{
+    $resp = new xajaxResponse('UTF-8');
+    $tela = '';
 
+    $result = array();
+    $result = listar_carteiras();
+
+    if (!empty($result)) {
+        $tela .= '<select name="ativos" id="ativos">';
+
+        foreach ($result as $carteira) {
+            $id = $carteira[0];
+            $descricao = $carteira[1];
+            $idCliente = $carteira[2];
+
+            // Adiciona um botão de edição para cada item na lista
+            $tela .= "<tr><td>$id</td><td>$descricao</td><td>$idCliente</td><td><button onclick='editarCarteira($id)'>Editar</button></td></tr>";
+        }
+
+        $tela .= '</select>';
+    }
+
+    $resp->assign("lista_carteira", "innerHTML", $tela);
+    return $resp;
+}
 
 
 
