@@ -622,7 +622,7 @@ function cadastrar_investimento($idCliente, $idCarteira)   {
 			 <tr style="color:white; background-color:#2F4F4F;">
 			     <th colspan="8">'.$descrCarteira.'</th>
 			</tr>
-    			<tr style="color:white; background-color:#BEBEBE;" height: 100px;>
+    			<tr style="color:white; background-color:#BEBEBE;" height: 300px;>
 				<td colspan="2">
 				    <input type="button" value="Gravar Investimento"  class="btn btn-success btn-sm" >
 				</td>
