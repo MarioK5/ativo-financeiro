@@ -20,6 +20,7 @@ $xajax->registerFunction("tipo_subSetor");
 $xajax->registerFunction("tipo_segmento");
 $xajax->registerFunction("tipo_ativo");
 $xajax->registerFunction("ativo_select");
+$xajax->registerFunction("cadastrar_investimento");
 $xajax->registerFunction("cadastrar_cliente");
 $xajax->registerFunction("recuperar_senha");
 $xajax->processRequest();
@@ -559,7 +560,7 @@ function busca_investimentos($idCliente)   {
 				     	     <th colspan="3">'.$descricao[$ind].'</th>
 	       				     <th colspan="4">R$ '.number_format($valorCarteira[$ind],2,",",".").'</th>
 	  				     <th colspan="1" style="text-align: right;">
-				   		 <input type="button" value="Adicionar Investimento"  class="btn btn-success btn-xs" >
+				   		 <input type="button" value="Adicionar Investimento" class="btn btn-success btn-xs" onclick="xajax_cadastrar_investimento(xajax.getFormValues(\'form_cadastro\'))">
 					     </th>
 	 				</tr>
       					<tr style="color:#696969; background-color:#DCDCDC;">
@@ -608,6 +609,25 @@ function busca_investimentos($idCliente)   {
 
 	$resp->assign("tela_cliente","innerHTML",$tela);
   
+	return $resp;
+}
+
+function cadastrar_investimento($dados)   {
+
+	$resp = new xajaxResponse("UTF-8");
+
+	$tela   = "";
+
+	$resp->alert('Adicionar investimento'); return $resp;
+
+
+
+
+	
+
+  	
+    	$resp->assign("tela_cliente","innerHTML",$tela);
+	
 	return $resp;
 }
 
