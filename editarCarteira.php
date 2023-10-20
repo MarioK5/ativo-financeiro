@@ -57,7 +57,7 @@ function busca_carteira()
                             <th>Descrição do Ativo</th>
                             <th>Valor Investido</th>
                             <th>Valor Atual</th>
-                            <th>Porcentagem Inicial</th>
+                            <th>Porcentagem Desejada</th>
                             <th>Porcentagem Atual</th>
                             <th>Saldo</th>
                             <th>Quantidade de Ativos</th>
