@@ -619,7 +619,7 @@ function cadastrar_investimento($idCliente, $idCarteira)   {
 	$descrCarteira = listaDescri($idCarteira,1);
 	
 	$tela .= '<table border="0" width=100%>
-			 <tr style="color:white; background-color:#2F4F4F; height: 50px;">
+			 <tr style="color:white; background-color:#2F4F4F; height: 30px;">
 			     <th colspan="8">'.$descrCarteira.'</th>
 			</tr>
     			<tr style="color:white; background-color:#BEBEBE;" >
