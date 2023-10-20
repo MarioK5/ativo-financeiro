@@ -620,17 +620,15 @@ function cadastrar_investimento($idCliente, $idCarteira)   {
 	
 	$tela .= '<table border="0" width=100%>
 			 <tr style="color:white; background-color:#2F4F4F;">
-			     <th colspan="3">'.$descrCarteira.'</th>
+			     <th colspan="8">'.$descrCarteira.'</th>
 			</tr>
-    			<tr>
-			     <div class="row" style="color:white; background-color:#BEBEBE;">
-    				<div class="col-xs-6 col-md-2">
+    			<tr style="color:white; background-color:#BEBEBE;">
+				<td colspan="3">
 				    <input type="button" value="Gravar Investimento"  class="btn btn-success btn-sm" >
-				</div>
-    				<div class="col-xs-6 col-md-6">
+				</td>
+    				<td colspan="5">
 				    <input type="text" class="form-control" name="valor_invest" id="valor_invest" value=""  placeholder="Digite aqui o valor do investimento..." autocomplete="off" />
-				</div>
-			    </div>
+				</td>
 			</tr>
 
 		</table>';
