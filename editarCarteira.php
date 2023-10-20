@@ -177,7 +177,7 @@ function busca_carteira()
     <script>
         function redirecionarParaNovoAtivo() {
         // Obtém a URL atual
-        var urlAtual = window.location.href;
+        var urlAtual = window.location.search;
 
         // Extrai o valor do parâmetro "id" da URL
         var urlParams = new URLSearchParams(urlAtual);
