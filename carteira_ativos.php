@@ -616,9 +616,16 @@ function cadastrar_investimento($dados)   {
 
 	$resp = new xajaxResponse("UTF-8");
 
-	$tela   = "";
-
-	$resp->alert('Adicionar investimento'); return $resp;
+	$tela .= '<table border="0" width=100%>
+			    <div class="row" style="color:white; background-color:#BEBEBE;">
+    				<div class="col-xs-6 col-md-2">
+				    <input type="button" value="Gravar Investimento"  class="btn btn-success btn-sm" >
+				</div>
+    				<div class="col-xs-6 col-md-6">
+				    <input type="text" class="form-control" name="valor_invest" id="valor_invest" value=""  placeholder="Digite aqui o valor do investimento..." autocomplete="off" />
+				</div>
+			    </div>
+		</table>';
 
 
 
