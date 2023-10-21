@@ -888,7 +888,13 @@ function destinar_investimento($valorInvest, $idCarteira)   {
 					$perc_atual = (($valor_atual_investido / $valor_total_carteira)*100);
 				}
 
+				if($perc_atual < $porcentagem){
+					$valorSugerido = ((($porcentagem + ($porcentagem - $perc_atual))/100) * $valorInvest);
+				}else{
+					$valorSugerido = ((($porcentagem - ($perc_atual - $porcentagem))/100) * $valorInvest);
+				}
 
+				$ativosSugeridos = ($valorSugerido / $valor_atual_ativo);
 				
 				$tela .= '<tr>
 								<td>'.$codigo.'</td>
@@ -900,10 +906,10 @@ function destinar_investimento($valorInvest, $idCarteira)   {
 								<td>'.number_format($perc_atual,2,",",".").'</td>
 								<td>==></td>
 								<td>
-									<input type="text" class="form-control" name="n_newAtivos[]'.$ind.'" id="n_newAtivos[]'.$ind.'" value="" style="width: 40px;" />
+									<input type="text" class="form-control" name="n_newAtivos[]'.$ind.'" id="n_newAtivos[]'.$ind.'" value="'.number_format($ativosSugeridos,0,",",".").'" style="width: 40px;" />
 								</td>
 								<td>
-									<input type="text" class="form-control" name="n_newValor[]'.$ind.'" id="n_newValor[]'.$ind.'" value="" style="width: 100px;" />
+									<input type="text" class="form-control" name="n_newValor[]'.$ind.'" id="n_newValor[]'.$ind.'" value="'.number_format($valorSugerido,2,",",".").'" style="width: 100px;" />
 								</td>
 		                	</tr> ';
 				$perc_atual = 0;
