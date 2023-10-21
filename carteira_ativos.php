@@ -847,7 +847,8 @@ function destinar_investimento($valorInvest, $idCarteira)   {
 
 	if($valorInvest > 0){
 
-		$tela .= '<tr style="color:#696969; background-color:#DCDCDC;">
+	$tela .= '<table class="table" border="0" width=100%>
+			<tr style="color:#696969; background-color:#DCDCDC;">
 				<th>Codigo</th>
 				<th>Empresa</th>
 				<th>Meta %</th>
@@ -907,7 +908,7 @@ function destinar_investimento($valorInvest, $idCarteira)   {
 		                	</tr> ';
 				$perc_atual = 0;
 				}
-			
+			$tela .= '</table">';
 			}
 		
 	}else{
