@@ -852,7 +852,7 @@ function destinar_investimento($valorInvest, $idCarteira)   {
 		$resp->alert('O valor do investimento deve ser informado '); return $resp;
 	}
 
-	$tela = '<tr><td>aqui</td></tr>';
+	$tela = '<tr><td>Valor: '.$valorInvest.' </td></tr>';
 	
 	$resp->assign("tela_investimento","innerHTML",$tela);
   
