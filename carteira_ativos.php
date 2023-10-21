@@ -857,7 +857,7 @@ function destinar_investimento($valorInvest, $idCarteira)   {
 				<th>Valor Atual<br>Ativo</th>
 				<th>% Atual</th>
 				<th>==></th>
-				<th>Qtde Ativos<br>Sugeridos</th>
+				<th>Qtde Ativos<br>Sugerido</th>
     				<th>Valor sugerido</th>
 			  </tr> ';	
 
@@ -910,7 +910,7 @@ function destinar_investimento($valorInvest, $idCarteira)   {
 				}
 			$tela .= '<tr> 
 					<td colspan="10" style="text-align: right;">
-					<input type="button" value="Gravar"  class="btn btn-success btn-md btn-block" >
+					<input type="button" value="Gravar"  class="btn btn-success btn-md" >
 	     				</td>
 				</tr>
     			</table">';
