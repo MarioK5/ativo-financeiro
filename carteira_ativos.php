@@ -909,8 +909,8 @@ function destinar_investimento($valorInvest, $idCarteira)   {
 				$perc_atual = 0;
 				}
 			$tela .= '<tr> 
-					<td colspan="8" style="text-align: right;">
-					<input type="button" value="Gravar"  class="btn btn-success btn-sm" >
+					<td colspan="10" style="text-align: right;">
+					<input type="button" value="Gravar"  class="btn btn-success btn-md btn-block" >
 	     				</td>
 				</tr>
     			</table">';
