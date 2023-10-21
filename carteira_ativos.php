@@ -629,7 +629,7 @@ function cadastrar_investimento($idCliente, $idCarteira)   {
 				    <input type="text" class="form-control" name="valor_invest" id="valor_invest" value=""  placeholder="Digite aqui o valor do investimento..." autocomplete="off" />
 				</td>
     				<td colspan="5">
-				    <input type="button" value="Gravar Investimento"  class="btn btn-success btn-sm"  onclick="xajax_destinar_investimento(document.getElementById(\'valor_invest\').value,'.$idCarteira.')">
+				    <input type="button" value="Inserir Investimento"  class="btn btn-success btn-sm"  onclick="xajax_destinar_investimento(document.getElementById(\'valor_invest\').value,'.$idCarteira.')">
 				</td>
 			</tr>
    			<tr>
@@ -888,11 +888,7 @@ function destinar_investimento($valorInvest, $idCarteira)   {
 					$perc_atual = (($valor_atual_investido / $valor_total_carteira)*100);
 				}
 
-				if($saldo > 0){
-					$sit_saldo = 'style="color:#008B00; font-weight: bold;"';
-				}else{
-					$sit_saldo = 'style="color:red; font-weight: bold;"';
-				}
+
 				
 				$tela .= '<tr>
 								<td>'.$codigo.'</td>
