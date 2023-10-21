@@ -888,10 +888,14 @@ function destinar_investimento($valorInvest, $idCarteira)   {
 					$perc_atual = (($valor_atual_investido / $valor_total_carteira)*100);
 				}
 
-				if($perc_atual < $porcentagem){
-					$valorSugerido = ((($porcentagem + ($porcentagem - $perc_atual))/100) * $valorInvest);
+				if($perc_atual == 0){
+					$valorSugerido = (($porcentagem / 100) * $valorInvest);
 				}else{
-					$valorSugerido = ((($porcentagem - ($perc_atual - $porcentagem))/100) * $valorInvest);
+					if($perc_atual < $porcentagem){
+						$valorSugerido = ((($porcentagem + ($porcentagem - $perc_atual)) / 100) * $valorInvest);
+					}else{
+						$valorSugerido = ((($porcentagem - ($perc_atual - $porcentagem)) / 100) * $valorInvest);
+					}
 				}
 
 				$ativosSugeridos = ($valorSugerido / $valor_atual_ativo);
