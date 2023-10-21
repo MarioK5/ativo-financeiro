@@ -770,8 +770,8 @@ function ativo_select($dados)   {
 								<td>'.$desc_Ativo.'</td>
 								<td></td>
 								<td>
-									<input type="text" class="form-control" name="n_perc[].$ind" id="n_perc[].$ind" value="" style="width: 50px;" />
-	 								<input type="hidden" class="form-control" name="idAtivoCliente[].$ind" id="idAtivoCliente[].$ind" value="'.$idAtivo.'" />
+									<input type="text" class="form-control" name="n_perc[]'.$ind.'" id="n_perc[]'.$ind.'" value="" style="width: 50px;" />
+	 								<input type="hidden" class="form-control" name="idAtivoCliente[]'.$ind.'" id="idAtivoCliente[]'.$ind.'" value="'.$idAtivo.'" />
 	  								<input type="hidden" id="tipoGravar" name="tipoGravar" value="1" />
 								</td>
 								<td>0</td>
@@ -808,7 +808,7 @@ function ativo_select($dados)   {
 								<td>'.$desc_Ativo.'</td>
 								<td>'.number_format($porcentagem,0,",",".").'</td>
 								<td>
-									<input type="text" class="form-control" name="n_perc[].$ind" id="n_perc[].$ind" value="" style="width: 50px;" />
+									<input type="text" class="form-control" name="n_perc[]'.$ind.'" id="n_perc[]'.$ind.'" value="" style="width: 50px;" />
 								</td>
 								<td>'.$qtde_ativos.'</td>
 								<td>'.number_format($valor_investido,2,",",".").'</td>
@@ -855,10 +855,10 @@ function destinar_investimento($valorInvest, $idCarteira)   {
 				<th>Qtde<br>Ativos</th>
 				<th>Valor<br>Investido</th>
 				<th>Valor Atual<br>Ativo</th>
-				<th>Valor Atual<br>Investido</th>
 				<th>% Atual</th>
-				<th>Retorno</th>
-    				<th>#</th>
+				<th>==></th>
+				<th>Qtde Ativos<br>Sugeridos</th>
+    				<th>Valor sugerido</th>
 			  </tr> ';	
 
 	$result = listaAtivosCarteira($idCarteira);
@@ -901,10 +901,14 @@ function destinar_investimento($valorInvest, $idCarteira)   {
 								<td>'.$qtde_ativos.'</td>
 								<td>'.number_format($valor_investido,2,",",".").'</td>
 								<td>'.number_format($valor_atual_ativo,2,",",".").'</td>
-								<td>'.number_format($valor_atual_investido,2,",",".").'</td>
 								<td>'.number_format($perc_atual,2,",",".").'</td>
-								<td '.$sit_saldo.'>'.number_format($saldo,2,",",".").'</td>
-								<td></td>
+								<td>==></td>
+								<td>
+									<input type="text" class="form-control" name="n_newAtivos[]'.$ind.'" id="n_newAtivos[]'.$ind.'" value="" style="width: 40px;" />
+								</td>
+								<td>
+									<input type="text" class="form-control" name="n_newValor[]'.$ind.'" id="n_newValor[]'.$ind.'" value="" style="width: 100px;" />
+								</td>
 		                	</tr> ';
 				$perc_atual = 0;
 				}
