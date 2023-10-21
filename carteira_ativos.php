@@ -621,19 +621,19 @@ function cadastrar_investimento($idCliente, $idCarteira)   {
 	
 	$tela .= '<table border="0" width=100%>
 			 <tr style="color:white; background-color:#2F4F4F; height: 35px;">
-			     <th colspan="8">'.$descrCarteira.'</th>
+			     <th colspan="10">'.$descrCarteira.'</th>
 			</tr>
     			<tr style="color:white; background-color:#BEBEBE;" >
 				
     				<td colspan="5">
 				    <input type="text" class="form-control" name="valor_invest" id="valor_invest" value=""  placeholder="Digite aqui o valor do investimento..." autocomplete="off" />
 				</td>
-    				<td colspan="3">
+    				<td colspan="5">
 				    <input type="button" value="Gravar Investimento"  class="btn btn-success btn-sm"  onclick="xajax_destinar_investimento(document.getElementById(\'valor_invest\').value,'.$idCarteira.')">
 				</td>
 			</tr>
    			<tr>
-    				<td colspan="5">
+    				<td colspan="10">
 				   <div id="tela_investimento" class="panel-body"></div>
 				</td>
 			</tr>
@@ -847,21 +847,18 @@ function destinar_investimento($valorInvest, $idCarteira)   {
 
 	if($valorInvest > 0){
 
-		$tela .= '<div class="row">
-    				<div class="col-xs-6 col-md-4">
-      					<tr style="color:#696969; background-color:#DCDCDC;">
-						<th>Codigo</th>
-						<th>Empresa</th>
-						<th>Meta %</th>
-						<th>Qtde<br>Ativos</th>
-       						<th>Valor<br>Investido</th>
-	     					<th>Valor Atual<br>Ativo</th>
-						<th>Valor Atual<br>Investido</th>
-	    					<th>% Atual</th>
-						<th>Retorno</th>
-	                		</tr> 
-				</div>
-			    </div> ';	
+		$tela .= '<tr style="color:#696969; background-color:#DCDCDC;">
+				<th>Codigo</th>
+				<th>Empresa</th>
+				<th>Meta %</th>
+				<th>Qtde<br>Ativos</th>
+				<th>Valor<br>Investido</th>
+				<th>Valor Atual<br>Ativo</th>
+				<th>Valor Atual<br>Investido</th>
+				<th>% Atual</th>
+				<th>Retorno</th>
+    				<th>#</th>
+			  </tr> ';	
 
 	$result = listaAtivosCarteira($idCarteira);
 	
@@ -906,6 +903,7 @@ function destinar_investimento($valorInvest, $idCarteira)   {
 								<td>'.number_format($valor_atual_investido,2,",",".").'</td>
 								<td>'.number_format($perc_atual,2,",",".").'</td>
 								<td '.$sit_saldo.'>'.number_format($saldo,2,",",".").'</td>
+								<td></td>
 		                	</tr> ';
 				$perc_atual = 0;
 				}
