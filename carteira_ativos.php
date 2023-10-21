@@ -846,13 +846,75 @@ function destinar_investimento($valorInvest, $idCarteira)   {
 	$tela = '';
 
 	if($valorInvest > 0){
-		
+
+		$tela .= '<div class="row">
+    				<div class="col-xs-6 col-md-4">
+      					<tr style="color:#696969; background-color:#DCDCDC;">
+						<th>Codigo</th>
+						<th>Empresa</th>
+						<th>Meta %</th>
+						<th>Qtde<br>Ativos</th>
+       						<th>Valor<br>Investido</th>
+	     					<th>Valor Atual<br>Ativo</th>
+						<th>Valor Atual<br>Investido</th>
+	    					<th>% Atual</th>
+						<th>Retorno</th>
+	                		</tr> 
+				</div>
+			    </div> ';	
+
+	$result = listaAtivosCarteira($idCarteira);
+	
+		if (mysqli_num_rows($result) > 0) {
+			while ($row = mysqli_fetch_array($result)) {
+
+				$idAtivoCarteira = $row["ID"];
+				$idAtivo         = $row["ID_ATIVO"];
+            			$idCarteiraAtivo = $row["ID_CARTEIRA"];
+				$codigo          = $row["CODIGO"];
+				$desc_Ativo      = $row["DESCRICAO"];
+				$porcentagem     = $row["PORCENTAGEM"];
+				$qtde_ativos     = $row["QTDE_ATIVOS"];
+				$valor_investido = $row["VALOR_INVESTIDO"];
+				$valor_atual_ativo = $row["VALOR_ATUAL_ATIVO"];
+				
+				$valor_atual_investido = ($qtde_ativos * $valor_atual_ativo);
+				$saldo = ($valor_atual_investido - $valor_investido);
+
+				$result2 = somaValorTotalAtualAtivos($idCarteiraAtivo);
+				
+				while ($row2 = mysqli_fetch_array($result2)) {
+					$valor_total_carteira = $row2["VALOR_TOTAL"];
+				}
+				if ($valor_total_carteira> 0) {
+					$perc_atual = (($valor_atual_investido / $valor_total_carteira)*100);
+				}
+
+				if($saldo > 0){
+					$sit_saldo = 'style="color:#008B00; font-weight: bold;"';
+				}else{
+					$sit_saldo = 'style="color:red; font-weight: bold;"';
+				}
+				
+				$tela .= '<tr>
+								<td>'.$codigo.'</td>
+								<td>'.$desc_Ativo.'</td>
+								<td>'.number_format($porcentagem,0,",",".").'</td>
+								<td>'.$qtde_ativos.'</td>
+								<td>'.number_format($valor_investido,2,",",".").'</td>
+								<td>'.number_format($valor_atual_ativo,2,",",".").'</td>
+								<td>'.number_format($valor_atual_investido,2,",",".").'</td>
+								<td>'.number_format($perc_atual,2,",",".").'</td>
+								<td '.$sit_saldo.'>'.number_format($saldo,2,",",".").'</td>
+		                	</tr> ';
+				$perc_atual = 0;
+				}
+			
+			}
 		
 	}else{
 		$resp->alert('O valor do investimento deve ser informado '); return $resp;
 	}
-
-	$tela = '<tr><td>Valor: '.$valorInvest.' </td></tr>';
 	
 	$resp->assign("tela_investimento","innerHTML",$tela);
   
