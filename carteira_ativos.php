@@ -912,8 +912,10 @@ function destinar_investimento($valorInvest, $idCarteira)   {
 									<input type="text" class="form-control" name="n_newValor[]'.$ind.'" id="n_newValor[]'.$ind.'" value="'.number_format($valorSugerido,2,",",".").'" style="width: 100px;" />
 								</td>
 		                	</tr> ';
-				$perc_atual = 0;
 				}
+				$valorSugerido   = 0;
+				$ativosSugeridos = 0;
+				$valorInvest     = 0;
 			$tela .= '<tr> 
 					<td colspan="10" style="text-align: right;">
 					<input type="button" value="Gravar"  class="btn btn-success btn-md" >
