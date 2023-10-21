@@ -839,15 +839,20 @@ function ativo_select($dados)   {
 	return $resp;
 }
 
-function destinar_investimento()   {
+function destinar_investimento($valorInvest, $idCarteira)   {
 
 	$resp = new xajaxResponse("UTF-8");
 
-	$resp->alert('Destinar investimento: '); return $resp;
+	$tela = '';
+
+	if($valorInvest > 0){
+		
+		
+	}else{
+		$resp->alert('O valor do investimento deve ser informado '); return $resp;
+	}
 
 	
-
-
 	$resp->assign("tela_saida","innerHTML",$tela);
   
 	return $resp;
