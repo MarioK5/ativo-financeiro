@@ -21,6 +21,7 @@ $xajax->registerFunction("tipo_segmento");
 $xajax->registerFunction("tipo_ativo");
 $xajax->registerFunction("ativo_select");
 $xajax->registerFunction("cadastrar_investimento");
+$xajax->registerFunction("destinar_investimento");
 $xajax->registerFunction("cadastrar_cliente");
 $xajax->registerFunction("recuperar_senha");
 $xajax->processRequest();
@@ -628,18 +629,17 @@ function cadastrar_investimento($idCliente, $idCarteira)   {
 				    <input type="text" class="form-control" name="valor_invest" id="valor_invest" value=""  placeholder="Digite aqui o valor do investimento..." autocomplete="off" />
 				</td>
     				<td colspan="3">
-				    <input type="button" value="Gravar Investimento"  class="btn btn-success btn-sm" >
+				    <input type="button" value="Gravar Investimento"  class="btn btn-success btn-sm"  onclick="xajax_destinar_investimento(document.getElementById(\'valor_invest\').value,'.$idCarteira.')">
+				</td>
+			</tr>
+   			<tr>
+    				<td colspan="5">
+				   <div id="tela_investimento" class="panel-body"></div>
 				</td>
 			</tr>
 
 		</table>';
 
-
-
-
-	
-
-  	
     	$resp->assign("tela_cliente","innerHTML",$tela);
 	
 	return $resp;
@@ -835,6 +835,20 @@ function ativo_select($dados)   {
 
 
 	$resp->assign("tela_ativo","innerHTML",$tela);
+  
+	return $resp;
+}
+
+function destinar_investimento()   {
+
+	$resp = new xajaxResponse("UTF-8");
+
+	$resp->alert('Destinar investimento: '); return $resp;
+
+	
+
+
+	$resp->assign("tela_saida","innerHTML",$tela);
   
 	return $resp;
 }
