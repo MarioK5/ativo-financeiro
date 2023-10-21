@@ -623,11 +623,12 @@ function cadastrar_investimento($idCliente, $idCarteira)   {
 			     <th colspan="8">'.$descrCarteira.'</th>
 			</tr>
     			<tr style="color:white; background-color:#BEBEBE;" >
-				<td colspan="2">
-				    <input type="button" value="Gravar Investimento"  class="btn btn-success btn-sm" >
-				</td>
-    				<td colspan="6">
+				
+    				<td colspan="5">
 				    <input type="text" class="form-control" name="valor_invest" id="valor_invest" value=""  placeholder="Digite aqui o valor do investimento..." autocomplete="off" />
+				</td>
+    				<td colspan="3">
+				    <input type="button" value="Gravar Investimento"  class="btn btn-success btn-sm" >
 				</td>
 			</tr>
 
