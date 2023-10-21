@@ -924,8 +924,8 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 				$valorInvest     = 0;
 			$tela .= '<tr> 
 					<td colspan="10" style="text-align: right;">
-					<input type="button" value="Gravar"  class="btn btn-success btn-md" >
-     					<input type="button" value="Cancelar"  class="btn btn-danger btn-md" onclick="xajax_busca_investimentos('.$idCliente.'); return false;" >
+					<input type="button" value="Gravar"  class="btn btn-success btn-sm" >
+     					<input type="button" value="Cancelar"  class="btn btn-danger btn-sm" onclick="xajax_busca_investimentos('.$idCliente.'); return false;" >
 	     				</td>
 				</tr>
     			</table">';
