@@ -629,7 +629,7 @@ function cadastrar_investimento($idCliente, $idCarteira)   {
 				    <input type="text" class="form-control" name="valor_invest" id="valor_invest" value=""  placeholder="Digite aqui o valor do investimento..." autocomplete="off" />
 				</td>
     				<td colspan="5">
-				    <input type="button" value="Inserir Investimento"  class="btn btn-success btn-xs"  onclick="xajax_destinar_investimento(document.getElementById(\'valor_invest\').value,'.$idCarteira.')">
+				    <input type="button" value="Inserir Investimento"  class="btn btn-success btn-xs"  onclick="xajax_destinar_investimento(document.getElementById(\'valor_invest\').value,'.$idCarteira.','.$idCliente.')">
 				</td>
 			</tr>
    			<tr>
@@ -839,7 +839,7 @@ function ativo_select($dados)   {
 	return $resp;
 }
 
-function destinar_investimento($valorInvest, $idCarteira)   {
+function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 
 	$resp = new xajaxResponse("UTF-8");
 
@@ -923,6 +923,7 @@ function destinar_investimento($valorInvest, $idCarteira)   {
 			$tela .= '<tr> 
 					<td colspan="10" style="text-align: right;">
 					<input type="button" value="Gravar"  class="btn btn-success btn-md" >
+     					<input type="button" value="Cancelar"  class="btn btn-danger btn-md" onclick="xajax_busca_investimentos('.$idCliente.'); return false;" >
 	     				</td>
 				</tr>
     			</table">';
