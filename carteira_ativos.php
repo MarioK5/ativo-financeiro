@@ -953,8 +953,6 @@ function historico_carteira()   {
 
 	$resp = new xajaxResponse("UTF-8");
 
-	$resp->alert('Histórico de investimento '); return $resp;
-
 	$tela '<div class="modal fade" id="historicoModal" tabindex="-1" role="dialog" aria-labelledby="historicoModalLabel" aria-hidden="true">
 		  <div class="modal-dialog" role="document">
 		    <div class="modal-content">
