@@ -88,13 +88,13 @@ function busca_dados($dados)   {
                     <td>
 		    	<div class="row">
                                 <div class="col-xs-6 col-md-3">
-                                    <input type="button" id="bnt_carteira" value="Minhas Carteiras"  class="btn btn-primary btn-md btn-block" onclick="xajax_busca_carteiras('.$idCliente.'); return false;">
+                                    <input type="button" id="btn_carteira" value="Minhas Carteiras"  class="btn btn-primary btn-md btn-block" onclick="xajax_busca_carteiras('.$idCliente.'); return false;">
 				</div>
 				<div class="col-xs-6 col-md-3">
-                                     <input type="button" id="bnt_ativos" value="Meus Ativos"  class="btn btn-primary btn-md btn-block" onclick="xajax_busca_ativos('.$idCliente.'); return false;">
+                                     <input type="button" id="btn_ativos" value="Meus Ativos"  class="btn btn-primary btn-md btn-block" onclick="xajax_busca_ativos('.$idCliente.'); return false;">
 		    		</div>
 				<div class="col-xs-6 col-md-3">
-                                     <input type="button" id="bnt_investimentos" value="Meus Investimentos"  class="btn btn-primary btn-md btn-block" onclick="xajax_busca_investimentos('.$idCliente.'); return false;">
+                                     <input type="button" id="btn_investimentos" value="Meus Investimentos"  class="btn btn-primary btn-md btn-block" onclick="xajax_busca_investimentos('.$idCliente.'); return false;">
 		    		</div>
 				<div class="col-xs-6 col-md-3">
                             	     <input type="button" value="Sair"  class="btn btn-danger btn-md btn-block"  onclick="location.reload(true);"></td>
@@ -1033,9 +1033,11 @@ function recuperar_senha()   {
         
         <script type="text/javascript" language="JavaScript"></script>
 <script> 
+	
 	function desabilitaBotao(){
-     		alert('ok');
-	}
+    	$("#btn_carteiras").prop('disabled', true)
+    	}
+	
 		
 </script> 
 
