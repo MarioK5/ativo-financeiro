@@ -530,7 +530,6 @@ function excluir_ativo_carteira($idAtivoCarteira, $excluir, $idCliente, $idCarte
 
 	if($excluir == 1){
 		excluirAtivoCarteira($idAtivoCarteira);
-		desabilitaBotao();
 		$resp->alert('Ativo eliminado!');
 	}else{
 		$resp->alert('Somente pode excluir ativo, se estivar com os valores zerados!'); return $resp;
@@ -1034,9 +1033,6 @@ function recuperar_senha()   {
         <script type="text/javascript" language="JavaScript"></script>
 <script> 
 	
-	function desabilitaBotao(){
-    	$("#btn_carteiras").prop('disabled', true)
-    	}
 	
 		
 </script> 
