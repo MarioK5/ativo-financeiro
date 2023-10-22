@@ -470,7 +470,7 @@ function editar_ativo_carteira($idCarteira, $idCliente)   {
 			                                </div>	
 				      		</td>
 						<td>
-					      		<button type="button" class="btn btn-default btn-sm" onclick="xajax_excluir_ativo_carteira('.$idAtivoCliente.','.$excluir.','.$idCliente.'); ">
+					      		<button type="button" class="btn btn-default btn-sm" onclick="xajax_excluir_ativo_carteira('.$idAtivoCliente.','.$excluir.','.$idCliente.','.$idCarteira.'); ">
 							<span class="glyphicon glyphicon-remove"></span>
 						        </button>
 					      </td>
@@ -523,7 +523,7 @@ function gravar_editar_ativo($dados)   {
 	return $resp;
 }
 
-function excluir_ativo_carteira($idAtivoCarteira, $excluir, $idCliente)   {
+function excluir_ativo_carteira($idAtivoCarteira, $excluir, $idCliente, $idCarteira)   {
 
 	$resp = new xajaxResponse("UTF-8");
 
@@ -534,7 +534,7 @@ function excluir_ativo_carteira($idAtivoCarteira, $excluir, $idCliente)   {
 		$resp->alert('Somente pode excluir ativos de carteira, se estivar com os valores zerados!'); return $resp;
 	}
 
-	$script = "xajax_busca_ativos($idCliente)";
+	$script = "xajax_editar_ativo_carteira($idCarteira, $idCliente)";
     	$resp->script($script);
 	$resp->assign("tela_cliente","innerHTML",$tela);
   
