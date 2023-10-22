@@ -95,6 +95,16 @@ function listaTokens(){
 	return $ret;
 }
 
+function gravaTokens(){
+	
+	$conn = OpenCon();
+	
+	
+	CloseCon($conn);
+	
+	return $ret;
+}
+
 function existeEmail($dados){
 	
 	$conn = OpenCon();
@@ -248,8 +258,7 @@ function listaInvestimentos($dados){
 	
 	$conn = OpenCon();
 	
-	$usuario = strtoupper($dados['usuario']);
-    	$senha   = $dados['senha'];
+
 	
 	$ret = 0;
 	
@@ -321,6 +330,19 @@ function alteraAtivoCarteira($idAtivoCliente, $novaPorcentagem){
 	$sql = "UPDATE ATIVOS_CLIENTE
  		SET PORCENTAGEM  = '{$novaPorcentagem}'
     		WHERE ATIVOS_CLIENTE.ID = '{$idAtivoCliente}'";
+	
+	$result = mysqli_query($conn,$sql);
+		  mysqli_commit($conn);
+	
+	CloseCon($conn);
+	
+}
+
+function excluirAtivoCarteira($idAtivoCliente){
+	
+	$conn = OpenCon();
+
+	$sql = "DELETE FROM ATIVOS_CLIENTE WHERE ATIVOS_CLIENTE.ID = '{$idAtivoCliente}'";
 	
 	$result = mysqli_query($conn,$sql);
 		  mysqli_commit($conn);
