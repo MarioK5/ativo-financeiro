@@ -1034,9 +1034,7 @@ function recuperar_senha()   {
         <script type="text/javascript" language="JavaScript"></script>
 <script> 
 	function desabilitaBotao(){
-     		document.getElementById("bnt_carteiras").disabled = true;
-		document.getElementById("bnt_ativos").disabled = true;
-		document.getElementById("bnt_investimentos").disabled = true;
+     		alert('ok');
 	}
 		
 </script> 
