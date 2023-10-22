@@ -531,7 +531,7 @@ function excluir_ativo_carteira($idAtivoCarteira, $excluir, $idCliente, $idCarte
 		excluirAtivoCarteira($idAtivoCarteira);
 		$resp->alert('Ativo eliminado!');
 	}else{
-		$resp->alert('Somente pode excluir ativos de carteira, se estivar com os valores zerados!'); return $resp;
+		$resp->alert('Somente pode excluir ativo, se estivar com os valores zerados!'); return $resp;
 	}
 
 	$script = "xajax_editar_ativo_carteira($idCarteira, $idCliente)";
