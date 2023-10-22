@@ -204,10 +204,8 @@ function cadastroInvestimento($dados){
 	
 	$conn = OpenCon();
 	
-	$usuario = strtoupper($dados['usuario']);
-    $senha   = $dados['senha'];
-	
-	$ret = 0;
+	$sql1 = "INSERT INTO INVESTIMENTO (ID_CARTEIRA, VALOR, DATA)
+        	VALUES('{$idCarteira}','{$valor}',current_date()";
 	
 	
 
