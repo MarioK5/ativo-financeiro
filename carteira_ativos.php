@@ -22,7 +22,6 @@ $xajax->registerFunction("tipo_ativo");
 $xajax->registerFunction("ativo_select");
 $xajax->registerFunction("cadastrar_investimento");
 $xajax->registerFunction("destinar_investimento");
-$xajax->registerFunction("historico_carteira");
 $xajax->registerFunction("cadastrar_cliente");
 $xajax->registerFunction("recuperar_senha");
 $xajax->processRequest();
@@ -568,7 +567,7 @@ function busca_investimentos($idCliente)   {
 				     	     <th colspan="3">'.$descricao[$ind].'</th>
 	       				     <th colspan="4">R$ '.number_format($valorCarteira[$ind],2,",",".").'</th>
 	  				     <th colspan="1" style="text-align: right;">
-	    					 <button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#historicoModal" onclick="xajax_historico_carteira('.$idCarteira[$ind].');">
+	    					 <button type="button" class="btn btn-default btn-xs" data-toggle="modal" data-target="#historicoModal" onclick="historico_carteira('.$idCarteira[$ind].');">
 							<span class="glyphicon glyphicon-time"> Histórico</span>
 							</button>
 				   		 <input type="button" value="Adicionar Investimento" class="btn btn-success btn-xs" onclick="xajax_cadastrar_investimento('.$idCliente[$ind].','.$idCarteira[$ind].')">
@@ -951,8 +950,6 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 
 function historico_carteira()   {
 
-	$resp = new xajaxResponse("UTF-8");
-
 	$tela '<div class="modal fade" id="historicoModal" tabindex="-1" role="dialog" aria-labelledby="historicoModalLabel" aria-hidden="true">
 		  <div class="modal-dialog" role="document">
 		    <div class="modal-content">
@@ -978,9 +975,8 @@ function historico_carteira()   {
 	
 
 
-//	$resp->assign("tela_saida","innerHTML",$tela);
   
-	return $resp;
+	return $tela;
 }
 
 function cadastrar_cliente()   {
