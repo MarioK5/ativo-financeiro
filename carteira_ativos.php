@@ -569,7 +569,7 @@ function busca_investimentos($idCliente)   {
 	       				     <th colspan="4">R$ '.number_format($valorCarteira[$ind],2,",",".").'</th>
 	  				     <th colspan="1" style="text-align: right;">
 	    					 <button type="button" class="btn btn-default btn-xs" onclick="xajax_historico_carteira('.$idCarteira[$ind].');">
-							<span class="glyphicon glyphicon-edit"> Histórico</span>
+							<span class="glyphicon glyphicon-time"> Histórico</span>
 							</button>
 				   		 <input type="button" value="Adicionar Investimento" class="btn btn-success btn-xs" onclick="xajax_cadastrar_investimento('.$idCliente[$ind].','.$idCarteira[$ind].')">
 					     </th>
