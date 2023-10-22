@@ -88,13 +88,13 @@ function busca_dados($dados)   {
                     <td>
 		    	<div class="row">
                                 <div class="col-xs-6 col-md-3">
-                                    <input type="button" id="busca_carteira" value="Minhas Carteiras"  class="btn btn-primary btn-md btn-block" onclick="xajax_busca_carteiras('.$idCliente.'); return false;">
+                                    <input type="button" id="bnt_carteira" value="Minhas Carteiras"  class="btn btn-primary btn-md btn-block" onclick="xajax_busca_carteiras('.$idCliente.'); return false;">
 				</div>
 				<div class="col-xs-6 col-md-3">
-                                     <input type="button" value="Meus Ativos"  class="btn btn-primary btn-md btn-block" onclick="xajax_busca_ativos('.$idCliente.'); return false;">
+                                     <input type="button" id="bnt_ativos" value="Meus Ativos"  class="btn btn-primary btn-md btn-block" onclick="xajax_busca_ativos('.$idCliente.'); return false;">
 		    		</div>
 				<div class="col-xs-6 col-md-3">
-                                     <input type="button" value="Meus Investimentos"  class="btn btn-primary btn-md btn-block" onclick="xajax_busca_investimentos('.$idCliente.'); return false;">
+                                     <input type="button" id="bnt_investimentos" value="Meus Investimentos"  class="btn btn-primary btn-md btn-block" onclick="xajax_busca_investimentos('.$idCliente.'); return false;">
 		    		</div>
 				<div class="col-xs-6 col-md-3">
                             	     <input type="button" value="Sair"  class="btn btn-danger btn-md btn-block"  onclick="location.reload(true);"></td>
@@ -530,6 +530,7 @@ function excluir_ativo_carteira($idAtivoCarteira, $excluir, $idCliente, $idCarte
 
 	if($excluir == 1){
 		excluirAtivoCarteira($idAtivoCarteira);
+		desabilitaBotao();
 		$resp->alert('Ativo eliminado!');
 	}else{
 		$resp->alert('Somente pode excluir ativo, se estivar com os valores zerados!'); return $resp;
@@ -1032,7 +1033,11 @@ function recuperar_senha()   {
         
         <script type="text/javascript" language="JavaScript"></script>
 <script> 
-
+	function desabilitaBotao(){
+     		document.getElementById("bnt_carteiras").disabled = true;
+		document.getElementById("bnt_ativos").disabled = true;
+		document.getElementById("bnt_investimentos").disabled = true;
+	}
 		
 </script> 
 
