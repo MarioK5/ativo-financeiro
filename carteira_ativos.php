@@ -966,31 +966,25 @@ function historico_carteira()   {
 
   
 	$tela = '<table class="table">
-                 <tr>
-                     <td>Ordem Producao</td>
-                     <td><input class="form-control input-sm" type="text" id="p_ordem_producao" name="p_ordem_producao" value="1"readonly></td>
-                 </tr>
-                 <tr>
-                     <td>Rolos Agrupados</td>   
-                     <td><input class="form-control input-sm" type="text" id="p_rolos_ob" name="p_rolos_ob"  value="2"readonly></td> 
-                 </tr>
-                 <tr>
-                     <td>Quilos Agrupados</td>   
-                     <td><input class="form-control input-sm" type="text" id="p_kg_ob" name="p_kg_ob"  value="3"readonly></td> 
-                 </tr>
-                 <tr>
-                     <td>Data Digitação</td>
-                     <td>
-			<input class="form-control input-sm" type="text" value="5" readonly>  
-                     </td>                          
-                 </tr>      
-                 </table>
-                 <button class="btn btn-default btn-sm pull-left" data-dismiss="modal"  type="button"><i class="fa fa-sign-out-alt"></i> Fechar</button>';
+	                <tr>
+	                     <td>Data do Investimento</td>
+	                     <td>Valor Investido</td>
+	                </tr>';
+
+	
+	
+	 $tela = '      <br>
+			<tr>
+	                     <td>
+			      <button class="btn btn-default btn-sm pull-left" data-dismiss="modal"  type="button"><i class="fa fa-sign-out-alt"></i> Fechar</button>
+	                     </td>                          
+	                 </tr>
+                 </table>';
 
 	$resp->script('$("#myModal").modal({show: true,keyboard: false,backdrop: "static"})');
 	$resp->assign("title_modal0","innerHTML",'Histórico de Investimentos');
 	$resp->assign("motal_conteudo","innerHTML",$tela);
-	$resp->script('$("#myModal .modal-dialog").css("width", "60%")');
+	$resp->script('$("#myModal .modal-dialog").css("width", "50%")');
   
 	return $resp;
 }
