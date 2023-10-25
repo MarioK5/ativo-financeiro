@@ -963,6 +963,7 @@ function historico_carteira($idCarteira)   {
 	
 	$resp = new xajaxResponse("UTF-8");
 
+	$resp->alert('O valor do investimento deve ser informado '.$idCarteira);
 	 
 	$tela = '<table class="table">
 	                <tr>
