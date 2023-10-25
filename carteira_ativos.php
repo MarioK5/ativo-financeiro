@@ -959,21 +959,34 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 	return $resp;
 }
 
-function historico_carteira()   {
+function historico_carteira($idCarteira)   {
 	
 	$resp = new xajaxResponse("UTF-8");
 
-
-  
+	 
 	$tela = '<table class="table">
 	                <tr>
 	                     <td>Data do Investimento</td>
 	                     <td>Valor Investido</td>
 	                </tr>';
 
+	$result = listaInvestimentos($idCarteira);
 	
+		if (mysqli_num_rows($result) > 0) {
+			while ($row = mysqli_fetch_array($result)) {
+
+				$data_invest = $row["DATA"];
+				$valor_invest = $row["VALOR"];
+
+			$tela .= '<tr>
+					<td>'.$data_invest.'</td>
+					<td>R$ '.number_format($valor_invest,2,",",".").'</td>
+				</tr>';
+				
+			}
+		}
 	
-	 $tela = '      <br>
+	 $tela .= ' <br>
 			<tr>
 	                     <td>
 			      <button class="btn btn-default btn-sm pull-left" data-dismiss="modal"  type="button"><i class="fa fa-sign-out-alt"></i> Fechar</button>
