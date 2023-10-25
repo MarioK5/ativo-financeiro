@@ -581,7 +581,19 @@ function busca_investimentos($idCliente)   {
 						<th colspan="2">Valor Atual do Investimento</th>
 	                		</tr> 
 				</div>
-			    </div> ';	
+			    	</div> <div class="col-xs-6 col-md-6">
+		                    <input type="button" value="Nova Consulta"  class="btn btn-success btn-md"  onclick="location.reload(true);">
+		                    <input type="button" value="Imprimir"       class="btn btn-primary btn-md "  onclick="window.print();">
+		                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+		                        <div class="modal-dialog">
+		                            <div class="modal-content">
+		                                <div class="modal-body">
+		                                    <div id="motal_conteudo"></div>
+		                                </div>
+		                            </div>
+		                        </div>
+		                    </div>
+				</div>';	
 
 			$result2 = listaAtivosCarteira($idCarteira[$ind]);
 	
@@ -955,12 +967,32 @@ function historico_carteira()   {
 
 
   
-	$resp->alert('Histórico de Investimento!'); return $resp;
+	$tela = '<table class="table">
+                 <tr>
+                     <td>Ordem Producao</td>
+                     <td><input class="form-control input-sm" type="text" id="p_ordem_producao" name="p_ordem_producao" value="1"readonly></td>
+                 </tr>
+                 <tr>
+                     <td>Rolos Agrupados</td>   
+                     <td><input class="form-control input-sm" type="text" id="p_rolos_ob" name="p_rolos_ob"  value="2"readonly></td> 
+                 </tr>
+                 <tr>
+                     <td>Quilos Agrupados</td>   
+                     <td><input class="form-control input-sm" type="text" id="p_kg_ob" name="p_kg_ob"  value="3"readonly></td> 
+                 </tr>
+                 <tr>
+                     <td>Data Digitação</td>
+                     <td>
+			<input class="form-control input-sm" type="text" value="5" readonly>  
+                     </td>                          
+                 </tr>      
+                 </table>
+                 <button class="btn btn-default btn-sm pull-left" data-dismiss="modal"  type="button"><i class="fa fa-sign-out-alt"></i> Fechar</button>';
 
-	
-
-
-	$resp->assign("tela_saida","innerHTML",$tela);
+	$resp->script('$("#myModal").modal({show: true,keyboard: false,backdrop: "static"})');
+	$resp->assign("title_modal0","innerHTML",'Histórico de Investimentos');
+	$resp->assign("motal_conteudo","innerHTML",$tela);
+	$resp->script('$("#myModal .modal-dialog").css("width", "60%")');
   
 	return $resp;
 }
