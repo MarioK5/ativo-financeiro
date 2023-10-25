@@ -582,8 +582,6 @@ function busca_investimentos($idCliente)   {
 	                		</tr> 
 				</div>
 			    	</div> <div class="col-xs-6 col-md-6">
-		                    <input type="button" value="Nova Consulta"  class="btn btn-success btn-md"  onclick="location.reload(true);">
-		                    <input type="button" value="Imprimir"       class="btn btn-primary btn-md "  onclick="window.print();">
 		                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
 		                        <div class="modal-dialog">
 		                            <div class="modal-content">
