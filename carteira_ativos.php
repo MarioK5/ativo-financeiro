@@ -1027,12 +1027,11 @@ function gravar_investimento()   {
 function calcularAtivos($dados, $ind, $valorAtualAtivo)   {
 
 	$resp = new xajaxResponse("UTF-8");
-
+$resp->alert('aqui: '); return $resp;
 	$nova_quantidade = ($dados['n_newValor'][$ind]) / $valorAtualAtivo);
 
-	$resp->alert('aqui: '); return $resp;
+	
 
-	$resp->assign("n_newAtivo[]'.$ind.'","value",$nova_quantidade);
   
 	return $resp;
 }
