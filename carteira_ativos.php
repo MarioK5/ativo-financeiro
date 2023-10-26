@@ -1030,7 +1030,7 @@ function calcularAtivos($dados, $ind, $valorAtualAtivo)   {
 
 	$nova_quantidade = ($dados['n_newValor'][$ind]) / $valorAtualAtivo);
 
-	$resp->assign("n_newAtivo","value",$nova_quantidade);
+	$resp->assign("n_newAtivo['.$ind.']","value",$nova_quantidade);
   
 	return $resp;
 }
