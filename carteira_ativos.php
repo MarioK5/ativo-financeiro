@@ -1036,7 +1036,7 @@ function calcularAtivos($dados, $ind)   {
 
 	$resp = new xajaxResponse("UTF-8");
 
-	$novoValor = ($dados['n_newValor'][$ind] / $dados['valorAtualAtivo'][$ind]);
+	$novoValor = round(($dados['n_newValor'][$ind] / $dados['valorAtualAtivo'][$ind]),0);
 
 	$resp->alert('Nova quantidade de ativos: '.$novoValor); 
 
