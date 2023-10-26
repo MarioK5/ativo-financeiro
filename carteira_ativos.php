@@ -964,7 +964,7 @@ function historico_carteira($idCarteira)   {
 	$resp = new xajaxResponse("UTF-8");
 	 
 	$tela = '<table class="table">
-	                <tr class="form-control">
+	                <tr>
 	                     <td>Data do Investimento</td>
 	                     <td>Valor Investido</td>
 	                </tr>';
@@ -986,7 +986,7 @@ function historico_carteira($idCarteira)   {
 		}
 	
 	 $tela .= ' <br>
-			<tr>
+			<tr class="form-control">
 	                     <td>
 			      <button class="btn btn-default btn-sm pull-left" data-dismiss="modal"  type="button"><i class="fa fa-sign-out-alt"></i> Fechar</button>
 	                     </td>                          
