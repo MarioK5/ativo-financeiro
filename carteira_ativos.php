@@ -949,6 +949,7 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 					<td colspan="10" style="text-align: right;">
 					<input type="button" value="Gravar"  class="btn btn-success btn-sm" onclick="xajax_gravar_investimento('.$idCliente.'); return false;" >
      					<input type="button" value="Cancelar"  class="btn btn-danger btn-sm" onclick="xajax_busca_investimentos('.$idCliente.'); return false;" >
+	  				<input type="hidden" id="valorAtualAtivo[]'.$ind.'" name="valorAtualAtivo[]'.$ind.'" value="'.$valor_atual_ativo.'" />
 	     				</td>
 				</tr>
     			</table">';
@@ -1018,6 +1019,8 @@ function gravar_investimento()   {
 
 	
 
+	
+
 
 	$resp->assign("tela_saida","innerHTML",$tela);
   
@@ -1028,7 +1031,9 @@ function calcularAtivos($dados, $ind)   {
 
 	$resp = new xajaxResponse("UTF-8");
 
-	$resp->alert('Gravar Investimento: '.$dados['n_newValor'][$ind]); return $resp;
+	$resp->alert('Gravar Investimento: '.$dados['n_newValor'][$ind]);
+
+	$resp->alert('Gravar Investimento: '.$dados['valorAtualAtivo'][$ind]); return $resp;
 
 	
 
