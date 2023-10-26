@@ -970,8 +970,8 @@ function historico_carteira($idCarteira)   {
 	                     <td  colspan="2">Carteira: '.$descrCarteira.'</td>
 	                </tr>
 		 	<tr>
-	                     <td>Data do Investimento</td>
-	                     <td>Valor Investido</td>
+	                     <th>Data do Investimento</th>
+	                     <th>Valor Investido</th>
 	                </tr>';
 
 	$result = listaInvestimentos($idCarteira);
