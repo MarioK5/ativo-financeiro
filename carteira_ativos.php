@@ -20,8 +20,9 @@ $xajax->registerFunction("tipo_subSetor");
 $xajax->registerFunction("tipo_segmento");
 $xajax->registerFunction("tipo_ativo");
 $xajax->registerFunction("ativo_select");
-$xajax->registerFunction("cadastrar_investimento");
+$xajax->registerFunction("adicionar_investimento");
 $xajax->registerFunction("destinar_investimento");
+$xajax->registerFunction("gravar_investimento");
 $xajax->registerFunction("historico_carteira");
 $xajax->registerFunction("cadastrar_cliente");
 $xajax->registerFunction("recuperar_senha");
@@ -571,7 +572,7 @@ function busca_investimentos($idCliente)   {
 	    					 <button type="button" class="btn btn-default btn-xs" onclick="xajax_historico_carteira('.$idCarteira[$ind].');">
 							<span class="glyphicon glyphicon-time"> Histórico</span>
 							</button>
-				   		 <input type="button" value="Adicionar Investimento" class="btn btn-success btn-xs" onclick="xajax_cadastrar_investimento('.$idCliente[$ind].','.$idCarteira[$ind].')">
+				   		 <input type="button" value="Adicionar Investimento" class="btn btn-success btn-xs" onclick="xajax_adicionar_investimento('.$idCliente[$ind].','.$idCarteira[$ind].')">
 					     </th>
 	 				</tr>
       					<tr style="color:#696969; background-color:#DCDCDC;">
@@ -633,7 +634,7 @@ function busca_investimentos($idCliente)   {
 	return $resp;
 }
 
-function cadastrar_investimento($idCliente, $idCarteira)   {
+function adicionar_investimento($idCliente, $idCarteira)   {
 
 	$resp = new xajaxResponse("UTF-8");
 
@@ -945,7 +946,7 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 				$valorInvest     = 0;
 			$tela .= '<tr> 
 					<td colspan="10" style="text-align: right;">
-					<input type="button" value="Gravar"  class="btn btn-success btn-sm" >
+					<input type="button" value="Gravar"  class="btn btn-success btn-sm" onclick="xajax_gravar_investimentos('.$idCliente.'); return false;" >
      					<input type="button" value="Cancelar"  class="btn btn-danger btn-sm" onclick="xajax_busca_investimentos('.$idCliente.'); return false;" >
 	     				</td>
 				</tr>
@@ -1004,6 +1005,20 @@ function historico_carteira($idCarteira)   {
 	$resp->script('$("#myModal").modal({show: true,keyboard: false,backdrop: "static"})');
 	$resp->assign("motal_conteudo","innerHTML",$tela);
 	$resp->script('$("#myModal .modal-dialog").css("width", "50%")');
+  
+	return $resp;
+}
+
+function gravar_investimento()   {
+
+	$resp = new xajaxResponse("UTF-8");
+
+	$resp->alert('Gravar Investimento: '); return $resp;
+
+	
+
+
+	$resp->assign("tela_saida","innerHTML",$tela);
   
 	return $resp;
 }
