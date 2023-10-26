@@ -977,7 +977,7 @@ function historico_carteira($idCarteira)   {
 				$data_invest = $row["DATA"];
 				$valor_invest = $row["VALOR"];
 
-			$tela .= '<tr class="form-control">
+			$tela .= '<tr>
 					<td>'.$data_invest.'</td>
 					<td>R$ '.number_format($valor_invest,2,",",".").'</td>
 				</tr>';
@@ -986,8 +986,8 @@ function historico_carteira($idCarteira)   {
 		}
 	
 	 $tela .= ' <br>
-			<tr class="form-control">
-	                     <td>
+			<tr>
+	                     <td colspan="2">
 			      <button class="btn btn-default btn-sm pull-left" data-dismiss="modal"  type="button"><i class="fa fa-sign-out-alt"></i> Fechar</button>
 	                     </td>                          
 	                 </tr>
