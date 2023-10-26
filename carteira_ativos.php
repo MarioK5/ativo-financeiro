@@ -23,6 +23,7 @@ $xajax->registerFunction("ativo_select");
 $xajax->registerFunction("adicionar_investimento");
 $xajax->registerFunction("destinar_investimento");
 $xajax->registerFunction("gravar_investimento");
+$xajax->registerFunction("calcularAtivos");
 $xajax->registerFunction("historico_carteira");
 $xajax->registerFunction("cadastrar_cliente");
 $xajax->registerFunction("recuperar_senha");
@@ -936,7 +937,7 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 									<input type="text" class="form-control" name="n_newAtivos[]'.$ind.'" id="n_newAtivos[]'.$ind.'" value="'.number_format($ativosSugeridos,0,",",".").'" style="width: 40px;" />
 								</td>
 								<td>
-									<input type="text" class="form-control" name="n_newValor[]'.$ind.'" id="n_newValor[]'.$ind.'" onchange="calcularAtivos('.$ind.')" value="'.number_format($valorSugerido,2,",",".").'" style="width: 100px;" />
+									<input type="text" class="form-control" name="n_newValor[]'.$ind.'" id="n_newValor[]'.$ind.'" onchange="xajax_calcularAtivos(document.getElementById(\'n_newValor[]\').value,'.$ind.')" value="'.number_format($valorSugerido,2,",",".").'" style="width: 100px;" />
 								</td>
 		                	</tr> ';
 				$ind++;
@@ -1023,6 +1024,20 @@ function gravar_investimento()   {
 	return $resp;
 }
 
+function calcularAtivos($dados, $ind)   {
+
+	$resp = new xajaxResponse("UTF-8");
+
+	$resp->alert('Gravar Investimento: '.$dados['n_newValor'][$ind]); return $resp;
+
+	
+
+
+	$resp->assign("tela_saida","innerHTML",$tela);
+  
+	return $resp;
+}
+
 function cadastrar_cliente()   {
 
 	$resp = new xajaxResponse("UTF-8");
@@ -1090,10 +1105,7 @@ function recuperar_senha()   {
         
         <script type="text/javascript" language="JavaScript"></script>
 <script> 
-	function calcularAtivos($ind) {
-  var x = document.getElementById("n_newValor['.$ind.']").value;
-  document.getElementById("n_newAtivos['.$ind.']").innerHTML = (x * 2);
-}
+
 	
 		
 </script> 
