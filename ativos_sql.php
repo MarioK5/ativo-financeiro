@@ -256,10 +256,9 @@ function listaInvestimentos($idCarteira){
 	
 	$conn = OpenCon();
 	
-	$sql = "SELECT INVESTIMENTO.DATA, INVESTIMENTO.VALOR
-		FROM INVESTIMENTO
-		WHERE INVESTIMENTO.ID_CARTEIRA =  = '{$idCarteira}'
-      		ORDER BY INVESTIMENTO.DATA";
+	$sql = "SELECT DATA, VALOR FROM INVESTIMENTO
+		WHERE ID_CARTEIRA = '{$idCarteira}'
+      		ORDER BY DATA";
 
    	$result = mysqli_query($conn,$sql);
 
