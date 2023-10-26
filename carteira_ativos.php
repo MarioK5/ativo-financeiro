@@ -1038,6 +1038,8 @@ function calcularAtivos($dados, $ind)   {
 
 	$novoValor = ($dados['n_newValor'][$ind] / $dados['valorAtualAtivo'][$ind]);
 
+	$resp->alert('Nova quantidade de ativos: '.$novoValor); 
+
 	$resp->assign("n_newAtivos[]'.$ind.'","value",$novoValor);
   
 	return $resp;
