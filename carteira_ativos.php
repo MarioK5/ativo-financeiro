@@ -383,7 +383,8 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
 						    </div>
 	  					</td>
 						<td colspan="2">
-		   				    <div name="n_ativo" id="n_ativo" style="width: 200px;" > 
+      						    <div name="n_ativo" id="n_ativo" style="width: 200px;" > 
+		   				    <div name="n_ativo2" id="n_ativo2" style="width: 200px;" > 
 					                <button type="button" class="btn btn-default btn-xs" onclick="xajax_tipo_ativo(xajax.getFormValues(\'form_cadastro\'))" id="tipo_segmento" name="tipo_segmento" value="999999">
 							<span class="glyphicon glyphicon-search"> Listar</span>
 							</button>
@@ -737,10 +738,13 @@ function tipo_ativo($dados) {
 	$ret = '<select onchange="xajax_ativo_select(xajax.getFormValues(\'form_cadastro\'))"  id="tipo_ativo" name="tipo_ativo" class="form-control">
                 <option value="" disabled selected></option>';
 
-	if($dados['tipo_segmento'] < 999999){
-		$tp_segmento = $dados['tipo_segmento'];
-	}else{
+	if($dados['tipo_segmento'] == 999999){
 		$tp_segmento = 999999;
+		$divAtivos = "n_ativo2";
+	}else{
+		$tp_segmento = $dados['tipo_segmento'];
+		$divAtivos = "n_ativo";
+		$resp->assign("n_ativo2","innerHTML","");
 	}
 	
 	$result = buscaAtivo($tp_segmento,0);
@@ -753,7 +757,7 @@ function tipo_ativo($dados) {
     
     	$ret .= '</select>';
 
-	$resp->assign("n_ativo","innerHTML",$ret);
+	$resp->assign($divAtivos,"innerHTML",$ret);
   
 	return $resp;
 }
