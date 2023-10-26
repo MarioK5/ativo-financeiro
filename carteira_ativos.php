@@ -936,7 +936,7 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 									<input type="text" class="form-control" name="n_newAtivos[]'.$ind.'" id="n_newAtivos[]'.$ind.'" value="'.number_format($ativosSugeridos,0,",",".").'" style="width: 40px;" />
 								</td>
 								<td>
-									<input type="text" class="form-control" name="n_newValor[]'.$ind.'" id="n_newValor[]'.$ind.'" value="'.number_format($valorSugerido,2,",",".").'" style="width: 100px;" />
+									<input type="text" class="form-control" name="n_newValor[]'.$ind.'" id="n_newValor[]'.$ind.'" onchange="calcularAtivos('.$ind.')"> value="'.number_format($valorSugerido,2,",",".").'" style="width: 100px;" />
 								</td>
 		                	</tr> ';
 				$ind++;
@@ -1090,7 +1090,10 @@ function recuperar_senha()   {
         
         <script type="text/javascript" language="JavaScript"></script>
 <script> 
-	
+	function calcularAtivos($ind) {
+  var x = document.getElementById("n_newValor['.$ind.']").value;
+  document.getElementById("n_newAtivos['.$ind.']").innerHTML = (x * 2);
+}
 	
 		
 </script> 
