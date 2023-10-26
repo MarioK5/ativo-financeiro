@@ -865,6 +865,7 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 	$resp = new xajaxResponse("UTF-8");
 
 	$tela = '';
+	$ind = 0;
 
 	if($valorInvest > 0){
 
@@ -937,6 +938,7 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 									<input type="text" class="form-control" name="n_newValor[]'.$ind.'" id="n_newValor[]'.$ind.'" value="'.number_format($valorSugerido,2,",",".").'" style="width: 100px;" />
 								</td>
 		                	</tr> ';
+				$ind++;
 				}
 				$valorSugerido   = 0;
 				$ativosSugeridos = 0;
@@ -958,6 +960,7 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
   
 	return $resp;
 }
+
 
 function historico_carteira($idCarteira)   {
 	
@@ -999,7 +1002,6 @@ function historico_carteira($idCarteira)   {
                  </table>';
 
 	$resp->script('$("#myModal").modal({show: true,keyboard: false,backdrop: "static"})');
-	$resp->assign("title_modal0","innerHTML",'Histórico de Investimentos');
 	$resp->assign("motal_conteudo","innerHTML",$tela);
 	$resp->script('$("#myModal .modal-dialog").css("width", "50%")');
   
