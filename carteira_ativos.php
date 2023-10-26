@@ -737,10 +737,10 @@ function tipo_ativo($dados) {
 	$ret = '<select onchange="xajax_ativo_select(xajax.getFormValues(\'form_cadastro\'))"  id="tipo_ativo" name="tipo_ativo" class="form-control">
                 <option value="" disabled selected></option>';
 
-	if($dados['tipo_segmento'] == 999999){
-		$tp_segmento = 999999;
-	}else{
+	if($dados['tipo_segmento'] < 999999){
 		$tp_segmento = $dados['tipo_segmento'];
+	}else{
+		$tp_segmento = 999999;
 	}
 	
 	$result = buscaAtivo($tp_segmento,0);
