@@ -649,7 +649,7 @@ function cadastrar_investimento($idCliente, $idCarteira)   {
 				    <input type="text" class="form-control" name="valor_invest" id="valor_invest" value=""  placeholder="Digite aqui o valor do investimento..." autocomplete="off" />
 				</td>
     				<td colspan="5">
-				    <input type="button" value="Inserir Investimento"  class="btn btn-success btn-xs"  onclick="xajax_destinar_investimento(document.getElementById(\'valor_invest\').value,'.$idCarteira.','.$idCliente.')">
+				    <input type="button" value="Sugerir Investimentos"  class="btn btn-success btn-xs"  onclick="xajax_destinar_investimento(document.getElementById(\'valor_invest\').value,'.$idCarteira.','.$idCliente.')">
 				</td>
 			</tr>
    			<tr>
