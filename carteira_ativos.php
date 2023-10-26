@@ -977,7 +977,7 @@ function historico_carteira($idCarteira)   {
 				$data_invest = $row["DATA"];
 				$valor_invest = $row["VALOR"];
 
-			$tela .= '<tr>
+			$tela .= '<tr style="color:black; background-color:white;">
 					<td>'.$data_invest.'</td>
 					<td>R$ '.number_format($valor_invest,2,",",".").'</td>
 				</tr>';
