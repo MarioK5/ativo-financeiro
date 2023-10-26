@@ -962,9 +962,14 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 function historico_carteira($idCarteira)   {
 	
 	$resp = new xajaxResponse("UTF-8");
+
+	$descrCarteira = listaDescri($idCarteira,1);
 	 
 	$tela = '<table class="table">
-	                <tr>
+	                <tr style="color:black; background-color:white;">
+	                     <td  colspan="2">Carteira: '.$descrCarteira.'</td>
+	                </tr>
+		 	<tr>
 	                     <td>Data do Investimento</td>
 	                     <td>Valor Investido</td>
 	                </tr>';
