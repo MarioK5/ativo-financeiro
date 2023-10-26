@@ -256,7 +256,7 @@ function listaInvestimentos($idCarteira){
 	
 	$conn = OpenCon();
 	
-	$sql = "SELECT DATA, VALOR FROM INVESTIMENTO
+	$sql = "SELECT date_format(DATA,'%d/%m/%Y') AS DATA, VALOR FROM INVESTIMENTO
 		WHERE ID_CARTEIRA = '{$idCarteira}'
       		ORDER BY DATA";
 
