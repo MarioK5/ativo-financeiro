@@ -725,6 +725,7 @@ function tipo_segmento($dados) {
     
     	$ret .= '</select>';
 
+	$resp->assign("n_ativo2","innerHTML","");
 	$resp->assign("n_segmento","innerHTML",$ret);
   
 	return $resp;
@@ -744,7 +745,6 @@ function tipo_ativo($dados) {
 	}else{
 		$tp_segmento = $dados['tipo_segmento'];
 		$divAtivos = "n_ativo";
-		$resp->assign("n_ativo2","innerHTML","");
 	}
 	
 	$result = buscaAtivo($tp_segmento,0);
