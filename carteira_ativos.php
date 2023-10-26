@@ -937,7 +937,7 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 									<input type="text" class="form-control" name="n_newAtivos[]'.$ind.'" id="n_newAtivos[]'.$ind.'" value="'.number_format($ativosSugeridos,0,",",".").'" style="width: 40px;" />
 								</td>
 								<td>
-									<input type="text" class="form-control" name="n_newValor[]'.$ind.'" id="n_newValor[]'.$ind.'" onchange="xajax_calcularAtivos(xajax.getFormValues(\'form_cadastro\'),'.$ind.')" value="'.number_format($valorSugerido,2,",",".").'" style="width: 100px;" />
+									<input type="text" class="form-control" name="n_newValor[]'.$ind.'" id="n_newValor[]'.$ind.'" onchange="xajax_calcularAtivos(xajax.getFormValues(\'form_cadastro\'),'.$ind.','.$valor_atual_ativo.')" value="'.number_format($valorSugerido,2,",",".").'" style="width: 100px;" />
 								</td>
 		                	</tr> ';
 				$ind++;
@@ -1024,16 +1024,13 @@ function gravar_investimento()   {
 	return $resp;
 }
 
-function calcularAtivos($dados, $ind)   {
+function calcularAtivos($dados, $ind, $valorAtualAtivo)   {
 
 	$resp = new xajaxResponse("UTF-8");
 
-	$resp->alert('Gravar Investimento: '.$dados['n_newValor'][$ind]); return $resp;
+	$nova_quantidade = ($dados['n_newValor'][$ind]) / $valorAtualAtivo);
 
-	
-
-
-	$resp->assign("tela_saida","innerHTML",$tela);
+	$resp->assign("n_newAtivo","value",$nova_quantidade);
   
 	return $resp;
 }
