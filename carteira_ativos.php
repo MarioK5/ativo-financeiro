@@ -1036,14 +1036,9 @@ function calcularAtivos($dados, $ind)   {
 
 	$resp = new xajaxResponse("UTF-8");
 
-	$resp->alert('Gravar Investimento: '.$dados['n_newValor'][$ind]);
+	$novoValor = ($dados['n_newValor'][$ind] / $dados['valorAtualAtivo'][$ind]);
 
-	$resp->alert('Gravar Investimento: '.$dados['valorAtualAtivo'][$ind]); return $resp;
-
-	
-
-
-	$resp->assign("tela_saida","innerHTML",$tela);
+	$resp->assign("n_newAtivos['.$ind.']","value",$novoValor);
   
 	return $resp;
 }
