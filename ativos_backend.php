@@ -74,3 +74,18 @@ function editar_Ativo($idAtivoCliente, $perc) {
         alteraAtivoCarteira($idAtivoCliente, $perc);
     }
 }
+
+function lista_Ativos() {
+    $result = buscaAtivo(999999,0);
+    $ativos = array();
+    if ($result > 0) {
+        while ($row = mysqli_fetch_array($result)) {
+            $idAtivo = $row["ID"];
+            $codAtivo = $row["CODIGO"];
+            $descricaoAtivo = $row["DESCRICAO"];
+
+            $ativos[] = array($idAtivo, $codAtivo, $descricaoAtivo);
+        }
+    }
+    return $ativos;
+}
