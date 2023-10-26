@@ -962,11 +962,9 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 function historico_carteira($idCarteira)   {
 	
 	$resp = new xajaxResponse("UTF-8");
-
-	$resp->alert('O valor do investimento deve ser informado '.$idCarteira);
 	 
 	$tela = '<table class="table">
-	                <tr>
+	                <tr class="form-control">
 	                     <td>Data do Investimento</td>
 	                     <td>Valor Investido</td>
 	                </tr>';
@@ -979,7 +977,7 @@ function historico_carteira($idCarteira)   {
 				$data_invest = $row["DATA"];
 				$valor_invest = $row["VALOR"];
 
-			$tela .= '<tr>
+			$tela .= '<tr class="form-control">
 					<td>'.$data_invest.'</td>
 					<td>R$ '.number_format($valor_invest,2,",",".").'</td>
 				</tr>';
