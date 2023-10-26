@@ -894,20 +894,20 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 		if (mysqli_num_rows($result) > 0) {
 			while ($row = mysqli_fetch_array($result)) {
 
-				$idAtivoCarteira = $row["ID"];
-				$idAtivo         = $row["ID_ATIVO"];
-            			$idCarteiraAtivo = $row["ID_CARTEIRA"];
-				$codigo          = $row["CODIGO"];
-				$desc_Ativo      = $row["DESCRICAO"];
-				$porcentagem     = $row["PORCENTAGEM"];
-				$qtde_ativos     = $row["QTDE_ATIVOS"];
-				$valor_investido = $row["VALOR_INVESTIDO"];
-				$valor_atual_ativo = $row["VALOR_ATUAL_ATIVO"];
+				$idAtivoCarteira[$ind] = $row["ID"];
+				$idAtivo[$ind]         = $row["ID_ATIVO"];
+            			$idCarteiraAtivo[$ind] = $row["ID_CARTEIRA"];
+				$codigo[$ind]          = $row["CODIGO"];
+				$desc_Ativo[$ind]      = $row["DESCRICAO"];
+				$porcentagem[$ind]     = $row["PORCENTAGEM"];
+				$qtde_ativos[$ind]     = $row["QTDE_ATIVOS"];
+				$valor_investido[$ind] = $row["VALOR_INVESTIDO"];
+				$valor_atual_ativo[$ind] = $row["VALOR_ATUAL_ATIVO"];
 				
-				$valor_atual_investido = ($qtde_ativos * $valor_atual_ativo);
-				$saldo = ($valor_atual_investido - $valor_investido);
+				$valor_atual_investido = ($qtde_ativos[$ind] * $valor_atual_ativo[$ind]);
+				$saldo = ($valor_atual_investido - $valor_investido[$ind]);
 
-				$result2 = somaValorTotalAtualAtivos($idCarteiraAtivo);
+				$result2 = somaValorTotalAtualAtivos($idCarteiraAtivo[$ind]);
 				
 				while ($row2 = mysqli_fetch_array($result2)) {
 					$valor_total_carteira = $row2["VALOR_TOTAL"];
@@ -917,24 +917,24 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 				}
 
 				if($perc_atual == 0){
-					$valorSugerido = (($porcentagem / 100) * $valorInvest);
+					$valorSugerido = (($porcentagem[$ind] / 100) * $valorInvest);
 				}else{
-					if($perc_atual < $porcentagem){
-						$valorSugerido = ((($porcentagem + ($porcentagem - $perc_atual)) / 100) * $valorInvest);
+					if($perc_atual < $porcentagem[$ind]){
+						$valorSugerido = ((($porcentagem[$ind] + ($porcentagem[$ind] - $perc_atual)) / 100) * $valorInvest);
 					}else{
-						$valorSugerido = ((($porcentagem - ($perc_atual - $porcentagem)) / 100) * $valorInvest);
+						$valorSugerido = ((($porcentagem[$ind] - ($perc_atual - $porcentagem[$ind])) / 100) * $valorInvest);
 					}
 				}
 
-				$ativosSugeridos = ($valorSugerido / $valor_atual_ativo);
+				$ativosSugeridos = ($valorSugerido / $valor_atual_ativo[$ind]);
 				
 				$tela .= '<tr>
-								<td>'.$codigo.'</td>
-								<td>'.$desc_Ativo.'</td>
-								<td>'.number_format($porcentagem,0,",",".").'</td>
-								<td>'.$qtde_ativos.'</td>
-								<td>'.number_format($valor_investido,2,",",".").'</td>
-								<td>'.number_format($valor_atual_ativo,2,",",".").'</td>
+								<td>'.$codigo[$ind].'</td>
+								<td>'.$desc_Ativo[$ind].'</td>
+								<td>'.number_format($porcentagem[$ind],0,",",".").'</td>
+								<td>'.$qtde_ativos[$ind].'</td>
+								<td>'.number_format($valor_investido[$ind],2,",",".").'</td>
+								<td>'.number_format($valor_atual_ativo[$ind],2,",",".").'</td>
 								<td>'.number_format($perc_atual,2,",",".").'</td>
 								<td>==></td>
 								<td>
@@ -954,7 +954,7 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 					<td colspan="10" style="text-align: right;">
 					<input type="button" value="Gravar"  class="btn btn-success btn-sm" onclick="xajax_gravar_investimento('.$idCliente.'); return false;" >
      					<input type="button" value="Cancelar"  class="btn btn-danger btn-sm" onclick="xajax_busca_investimentos('.$idCliente.'); return false;" >
-	  				<input type="hidden" id="valorAtualAtivo[]'.$ind.'" name="valorAtualAtivo[]'.$ind.'" value="'.$valor_atual_ativo.'" />
+	  				<input type="hidden" id="valorAtualAtivo[]'.$ind.'" name="valorAtualAtivo[]'.$ind.'" value="'.$valor_atual_ativo[$ind].'" />
 	     				</td>
 				</tr>
     			</table">';
