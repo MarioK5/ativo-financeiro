@@ -20,24 +20,24 @@ function busca_ativos()
     $tela = '';
 
     $result = array();
-    $result = listar_carteiras();
+    $result = lista_Ativos();
 
     if (!empty($result)) {
         $tela .= '<select name="ativos" id="ativos">';
 
-        foreach ($result as $carteira) {
-            $id = $carteira[0];
-            $descricao = $carteira[1];
-            $idCliente = $carteira[2];
+        foreach ($result as $ativos) {
+            $id = $ativos[0];
+            $codigoAtivo = $ativos[1];
+            $descricao = $ativos[2];
 
-            // Adiciona um botão de edição para cada item na lista
-            $tela .= "<tr><td>$id</td><td>$descricao</td><td>$idCliente</td><td><button onclick='editarCarteira($id)'>Editar</button></td></tr>";
+           
+            $tela .= "<option value='$id'>$codigoAtivo - $descricao</option>";
         }
 
         $tela .= '</select>';
     }
 
-    $resp->assign("lista_carteira", "innerHTML", $tela);
+    $resp->assign("lista_ativos", "innerHTML", $tela);
     return $resp;
 }
 
@@ -65,7 +65,7 @@ function busca_ativos()
 
     <title>Novo Ativo</title>
 </head>
-<body>
+<body onload="xajax_busca_ativos();">
     <div class="d-flex" id="wrapper">
         <!-- Sidebar-->
         <div class="border-end bg-white" id="sidebar-wrapper">
@@ -99,8 +99,8 @@ function busca_ativos()
                 <h1 class="mt-4">Cadastrar Novo Ativo</h1>
                 <form role="form" id="form_cadastro">
                     <div class="form-group">
-                      <label for="formGroupExampleInput">Digite a descrição</label>
-                      <input type="text" class="form-control" id="descricaoCarteira" name="descricaoCarteira" placeholder="Digite a descrição">
+                    <div id="lista_ativos" name="lista_ativos" class="panel-body"></div>
+                      
                     </div>
 
                     
