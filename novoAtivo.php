@@ -180,6 +180,7 @@ function salvarAtivo($id){
             var idAtivo = document.getElementById("ativos").value;
             console.log(idAtivo);
             xajax_salvarAtivo(idAtivo);
+            return true;
 
         }
     </script>
