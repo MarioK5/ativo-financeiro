@@ -1034,7 +1034,7 @@ function gravar_investimento($dados)   {
 
 	if($soma_investimento == $novoInvestimento){
 
-		cadastroInvestimento($idCarteira,$novoInvestimento);
+		cadastroInvestimento($idCarteira, $novoInvestimento);
 			
 		for($j = 0; $j < count($dados);$j++){
 
