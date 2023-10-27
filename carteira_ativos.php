@@ -50,16 +50,15 @@ function busca_dados($dados)   {
 
 	if ($admin > 0) {
 
-		$tela .= '<table border="0" width=100%>
+		$tela .= '<table class="table" border="0" width=100%>
                 <tr>
                     <td>
 		    	<div class="row">
 			    <div class="col-xs-8 col-md-8">
 			        <div class="form-group">
-				    <label>Cliente</label>
+				    <label>Controle e Geração de Token</label>
 				    <div id="sandbox-container">
 				        <div class="input-group">
-						Controle e Geração de Token
 				        </div>
 				    </div>
 			         </div>
@@ -79,11 +78,11 @@ function busca_dados($dados)   {
 		    <td>
                 </tr>
 		<tr>
-  		     <td>
+  		     <th>
 			 <div id="tela_cliente" class="panel-body">
 			 	Lista de TOKENs disponiveis
 			 </div>
-  		     </td>
+  		     </th>
   		</tr>
 		<tr>
   		     <td>
