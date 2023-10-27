@@ -36,7 +36,7 @@ function busca_ativos()
     }
 
     // Lista de Setores
-    $resultSetores = lista_Ativos();
+    $resultSetores = lista_Setores();
 
     if (!empty($resultSetores)) {
         $tela .= '<label for="setores">Seleciona o setor: </label>';
@@ -44,16 +44,15 @@ function busca_ativos()
 
         foreach ($resultSetores as $setores) {
             $idSetor = $setores[0];
-            $codigoSetor = $setores[1];
-            $descricaoSetor = $setores[2];
-            $tela .= "<option value='$idSetor'>$codigoSetor - $descricaoSetor</option>";
+            $descricaoSetor = $setores[1];
+            $tela .= "<option value='$idSetor'>$descricaoSetor</option>";
         }
 
         $tela .= '</select>';
     }
 
     // Lista de SubSetores
-    $resultSubsetores = lista_Ativos();
+    $resultSubsetores = lista_SubSetores();
 
     if (!empty($resultSubsetores)) {
         $tela .= '<label for="subsetores">Seleciona o subsetor: </label>';
@@ -61,16 +60,15 @@ function busca_ativos()
 
         foreach ($resultSubsetores as $subsetores) {
             $idSubsetor = $subsetores[0];
-            $codigoSubsetor = $subsetores[1];
-            $descricaoSubsetor = $subsetores[2];
-            $tela .= "<option value='$idSubsetor'>$codigoSubsetor - $descricaoSubsetor</option>";
+            $descricaoSubsetor = $subsetores[1];
+            $tela .= "<option value='$idSubsetor'>$descricaoSubsetor</option>";
         }
 
         $tela .= '</select>';
     }
 
     // Lista de Segmentos
-    $resultSegmentos = lista_Ativos();
+    $resultSegmentos = lista_Segmentos();
 
     if (!empty($resultSegmentos)) {
         $tela .= '<label for="segmentos">Seleciona o segmento: </label>';
@@ -78,9 +76,8 @@ function busca_ativos()
 
         foreach ($resultSegmentos as $segmentos) {
             $idSegmento = $segmentos[0];
-            $codigoSegmento = $segmentos[1];
-            $descricaoSegmento = $segmentos[2];
-            $tela .= "<option value='$idSegmento'>$codigoSegmento - $descricaoSegmento</option>";
+            $descricaoSegmento = $segmentos[1];
+            $tela .= "<option value='$idSegmento'>$descricaoSegmento</option>";
         }
 
         $tela .= '</select>';
