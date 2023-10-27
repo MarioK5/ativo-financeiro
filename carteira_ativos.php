@@ -91,7 +91,8 @@ function busca_dados($dados)   {
 		<tr style="color:black; background-color:white;">
   		     <td>
 	 		<table class="table" border="0">
-			<div id="tela_cliente" class="panel-body">
+    			<h5>
+				<div id="tela_cliente" class="panel-body">
    			';
 
 	$result = listaTokens();
@@ -110,7 +111,8 @@ function busca_dados($dados)   {
 	   		  </tr> ';
 	}
 		
-		$tela .= '			</div>
+		$tela .= '				</div>
+  						</h5>
   						</table>
   		     			</td>
   				</tr>
