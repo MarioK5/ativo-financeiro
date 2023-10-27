@@ -1038,7 +1038,7 @@ function calcularAtivos($dados, $ind)   {
 
 	$novoValor = round(($dados['n_newValor'][$ind] / $dados['valorAtualAtivo'][$ind]),0);
 
-	$resp->assign("n_newAtivos[$ind]","value",$novoValor);
+	$resp->assign("n_newAtivos[]".$ind,"value",$novoValor);
   
 	return $resp;
 }
