@@ -111,6 +111,7 @@ function busca_dados($dados)   {
 	}
 		
 		$tela .= '			</div>
+  						<div id="tela_cliente2" class="panel-body"><?div>
   						</table>
   		     			</td>
   				</tr>
@@ -1198,7 +1199,8 @@ function gerar_token()   {
 		$resp->alert('Novo Token gerado!');
 	}
 
-	$resp->assign("tela_cliente","innerHTML",$tela);
+	$resp->assign("tela_cliente","innerHTML",'');
+	$resp->assign("tela_cliente2","innerHTML",$tela);
   
 	return $resp;
 }
