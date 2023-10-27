@@ -13,7 +13,6 @@ $xajax->registerFunction("seleciona_subsetor");
 $xajax->registerFunction("seleciona_seguemento");
 $xajax->registerFunction("seleciona_ativo");
 $xajax->processRequest();
-
 function busca_ativos()
 {
     $resp = new xajaxResponse('UTF-8');
@@ -23,6 +22,7 @@ function busca_ativos()
     $resultAtivos = lista_Ativos();
 
     if (!empty($resultAtivos)) {
+        $tela .= '<label for="ativos">Seleciona o seu ativo na lista abaixo:</label>';
         $tela .= '<select name="ativos" id="ativos">';
 
         foreach ($resultAtivos as $ativos) {
@@ -39,6 +39,7 @@ function busca_ativos()
     $resultSetores = lista_Ativos();
 
     if (!empty($resultSetores)) {
+        $tela .= '<label for="setores">Seleciona o setor:</label>';
         $tela .= '<select name="setor" id="setores">';
 
         foreach ($resultSetores as $setores) {
@@ -55,6 +56,7 @@ function busca_ativos()
     $resultSubsetores = lista_Ativos();
 
     if (!empty($resultSubsetores)) {
+        $tela .= '<label for="subsetores">Seleciona o subsetor:</label>';
         $tela .= '<select name="subsetor" id="subsetores">';
 
         foreach ($resultSubsetores as $subsetores) {
@@ -71,6 +73,7 @@ function busca_ativos()
     $resultSegmentos = lista_Ativos();
 
     if (!empty($resultSegmentos)) {
+        $tela .= '<label for="segmentos">Seleciona o segmento:</label>';
         $tela .= '<select name="segmento" id="segmentos">';
 
         foreach ($resultSegmentos as $segmentos) {
