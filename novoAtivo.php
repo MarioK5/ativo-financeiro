@@ -46,6 +46,7 @@ function busca_ativos()
 function salvarAtivo($id){
     $resp = new xajaxResponse('UTF-8');
     $jaExiste = false;
+    $resp->alert($id);
     if (isset($_GET['id'])) {
         $idCarteira = $_GET['id'];
         
@@ -178,7 +179,7 @@ function salvarAtivo($id){
         function CadastrarAtivo(){
             var idAtivo = document.getElementById("ativos").value;
             console.log(idAtivo);
-            //xajax_salvarAtivo(idAtivo);
+            xajax_salvarAtivo(idAtivo);
 
         }
     </script>
