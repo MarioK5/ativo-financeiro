@@ -46,7 +46,6 @@ function busca_ativos()
 function salvarAtivo($id){
     $resp = new xajaxResponse('UTF-8');
     $jaExiste = false;
-    $resp->alert($id);
     if (isset($_GET['id'])) {
         $idCarteira = $_GET['id'];
         
@@ -72,9 +71,12 @@ function salvarAtivo($id){
             $resp->alert("Ativo já existe na Carteira");
         }else{
             salvar_Ativo($id,$idCarteira);
+            $resp->alert("Ativo cadastrado com Sucesso");
+            $resp->script('window.location.href = "editarCarteira.php?id='$idCarteira'";');
         }
     
     }
+    
     return $resp;
 
 }
