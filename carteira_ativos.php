@@ -533,6 +533,7 @@ function excluir_ativo_carteira($idAtivoCarteira, $excluir, $idCliente, $idCarte
 
 	if($excluir == 1){
 		excluirAtivoCarteira($idAtivoCarteira);
+		
 		$ind = 0;
 		$result = listaAtivosCarteira($idCarteira);
 	
@@ -551,13 +552,14 @@ function excluir_ativo_carteira($idAtivoCarteira, $excluir, $idCliente, $idCarte
 			while ($row = mysqli_fetch_array($result)) {
 
 				if($ind == 0){
-					$novoPercentual = ($dividePercentual + $primeir);
+					$novoPercentual = ($dividePercentual + $primeiro);
 				}else{
 					$novoPercentual = $dividePercentual;
 				}
 				alteraAtivoCarteira($row["ID"], $novoPercentual);
 			$ind++;
 			}
+		$ind = 0;
 		}
 		
 		$resp->alert('Ativo eliminado!');
