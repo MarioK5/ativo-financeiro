@@ -90,6 +90,7 @@ function busca_dados($dados)   {
   		</tr>
 		<tr style="color:black; background-color:white;">
   		     <td>
+	 		<table>
 			<div id="tela_cliente" class="panel-body">
    			';
 
@@ -104,12 +105,13 @@ function busca_dados($dados)   {
                 	  </tr> ';
         	}
 	}else{
-		$tela .= '<td>
-  				Não existe Token gerado!
-      			  </td> ';
+		$tela .= '<tr>
+  				<td>Não existe Token gerado! </td>
+	   		  </tr> ';
 	}
 		
 		$tela .= '			</div>
+  						</table>
   		     			</td>
   				</tr>
     			</table> ';
