@@ -540,11 +540,14 @@ function excluir_ativo_carteira($idAtivoCarteira, $excluir, $idCliente, $idCarte
 		if (mysqli_num_rows($result) > 0) {
 			
 			$linhas = mysqli_num_rows($result);
-			
-			if($linhas % 2 == 0) {
+			if($linhas == 1){
 				$primeiro = 0;
-			} else {
-				$primeiro = 1;
+			}else{
+				if($linhas % 2 == 0) {
+				$primeiro = 0;
+				} else {
+					$primeiro = 1;
+				}
 			} 
 			
 			$dividePercentual = round((100 / $linhas),0);
