@@ -1066,7 +1066,6 @@ function gravar_investimento($dados)   {
 		$resp->alert('A valor do investimento é '.$novoInvestimento.' ,mas a soma é '.$soma_investimento); return $resp;
 	}
 	
-	$resp->assign("$resp->assign("tela","innerHTML","");
 	$script = "xajax_busca_investimentos($idCliente)";
     	$resp->script($script);
 	
