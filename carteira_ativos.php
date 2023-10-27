@@ -1032,7 +1032,7 @@ function gravar_investimento($dados)   {
 	}
 
 	if($soma_investimento == $novoInvestimento){
-
+$resp->alert('A valor do investimento é '.$novoInvestimento);
 		cadastroInvestimento($idCarteira,$novoInvestimento);
 			
 		for($j = 0; $j < count($dados);$j++){
@@ -1051,7 +1051,7 @@ function gravar_investimento($dados)   {
 		$resp->alert('A valor do investimento é '.$novoInvestimento.' ,mas a soma é '.$soma_investimento); return $resp;
 	}
 	
-	$script = "xajax_busca_investimento($idCliente)";
+	$script = "xajax_busca_investimentos($idCliente)";
     	$resp->script($script);
 	$resp->assign("tela_saida","innerHTML",$tela);
   
