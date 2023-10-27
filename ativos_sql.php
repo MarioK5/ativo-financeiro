@@ -88,11 +88,11 @@ function listaTokens(){
 	
 	$sql = "SELECT TOKEN FROM CLIENTES WHERE EMAIL IS NULL";
 
-    	$ret = mysqli_query($conn,$sql);
+    	$result = mysqli_query($conn,$sql);
 
 	CloseCon($conn);
 	
-	return $ret;
+	return $result;
 }
 
 function gravaTokens(){
