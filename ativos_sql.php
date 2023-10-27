@@ -355,10 +355,6 @@ function ajustaValorAtivoCarteira($idAtivoCliente, $n_qtdeAtivos, $n_valorAtivos
     		VALOR = '{$n_valorAtivos}'
     		WHERE ID = '{$idAtivoCliente}'";
 	
-	$arq = fopen("log.txt","w") or die("Problemas para criar o arquivo");
-        fputs($arq,$sql);
-        fclose($arq); 
-	
 	$result = mysqli_query($conn,$sql);
 		  mysqli_commit($conn);
 	
