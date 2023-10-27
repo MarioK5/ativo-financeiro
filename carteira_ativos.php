@@ -1197,7 +1197,7 @@ function gerar_token()   {
 	                    		<td>'.$token.'</td>
 	                	  </tr> ';
 	        	}
-			$tela = '</table>';
+			$tela .= '</table>';
 		}
 		$resp->alert('Novo Token gerado!');
 	}
