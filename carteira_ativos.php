@@ -91,8 +91,7 @@ function busca_dados($dados)   {
 		<tr style="color:black; background-color:white;">
   		     <td>
 	 		<table class="table" border="0">
-    			<h5>
-				<div id="tela_cliente" class="panel-body">
+			<div id="tela_cliente" class="panel-body">
    			';
 
 	$result = listaTokens();
@@ -111,8 +110,7 @@ function busca_dados($dados)   {
 	   		  </tr> ';
 	}
 		
-		$tela .= '				</div>
-  						</h5>
+		$tela .= '			</div>
   						</table>
   		     			</td>
   				</tr>
@@ -1182,21 +1180,23 @@ function gerar_token()   {
 	$numeral = rand(100000, 999999);
 	$novoToken = ($maxID.$numeral);
 
-	gravaTokens($novoToken);
+	$gravou = gravaTokens($novoToken);
 
-	$result = listaTokens();
+	if($gravou == 1){
 
-	if (mysqli_num_rows($result) > 0) {
-		while ($row = mysqli_fetch_array($result)) {
-            		$token = $row["TOKEN"];
-
-		$tela .= '<tr style="color:black; background-color:white;">
-                    		<td>'.$token.'</td>
-                	  </tr> ';
-        	}
+		$result = listaTokens();
+	
+		if (mysqli_num_rows($result) > 0) {
+			while ($row = mysqli_fetch_array($result)) {
+	            		$token = $row["TOKEN"];
+	
+			$tela .= '<tr style="color:black; background-color:white;">
+	                    		<td>'.$token.'</td>
+	                	  </tr> ';
+	        	}
+		}
+		$resp->alert('Novo Token gerado!');
 	}
-
-	$resp->alert('Novo Token gerado: '.$novoToken);
 
 	$resp->assign("tela_cliente","innerHTML",$tela);
   
