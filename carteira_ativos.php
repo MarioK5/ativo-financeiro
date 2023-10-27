@@ -100,12 +100,12 @@ function busca_dados($dados)   {
 		while ($row = mysqli_fetch_array($result)) {
             		$token = $row["TOKEN"];
 
-		$tela .= '<tr>
+		$tela .= '<tr style="color:black; background-color:white;">
                     		<td>'.$token.'</td>
                 	  </tr> ';
         	}
 	}else{
-		$tela .= '<tr>
+		$tela .= '<tr style="color:black; background-color:white;">
   				<td>Não existe Token gerado! </td>
 	   		  </tr> ';
 	}
@@ -1188,7 +1188,7 @@ function gerar_token()   {
 		while ($row = mysqli_fetch_array($result)) {
             		$token = $row["TOKEN"];
 
-		$tela .= '<tr>
+		$tela .= '<tr style="color:black; background-color:white;">
                     		<td>'.$token.'</td>
                 	  </tr> ';
         	}
