@@ -1170,7 +1170,7 @@ function gerar_token()   {
 
 	$resp = new xajaxResponse("UTF-8");
 
-	$maxID = (maxIdToken() + 1;
+	$maxID = (maxIdToken();
 
 	$numeral = rand(100000, 999999);
 
