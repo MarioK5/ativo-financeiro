@@ -1176,8 +1176,6 @@ function gerar_token()   {
 
 	$resp = new xajaxResponse("UTF-8");
 
-	$tela = '';
-
 	$maxID = maxIdToken();
 	$numeral = rand(100000, 999999);
 	$novoToken = ($maxID.$numeral);
@@ -1189,6 +1187,9 @@ function gerar_token()   {
 		$result = listaTokens();
 	
 		if (mysqli_num_rows($result) > 0) {
+
+			$tela = '<table class="table" border="0" width=100%>';
+			
 			while ($row = mysqli_fetch_array($result)) {
 	            		$token = $row["TOKEN"];
 	
@@ -1196,6 +1197,7 @@ function gerar_token()   {
 	                    		<td>'.$token.'</td>
 	                	  </tr> ';
 	        	}
+			$tela = '</table>';
 		}
 		$resp->alert('Novo Token gerado!');
 	}
