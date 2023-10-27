@@ -945,7 +945,8 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 								</td>
 		                	</tr>
 		   			<input type="hidden" id="valorAtualAtivo[]'.$ind.'" name="valorAtualAtivo[]'.$ind.'" value="'.$valor_atual_ativo[$ind].'" />
-					<input type="hidden" id="idCarteiraInvest" name="idCarteiraInvest" value="'.$idCarteira.'" />
+					<input type="hidden" id="novoValorInvest" name="novoValorInvest" value="'.$valorInvest.'" />
+     					<input type="hidden" id="idCarteiraInvest" name="idCarteiraInvest" value="'.$idCarteira.'" />
  					<input type="hidden" id="idClienteInvest" name="idClienteInvest" value="'.$idCliente.'" />';
 				$ind++;
 				}
@@ -1022,13 +1023,24 @@ function gravar_investimento($dados)   {
 
 	$resp = new xajaxResponse("UTF-8");
 
-	$resp->alert('ID carteira Investimento: '.$dados['idCarteiraInvest']); 
-	$resp->alert('ID cliente Investimento: '.$dados['idClienteInvest']); return $resp;
+	$idCliente        = $dados['idClienteInvest'];
+	$idCarteira       = $dados['idCarteiraInvest'];
+	$novoInvestimento = $dados['novoValorInvest'];
 
+	for($i = 0; $i < count($dados);$i++){
+		$soma_investimento += $dados['n_newValor'][$i];
+	}
+
+	if($soma_investimento == $novoInvestimento){
+		for($j = 0; $j < count($dados);$j++){
+		}
+	}else{
+		$resp->alert('A valor do investimento é '.$novoInvestimento.' ,mas a soma é '.$soma_investimento); return $resp;
+	}
 	
 
 	
-
+$resp->alert('ID cliente Investimento: '.$dados['idClienteInvest']); return $resp;
 
 	$resp->assign("tela_saida","innerHTML",$tela);
   
