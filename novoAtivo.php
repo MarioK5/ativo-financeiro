@@ -47,7 +47,7 @@ function salvarAtivo($id){
     $resp = new xajaxResponse('UTF-8');
     $jaExiste = false;
     $resp->alert($id);
-    if (isset($_GET['id'])) {
+    /*if (isset($_GET['id'])) {
         $idCarteira = $_GET['id'];
         
 
@@ -74,7 +74,7 @@ function salvarAtivo($id){
             salvar_Ativo($id,$idCarteira);
         }
     
-    }
+    }*/
 
 }
 
