@@ -337,7 +337,7 @@ function buscaValorAtivoCarteira($idAtivoCliente){
 	$sql = "SELECT QTDE_ATIVOS,
 			VALOR AS VALOR_INVESTIDO
 		   FROM ATIVOS_CLIENTE
-		  WHERE ID_CARTEIRA = '{$idAtivoCliente}'";
+		  WHERE ID = '{$idAtivoCliente}'";
 	
 	$result = mysqli_query($conn,$sql);
 
