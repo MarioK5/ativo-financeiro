@@ -81,14 +81,14 @@ function busca_dados($dados)   {
                 </tr>
 		<tr>
   		     <th>
-			 <div id="tela_cliente" class="panel-body">
+			 <div class="panel-body">
     			 <h4>
 			 	Lista de TOKENs disponiveis
      			 </h4>
 			 </div>
   		     </th>
   		</tr>
-		<tr>
+		<tr style="color:black; background-color:white;">
   		     <td>
 			<div id="tela_cliente" class="panel-body"></div>
   		     </td>
