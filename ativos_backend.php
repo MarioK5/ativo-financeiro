@@ -88,3 +88,42 @@ function lista_Ativos() {
     }
     return $ativos;
 }
+
+function lista_Setores() {
+    $result = buscaSetor();
+    $setores = array();
+    if ($result > 0) {
+        while ($row = mysqli_fetch_array($result)) {
+            $idSetor = $row["ID"];
+            $descricaoSetor = $row["DESCRICAO"];
+            $setores[] = array($idSetor, $descricaoSetor);
+        }
+    }
+    return $setores;
+}
+
+function lista_SubSetores() {
+    $result = buscaSubSetor(999999,0);
+    $subSetores = array();
+    if ($result > 0) {
+        while ($row = mysqli_fetch_array($result)) {
+            $idSubSetor = $row["ID"];
+            $descricaoSubSetor = $row["DESCRICAO"];
+            $subSetores[] = array($idSubSetor, $descricaoSubSetor);
+        }
+    }
+    return $subSetores;
+}
+
+function lista_Segmentos() {
+    $result = buscaSegmento(999999,0);
+    $segmentos = array();
+    if ($result > 0) {
+        while ($row = mysqli_fetch_array($result)) {
+            $idSegmento = $row["ID"];
+            $descricaoSegmento = $row["DESCRICAO"];
+            $segmentos[] = array($idSegmento, $descricaoSegmento);
+        }
+    }
+    return $segmentos;
+}

@@ -465,7 +465,7 @@ function buscaSubSetor($setor,$tipo){
 	$conn = OpenCon();
 
 	if($tipo == 0){
-		if($ativo == 999999){
+		if($setor == 999999){
 			$temTipo = "";
 		}else{
 			$temTipo = "WHERE ID_SETOR = '{$setor}'";
@@ -489,7 +489,7 @@ function buscaSegmento($subSetor,$tipo){
 	$conn = OpenCon();
 
 	if($tipo == 0){
-		if($ativo == 999999){
+		if($subSetor == 999999){
 			$temTipo = "";
 		}else{
 			$temTipo = "WHERE ID_SUBSETOR = '{$subSetor}'";
