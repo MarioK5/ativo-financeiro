@@ -88,10 +88,12 @@ function busca_dados($dados)   {
 			 </div>
   		     </th>
   		</tr>
-		<tr style="color:black; background-color:white;">
+	 </table>
+	 <table class="table" border="0" width=100%>
+    		<tr style="color:black; background-color:white;">
   		     <td>
-	 		<table class="table" border="0">
-			<div id="tela_cliente" class="panel-body">
+			<div id="tela_token" class="panel-body">
+   			<table class="table" border="0" width=100%>
    			';
 
 	$result = listaTokens();
@@ -110,10 +112,9 @@ function busca_dados($dados)   {
 	   		  </tr> ';
 	}
 		
-		$tela .= '			</div>
-  						<div id="tela_cliente2" class="panel-body"><?div>
-  						</table>
-  		     			</td>
+		$tela .= '			</table>
+					   </div>
+  		     		     </td>
   				</tr>
     			</table> ';
 		
@@ -1199,8 +1200,8 @@ function gerar_token()   {
 		$resp->alert('Novo Token gerado!');
 	}
 
-	$resp->assign("tela_cliente","innerHTML",'');
-	$resp->assign("tela_cliente2","innerHTML",$tela);
+	$resp->assign("tela_token","innerHTML",'');
+	$resp->assign("tela_token","innerHTML",$tela);
   
 	return $resp;
 }
