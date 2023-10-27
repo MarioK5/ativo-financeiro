@@ -944,7 +944,9 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 									<input type="text" class="form-control" name="n_newValor[]'.$ind.'" id="n_newValor[]'.$ind.'" onchange="xajax_calcularAtivos(xajax.getFormValues(\'form_cadastro\'),'.$ind.')" value="'.number_format($valorSugerido,2,",",".").'" style="width: 100px;" />
 								</td>
 		                	</tr>
-		   			<input type="hidden" id="valorAtualAtivo[]'.$ind.'" name="valorAtualAtivo[]'.$ind.'" value="'.$valor_atual_ativo[$ind].'" />';
+		   			<input type="hidden" id="valorAtualAtivo[]'.$ind.'" name="valorAtualAtivo[]'.$ind.'" value="'.$valor_atual_ativo[$ind].'" />
+					<input type="hidden" id="idCarteiraInvest" name="idCarteiraInvest" value="'.$idCarteira.'" />
+ 					<input type="hidden" id="idClienteInvest" name="idClienteInvest" value="'.$idCliente.'" />';
 				$ind++;
 				}
 				$valorSugerido   = 0;
@@ -953,7 +955,7 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 				$ind = 0;
 			$tela .= '<tr> 
 					<td colspan="10" style="text-align: right;">
-					<input type="button" value="Gravar"  class="btn btn-success btn-sm" onclick="xajax_gravar_investimento('.$idCliente.'); return false;" >
+					<input type="button" value="Gravar"  class="btn btn-success btn-sm" onclick="xajax_gravar_investimento(xajax.getFormValues(\'form_cadastro\')); return false;" >
      					<input type="button" value="Cancelar"  class="btn btn-danger btn-sm" onclick="xajax_busca_investimentos('.$idCliente.'); return false;" >
 	     				</td>
 				</tr>
@@ -1016,11 +1018,12 @@ function historico_carteira($idCarteira)   {
 	return $resp;
 }
 
-function gravar_investimento()   {
+function gravar_investimento($dados)   {
 
 	$resp = new xajaxResponse("UTF-8");
 
-	$resp->alert('Gravar Investimento: '); return $resp;
+	$resp->alert('ID carteira Investimento: '.$dados['idCarteiraInvest']); 
+	$resp->alert('ID cliente Investimento: '.$dados['idClienteInvest']); return $resp;
 
 	
 
