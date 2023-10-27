@@ -1048,7 +1048,7 @@ function gravar_investimento($dados)   {
 					$novaQtdeAtivos = ($dados['n_newAtivos'][$j] + $row["QTDE_ATIVOS"]);
 					$novoValorAtivo = ($dados['n_newValor'][$j] + $row["VALOR_INVESTIDO"]);
 					
-					ajustaValorAtivoCarteira($idAtivoiInvest, $novaQtdeAtivos, $novoValorAtivo);
+					ajustaValorAtivoCarteira($idAtivoInvest, $novaQtdeAtivos, $novoValorAtivo);
 				}
 			}
 		}
