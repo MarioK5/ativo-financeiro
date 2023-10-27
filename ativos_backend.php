@@ -65,9 +65,7 @@ function listar_ativosCarteira($idCarteira){
 }
 
 function salvar_Ativo($idAtivo, $idCarteira) {
-    if (!empty($perc)) {
-        cadastroAtivoCarteira($idAtivo, $idCarteira, $perc);
-    }
+        cadastroAtivoCarteira($idAtivo, $idCarteira, 0);
 }
 
 function editar_Ativo($idAtivoCliente, $perc) {
