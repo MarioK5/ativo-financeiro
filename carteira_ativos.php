@@ -71,8 +71,11 @@ function busca_dados($dados)   {
                     <td>
 		    	<div class="row">
                                 <div class="col-xs-6 col-md-3">
-                                    <input type="button" id="btn_carteira" value="Gerar Token"  class="btn btn-primary btn-md btn-block" onclick="xajax_gerar_token(); return false;">
+                                    <input type="button" id="btn_carteira" value="Gerar Token"  class="btn btn-success btn-md btn-block" onclick="xajax_gerar_token(); return false;">
 				</div>
+    				<div class="col-xs-6 col-md-3">
+                            		<input type="button" value="Sair"  class="btn btn-danger btn-md btn-block"  onclick="location.reload(true);"></td>
+                        	</div>
 		    <td>
                 </tr>
 		<tr>
@@ -98,17 +101,13 @@ function busca_dados($dados)   {
                     		<td>'.$token.'</td>
                 	  </tr> ';
         	}
+	}else{
+		$tela .= '<tr>
+                    		<td>Não existe Token gerado!</td>
+                	  </tr> ';
 	}
 		
-	$tela .= '<tr>
-  			<td>
-	 			<div class="col-xs-6 col-md-3">
-                            		<input type="button" value="Sair"  class="btn btn-danger btn-md btn-block"  onclick="location.reload(true);"></td>
-                        	</div>
-			</td>
-  		</tr>
-    	</table> ';
-		
+	$tela .= '</table> ';
 		
 	$resp->assign("tela_inicio","innerHTML",'');
 	$resp->assign("tela_saida","innerHTML",$tela);
