@@ -6,7 +6,7 @@ require_once("lib/xajax/xajax.inc.php");
 
 $xajax = new xajax();
 $xajax->setCharEncoding('UTF-8');
-$xajax->registerFunction("salvar_ativo");
+$xajax->registerFunction("salvarAtivo");
 $xajax->registerFunction("busca_ativos"); //preencher select do form
 $xajax->registerFunction("seleciona_setor");
 $xajax->registerFunction("seleciona_subsetor");
@@ -43,7 +43,39 @@ function busca_ativos()
 
 
 
+function salvarAtivo($id){
+    $resp = new xajaxResponse('UTF-8');
+    $jaExiste = false;
+    if (isset($_GET['id'])) {
+        $idCarteira = $_GET['id'];
+        
 
+
+        // Buscar ativos da carteira
+        $ativos = listar_ativosCarteira($idCarteira);
+        
+
+        if (!empty($ativos)) {
+            
+
+            foreach ($ativos as $ativo) {
+                if ($ativo[8]==$id){
+                    $jaExiste = true;
+                    break;
+                }
+            }
+
+            
+        }
+        if ($jaExiste){
+            $resp->alert("Ativo já existe na Carteira");
+        }else{
+            salvar_Ativo($id,$idCarteira);
+        }
+    
+    }
+
+}
 
 
 
@@ -111,7 +143,7 @@ function busca_ativos()
                     </div>
 
 
-                    <input type="button" class="btn btn-primary mb-2" value="Salvar" name="salvar" id="salvar">
+                    <input type="button" class="btn btn-primary mb-2" value="Salvar" name="salvar" id="salvar" onclick="CadastrarAtivo();">
                     <input type="button" class="btn btn-primary mb-2" value="Cancelar" name="cancelar" id="cancelar" onclick="redirecionarEditarCarteira();">
                 </form>
 
@@ -142,6 +174,14 @@ function busca_ativos()
         window.location.href = 'editarCarteira.php?id=' + idCarteira;
         }
     </script>
+    <script>
+        function CadastrarAtivo(){
+            var idAtivo = document.getElementById("ativos").value;
+            xajax_salvarAtivo(idAtivo);
+        }
+    </script>
+
+
 </body>
 
 </html>
