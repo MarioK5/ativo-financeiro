@@ -18,23 +18,7 @@ function busca_ativos()
     $resp = new xajaxResponse('UTF-8');
     $tela = '';
 
-    // Lista de Ativos
-    $resultAtivos = lista_Ativos();
-
-    if (!empty($resultAtivos)) {
-        $tela .= '<label for="ativos">Seleciona o seu ativo na lista abaixo: </label>';
-        $tela .= '<select name="ativos" id="ativos">';
-
-        foreach ($resultAtivos as $ativos) {
-            $id = $ativos[0];
-            $codigoAtivo = $ativos[1];
-            $descricao = $ativos[2];
-            $tela .= "<option value='$id'>$codigoAtivo - $descricao</option>";
-        }
-
-        $tela .= '</select>';
-    }
-
+    
     // Lista de Setores
     $resultSetores = lista_Setores();
 
@@ -48,7 +32,7 @@ function busca_ativos()
             $tela .= "<option value='$idSetor'>$descricaoSetor</option>";
         }
 
-        $tela .= '</select>';
+        $tela .= '</select></br>';
     }
 
     // Lista de SubSetores
@@ -64,7 +48,7 @@ function busca_ativos()
             $tela .= "<option value='$idSubsetor'>$descricaoSubsetor</option>";
         }
 
-        $tela .= '</select>';
+        $tela .= '</select></br>';
     }
 
     // Lista de Segmentos
@@ -78,6 +62,23 @@ function busca_ativos()
             $idSegmento = $segmentos[0];
             $descricaoSegmento = $segmentos[1];
             $tela .= "<option value='$idSegmento'>$descricaoSegmento</option>";
+        }
+
+        $tela .= '</select></br>';
+    }
+
+    // Lista de Ativos
+    $resultAtivos = lista_Ativos();
+
+    if (!empty($resultAtivos)) {
+        $tela .= '<label for="ativos">Seleciona o seu ativo na lista abaixo: </label>';
+        $tela .= '<select name="ativos" id="ativos">';
+
+        foreach ($resultAtivos as $ativos) {
+            $id = $ativos[0];
+            $codigoAtivo = $ativos[1];
+            $descricao = $ativos[2];
+            $tela .= "<option value='$id'>$codigoAtivo - $descricao</option>";
         }
 
         $tela .= '</select>';
