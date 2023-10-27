@@ -1032,16 +1032,27 @@ function gravar_investimento($dados)   {
 	}
 
 	if($soma_investimento == $novoInvestimento){
+
+		cadastroInvestimento($idCarteira,$novoInvestimento);
+			
 		for($j = 0; $j < count($dados);$j++){
+
+			$result = buscaValorAtivoCarteira($idCarteira);
+	
+			if (mysqli_num_rows($result) > 0) {
+				while ($row = mysqli_fetch_array($result)) {
+					$novaQtdeAtivos = ($dados['n_newAtivos'][$j] + $row["QTDE_ATIVOS"]);
+					$novoValorAtivo = ($dados['n_newValor'][$j] + $row["VALOR_INVESTIDO"]);
+					ajustaValorAtivoCarteira($idCarteira, $idCarteira, $idCarteira);
+				}
+			}
 		}
 	}else{
 		$resp->alert('A valor do investimento é '.$novoInvestimento.' ,mas a soma é '.$soma_investimento); return $resp;
 	}
 	
-
-	
-$resp->alert('ID cliente Investimento: '.$dados['idClienteInvest']); return $resp;
-
+	$script = "xajax_busca_investimento($idCliente)";
+    	$resp->script($script);
 	$resp->assign("tela_saida","innerHTML",$tela);
   
 	return $resp;
