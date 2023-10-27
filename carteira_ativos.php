@@ -25,6 +25,7 @@ $xajax->registerFunction("destinar_investimento");
 $xajax->registerFunction("gravar_investimento");
 $xajax->registerFunction("calcularAtivos");
 $xajax->registerFunction("historico_carteira");
+$xajax->registerFunction("gerar_token");
 $xajax->registerFunction("cadastrar_cliente");
 $xajax->registerFunction("recuperar_senha");
 $xajax->processRequest();
@@ -48,11 +49,68 @@ function busca_dados($dados)   {
 	$admin = validaAdmin($email);
 
 	if ($admin > 0) {
-	/* nessa parte deve ser listado e gerado os tokens para o Administrador Financeiro */
-		
-	$resp->alert('Admin, criar regra para listar e gerar tokens!');
-		
 
+		$tela .= '<table border="0" width=100%>
+                <tr>
+                    <td>
+		    	<div class="row">
+			    <div class="col-xs-8 col-md-8">
+			        <div class="form-group">
+				    <label>Cliente</label>
+				    <div id="sandbox-container">
+				        <div class="input-group">
+						Controle e Geração de Token
+				        </div>
+				    </div>
+			         </div>
+	    		    </div>
+			</div>
+		    <td>
+                </tr> 
+		<tr style="color:white; ">
+                    <td>
+		    	<div class="row">
+                                <div class="col-xs-6 col-md-3">
+                                    <input type="button" id="btn_carteira" value="Gerar Token"  class="btn btn-primary btn-md btn-block" onclick="xajax_gerar_token(); return false;">
+				</div>
+		    <td>
+                </tr>
+		<tr>
+  		     <td>
+			 <div id="tela_cliente" class="panel-body">
+			 	Lista de TOKENs disponiveis
+			 </div>
+  		     </td>
+  		</tr>
+		<tr>
+  		     <td>
+			<div id="tela_cliente" class="panel-body"></div>
+  		     </td>
+  		</tr> ';
+
+	$result = listaTokens();
+
+	if (mysqli_num_rows($result) > 0) {
+		while ($row = mysqli_fetch_array($result)) {
+            		$token = $row["TOKEN"];
+
+		$tela .= '<tr>
+                    		<td>'.$token.'</td>
+                	  </tr> ';
+        	}
+	}
+		
+	$tela .= '<tr>
+  			<td>
+	 			<div class="col-xs-6 col-md-3">
+                            		<input type="button" value="Sair"  class="btn btn-danger btn-md btn-block"  onclick="location.reload(true);"></td>
+                        	</div>
+			</td>
+  		</tr>
+    	</table> ';
+		
+		
+	$resp->assign("tela_inicio","innerHTML",'');
 	$resp->assign("tela_saida","innerHTML",$tela);
   
    	return $resp;
@@ -1102,6 +1160,20 @@ function calcularAtivos($dados, $ind)   {
 	$novoValor = round(($dados['n_newValor'][$ind] / $dados['valorAtualAtivo'][$ind]),0);
 
 	$resp->assign("n_newAtivos[]".$ind,"value",$novoValor);
+  
+	return $resp;
+}
+
+function gerar_token()   {
+
+	$resp = new xajaxResponse("UTF-8");
+
+	$resp->alert('Gerar Token... '); return $resp;
+
+	
+
+
+	$resp->assign("tela_cliente","innerHTML",$tela);
   
 	return $resp;
 }
