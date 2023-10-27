@@ -205,7 +205,7 @@ function cadastroInvestimento($idCarteira, $valor){
 	$conn = OpenCon();
 	
 	$sql = "INSERT INTO INVESTIMENTO (ID_CARTEIRA, VALOR, DATA)
-        	VALUES('{$idCarteira}','{$valor}',current_date()";
+        	VALUES('{$idCarteira}','{$valor}',current_date())";
 
 	$arq = fopen("log.txt","w") or die("Problemas para criar o arquivo");
         fputs($arq,$sql);
