@@ -207,10 +207,6 @@ function cadastroInvestimento($idCarteira, $valor){
 	$sql = "INSERT INTO INVESTIMENTO (ID_CARTEIRA, VALOR, DATA)
         	VALUES('{$idCarteira}','{$valor}',current_date())";
 
-	$arq = fopen("log.txt","w") or die("Problemas para criar o arquivo");
-        fputs($arq,$sql);
-        fclose($arq); 
-
 	$result = mysqli_query($conn,$sql);
 		  mysqli_commit($conn);
 	CloseCon($conn);
@@ -358,6 +354,10 @@ function ajustaValorAtivoCarteira($idAtivoCliente, $n_qtdeAtivos, $n_valorAtivos
  		SET QTDE_ATIVOS = '{$n_qtdeAtivos}',
     		VALOR = '{$n_valorAtivos}'
     		WHERE ID = '{$idAtivoCliente}'";
+	
+	$arq = fopen("log.txt","w") or die("Problemas para criar o arquivo");
+        fputs($arq,$sql);
+        fclose($arq); 
 	
 	$result = mysqli_query($conn,$sql);
 		  mysqli_commit($conn);
