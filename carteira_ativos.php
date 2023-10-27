@@ -1041,6 +1041,8 @@ function gravar_investimento($dados)   {
 	
 			if (mysqli_num_rows($result) > 0) {
 				while ($row = mysqli_fetch_array($result)) {
+					$resp->alert('A valor do investimento é '.$row["QTDE_ATIVOS"]);
+					$resp->alert('A valor do investimento é '.$row["VALOR_INVESTIDO"]);
 					$novaQtdeAtivos = ($dados['n_newAtivos'][$j] + $row["QTDE_ATIVOS"]);
 					$novoValorAtivo = ($dados['n_newValor'][$j] + $row["VALOR_INVESTIDO"]);
 					ajustaValorAtivoCarteira($idCarteira, $novaQtdeAtivos, $novoValorAtivo);
