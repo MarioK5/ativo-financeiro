@@ -90,7 +90,7 @@ function busca_dados($dados)   {
   		</tr>
 		<tr style="color:black; background-color:white;">
   		     <td>
-	 		<table>
+	 		<table class="table" border="0">
 			<div id="tela_cliente" class="panel-body">
    			';
 
