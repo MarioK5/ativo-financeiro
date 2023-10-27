@@ -103,13 +103,20 @@ function gravaTokens($token){
 	
 	$conn = OpenCon();
 
+	$ret = 0;
+	
 	$sql = "INSERT INTO CLIENTES (TOKEN) VALUES ('{$token}')";
 
 	$result = mysqli_query($conn,$sql);
 		  mysqli_commit($conn);
 	
+	if($result){
+		$ret = 1;
+	    }
+	
 	CloseCon($conn);
 	
+	return $ret;
 }
 
 function existeEmail($dados){
@@ -138,7 +145,7 @@ function novoCliente($dados){
 	
 	$nome      = strtoupper($dados['nome']);
 	$sobreNome = strtoupper($dados['sobrenome']);
-    $senha     = $dados['senha'];
+    	$senha     = $dados['senha'];
 	$email     = $dados['email'];
 	$endereco  = strtoupper($dados['endereco']);
 	$token     = $dados['token'];
