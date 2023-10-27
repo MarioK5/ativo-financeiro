@@ -1041,10 +1041,20 @@ function gravar_investimento($dados)   {
 	
 			if (mysqli_num_rows($result) > 0) {
 				while ($row = mysqli_fetch_array($result)) {
-					$resp->alert('A valor do investimento é '.$row["QTDE_ATIVOS"]);
-					$resp->alert('A valor do investimento é '.$row["VALOR_INVESTIDO"]);
+					$resp->alert('ID carteira '.$idCarteira);
+					$resp->alert('Qtde ativos antes '.$row["QTDE_ATIVOS"]);
+					$resp->alert('Ativos a somar '.$dados['n_newAtivos'][$j]);
+					
+					$resp->alert('Valor antes '.$row["VALOR_INVESTIDO"]);
+					$resp->alert('Valor a somar '.$dados['n_newValor'][$j]);
+	
+					
 					$novaQtdeAtivos = ($dados['n_newAtivos'][$j] + $row["QTDE_ATIVOS"]);
 					$novoValorAtivo = ($dados['n_newValor'][$j] + $row["VALOR_INVESTIDO"]);
+
+					$resp->alert('Ativos já somados '.$novaQtdeAtivos);
+					$resp->alert('Valores já somados '.$novoValorAtivo);
+					
 					ajustaValorAtivoCarteira($idCarteira, $novaQtdeAtivos, $novoValorAtivo);
 				}
 			}
