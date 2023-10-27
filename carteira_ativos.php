@@ -604,31 +604,38 @@ function excluir_ativo_carteira($idAtivoCarteira, $excluir, $idCliente, $idCarte
 		$result = listaAtivosCarteira($idCarteira);
 	
 		if (mysqli_num_rows($result) > 0) {
-			
-			$linhas = mysqli_num_rows($result);
-			if($linhas == 1){
-				$primeiro = 0;
-			}else{
-				if($linhas % 2 == 0) {
-				$primeiro = 0;
-				} else {
-					$primeiro = 1;
-				}
-			} 
-			
-			$dividePercentual = round((100 / $linhas),0);
-			
 			while ($row = mysqli_fetch_array($result)) {
 
-				if($ind == 0){
-					$novoPercentual = ($dividePercentual + $primeiro);
-				}else{
-					$novoPercentual = $dividePercentual;
-				}
-				alteraAtivoCarteira($row["ID"], $novoPercentual);
-			$ind++;
+				$soma_porcent += $row["PORCENTAGEM"];
 			}
-		$ind = 0;
+
+			if($soma_porcent != 100){
+				
+				$linhas = mysqli_num_rows($result);
+				if($linhas == 1){
+					$primeiro = 0;
+				}else{
+					if($linhas % 2 == 0) {
+					$primeiro = 0;
+					} else {
+						$primeiro = 1;
+					}
+				} 
+			
+				$dividePercentual = round((100 / $linhas),0);
+			
+				while ($row = mysqli_fetch_array($result)) {
+	
+					if($ind == 0){
+						$novoPercentual = ($dividePercentual + $primeiro);
+					}else{
+						$novoPercentual = $dividePercentual;
+					}
+					alteraAtivoCarteira($row["ID"], $novoPercentual);
+				$ind++;
+				}
+			$ind = 0;
+			}
 		}
 		
 		$resp->alert('Ativo eliminado!');
