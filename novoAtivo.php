@@ -19,19 +19,65 @@ function busca_ativos()
     $resp = new xajaxResponse('UTF-8');
     $tela = '';
 
-    $result = array();
-    $result = lista_Ativos();
+    // Lista de Ativos
+    $resultAtivos = lista_Ativos();
 
-    if (!empty($result)) {
+    if (!empty($resultAtivos)) {
         $tela .= '<select name="ativos" id="ativos">';
 
-        foreach ($result as $ativos) {
+        foreach ($resultAtivos as $ativos) {
             $id = $ativos[0];
             $codigoAtivo = $ativos[1];
             $descricao = $ativos[2];
-
-
             $tela .= "<option value='$id'>$codigoAtivo - $descricao</option>";
+        }
+
+        $tela .= '</select>';
+    }
+
+    // Lista de Setores
+    $resultSetores = lista_Ativos();
+
+    if (!empty($resultSetores)) {
+        $tela .= '<select name="setor" id="setores">';
+
+        foreach ($resultSetores as $setores) {
+            $idSetor = $setores[0];
+            $codigoSetor = $setores[1];
+            $descricaoSetor = $setores[2];
+            $tela .= "<option value='$idSetor'>$codigoSetor - $descricaoSetor</option>";
+        }
+
+        $tela .= '</select>';
+    }
+
+    // Lista de SubSetores
+    $resultSubsetores = lista_Ativos();
+
+    if (!empty($resultSubsetores)) {
+        $tela .= '<select name="subsetor" id="subsetores">';
+
+        foreach ($resultSubsetores as $subsetores) {
+            $idSubsetor = $subsetores[0];
+            $codigoSubsetor = $subsetores[1];
+            $descricaoSubsetor = $subsetores[2];
+            $tela .= "<option value='$idSubsetor'>$codigoSubsetor - $descricaoSubsetor</option>";
+        }
+
+        $tela .= '</select>';
+    }
+
+    // Lista de Segmentos
+    $resultSegmentos = lista_Ativos();
+
+    if (!empty($resultSegmentos)) {
+        $tela .= '<select name="segmento" id="segmentos">';
+
+        foreach ($resultSegmentos as $segmentos) {
+            $idSegmento = $segmentos[0];
+            $codigoSegmento = $segmentos[1];
+            $descricaoSegmento = $segmentos[2];
+            $tela .= "<option value='$idSegmento'>$codigoSegmento - $descricaoSegmento</option>";
         }
 
         $tela .= '</select>';
@@ -40,6 +86,8 @@ function busca_ativos()
     $resp->assign("lista_ativos", "innerHTML", $tela);
     return $resp;
 }
+
+
 
 
 
