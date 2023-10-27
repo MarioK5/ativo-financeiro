@@ -204,9 +204,11 @@ function cadastroInvestimento($idCarteira, $valor){
 	
 	$conn = OpenCon();
 	
-	$sql1 = "INSERT INTO INVESTIMENTO (ID_CARTEIRA, VALOR, DATA)
+	$sql = "INSERT INTO INVESTIMENTO (ID_CARTEIRA, VALOR, DATA)
         	VALUES('{$idCarteira}','{$valor}',current_date()";
 
+	$result = mysqli_query($conn,$sql);
+		  mysqli_commit($conn);
 	CloseCon($conn);
 	
 	return $ret;
@@ -452,12 +454,22 @@ function buscaSetor(){
 	return $result;
 }
 
-function buscaSubSetor($setor){
+function buscaSubSetor($setor,$tipo){
 	
 	$conn = OpenCon();
+
+	if($tipo == 0){
+		if($ativo == 999999){
+			$temTipo = "";
+		}else{
+			$temTipo = "WHERE ID_SETOR = '{$setor}'";
+		}
+	}else{
+		$temTipo = "WHERE ID = '{$setor}'";
+	}
 	
 	$sql = "SELECT ID, DESCRICAO, ID_SETOR FROM SUBSETOR
- 		WHERE ID_SETOR = '{$setor}' ";
+ 		$temTipo ";
 
 	$result = mysqli_query($conn,$sql);
 
@@ -466,12 +478,22 @@ function buscaSubSetor($setor){
 	return $result;
 }
 
-function buscaSegmento($subSetor){
+function buscaSegmento($subSetor,$tipo){
 	
 	$conn = OpenCon();
+
+	if($tipo == 0){
+		if($ativo == 999999){
+			$temTipo = "";
+		}else{
+			$temTipo = "WHERE ID_SUBSETOR = '{$subSetor}'";
+		}
+	}else{
+		$temTipo = "WHERE ID = '{$subSetor}'";
+	}
 	
 	$sql = "SELECT ID, DESCRICAO, ID_SUBSETOR FROM SEGMENTO
- 		WHERE ID_SUBSETOR = '{$subSetor}' ";
+ 		$temTipo ";
 
 	$result = mysqli_query($conn,$sql);
 
