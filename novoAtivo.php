@@ -43,9 +43,10 @@ function busca_ativos()
 
 
 
-function salvarAtivo($id){
+function salvarAtivo(){
     $resp = new xajaxResponse('UTF-8');
     $jaExiste = false;
+    $id = $_POST['ativos'];
     $resp->alert($id);
     /*if (isset($_GET['id'])) {
         $idCarteira = $_GET['id'];
@@ -144,7 +145,7 @@ function salvarAtivo($id){
                     </div>
 
 
-                    <input type="button" class="btn btn-primary mb-2" value="Salvar" name="salvar" id="salvar" onclick="CadastrarAtivo();">
+                    <input type="button" class="btn btn-primary mb-2" value="Salvar" name="salvar" id="salvar" onclick="xajax_salvarAtivo(); return false;">
                     <input type="button" class="btn btn-primary mb-2" value="Cancelar" name="cancelar" id="cancelar" onclick="redirecionarEditarCarteira();">
                 </form>
 
