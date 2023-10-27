@@ -56,7 +56,9 @@ function busca_dados($dados)   {
 		    	<div class="row">
 			    <div class="col-xs-8 col-md-8">
 			        <div class="form-group">
+	   			<h2>
 				    <label>Controle e Geração de Token</label>
+				</h2>
 				    <div id="sandbox-container">
 				        <div class="input-group">
 				        </div>
