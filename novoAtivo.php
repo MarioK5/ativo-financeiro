@@ -72,7 +72,7 @@ function salvarAtivo($id){
         }else{
             salvar_Ativo($id,$idCarteira);
             $resp->alert("Ativo cadastrado com Sucesso");
-            $resp->script('window.location.href = "editarCarteira.php?id='$idCarteira'";');
+            $resp->script("window.location.href = 'editarCarteira.php?id=$idCarteira';");
         }
     
     }
