@@ -99,14 +99,17 @@ function listaTokens(){
 	return $result;
 }
 
-function gravaTokens(){
+function gravaTokens($token){
 	
 	$conn = OpenCon();
-	
+
+	$sql = "INSERT INTO CLIENTES (TOKEN) VALUES ('{$token}')";
+
+	$result = mysqli_query($conn,$sql);
+		  mysqli_commit($conn);
 	
 	CloseCon($conn);
 	
-	return $ret;
 }
 
 function existeEmail($dados){
