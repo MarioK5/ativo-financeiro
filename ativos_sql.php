@@ -75,7 +75,11 @@ function maxIdToken(){
 	
 	$sql = "SELECT MAX(ID) ID FROM CLIENTES";
 
-    	$ret = mysqli_query($conn,$sql);
+    	$result = mysqli_query($conn,$sql);
+	
+	while ($row = mysqli_fetch_array($result)) {
+            		$ret  = $row["ID"];
+		}
 
 	CloseCon($conn);
 	
