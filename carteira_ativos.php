@@ -1171,13 +1171,12 @@ function gerar_token()   {
 	$resp = new xajaxResponse("UTF-8");
 
 	$maxID = maxIdToken();
-
 	$numeral = rand(100000, 999999);
-
 	$novoToken = ($maxID.$numeral);
 
-	$resp->alert('MaxID '.$maxID); 
-	$resp->alert('mumeral '.$numeral);
+	
+
+
 	$resp->alert('novo token '.$novoToken); return $resp;
 
 	$resp->assign("tela_cliente","innerHTML",$tela);
