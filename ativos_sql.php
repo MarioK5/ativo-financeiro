@@ -73,7 +73,7 @@ function maxIdToken(){
 	
 	$conn = OpenCon();
 	
-	$sql = "SELECT MAX(ID) ID FROM CLIENTES";
+	$sql = "SELECT (MAX(ID)+1) ID FROM CLIENTES";
 
     	$result = mysqli_query($conn,$sql);
 	
