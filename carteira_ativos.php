@@ -693,7 +693,7 @@ function tipo_subSetor($dados) {
 	$ret = '<select  onchange="xajax_tipo_segmento(xajax.getFormValues(\'form_cadastro\'))" id="tipo_subSetor" name="tipo_subSetor" class="form-control">
                 <option value="" disabled selected></option>';
 
-	$result = buscaSubSetor($dados['tipo_setor']);
+	$result = buscaSubSetor($dados['tipo_setor'],0);
 	
 		if (mysqli_num_rows($result) > 0) {
 			while ($row = mysqli_fetch_array($result)) {
@@ -715,7 +715,7 @@ function tipo_segmento($dados) {
 	$ret = '<select  onchange="xajax_tipo_ativo(xajax.getFormValues(\'form_cadastro\'))" id="tipo_segmento" name="tipo_segmento" class="form-control">
                 <option value="" disabled selected></option>';
 
-	$result = buscaSegmento($dados['tipo_subSetor']);
+	$result = buscaSegmento($dados['tipo_subSetor'],0);
 	
 		if (mysqli_num_rows($result) > 0) {
 			while ($row = mysqli_fetch_array($result)) {
@@ -1032,7 +1032,7 @@ function gravar_investimento($dados)   {
 	}
 
 	if($soma_investimento == $novoInvestimento){
-$resp->alert('A valor do investimento é '.$novoInvestimento);
+
 		cadastroInvestimento($idCarteira,$novoInvestimento);
 			
 		for($j = 0; $j < count($dados);$j++){
@@ -1043,7 +1043,7 @@ $resp->alert('A valor do investimento é '.$novoInvestimento);
 				while ($row = mysqli_fetch_array($result)) {
 					$novaQtdeAtivos = ($dados['n_newAtivos'][$j] + $row["QTDE_ATIVOS"]);
 					$novoValorAtivo = ($dados['n_newValor'][$j] + $row["VALOR_INVESTIDO"]);
-					ajustaValorAtivoCarteira($idCarteira, $idCarteira, $idCarteira);
+					ajustaValorAtivoCarteira($idCarteira, $novaQtdeAtivos, $novoValorAtivo);
 				}
 			}
 		}
