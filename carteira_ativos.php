@@ -1170,14 +1170,27 @@ function gerar_token()   {
 
 	$resp = new xajaxResponse("UTF-8");
 
+	$tela = '';
+
 	$maxID = maxIdToken();
 	$numeral = rand(100000, 999999);
 	$novoToken = ($maxID.$numeral);
 
-	
+	gravaTokens($novoToken);
 
+	$result = listaTokens();
 
-	$resp->alert('novo token '.$novoToken); return $resp;
+	if (mysqli_num_rows($result) > 0) {
+		while ($row = mysqli_fetch_array($result)) {
+            		$token = $row["TOKEN"];
+
+		$tela .= '<tr>
+                    		<td>'.$token.'</td>
+                	  </tr> ';
+        	}
+	}
+
+	$resp->alert('Novo Token gerado: '.$novoToken);
 
 	$resp->assign("tela_cliente","innerHTML",$tela);
   
