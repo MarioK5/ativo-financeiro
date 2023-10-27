@@ -945,6 +945,7 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 								</td>
 		                	</tr>
 		   			<input type="hidden" id="valorAtualAtivo[]'.$ind.'" name="valorAtualAtivo[]'.$ind.'" value="'.$valor_atual_ativo[$ind].'" />
+					<input type="hidden" id="idAtivoInvestimento[]'.$ind.'" name="idAtivoInvestimento[]'.$ind.'" value="'.$idAtivoCarteira[$ind].'" />
 					<input type="hidden" id="novoValorInvest" name="novoValorInvest" value="'.$valorInvest.'" />
      					<input type="hidden" id="idCarteiraInvest" name="idCarteiraInvest" value="'.$idCarteira.'" />
  					<input type="hidden" id="idClienteInvest" name="idClienteInvest" value="'.$idCliente.'" />';
@@ -1026,6 +1027,7 @@ function gravar_investimento($dados)   {
 	$idCliente        = $dados['idClienteInvest'];
 	$idCarteira       = $dados['idCarteiraInvest'];
 	$novoInvestimento = $dados['novoValorInvest'];
+	$idAtivoiInvest   = $dados['idAtivoInvestimento'];
 
 	for($i = 0; $i < count($dados);$i++){
 		$soma_investimento += $dados['n_newValor'][$i];
@@ -1037,11 +1039,11 @@ function gravar_investimento($dados)   {
 			
 		for($j = 0; $j < count($dados);$j++){
 
-			$result = buscaValorAtivoCarteira($idCarteira);
+			$result = buscaValorAtivoCarteira($idAtivoiInvest);
 	
 			if (mysqli_num_rows($result) > 0) {
 				while ($row = mysqli_fetch_array($result)) {
-					$resp->alert('ID carteira '.$idCarteira);
+					$resp->alert('ID investimento '.$idAtivoiInvest);
 					$resp->alert('Qtde ativos antes '.$row["QTDE_ATIVOS"]);
 					$resp->alert('Ativos a somar '.$dados['n_newAtivos'][$j]);
 					
@@ -1055,7 +1057,7 @@ function gravar_investimento($dados)   {
 					$resp->alert('Ativos já somados '.$novaQtdeAtivos);
 					$resp->alert('Valores já somados '.$novoValorAtivo);
 					
-					ajustaValorAtivoCarteira($idCarteira, $novaQtdeAtivos, $novoValorAtivo);
+				//	ajustaValorAtivoCarteira($idAtivoiInvest, $novaQtdeAtivos, $novoValorAtivo);
 				}
 			}
 		}
