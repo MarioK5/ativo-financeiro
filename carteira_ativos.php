@@ -1041,7 +1041,7 @@ function calcularAtivos($dados, $ind)   {
 	$resp->alert('Nova quantidade de ativos: '.$novoValor); 
 	$resp->alert('linha: '.$ind); 
 
-	$resp->assign("n_newAtivos'.$ind.'","value",$novoValor);
+	$resp->assign("n_newAtivos.$ind","value",$novoValor);
   
 	return $resp;
 }
