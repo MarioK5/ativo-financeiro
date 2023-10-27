@@ -1027,7 +1027,6 @@ function gravar_investimento($dados)   {
 	$idCliente        = $dados['idClienteInvest'];
 	$idCarteira       = $dados['idCarteiraInvest'];
 	$novoInvestimento = $dados['novoValorInvest'];
-	$idAtivoiInvest   = $dados['idAtivoInvestimento'];
 
 	for($i = 0; $i < count($dados);$i++){
 		$soma_investimento += $dados['n_newValor'][$i];
@@ -1039,11 +1038,13 @@ function gravar_investimento($dados)   {
 			
 		for($j = 0; $j < count($dados);$j++){
 
-			$result = buscaValorAtivoCarteira($idAtivoiInvest);
+			$idAtivoInvest   = $dados['idAtivoInvestimento'][$j];
+
+			$result = buscaValorAtivoCarteira($idAtivoInvest);
 	
 			if (mysqli_num_rows($result) > 0) {
 				while ($row = mysqli_fetch_array($result)) {
-					$resp->alert('ID investimento '.$idAtivoiInvest);
+					$resp->alert('ID investimento '.$idAtivoInvest);
 					$resp->alert('Qtde ativos antes '.$row["QTDE_ATIVOS"]);
 					$resp->alert('Ativos a somar '.$dados['n_newAtivos'][$j]);
 					
@@ -1065,10 +1066,10 @@ function gravar_investimento($dados)   {
 		$resp->alert('A valor do investimento é '.$novoInvestimento.' ,mas a soma é '.$soma_investimento); return $resp;
 	}
 	
+	$resp->assign("$resp->assign("tela","innerHTML","");
 	$script = "xajax_busca_investimentos($idCliente)";
     	$resp->script($script);
-	$resp->assign("tela_saida","innerHTML",$tela);
-  
+	
 	return $resp;
 }
 
