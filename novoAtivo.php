@@ -177,7 +177,9 @@ function salvarAtivo($id){
     <script>
         function CadastrarAtivo(){
             var idAtivo = document.getElementById("ativos").value;
-            xajax_salvarAtivo(idAtivo);
+            console.log(idAtivo);
+            //xajax_salvarAtivo(idAtivo);
+
         }
     </script>
 
