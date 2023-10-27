@@ -200,16 +200,12 @@ function cadastroCarteira($descricao, $idCliente){
 	return $ret;
 }
 
-function cadastroInvestimento($dados){
+function cadastroInvestimento($idCarteira, $valor){
 	
 	$conn = OpenCon();
 	
 	$sql1 = "INSERT INTO INVESTIMENTO (ID_CARTEIRA, VALOR, DATA)
         	VALUES('{$idCarteira}','{$valor}',current_date()";
-	
-	
-
-	
 
 	CloseCon($conn);
 	
@@ -330,8 +326,38 @@ function alteraAtivoCarteira($idAtivoCliente, $novaPorcentagem){
 	$result = mysqli_query($conn,$sql);
 		  mysqli_commit($conn);
 	
+	CloseCon($conn);	
+}
+
+function buscaValorAtivoCarteira($idAtivoCliente){
+	
+	$conn = OpenCon();
+
+	$sql = "SELECT QTDE_ATIVOS,
+			VALOR AS VALOR_INVESTIDO
+		   FROM ATIVOS_CLIENTE
+		  WHERE ID_CARTEIRA = '{$idAtivoCliente}'";
+	
+	$result = mysqli_query($conn,$sql);
+
 	CloseCon($conn);
 	
+	return $result;	
+}
+
+function ajustaValorAtivoCarteira($idAtivoCliente, $n_qtdeAtivos, $n_valorAtivos){
+	
+	$conn = OpenCon();
+
+	$sql = "UPDATE ATIVOS_CLIENTE
+ 		SET QTDE_ATIVOS  = '{$n_qtdeAtivos}',
+    		VALOR  = '{$n_valorAtivos}'
+    		WHERE ATIVOS_CLIENTE.ID = '{$idAtivoCliente}'";
+	
+	$result = mysqli_query($conn,$sql);
+		  mysqli_commit($conn);
+	
+	CloseCon($conn);	
 }
 
 function excluirAtivoCarteira($idAtivoCliente){
