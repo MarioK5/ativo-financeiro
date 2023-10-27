@@ -1052,6 +1052,7 @@ function gravar_investimento($dados)   {
 				}
 			}
 		}
+		$resp->alert('Investimento realizado!');
 	}else{
 		$resp->alert('A valor do investimento é '.$novoInvestimento.' ,mas a soma é '.$soma_investimento); return $resp;
 	}
