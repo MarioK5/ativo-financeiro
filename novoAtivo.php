@@ -21,7 +21,7 @@ function busca_ativos()
     $telaSubsetores = '';
     $telaSegmentos = '';
 
-    
+
     // Lista de Setores
     $resultSetores = lista_Setores();
 
@@ -41,7 +41,7 @@ function busca_ativos()
     $resp->assign("lista_setores", "innerHTML", $telaSetores);
 
     // Lista de SubSetores
-    $resultSubsetores = lista_SubSetores();
+    $resultSubsetores = lista_SubSetores(0, 0);
 
     if (!empty($resultSubsetores)) {
         $telaSubsetores .= '<label for="subsetores">Seleciona o subsetor: </label>';
@@ -58,7 +58,7 @@ function busca_ativos()
     $resp->assign("lista_subsetores", "innerHTML", $telaSubsetores);
 
     // Lista de Segmentos
-    $resultSegmentos = lista_Segmentos();
+    $resultSegmentos = lista_Segmentos(0, 0);
 
     if (!empty($resultSegmentos)) {
         $telaSegmentos .= '<label for="segmentos">Seleciona o segmento: </label>';
@@ -76,7 +76,7 @@ function busca_ativos()
     $resp->assign("lista_segmentos", "innerHTML", $telaSegmentos);
 
     // Lista de Ativos
-    $resultAtivos = lista_Ativos();
+    $resultAtivos = lista_Ativos(0, 0);
 
     if (!empty($resultAtivos)) {
         $tela .= '<label for="ativos">Seleciona o seu ativo na lista abaixo: </label>';
@@ -98,47 +98,109 @@ function busca_ativos()
 
 
 
-    function seleciona_setor($id){
-        $resp = new xajaxResponse('UTF-8');
-        $resp->alert($id);
-        return $resp;
+function seleciona_setor($id)
+{
 
+    $resp = new xajaxResponse('UTF-8');
+    $tela = '';
+    $telaSubsetores = '';
+    $telaSegmentos = '';
+    $resp->alert($id);
+    
+    // Lista de SubSetores
+    $resultSubsetores = lista_SubSetores($id, 1);
+
+    if (!empty($resultSubsetores)) {
+        $telaSubsetores .= '<label for="subsetores">Seleciona o subsetor: </label>';
+        $telaSubsetores .= '<select name="subsetor" id="subsetores">';
+
+        foreach ($resultSubsetores as $subsetores) {
+            $idSubsetor = $subsetores[0];
+            $descricaoSubsetor = $subsetores[1];
+            $telaSubsetores .= "<option value='$idSubsetor'>$descricaoSubsetor</option>";
+        }
+
+        $telaSubsetores .= '</select></br>';
+    }
+    $resp->assign("lista_subsetores", "innerHTML", $telaSubsetores);
+
+    // Lista de Segmentos
+    $resultSegmentos = lista_Segmentos($id, 2);
+
+    if (!empty($resultSegmentos)) {
+        $telaSegmentos .= '<label for="segmentos">Seleciona o segmento: </label>';
+        $telaSegmentos .= '<select name="segmento" id="segmentos">';
+
+        foreach ($resultSegmentos as $segmentos) {
+            $idSegmento = $segmentos[0];
+            $descricaoSegmento = $segmentos[1];
+            $telaSegmentos .= "<option value='$idSegmento'>$descricaoSegmento</option>";
+        }
+
+        $telaSegmentos .= '</select></br>';
     }
 
-function salvarAtivo($id){
+    $resp->assign("lista_segmentos", "innerHTML", $telaSegmentos);
+
+    // Lista de Ativos
+    $resultAtivos = lista_Ativos($id, 3);
+
+    if (!empty($resultAtivos)) {
+        $tela .= '<label for="ativos">Seleciona o seu ativo na lista abaixo: </label>';
+        $tela .= '<select name="ativos" id="ativos">';
+
+        foreach ($resultAtivos as $ativos) {
+            $id = $ativos[0];
+            $codigoAtivo = $ativos[1];
+            $descricao = $ativos[2];
+            $tela .= "<option value='$id'>$codigoAtivo - $descricao</option>";
+        }
+
+        $tela .= '</select>';
+    }
+
+    $resp->assign("lista_ativos", "innerHTML", $tela);
+
+    return $resp;
+
+
+}
+
+function salvarAtivo($id)
+{
     $resp = new xajaxResponse('UTF-8');
     $jaExiste = false;
     if (isset($_GET['id'])) {
         $idCarteira = $_GET['id'];
-        
+
 
 
         // Buscar ativos da carteira
         $ativos = listar_ativosCarteira($idCarteira);
-        
+
 
         if (!empty($ativos)) {
-            
+
 
             foreach ($ativos as $ativo) {
-                if ($ativo[8]==$id){
+                if ($ativo[8] == $id) {
                     $jaExiste = true;
                     break;
                 }
             }
 
-            
+
         }
-        if ($jaExiste){
+        if ($jaExiste) {
             $resp->alert("Ativo já existe na Carteira");
-        }else{
-            salvar_Ativo($id,$idCarteira);
+        } else {
+            salvar_Ativo($id, $idCarteira);
             $resp->alert("Ativo cadastrado com Sucesso");
             $resp->script("window.location.href = 'editarCarteira.php?id=$idCarteira';");
         }
-    
+
     }
-    
+
     return $resp;
 
 }
@@ -212,8 +274,10 @@ function salvarAtivo($id){
                     </div>
 
 
-                    <input type="button" class="btn btn-primary mb-2" value="Salvar" name="salvar" id="salvar" onclick="CadastrarAtivo();">
-                    <input type="button" class="btn btn-primary mb-2" value="Cancelar" name="cancelar" id="cancelar" onclick="redirecionarEditarCarteira();">
+                    <input type="button" class="btn btn-primary mb-2" value="Salvar" name="salvar" id="salvar"
+                        onclick="CadastrarAtivo();">
+                    <input type="button" class="btn btn-primary mb-2" value="Cancelar" name="cancelar" id="cancelar"
+                        onclick="redirecionarEditarCarteira();">
                 </form>
 
             </div>
@@ -232,19 +296,19 @@ function salvarAtivo($id){
 
     <script>
         function redirecionarEditarCarteira() {
-        // Obtém a URL atual
-        var urlAtual = window.location.search;
+            // Obtém a URL atual
+            var urlAtual = window.location.search;
 
-        // Extrai o valor do parâmetro "id" da URL
-        var urlParams = new URLSearchParams(urlAtual);
-        var idCarteira = urlParams.get('id');
+            // Extrai o valor do parâmetro "id" da URL
+            var urlParams = new URLSearchParams(urlAtual);
+            var idCarteira = urlParams.get('id');
 
-        // Redireciona para novoAtivo.php com o idCarteira como parâmetro de consulta
-        window.location.href = 'editarCarteira.php?id=' + idCarteira;
+            // Redireciona para novoAtivo.php com o idCarteira como parâmetro de consulta
+            window.location.href = 'editarCarteira.php?id=' + idCarteira;
         }
     </script>
     <script>
-        function CadastrarAtivo(){
+        function CadastrarAtivo() {
             var idAtivo = document.getElementById("ativos").value;
             console.log(idAtivo);
             xajax_salvarAtivo(idAtivo);
