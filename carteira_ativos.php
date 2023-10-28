@@ -76,7 +76,7 @@ function busca_dados($dados)   {
                                     <input type="button" id="btn_carteira" value="Gerar Token"  class="btn btn-success btn-md btn-block" onclick="xajax_gerar_token(); return false;">
 				</div>
     				<div class="col-xs-6 col-md-3">
-                            		<input type="button" value="Sair"  class="btn btn-danger btn-md btn-block"  onclick="location.reload(true);"></td>
+                            		<input type="button" value="Sair"  class="btn btn-danger btn-md btn-block"  onclick="location.reload(true);">
                         	</div>
 		    <td>
                 </tr>
@@ -1247,6 +1247,7 @@ function cadastrar_cliente()   {
                                         <div id="sandbox-container">
                                             <div class="input-group">
       						 <input type="button" value="Próximo"  class="btn btn-success btn-md btn-block" onclick="xajax_dados_cliente(xajax.getFormValues(\'form_cadastro\')); return false;">
+	     					 <input type="button" value="Cancelar"  class="btn btn-danger btn-md btn-block"  onclick="location.reload(true);">
                                             </div>
                                         </div>
                                      </div>
