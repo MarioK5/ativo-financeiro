@@ -1224,7 +1224,15 @@ function cadastrar_cliente()   {
 			    <div class="row">
        				<div class="col-xs-6 col-md-4">
     				    <div class="form-group">
-                                        <label>Informe o Token</label>
+                                        <div id="sandbox-container">
+                                            <div class="input-group">
+                                                INFORME O TOKEN QUE FOI FORNECIDO
+                                            </div>
+                                        </div>
+                                     </div>
+    				  </div>
+	  			  <div class="col-xs-6 col-md-4">
+    				    <div class="form-group">
                                         <div id="sandbox-container">
                                             <div class="input-group">
                                                 <input type="text" class="form-control" name="tokenInformado" id="tokenInformado" value=""  placeholder="Digite aqui o Token" autocomplete="off" />
@@ -1234,10 +1242,9 @@ function cadastrar_cliente()   {
     				  </div>
 				  <div class="col-xs-6 col-md-4">
     				    <div class="form-group">
-	     				<label></label>
                                         <div id="sandbox-container">
                                             <div class="input-group">
-      						 <input type="button" value="Entrar"  class="btn btn-primary btn-md btn-block" onclick="xajax_dados_cliente(xajax.getFormValues(\'form_cadastro\')); return false;">
+      						 <input type="button" value="Próximo"  class="btn btn-success btn-md btn-block" onclick="xajax_dados_cliente(xajax.getFormValues(\'form_cadastro\')); return false;">
                                             </div>
                                         </div>
                                      </div>
