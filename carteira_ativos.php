@@ -1222,9 +1222,9 @@ function cadastrar_cliente()   {
 
 	$tela = '<table class="table" border="0" width=100%>
 			    <div class="row" style="color:white; background-color:#BEBEBE;">
-       				<div class="col-xs-6 col-md-2">
+       				<div class="col-xs-6 col-md-4">
     				    <div class="form-group">
-                                        <label>Senha</label>
+                                        <label>Informe o Token</label>
                                         <div id="sandbox-container">
                                             <div class="input-group">
                                                 <input type="text" class="form-control" name="tokenInformado" id="tokenInformado" value=""  placeholder="Digite aqui o Token" autocomplete="off" />
@@ -1232,12 +1232,13 @@ function cadastrar_cliente()   {
                                         </div>
                                      </div>
     				  </div>
-				  <div class="col-xs-6 col-md-2">
+				  <div class="col-xs-6 col-md-4">
     				    <div class="form-group">
-                                        <label>Senha</label>
                                         <div id="sandbox-container">
                                             <div class="input-group">
-                                                <input type="button" value="Próximo ->"  class="btn btn-success btn-sm" onclick="xajax_dados_cliente(xajax.getFormValues(\'form_cadastro\'));">
+					    	<button type="button" class="btn btn-default btn-sm" onclick="xajax_dados_cliente(xajax.getFormValues(\'form_cadastro\'));">
+							<span class="glyphicon glyphicon-arrow-right"> Próximo</span>
+						</button>
                                             </div>
                                         </div>
                                      </div>
