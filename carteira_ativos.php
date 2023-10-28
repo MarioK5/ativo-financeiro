@@ -1314,7 +1314,7 @@ function dados_cliente($dados)   {
 		    <div class="row">
 			<div class="col-xs-4 col-md-4">
 			    <div class="form-group">
-				<label>E-mail</label>
+				<label>E-mail de Login</label>
 				<div id="sandbox-container">
 				    <div class="input-group">
 					<input type="text" class="form-control" name="emailCadastro" id="emailCadastro" value="" style="width: 300px;" />
@@ -1324,7 +1324,7 @@ function dados_cliente($dados)   {
 			</div>
 			<div class="col-xs-4 col-md-4">
 			    <div class="form-group">
-				<label>E-mail Recuperação Senha</label>
+				<label>E-mail Recuperação de Senha</label>
 				<div id="sandbox-container">
 				    <div class="input-group">
 					<input type="text" class="form-control" name="emailRecup" id="emailRecup" value="" style="width: 300px;"/>
