@@ -1274,6 +1274,11 @@ function dados_cliente()   {
 
 	$resp = new xajaxResponse("UTF-8");
 
+	$token = $dados['tokenInformado'];
+
+	if(!$token){
+		$resp->alert('Não foi informado um Token'); return $resp;
+	}
 	$resp->alert('Dados do cliente novo'); return $resp;
 
 	
