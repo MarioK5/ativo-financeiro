@@ -1220,7 +1220,7 @@ function cadastrar_cliente()   {
 
 	$resp = new xajaxResponse("UTF-8");
 
-	<table class="table" border="0" width=100%>
+	$tela = '<table class="table" border="0" width=100%>
 			    <div class="row" style="color:white; background-color:#BEBEBE;">
     				<div class="col-xs-6 col-md-2">
 				    <input type="button" value="Próximo ->"  class="btn btn-success btn-sm" onclick="xajax_dados_cliente(xajax.getFormValues(\'form_cadastro\'));">
