@@ -1284,7 +1284,9 @@ function dados_cliente($dados)   {
 	$validaToken = validaToken($token);
 
 	if($validaToken == 0){
-		$resp->alert('Token não disponivel, para realizar o cadastro!'); return $resp;	
+		$resp->alert('Token não disponivel, para realizar o cadastro!');
+		$resp->assign("tokenInformado","value","");
+		return $resp;	
 	}
 	$resp->alert('Tokem validado!');
 
