@@ -1222,14 +1222,28 @@ function cadastrar_cliente()   {
 
 	$tela = '<table class="table" border="0" width=100%>
 			    <div class="row" style="color:white; background-color:#BEBEBE;">
-    				<div class="col-xs-6 col-md-2">
-				    <input type="button" value="Próximo ->"  class="btn btn-success btn-sm" onclick="xajax_dados_cliente(xajax.getFormValues(\'form_cadastro\'));">
-				</div>
-    				<div class="col-xs-6 col-md-6">
-				    <input type="text" class="form-control" name="tokenInformado" id="tokenInformado" value=""  placeholder="Digite aqui o Token" autocomplete="off" />
-				</div>
+       				<div class="col-xs-6 col-md-2">
+    				    <div class="form-group">
+                                        <label>Senha</label>
+                                        <div id="sandbox-container">
+                                            <div class="input-group">
+                                                <input type="text" class="form-control" name="tokenInformado" id="tokenInformado" value=""  placeholder="Digite aqui o Token" autocomplete="off" />
+                                            </div>
+                                        </div>
+                                     </div>
+    				  </div>
+				  <div class="col-xs-6 col-md-2">
+    				    <div class="form-group">
+                                        <label>Senha</label>
+                                        <div id="sandbox-container">
+                                            <div class="input-group">
+                                                <input type="button" value="Próximo ->"  class="btn btn-success btn-sm" onclick="xajax_dados_cliente(xajax.getFormValues(\'form_cadastro\'));">
+                                            </div>
+                                        </div>
+                                     </div>
+    				  </div>
 			    </div>
-		</table>';
+			</table>';
 	
 
 	$resp->assign("tela_inicio","innerHTML",'');
