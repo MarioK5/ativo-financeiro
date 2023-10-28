@@ -1270,7 +1270,7 @@ function cadastrar_cliente()   {
 	return $resp;
 }
 
-function dados_cliente()   {
+function dados_cliente($dados)   {
 
 	$resp = new xajaxResponse("UTF-8");
 
