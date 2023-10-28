@@ -1229,7 +1229,7 @@ function cadastrar_cliente()   {
 				    <input type="text" class="form-control" name="tokenInformado" id="tokenInformado" value=""  placeholder="Digite aqui o Token" autocomplete="off" />
 				</div>
 			    </div>
-		</table>
+		</table>';
 	
 
 	$resp->assign("tela_inicio","innerHTML",'');
