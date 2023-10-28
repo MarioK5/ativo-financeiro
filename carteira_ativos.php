@@ -28,6 +28,7 @@ $xajax->registerFunction("historico_carteira");
 $xajax->registerFunction("gerar_token");
 $xajax->registerFunction("cadastrar_cliente");
 $xajax->registerFunction("dados_cliente");
+$xajax->registerFunction("salvar_dados");
 $xajax->registerFunction("recuperar_senha");
 $xajax->processRequest();
   
@@ -1285,7 +1286,72 @@ function dados_cliente($dados)   {
 	if($validaToken == 0){
 		$resp->alert('Token não disponivel, para realizar o cadastro!'); return $resp;	
 	}
-	$resp->alert('Tokem valido'); return $resp;
+	$resp->alert('Tokem validado!');
+
+	$tela = '<div class="panel-body" id="tela_cadastr">
+ 		     <div class="row">
+			<div class="col-xs-4 col-md-4">
+			    <div class="form-group">
+				<label>Nome</label>
+				<div id="sandbox-container">
+				    <div class="input-group">
+					<input type="text" class="form-control" name="nomeNovo" id="nomeNovo" value=""/>
+				    </div>
+				</div>
+			    </div>
+			</div>
+			<div class="col-xs-4 col-md-4">
+			    <div class="form-group">
+				<label>Sobrenome</label>
+				<div id="sandbox-container">
+				    <div class="input-group">
+					<input type="password" class="form-control" name="sobrenome" id="sobrenome" value=""/>
+				    </div>
+				</div>
+			    </div>
+			</div>
+		    </div>
+		    <div class="row">
+			<div class="col-xs-4 col-md-4">
+			    <div class="form-group">
+				<label>E-mail</label>
+				<div id="sandbox-container">
+				    <div class="input-group">
+					<input type="text" class="form-control" name="emailNovo" id="emailNovo" value=""/>
+				    </div>
+				</div>
+			    </div>
+			</div>
+			<div class="col-xs-2 col-md-2">
+			    <div class="form-group">
+				<label>E-mail Recuperação Senha</label>
+				<div id="sandbox-container">
+				    <div class="input-group">
+					<input type="password" class="form-control" name="emailRecup" id="emailRecup" value=""/>
+				    </div>
+				</div>
+			    </div>
+			</div>
+		    </div>
+		    <div class="row">
+			<div class="col-xs-6 col-md-2">
+			    <input type="button" value=Cadastrar"  class="btn btn-success btn-md btn-block" onclick="xajax_salvar_dados(xajax.getFormValues('form_cadastro')); return false;">
+			</div>
+		    </div>
+		</div>
+	  ';
+
+
+	$resp->assign("tela_saida","innerHTML",$tela);
+  
+	return $resp;
+}
+
+function salvar_dados($dados)   {
+
+	$resp = new xajaxResponse("UTF-8");
+
+	$resp->alert('Salvar os dados'); return $resp;
 
 	
 
