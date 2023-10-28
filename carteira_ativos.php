@@ -27,6 +27,7 @@ $xajax->registerFunction("calcularAtivos");
 $xajax->registerFunction("historico_carteira");
 $xajax->registerFunction("gerar_token");
 $xajax->registerFunction("cadastrar_cliente");
+$xajax->registerFunction("dados_cliente");
 $xajax->registerFunction("recuperar_senha");
 $xajax->processRequest();
   
@@ -1219,7 +1220,29 @@ function cadastrar_cliente()   {
 
 	$resp = new xajaxResponse("UTF-8");
 
-	$resp->alert('Cadastrar cliente: '); return $resp;
+	$tela = '<table class="table" border="0" width=100%>
+			    <div class="row" style="color:white; background-color:#BEBEBE;">
+    				<div class="col-xs-6 col-md-2">
+				    <input type="button" value="Próximo ->"  class="btn btn-success btn-sm" onclick="xajax_dados_cliente(xajax.getFormValues(\'form_cadastro\'));">
+				</div>
+    				<div class="col-xs-6 col-md-6">
+				    <input type="text" class="form-control" name="tokenInformado" id="tokenInformado" value=""  placeholder="Digite aqui o Token" autocomplete="off" />
+				</div>
+			    </div>
+		</table>';
+	
+
+	$resp->assign("tela_inicio","innerHTML",'');
+	$resp->assign("tela_saida","innerHTML",$tela);
+  
+	return $resp;
+}
+
+function dados_cliente()   {
+
+	$resp = new xajaxResponse("UTF-8");
+
+	$resp->alert('Dados do cliente novo'); return $resp;
 
 	
 
