@@ -17,54 +17,60 @@ function busca_ativos()
 {
     $resp = new xajaxResponse('UTF-8');
     $tela = '';
+    $telaSetores = '';
+    $telaSubsetores = '';
+    $telaSegmentos = '';
 
     
     // Lista de Setores
     $resultSetores = lista_Setores();
 
     if (!empty($resultSetores)) {
-        $tela .= '<label for="setores">Seleciona o setor: </label>';
-        $tela .= '<select name="setor" id="setores" onchange="xajax_seleciona_setor(this.options[this.selectedIndex].value); return false;">';
+        $telaSetores .= '<label for="setores">Seleciona o setor: </label>';
+        $telaSetores .= '<select name="setor" id="setores" onchange="xajax_seleciona_setor(this.options[this.selectedIndex].value); return false;">';
 
         foreach ($resultSetores as $setores) {
             $idSetor = $setores[0];
             $descricaoSetor = $setores[1];
-            $tela .= "<option value='$idSetor'>$descricaoSetor</option>";
+            $telaSetores .= "<option value='$idSetor'>$descricaoSetor</option>";
         }
 
-        $tela .= '</select></br>';
+        $telaSetores .= '</select></br>';
     }
+
+    $resp->assign("lista_setores", "innerHTML", $telaSetores);
 
     // Lista de SubSetores
     $resultSubsetores = lista_SubSetores();
 
     if (!empty($resultSubsetores)) {
-        $tela .= '<label for="subsetores">Seleciona o subsetor: </label>';
-        $tela .= '<select name="subsetor" id="subsetores">';
+        $telaSubsetores .= '<label for="subsetores">Seleciona o subsetor: </label>';
+        $telaSubsetores .= '<select name="subsetor" id="subsetores">';
 
         foreach ($resultSubsetores as $subsetores) {
             $idSubsetor = $subsetores[0];
             $descricaoSubsetor = $subsetores[1];
-            $tela .= "<option value='$idSubsetor'>$descricaoSubsetor</option>";
+            $telaSubsetores .= "<option value='$idSubsetor'>$descricaoSubsetor</option>";
         }
 
-        $tela .= '</select></br>';
+        $telaSubsetores .= '</select></br>';
     }
+    $resp->assign("lista_subsetores", "innerHTML", $telaSubsetores);
 
     // Lista de Segmentos
     $resultSegmentos = lista_Segmentos();
 
     if (!empty($resultSegmentos)) {
-        $tela .= '<label for="segmentos">Seleciona o segmento: </label>';
-        $tela .= '<select name="segmento" id="segmentos">';
+        $telaSegmentos .= '<label for="segmentos">Seleciona o segmento: </label>';
+        $telaSegmentos .= '<select name="segmento" id="segmentos">';
 
         foreach ($resultSegmentos as $segmentos) {
             $idSegmento = $segmentos[0];
             $descricaoSegmento = $segmentos[1];
-            $tela .= "<option value='$idSegmento'>$descricaoSegmento</option>";
+            $telaSegmentos .= "<option value='$idSegmento'>$descricaoSegmento</option>";
         }
 
-        $tela .= '</select></br>';
+        $telaSegmentos .= '</select></br>';
     }
 
     // Lista de Ativos
@@ -196,6 +202,9 @@ function salvarAtivo($id){
                 <h1 class="mt-4">Cadastrar Novo Ativo</h1>
                 <form role="form" id="form_cadastro">
                     <div class="form-group">
+                        <div id="lista_setores" name="lista_setores" class="panel-body"></div>
+                        <div id="lista_subsetores" name="lista_subsetores" class="panel-body"></div>
+                        <div id="lista_segmentos" name="lista_segmentos" class="panel-body"></div>
                         <div id="lista_ativos" name="lista_ativos" class="panel-body"></div>
 
                     </div>
