@@ -1295,7 +1295,7 @@ function dados_cliente($dados)   {
 				<label>Nome</label>
 				<div id="sandbox-container">
 				    <div class="input-group">
-					<input type="text" class="form-control" name="nomeCadastro" id="nomeCadastro" value=""/>
+					<input type="text" class="form-control" name="nomeCadastro" id="nomeCadastro" value="" style="width: 300px;"/>
 				    </div>
 				</div>
 			    </div>
@@ -1305,7 +1305,7 @@ function dados_cliente($dados)   {
 				<label>Sobrenome</label>
 				<div id="sandbox-container">
 				    <div class="input-group">
-					<input type="text" class="form-control" name="sobrenomeCadastro" id="sobrenomeCadastro" value=""/>
+					<input type="text" class="form-control" name="sobrenomeCadastro" id="sobrenomeCadastro" value="" style="width: 300px;"/>
 				    </div>
 				</div>
 			    </div>
@@ -1317,7 +1317,7 @@ function dados_cliente($dados)   {
 				<label>E-mail</label>
 				<div id="sandbox-container">
 				    <div class="input-group">
-					<input type="text" class="form-control" name="emailCadastro" id="emailCadastro" value=""/>
+					<input type="text" class="form-control" name="emailCadastro" id="emailCadastro" value="" style="width: 300px;"/>
 				    </div>
 				</div>
 			    </div>
@@ -1327,7 +1327,7 @@ function dados_cliente($dados)   {
 				<label>E-mail Recuperação Senha</label>
 				<div id="sandbox-container">
 				    <div class="input-group">
-					<input type="text" class="form-control" name="emailRecup" id="emailRecup" value=""/>
+					<input type="text" class="form-control" name="emailRecup" id="emailRecup" value="" style="width: 300px;"/>
 				    </div>
 				</div>
 			    </div>
@@ -1339,7 +1339,7 @@ function dados_cliente($dados)   {
 				<label>Endereço</label>
 				<div id="sandbox-container">
 				    <div class="input-group">
-					<input type="text" class="form-control" name="endereco" id="endereco" value=""/>
+					<input type="text" class="form-control" name="endereco" id="endereco" value="" style="width: 600px;"/>
 				    </div>
 				</div>
 			    </div>
@@ -1351,7 +1351,7 @@ function dados_cliente($dados)   {
 				<label>Senha</label>
 				<div id="sandbox-container">
 				    <div class="input-group">
-					<input type="password" class="form-control" name="senhaCadastro" id="senhaCadastro" value=""/>
+					<input type="password" class="form-control" name="senhaCadastro" id="senhaCadastro" value="" style="width: 300px;"/>
 				    </div>
 				</div>
 			    </div>
@@ -1361,7 +1361,7 @@ function dados_cliente($dados)   {
 				<label>Confirmar Senha</label>
 				<div id="sandbox-container">
 				    <div class="input-group">
-					<input type="password" class="form-control" name="confirmarSenha" id="confirmarSenha" value=""/>
+					<input type="password" class="form-control" name="confirmarSenha" id="confirmarSenha" value="" style="width: 300px;"/>
 				    </div>
 				</div>
 			    </div>
