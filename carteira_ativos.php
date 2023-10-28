@@ -1222,7 +1222,7 @@ function cadastrar_cliente()   {
 
 	$tela = '<table class="table" border="0" width=100%>
 			    <div class="row">
-       				<div class="col-xs-6 col-md-4">
+       				<div class="col-xs-6 col-md-6">
     				    <div class="form-group">
                                         <div id="sandbox-container">
                                             <div class="input-group">
@@ -1231,7 +1231,9 @@ function cadastrar_cliente()   {
                                         </div>
                                      </div>
     				  </div>
-	  			  <div class="col-xs-6 col-md-4">
+			    </div>
+       			    <div class="row">
+	  			  <div class="col-xs-3 col-md-3">
     				    <div class="form-group">
                                         <div id="sandbox-container">
                                             <div class="input-group">
@@ -1240,7 +1242,7 @@ function cadastrar_cliente()   {
                                         </div>
                                      </div>
     				  </div>
-				  <div class="col-xs-6 col-md-4">
+				  <div class="col-xs-3 col-md-3">
     				    <div class="form-group">
                                         <div id="sandbox-container">
                                             <div class="input-group">
