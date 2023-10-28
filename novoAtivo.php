@@ -73,6 +73,8 @@ function busca_ativos()
         $telaSegmentos .= '</select></br>';
     }
 
+    $resp->assign("lista_segmentos", "innerHTML", $tela);
+
     // Lista de Ativos
     $resultAtivos = lista_Ativos();
 
