@@ -1233,7 +1233,7 @@ function cadastrar_cliente()   {
     				  </div>
 			    </div>
        			    <div class="row">
-	  			  <div class="col-xs-3 col-md-3">
+	  			  <div class="col-xs-2 col-md-2">
     				    <div class="form-group">
                                         <div id="sandbox-container">
                                             <div class="input-group">
@@ -1242,7 +1242,7 @@ function cadastrar_cliente()   {
                                         </div>
                                      </div>
     				  </div>
-				  <div class="col-xs-3 col-md-3">
+				  <div class="col-xs-4 col-md-4">
     				    <div class="form-group">
                                         <div id="sandbox-container">
                                             <div class="input-group">
