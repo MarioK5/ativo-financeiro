@@ -1237,7 +1237,7 @@ function cadastrar_cliente()   {
 	     				<label></label>
                                         <div id="sandbox-container">
                                             <div class="input-group">
-      						 <input type="button" value="Entrar"  class="btn btn-primary btn-sm btn-block" onclick="xajax_dados_cliente(xajax.getFormValues(\'form_cadastro\')); return false;">
+      						 <input type="button" value="Entrar"  class="btn btn-primary btn-md btn-block" onclick="xajax_dados_cliente(xajax.getFormValues(\'form_cadastro\')); return false;">
                                             </div>
                                         </div>
                                      </div>
@@ -1390,7 +1390,7 @@ tbody,#tela_saida,#tela_inicio{
                                         <div id="sandbox-container">
                                             <div class="input-group">
                                                 <div>
-                                                    <a href="#" class="link-primary" onclick="xajax_cadastrar_cliente();">Cacastrar novo Cliente.</a>
+                                                    <a href=" " class="link-primary" onclick="xajax_cadastrar_cliente();">Cacastrar novo Cliente.</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -1401,7 +1401,7 @@ tbody,#tela_saida,#tela_inicio{
                                         <div id="sandbox-container">
                                             <div class="input-group">
                                                 <div>
-                                                    <a href="#" class="link-danger" onclick="xajax_recuperar_senha();">Esqueceu a senha! Recupere por aqui...</a>
+                                                    <a href=" " class="link-danger" onclick="xajax_recuperar_senha();">Esqueceu a senha! Recupere por aqui...</a>
                                                 </div>
                                             </div>
                                         </div>
