@@ -1221,7 +1221,7 @@ function cadastrar_cliente()   {
 	$resp = new xajaxResponse("UTF-8");
 
 	$tela = '<table class="table" border="0" width=100%>
-			    <div class="row" style="color:white; background-color:#BEBEBE;">
+			    <div class="row">
        				<div class="col-xs-6 col-md-4">
     				    <div class="form-group">
                                         <label>Informe o Token</label>
@@ -1234,6 +1234,7 @@ function cadastrar_cliente()   {
     				  </div>
 				  <div class="col-xs-6 col-md-4">
     				    <div class="form-group">
+	     				<label></label>
                                         <div id="sandbox-container">
                                             <div class="input-group">
       						 <input type="button" value="Entrar"  class="btn btn-primary btn-sm btn-block" onclick="xajax_dados_cliente(xajax.getFormValues(\'form_cadastro\')); return false;">
