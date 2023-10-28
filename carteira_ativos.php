@@ -1279,7 +1279,13 @@ function dados_cliente()   {
 	if(!$token){
 		$resp->alert('Não foi informado um Token'); return $resp;
 	}
-	$resp->alert('Dados do cliente novo'); return $resp;
+
+	$validaToken = validaToken($token);
+
+	if($validaToken == 0){
+		$resp->alert('Token não disponivel, para realizar o cadastro!'); return $resp;	
+	}
+	$resp->alert('Tokem valido'); return $resp;
 
 	
 
