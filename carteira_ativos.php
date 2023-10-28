@@ -1335,11 +1335,10 @@ function dados_cliente($dados)   {
 		    </div>
 		    <div class="row">
 			<div class="col-xs-6 col-md-2">
-			    <input type="button" value=Cadastrar"  class="btn btn-success btn-md btn-block" onclick="xajax_salvar_dados(xajax.getFormValues('form_cadastro')); return false;">
+			    <input type="button" value="Cadastrar"  class="btn btn-success btn-md btn-block" onclick="xajax_salvar_dados(xajax.getFormValues(\'form_cadastro\')); return false;">
 			</div>
 		    </div>
-		</div>
-	  ';
+		</div> ';
 
 
 	$resp->assign("tela_saida","innerHTML",$tela);
