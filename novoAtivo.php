@@ -24,7 +24,7 @@ function busca_ativos()
 
     if (!empty($resultSetores)) {
         $tela .= '<label for="setores">Seleciona o setor: </label>';
-        $tela .= '<select name="setor" id="setores">';
+        $tela .= '<select name="setor" id="setores" onchange="xajax_seleciona_setor(this.options[this.selectedIndex].value); return false;">';
 
         foreach ($resultSetores as $setores) {
             $idSetor = $setores[0];
@@ -90,7 +90,12 @@ function busca_ativos()
 
 
 
+    function seleciona_setor($id){
+        $resp = new xajaxResponse('UTF-8');
+        $resp->alert($id);
+        return $resp;
 
+    }
 
 function salvarAtivo($id){
     $resp = new xajaxResponse('UTF-8');
