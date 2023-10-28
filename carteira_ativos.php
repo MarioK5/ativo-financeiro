@@ -1222,7 +1222,7 @@ function cadastrar_cliente()   {
 
 	$tela = '<table class="table" border="0" width=100%>
 			    <div class="row">
-       				<div class="col-xs-6 col-md-6">
+       				<div class="col-xs-8 col-md-8">
     				    <div class="form-group">
                                         <div id="sandbox-container">
                                             <div class="input-group">
@@ -1233,7 +1233,7 @@ function cadastrar_cliente()   {
     				  </div>
 			    </div>
        			    <div class="row">
-	  			  <div class="col-xs-2 col-md-2">
+	  			  <div class="col-xs-4 col-md-4">
     				    <div class="form-group">
                                         <div id="sandbox-container">
                                             <div class="input-group">
@@ -1242,11 +1242,19 @@ function cadastrar_cliente()   {
                                         </div>
                                      </div>
     				  </div>
-				  <div class="col-xs-4 col-md-4">
+				  <div class="col-xs-2 col-md-2">
     				    <div class="form-group">
                                         <div id="sandbox-container">
                                             <div class="input-group">
       						 <input type="button" value="Próximo"  class="btn btn-success btn-md btn-block" onclick="xajax_dados_cliente(xajax.getFormValues(\'form_cadastro\')); return false;">
+                                            </div>
+                                        </div>
+                                     </div>
+    				  </div>
+	  			  <div class="col-xs-2 col-md-2">
+    				    <div class="form-group">
+                                        <div id="sandbox-container">
+                                            <div class="input-group">
 	     					 <input type="button" value="Cancelar"  class="btn btn-danger btn-md btn-block"  onclick="location.reload(true);">
                                             </div>
                                         </div>
