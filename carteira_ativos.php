@@ -1295,7 +1295,7 @@ function dados_cliente($dados)   {
 				<label>Nome</label>
 				<div id="sandbox-container">
 				    <div class="input-group">
-					<input type="text" class="form-control" name="nomeNovo" id="nomeNovo" value=""/>
+					<input type="text" class="form-control" name="nomeCadastro" id="nomeCadastro" value=""/>
 				    </div>
 				</div>
 			    </div>
@@ -1305,7 +1305,7 @@ function dados_cliente($dados)   {
 				<label>Sobrenome</label>
 				<div id="sandbox-container">
 				    <div class="input-group">
-					<input type="password" class="form-control" name="sobrenome" id="sobrenome" value=""/>
+					<input type="text" class="form-control" name="sobrenomeCadastro" id="sobrenomeCadastro" value=""/>
 				    </div>
 				</div>
 			    </div>
@@ -1317,26 +1317,75 @@ function dados_cliente($dados)   {
 				<label>E-mail</label>
 				<div id="sandbox-container">
 				    <div class="input-group">
-					<input type="text" class="form-control" name="emailNovo" id="emailNovo" value=""/>
+					<input type="text" class="form-control" name="emailCadastro" id="emailCadastro" value=""/>
 				    </div>
 				</div>
 			    </div>
 			</div>
-			<div class="col-xs-2 col-md-2">
+			<div class="col-xs-4 col-md-4">
 			    <div class="form-group">
 				<label>E-mail Recuperação Senha</label>
 				<div id="sandbox-container">
 				    <div class="input-group">
-					<input type="password" class="form-control" name="emailRecup" id="emailRecup" value=""/>
+					<input type="text" class="form-control" name="emailRecup" id="emailRecup" value=""/>
+				    </div>
+				</div>
+			    </div>
+			</div>
+		    </div>
+      		    <div class="row">
+			<div class="col-xs-8 col-md-8">
+			    <div class="form-group">
+				<label>Endereço</label>
+				<div id="sandbox-container">
+				    <div class="input-group">
+					<input type="text" class="form-control" name="endereco" id="endereco" value=""/>
+				    </div>
+				</div>
+			    </div>
+			</div>
+		    </div>
+      		     <div class="row">
+			<div class="col-xs-4 col-md-4">
+			    <div class="form-group">
+				<label>Senha</label>
+				<div id="sandbox-container">
+				    <div class="input-group">
+					<input type="password" class="form-control" name="senhaCadastro" id="senhaCadastro" value=""/>
+				    </div>
+				</div>
+			    </div>
+			</div>
+			<div class="col-xs-4 col-md-4">
+			    <div class="form-group">
+				<label>Confirmar Senha</label>
+				<div id="sandbox-container">
+				    <div class="input-group">
+					<input type="password" class="form-control" name="confirmarSenha" id="confirmarSenha" value=""/>
 				    </div>
 				</div>
 			    </div>
 			</div>
 		    </div>
 		    <div class="row">
-			<div class="col-xs-6 col-md-2">
-			    <input type="button" value="Cadastrar"  class="btn btn-success btn-md btn-block" onclick="xajax_salvar_dados(xajax.getFormValues(\'form_cadastro\')); return false;">
-			</div>
+			<div class="col-xs-2 col-md-2">
+    			     <div class="form-group">
+				<div id="sandbox-container">
+				    <div class="input-group">
+					    <input type="button" value="Cadastrar"  class="btn btn-success btn-md btn-block" onclick="xajax_salvar_dados(xajax.getFormValues(\'form_cadastro\')); return false;">
+				    </div>
+  				 </div>
+			     </div>
+			  </div>
+   			<div class="col-xs-2 col-md-2">
+			    <div class="form-group">
+				<div id="sandbox-container">
+				    <div class="input-group">
+					 <input type="button" value="Cancelar"  class="btn btn-danger btn-md btn-block"  onclick="location.reload(true);">
+				    </div>
+				</div>
+			     </div>
+			  </div>
 		    </div>
 		</div> ';
 
