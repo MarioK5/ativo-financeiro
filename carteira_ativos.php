@@ -1236,9 +1236,7 @@ function cadastrar_cliente()   {
     				    <div class="form-group">
                                         <div id="sandbox-container">
                                             <div class="input-group">
-					    	<button type="button" class="btn btn-default btn-sm" onclick="xajax_dados_cliente(xajax.getFormValues(\'form_cadastro\'));">
-							<span class="glyphicon glyphicon-arrow-right"> Próximo</span>
-						</button>
+      						 <input type="button" value="Entrar"  class="btn btn-primary btn-sm btn-block" onclick="xajax_dados_cliente(xajax.getFormValues(\'form_cadastro\')); return false;">
                                             </div>
                                         </div>
                                      </div>
