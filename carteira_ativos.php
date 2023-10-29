@@ -1045,7 +1045,7 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 								</td>
 								<td>
 									<input type="text" class="form-control" name="n1_newValor[]'.$ind.'" id="n1_newValor[]'.$ind.'" onchange="xajax_calcularAtivos(xajax.getFormValues(\'form_cadastro\'),'.$ind.')" value="'.number_format($valorSugerido,2,",",".").'" style="width: 100px;" />
-	 								<input type="hidden" class="form-control" name="n2_newValor[]'.$ind.'" id="n2_newValor[]'.$ind.'" value="'.round($valorSugerido,2).'" style="width: 100px;" />
+	 								<input type="hidden" class="form-control" name="n2_newValor[]'.$ind.'" id="n2_newValor[]'.$ind.'" value="'.number_format($valorSugerido,2,".",",").'" style="width: 100px;" />
 								</td>
 		                	</tr>
 		   			<input type="hidden" id="valorAtualAtivo[]'.$ind.'" name="valorAtualAtivo[]'.$ind.'" value="'.$valor_atual_ativo[$ind].'" />
