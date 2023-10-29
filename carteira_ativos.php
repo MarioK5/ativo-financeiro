@@ -615,7 +615,7 @@ function excluir_ativo_carteira($idAtivoCarteira, $excluir, $idCliente, $idCarte
 			$resp->alert('soma percentual: '.$soma_porcent);
 
 			if($soma_porcent <> 100){
-				
+				$resp->alert('entrou: ');
 				$linhas = mysqli_num_rows($result);
 				if($linhas == 1){
 					$primeiro = 0;
