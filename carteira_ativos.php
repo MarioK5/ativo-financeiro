@@ -108,7 +108,7 @@ function busca_dados($dados)   {
 		$tela .= '<tr style="color:black; background-color:white;">
                     		<td>'.$token.'</td>
 		      		<td>
-	  			    <div id="token.'.$token.'">
+	  			    <div id="token'.$token.'">
      				        <button type="button" class="btn btn-default btn-sm" onclick="xajax_reservar_token('.$token.'); ">
 					     <span class="glyphicon glyphicon-check"> Reservar Token</span>
 				         </button>
@@ -1210,7 +1210,7 @@ function gerar_token()   {
 			$tela .= '<tr style="color:black; background-color:white;">
 	                    		<td>'.$token.'</td>
 		       			<td>
-	     				    <div id="token.'.$token.'">
+	     				    <div id="token'.$token.'">
 	     				        <button type="button" class="btn btn-default btn-sm" onclick="xajax_reservar_token('.$token.'); ">
 						     <span class="glyphicon glyphicon-check"> Reservar Token</span>
 					         </button>
