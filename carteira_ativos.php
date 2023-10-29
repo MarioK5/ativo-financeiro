@@ -109,7 +109,7 @@ function busca_dados($dados)   {
                     		<td>'.$token.'</td>
 		      		<td>
      				     <button type="button" class="btn btn-default btn-sm" onclick="xajax_reservar_token('.$token.'); ">
-					 <span class="glyphicon glyphicon-check"> Reservar Token</span>
+					 <span class="glyphicon glyphicon-ok-circle"> Reservar Token</span>
 				     </button>
      				</td>
                 	  </tr> ';
@@ -1209,7 +1209,7 @@ function gerar_token()   {
 	                    		<td>'.$token.'</td>
 		       			<td>
 	     				     <button type="button" class="btn btn-default btn-sm" onclick="xajax_reservar_token('.$token.'); ">
-						 <span class="glyphicon glyphicon-check"> Reservar Token</span>
+						 <span class="glyphicon glyphicon-ok-circle"> Reservar Token</span>
 					     </button>
 	     				</td>
 	                	  </tr> ';
