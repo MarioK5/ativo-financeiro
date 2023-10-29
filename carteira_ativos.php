@@ -1241,8 +1241,8 @@ function reservar_token($token)   {
 
 	$texto = '* RESERVADO *';
 
-	$resp->assign("token_x".$token,"value","");
-	$resp->assign("token".$token,"value",$texto);
+	$resp->assign("token_x".$token,"innerHTML","");
+	$resp->assign("token".$token,"innerHTML",$texto);
   
 	return $resp;
 }
