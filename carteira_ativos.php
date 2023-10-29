@@ -1132,7 +1132,7 @@ function gravar_investimento($dados)   {
 	$novoInvestimento = $dados['novoValorInvest'];
 
 	for($i = 0; $i < count($dados);$i++){
-		$soma_investimento += $dados['n_newValor'][$i];
+		$soma_investimento += number_format($dados['n_newValor'][$i],2,".",",");
 	}
 
 	if($soma_investimento == $novoInvestimento){
