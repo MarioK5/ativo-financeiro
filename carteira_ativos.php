@@ -108,10 +108,12 @@ function busca_dados($dados)   {
 		$tela .= '<tr style="color:black; background-color:white;">
                     		<td>'.$token.'</td>
 		      		<td>
-	  			    <div id="token'.$token.'" value="">
+	  			    <div id="token'.$token.'">
+	   				<div id="token_x'.$token.'">
      				        <button type="button" class="btn btn-default btn-sm" onclick="xajax_reservar_token('.$token.'); ">
 					     <span class="glyphicon glyphicon-check"> Reservar Token</span>
 				         </button>
+	     				</div>
 	     			    </div>
      				</td>
                 	  </tr> ';
@@ -1210,10 +1212,12 @@ function gerar_token()   {
 			$tela .= '<tr style="color:black; background-color:white;">
 	                    		<td>'.$token.'</td>
 		       			<td>
-	     				    <div id="token'.$token.'" value="">
+	     				    <div id="token'.$token.'">
+		   				<div id="token_x'.$token.'">
 	     				        <button type="button" class="btn btn-default btn-sm" onclick="xajax_reservar_token('.$token.'); ">
 						     <span class="glyphicon glyphicon-check"> Reservar Token</span>
 					         </button>
+		     				</div>
 		     			    </div>
 	     				</td>
 	                	  </tr> ';
@@ -1237,7 +1241,7 @@ function reservar_token($token)   {
 
 	$texto = '* RESERVADO *';
 
-	$resp->assign("token".$token,"value","");
+	$resp->assign("token_x".$token,"value","");
 	$resp->assign("token".$token,"value",$texto);
   
 	return $resp;
