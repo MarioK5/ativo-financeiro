@@ -1044,9 +1044,7 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 									<input type="text" class="form-control" name="n_newAtivos[]'.$ind.'" id="n_newAtivos[]'.$ind.'" value="'.number_format($ativosSugeridos,0,",",".").'" style="width: 40px;" />
 								</td>
 								<td>
-									<input type="text" class="form-control" name="n1_newValor[]'.$ind.'" id="n1_newValor[]'.$ind.'" onchange="xajax_calcularAtivos(xajax.getFormValues(\'form_cadastro\'),'.$ind.')" value="'.number_format($valorSugerido,2,",",".").'" style="width: 100px;" />
-	 								<input type="hidden" class="form-control" name="n2_newValor[]'.$ind.'" id="n2_newValor[]'.$ind.'" value="'.number_format($valorSugerido,2,".",",").'" style="width: 100px;" />
-								</td>
+									<input type="text" class="form-control" name="n_newValor[]'.$ind.'" id="n_newValor[]'.$ind.'" onchange="xajax_calcularAtivos(xajax.getFormValues(\'form_cadastro\'),'.$ind.')" value="'.number_format($valorSugerido,2,",",".").'" style="width: 100px;" />				
 		                	</tr>
 		   			<input type="hidden" id="valorAtualAtivo[]'.$ind.'" name="valorAtualAtivo[]'.$ind.'" value="'.$valor_atual_ativo[$ind].'" />
 					<input type="hidden" id="idAtivoInvestimento[]'.$ind.'" name="idAtivoInvestimento[]'.$ind.'" value="'.$idAtivoCarteira[$ind].'" />
@@ -1133,7 +1131,8 @@ function gravar_investimento($dados)   {
 	$novoInvestimento = $dados['novoValorInvest'];
 
 	for($i = 0; $i < count($dados);$i++){
-		$soma_investimento += $dados['n2_newValor'][$i];
+		$valoFormatado = str_replace(',','.',$dados['n_newValor'][$i]);
+		$soma_investimento += $valoFormatado;
 	}
 
 	if($soma_investimento == $novoInvestimento){
@@ -1148,9 +1147,10 @@ function gravar_investimento($dados)   {
 	
 			if (mysqli_num_rows($result) > 0) {
 				while ($row = mysqli_fetch_array($result)) {
-										
+					
+					$valoFormatado = str_replace(',','.',$dados['n_newValor'][$j]);	
+					$novoValorAtivo = ($valoFormatado + $row["VALOR_INVESTIDO"]);
 					$novaQtdeAtivos = ($dados['n_newAtivos'][$j] + $row["QTDE_ATIVOS"]);
-					$novoValorAtivo = ($dados['n2_newValor'][$j] + $row["VALOR_INVESTIDO"]);
 					
 					ajustaValorAtivoCarteira($idAtivoInvest, $novaQtdeAtivos, $novoValorAtivo);
 				}
@@ -1171,10 +1171,8 @@ function calcularAtivos($dados, $ind)   {
 
 	$resp = new xajaxResponse("UTF-8");
 
-	$novoValor = number_format($dados['n1_newValor'][$ind],2,".",",");
-	$novoAtivo = round(($dados['n1_newValor'][$ind] / $dados['valorAtualAtivo'][$ind]),0);
+	$novoAtivo = round(($dados['n_newValor'][$ind] / $dados['valorAtualAtivo'][$ind]),0);
 
-	$resp->assign("n2_newValor[]".$ind,"value",$novoValor);
 	$resp->assign("n_newAtivos[]".$ind,"value",$novoAtivo);
   
 	return $resp;
