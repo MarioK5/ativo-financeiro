@@ -108,9 +108,11 @@ function busca_dados($dados)   {
 		$tela .= '<tr style="color:black; background-color:white;">
                     		<td>'.$token.'</td>
 		      		<td>
-     				     <button type="button" class="btn btn-default btn-sm" onclick="xajax_reservar_token('.$token.'); ">
-					 <span class="glyphicon glyphicon-check"> Reservar Token</span>
-				     </button>
+	  			    <div id="token.'.$token.'">
+     				        <button type="button" class="btn btn-default btn-sm" onclick="xajax_reservar_token('.$token.'); ">
+					     <span class="glyphicon glyphicon-check"> Reservar Token</span>
+				         </button>
+	     			    </div>
      				</td>
                 	  </tr> ';
         	}
@@ -1208,9 +1210,11 @@ function gerar_token()   {
 			$tela .= '<tr style="color:black; background-color:white;">
 	                    		<td>'.$token.'</td>
 		       			<td>
-	     				     <button type="button" class="btn btn-default btn-sm" onclick="xajax_reservar_token('.$token.'); ">
-						 <span class="glyphicon glyphicon-check"> Reservar Token</span>
-					     </button>
+	     				    <div id="token.'.$token.'">
+	     				        <button type="button" class="btn btn-default btn-sm" onclick="xajax_reservar_token('.$token.'); ">
+						     <span class="glyphicon glyphicon-check"> Reservar Token</span>
+					         </button>
+		     			    </div>
 	     				</td>
 	                	  </tr> ';
 	        	}
@@ -1229,9 +1233,11 @@ function reservar_token($token)   {
 
 	$resp = new xajaxResponse("UTF-8");
 
-	$resp->alert('Reservar Token '.$token);
+	$resp->alert('Token reservado!');
 
-	$resp->assign("tela_token","value",$tela);
+	$texto = "* RESERVADO *"
+
+	$resp->assign("token".$token,"value",$texto);
   
 	return $resp;
 }
