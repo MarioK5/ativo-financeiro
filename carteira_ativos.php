@@ -1044,7 +1044,7 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 									<input type="text" class="form-control" name="n_newAtivos[]'.$ind.'" id="n_newAtivos[]'.$ind.'" value="'.number_format($ativosSugeridos,0,",",".").'" style="width: 40px;" />
 								</td>
 								<td>
-									<input type="text" class="form-control" name="n_newValor[]'.$ind.'" id="n_newValor[]'.$ind.'" onchange="xajax_calcularAtivos(xajax.getFormValues(\'form_cadastro\'),'.$ind.')" value="'.number_format($valorSugerido,2,",",".").'" style="width: 100px;" />
+									<input type="text" class="form-control" name="n_newValor[]'.$ind.'" id="n_newValor[]'.$ind.'" onchange="xajax_calcularAtivos(xajax.getFormValues(\'form_cadastro\'),'.$ind.')" value="'.number_format($valorSugerido,2,".",",").'" style="width: 100px;" />
 								</td>
 		                	</tr>
 		   			<input type="hidden" id="valorAtualAtivo[]'.$ind.'" name="valorAtualAtivo[]'.$ind.'" value="'.$valor_atual_ativo[$ind].'" />
@@ -1132,8 +1132,8 @@ function gravar_investimento($dados)   {
 	$novoInvestimento = $dados['novoValorInvest'];
 
 	for($i = 0; $i < count($dados);$i++){
-		$resp->alert('valor: '.number_format($dados['n_newValor'][$i],2,".",","));
-		$soma_investimento += number_format($dados['n_newValor'][$i],2,".",",");
+		$resp->alert('valor: '.$dados['n_newValor'][$i]);
+		$soma_investimento += $dados['n_newValor'][$i];
 	}
 
 	if($soma_investimento == $novoInvestimento){
