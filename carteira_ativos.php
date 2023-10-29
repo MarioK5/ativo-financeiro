@@ -611,7 +611,7 @@ function excluir_ativo_carteira($idAtivoCarteira, $excluir, $idCliente, $idCarte
 				$soma_porcent += $row["PORCENTAGEM"];
 			}
 
-			if($soma_porcent != 100){
+			if($soma_porcent <> 100){
 				
 				$linhas = mysqli_num_rows($result);
 				if($linhas == 1){
