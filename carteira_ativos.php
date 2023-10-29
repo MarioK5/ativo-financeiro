@@ -1239,7 +1239,7 @@ function reservar_token($token)   {
 
 	$resp->alert('Token reservado!');
 
-	$texto = '* RESERVADO *';
+	$texto = '<b>RESERVADO</b>';
 
 	$resp->assign("token_x".$token,"innerHTML","");
 	$resp->assign("token".$token,"innerHTML",$texto);
