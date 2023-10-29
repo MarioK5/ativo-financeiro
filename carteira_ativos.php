@@ -599,6 +599,8 @@ function excluir_ativo_carteira($idAtivoCarteira, $excluir, $idCliente, $idCarte
 
 	$resp = new xajaxResponse("UTF-8");
 
+	$soma_porcent = 0;
+
 	if($excluir == 1){
 		excluirAtivoCarteira($idAtivoCarteira);
 		
@@ -610,6 +612,7 @@ function excluir_ativo_carteira($idAtivoCarteira, $excluir, $idCliente, $idCarte
 
 				$soma_porcent += $row["PORCENTAGEM"];
 			}
+			$resp->alert('soma percentual: '.$soma_porcent);
 
 			if($soma_porcent <> 100){
 				
@@ -639,6 +642,7 @@ function excluir_ativo_carteira($idAtivoCarteira, $excluir, $idCliente, $idCarte
 			$ind = 0;
 			}
 		}
+		$soma_porcent = 0;
 		
 		$resp->alert('Ativo eliminado!');
 	}else{
