@@ -1285,7 +1285,7 @@ function dados_cliente($dados)   {
 		$resp->assign("tokenInformado","value","");
 		return $resp;	
 	}
-	$resp->alert('Tokem validado!');
+	$resp->alert('Token validado!');
 
 	$tela = '<div class="panel-body" id="tela_cadastr">
  		     <div class="row">
