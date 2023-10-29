@@ -1171,10 +1171,11 @@ function calcularAtivos($dados, $ind)   {
 
 	$resp = new xajaxResponse("UTF-8");
 
-	$novoValor = round(($dados['n1_newValor'][$ind] / $dados['valorAtualAtivo'][$ind]),0);
+	$novoValor = number_format($dados['n1_newValor'][$ind],2,".",",");
+	$novoAtivo = round(($dados['n1_newValor'][$ind] / $dados['valorAtualAtivo'][$ind]),0);
 
-	$resp->assign("n2_newValor[]".$ind,"value",$dados['n1_newValor'][$ind]);
-	$resp->assign("n_newAtivos[]".$ind,"value",$novoValor);
+	$resp->assign("n2_newValor[]".$ind,"value",$novoValor);
+	$resp->assign("n_newAtivos[]".$ind,"value",$novoAtivo);
   
 	return $resp;
 }
