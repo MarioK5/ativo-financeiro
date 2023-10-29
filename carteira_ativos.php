@@ -26,6 +26,7 @@ $xajax->registerFunction("gravar_investimento");
 $xajax->registerFunction("calcularAtivos");
 $xajax->registerFunction("historico_carteira");
 $xajax->registerFunction("gerar_token");
+$xajax->registerFunction("reservar_token");
 $xajax->registerFunction("cadastrar_cliente");
 $xajax->registerFunction("dados_cliente");
 $xajax->registerFunction("salvar_dados");
@@ -106,6 +107,11 @@ function busca_dados($dados)   {
 
 		$tela .= '<tr style="color:black; background-color:white;">
                     		<td>'.$token.'</td>
+		      		<td>
+     				     <button type="button" class="btn btn-default btn-sm" onclick="xajax_reservar_token('.$token.'); ">
+					 <span class="glyphicon glyphicon-check">Reservar Token</span>
+				     </button>
+     				</td>
                 	  </tr> ';
         	}
 	}else{
@@ -1201,6 +1207,11 @@ function gerar_token()   {
 	
 			$tela .= '<tr style="color:black; background-color:white;">
 	                    		<td>'.$token.'</td>
+		       			<td>
+	     				     <button type="button" class="btn btn-default btn-sm" onclick="xajax_reservar_token('.$token.'); ">
+						 <span class="glyphicon glyphicon-check">Reservar Token</span>
+					     </button>
+	     				</td>
 	                	  </tr> ';
 	        	}
 			$tela .= '</table>';
@@ -1210,6 +1221,17 @@ function gerar_token()   {
 
 	$resp->assign("tela_token","innerHTML",'');
 	$resp->assign("tela_token","innerHTML",$tela);
+  
+	return $resp;
+}
+
+function reservar_token($token)   {
+
+	$resp = new xajaxResponse("UTF-8");
+
+	$resp->alert('Reservar Token '.$token);
+
+	$resp->assign("tela_token","value",$tela);
   
 	return $resp;
 }
