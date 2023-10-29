@@ -1132,6 +1132,7 @@ function gravar_investimento($dados)   {
 	$novoInvestimento = $dados['novoValorInvest'];
 
 	for($i = 0; $i < count($dados);$i++){
+		$resp->alert('valor: '.number_format($dados['n_newValor'][$i],2,".",","));
 		$soma_investimento += number_format($dados['n_newValor'][$i],2,".",",");
 	}
 
