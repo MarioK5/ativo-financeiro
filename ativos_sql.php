@@ -99,7 +99,7 @@ function listaTokens(){
 	return $result;
 }
 
-function gravaTokens($token){
+function gravaToken($token){
 	
 	$conn = OpenCon();
 
@@ -119,11 +119,9 @@ function gravaTokens($token){
 	return $ret;
 }
 
-function existeEmail($dados){
+function existeEmail($email){
 	
 	$conn = OpenCon();
-
-    $email  = $dados['email'];
 	
 	$ret = 0;
 	
