@@ -1431,11 +1431,11 @@ function salvar_dados($dados)   {
 
 	$resp = new xajaxResponse("UTF-8");
 
-	$nome       = $dados['nomeCadastro'];
-	$sobrenome  = $dados['sobrenomeCadastro'];
+	$nome       = strtoupper($dados['nomeCadastro']);
+	$sobrenome  = strtoupper($dados['sobrenomeCadastro']);
 	$email      = $dados['emailCadastro'];
 	$emailRecup = $dados['emailRecup'];
-	$endereco   = $dados['endereco'];
+	$endereco   = strtoupper($dados['endereco']);
 	$senha      = $dados['senhaCadastro'];
 	$confSenha  = $dados['confirmarSenha'];
 
