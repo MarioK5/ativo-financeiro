@@ -1431,9 +1431,21 @@ function salvar_dados($dados)   {
 
 	$resp = new xajaxResponse("UTF-8");
 
-	$resp->alert('Salvar os dados'); return $resp;
+	$nome       = $dados['nomeCadastro'];
+	$sobrenome  = $dados['sobrenomeCadastro'];
+	$email      = $dados['emailCadastro'];
+	$emailRecup = $dados['emailRecup'];
+	$endereco   = $dados['endereco'];
+	$senha      = $dados['senhaCadastro'];
+	$confSenha  = $dados['confirmarSenha'];
 
-	
+	$resp->alert('Nome: '.$nome);
+	$resp->alert('Sobrenome: '.$sobrenome);
+	$resp->alert('E-mail: '.$email);
+	$resp->alert('E-mail recup: '.$emailRecup);
+	$resp->alert('Endereço: '.$endereco);
+	$resp->alert('Senha: '.$senha);
+	$resp->alert('Conf senha: '.$confSenha); return $resp;
 
 
 	$resp->assign("tela_saida","innerHTML",$tela);
