@@ -1404,6 +1404,7 @@ function dados_cliente($dados)   {
     			     <div class="form-group">
 				<div id="sandbox-container">
 				    <div class="input-group">
+					    <input type="hidden" id="tokenCadastro" name="tokenCadastro" value="'.$token.'" />';
 					    <input type="button" value="Cadastrar"  class="btn btn-success btn-md btn-block" onclick="xajax_salvar_dados(xajax.getFormValues(\'form_cadastro\')); return false;">
 				    </div>
   				 </div>
@@ -1432,28 +1433,34 @@ function salvar_dados($dados)   {
 	$resp = new xajaxResponse("UTF-8");
 
 	$nome       = strtoupper($dados['nomeCadastro']);
-	$sobrenome  = strtoupper($dados['sobrenomeCadastro']);
+	$sobreNome  = strtoupper($dados['sobrenomeCadastro']);
 	$email      = $dados['emailCadastro'];
 	$emailRecup = $dados['emailRecup'];
 	$endereco   = strtoupper($dados['endereco']);
 	$senha      = $dados['senhaCadastro'];
 	$confSenha  = $dados['confirmarSenha'];
+	$token      = $dados['tokenCadastro'];
 
 	if(!$nome){
 		$resp->alert('Nome não foi informado!'); return $resp;
 	}
-	if(!$sobrenome){
+ 
+	if(!$sobreNome){
 		$resp->alert('Sobrenome não foi informado!'); return $resp;
 	}
+ 
 	if(!$email){
 		$resp->alert('e-mail não foi informado!'); return $resp;
 	}
+ 
 	if(!$emailRecup){
 		$resp->alert('e-mail para recuperação de senha não foi informado!'); return $resp;
 	}
+ 
 	if(!$senha){
 		$resp->alert('Senha não foi informada!'); return $resp;
 	}
+ 
 	if(!$confSenha){
 		$resp->alert('Confirmação de senha não foi informada!'); return $resp;
 	}
@@ -1472,8 +1479,9 @@ function salvar_dados($dados)   {
 		$resp->alert('As senhas informadas são diferentes!'); return $resp;
 	}
 
+	novoCliente($nome,$sobreNome,$email,$emailRecup,$senha,$endereco,$token);
 	
-	$resp->alert('Dados validados com sucesso!'); return $resp;
+	$resp->alert('Dados salvos com sucesso!');
 
 	$resp->assign("tela_saida","innerHTML",$tela);
   
