@@ -1479,7 +1479,7 @@ function salvar_dados($dados)   {
 		$resp->alert('As senhas informadas são diferentes!'); return $resp;
 	}
 
-	novoCliente($nome,$sobreNome,$email,$emailRecup,$senha,$endereco,$token);
+//	novoCliente($nome,$sobreNome,$email,$emailRecup,$senha,$endereco,$token);
 	
 	$resp->alert('Dados salvos com sucesso!');
 
