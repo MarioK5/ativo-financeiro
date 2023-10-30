@@ -1439,21 +1439,41 @@ function salvar_dados($dados)   {
 	$senha      = $dados['senhaCadastro'];
 	$confSenha  = $dados['confirmarSenha'];
 
-	$existeMail = existeEmail($email);
-	if($existeMail== 1){
-		$resp->alert('E-mail '.$email.' já esta cadastrado!'); return $resp;
+	if(!$nome){
+		$resp->alert('Nome não foi informado!'); return $resp;
+	}
+	if(!$sobrenome){
+		$resp->alert('Sobrenome não foi informado!'); return $resp;
+	}
+	if(!$email){
+		$resp->alert('e-mail não foi informado!'); return $resp;
+	}
+	if(!$emailRecup){
+		$resp->alert('e-mail para recuperação de senha não foi informado!'); return $resp;
+	}
+	if(!$senha){
+		$resp->alert('Senha não foi informada!'); return $resp;
+	}
+	if(!$confSenha){
+		$resp->alert('Confirmação de senha não foi informada!'); return $resp;
 	}
 
-	$resp->alert('Nome: '.$nome);
-	$resp->alert('Sobrenome: '.$sobrenome);
-	$resp->alert('E-mail: '.$email);
-	$resp->alert('E-mail recup: '.$emailRecup);
-	$resp->alert('Endereço: '.$endereco);
-	$resp->alert('Senha: '.$senha);
-	$resp->alert('Conf senha: '.$confSenha); return $resp;
+	$existeMail = existeEmail($email);
+	if($existeMail== 1){
+		$resp->alert('O e-mail '.$email.' já esta cadastrado!'); return $resp;
+	}
+
+	$tamanhoSenha = strlen($senha);
+	if($tamanhoSenha < 6){
+		$resp->alert('A senha deve ter no mínimo 6 caracteres!'); return $resp;
+	}
+
+	if(strcmp($senha, $confSenha) !== 0){
+		$resp->alert('As senhas informadas são diferentes!'); return $resp;
+	}
 
 	
-
+	$resp->alert('Dados validados com sucesso!'); return $resp;
 
 	$resp->assign("tela_saida","innerHTML",$tela);
   
