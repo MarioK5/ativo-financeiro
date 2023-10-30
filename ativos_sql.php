@@ -137,37 +137,23 @@ function existeEmail($email){
 	return $ret;
 }
 
-function novoCliente($dados){
+function novoCliente($nome,$sobreNome,$email,$emailRecup,$senha,$endereco,$token){
 	
 	$conn = OpenCon();
-	
-	$nome      = strtoupper($dados['nome']);
-	$sobreNome = strtoupper($dados['sobrenome']);
-    	$senha     = $dados['senha'];
-	$email     = $dados['email'];
-	$endereco  = strtoupper($dados['endereco']);
-	$token     = $dados['token'];
-	
-	$ret = 0;
-	
+		
 	$sql = "UPDATE CLIENTES 
 			SET NOME      = '{$nome}',
 				SOBRENOME = '{$sobreNome}',
 				SENHA     = '{$senha}',
 				EMAIL     = '{$email}',
-				ENDERECO  = '{$endereco}'
+				ENDERECO  = '{$endereco}',
+    				EMAIL_RECUP = '{$emailRecup}'
 			WHERE TOKEN   = '{$token}'";
 
 	$result = mysqli_query($conn,$sql);
 		mysqli_commit($conn);
-	
-	if(mysql_affected_rows() > 0){
-		$ret = 1;
-	}
 
 	CloseCon($conn);
-	
-	return $ret;
 }
 
 function alteraCliente($dados){
