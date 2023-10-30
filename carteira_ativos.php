@@ -1383,7 +1383,7 @@ function dados_cliente($dados)   {
 				<label>Senha</label>
 				<div id="sandbox-container">
 				    <div class="input-group">
-					<input type="password" class="form-control" name="senhaCadastro" id="senhaCadastro" value="" style="width: 300px;" autocomplete="off"/>
+					<input type="password" class="form-control" name="senhaCadastro" id="senhaCadastro" placeholder="Mínimo 6 caracteres" value="" style="width: 300px;" autocomplete="off"/>
 				    </div>
 				</div>
 			    </div>
