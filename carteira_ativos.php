@@ -1404,7 +1404,7 @@ function dados_cliente($dados)   {
     			     <div class="form-group">
 				<div id="sandbox-container">
 				    <div class="input-group">
-					    <input type="hidden" id="tokenCadastro" name="tokenCadastro" value="'.$token.'" />';
+					   
 					    <input type="button" value="Cadastrar"  class="btn btn-success btn-md btn-block" onclick="xajax_salvar_dados(xajax.getFormValues(\'form_cadastro\')); return false;">
 				    </div>
   				 </div>
@@ -1481,7 +1481,7 @@ function salvar_dados($dados)   {
 
 //	novoCliente($nome,$sobreNome,$email,$emailRecup,$senha,$endereco,$token);
 	
-	$resp->alert('Dados salvos com sucesso!');
+	$resp->alert('Dados salvos com sucesso!'); return $resp;
 
 	$resp->script("window.location.reload(true)");
   
