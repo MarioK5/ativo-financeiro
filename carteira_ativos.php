@@ -1439,6 +1439,11 @@ function salvar_dados($dados)   {
 	$senha      = $dados['senhaCadastro'];
 	$confSenha  = $dados['confirmarSenha'];
 
+	$existeMail = existeEmail($email);
+	if($existeMail== 1){
+		$resp->alert('E-mail '.$email.' já esta cadastrado!'); return $resp;
+	}
+
 	$resp->alert('Nome: '.$nome);
 	$resp->alert('Sobrenome: '.$sobrenome);
 	$resp->alert('E-mail: '.$email);
