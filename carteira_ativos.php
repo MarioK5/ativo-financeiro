@@ -1405,7 +1405,7 @@ function dados_cliente($dados)   {
 				<div id="sandbox-container">
 				    <div class="input-group">
 					   
-					    <input type="button" value="Cadastrar"  class="btn btn-success btn-md btn-block" onclick="xajax_salvar_dados(xajax.getFormValues(\'form_cadastro\')); return false;">
+					    <input type="button" value="Cadastrar"  class="btn btn-success btn-md btn-block" onclick="xajax_salvar_dados(xajax.getFormValues(\'form_cadastro\'),'.$token.'); return false;">
 				    </div>
   				 </div>
 			     </div>
@@ -1428,7 +1428,7 @@ function dados_cliente($dados)   {
 	return $resp;
 }
 
-function salvar_dados($dados)   {
+function salvar_dados($dados,$token)   {
 
 	$resp = new xajaxResponse("UTF-8");
 
@@ -1439,7 +1439,8 @@ function salvar_dados($dados)   {
 	$endereco   = strtoupper($dados['endereco']);
 	$senha      = $dados['senhaCadastro'];
 	$confSenha  = $dados['confirmarSenha'];
-	$token      = $dados['tokenCadastro'];
+
+	$resp->alert('token: '.$token); return $resp;
 
 	if(!$nome){
 		$resp->alert('Nome não foi informado!'); return $resp;
