@@ -1403,8 +1403,7 @@ function dados_cliente($dados)   {
 			<div class="col-xs-2 col-md-2">
     			     <div class="form-group">
 				<div id="sandbox-container">
-				    <div class="input-group">
-					   
+				    <div class="input-group">  
 					    <input type="button" value="Cadastrar"  class="btn btn-success btn-md btn-block" onclick="xajax_salvar_dados(xajax.getFormValues(\'form_cadastro\'),'.$token.'); return false;">
 				    </div>
   				 </div>
@@ -1439,8 +1438,6 @@ function salvar_dados($dados,$token)   {
 	$endereco   = strtoupper($dados['endereco']);
 	$senha      = $dados['senhaCadastro'];
 	$confSenha  = $dados['confirmarSenha'];
-
-	$resp->alert('token: '.$token); return $resp;
 
 	if(!$nome){
 		$resp->alert('Nome não foi informado!'); return $resp;
@@ -1482,7 +1479,7 @@ function salvar_dados($dados,$token)   {
 
 //	novoCliente($nome,$sobreNome,$email,$emailRecup,$senha,$endereco,$token);
 	
-	$resp->alert('Dados salvos com sucesso!'); return $resp;
+	$resp->alert('Dados salvos com sucesso!');
 
 	$resp->script("window.location.reload(true)");
   
