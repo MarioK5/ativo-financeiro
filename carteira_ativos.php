@@ -1196,7 +1196,7 @@ function gerar_token()   {
 	$numeral = rand(100000, 999999);
 	$novoToken = ($maxID.$numeral);
 
-	$gravou = gravaTokens($novoToken);
+	$gravou = gravaToken($novoToken);
 
 	if($gravou == 1){
 
@@ -1446,6 +1446,8 @@ function salvar_dados($dados)   {
 	$resp->alert('Endereço: '.$endereco);
 	$resp->alert('Senha: '.$senha);
 	$resp->alert('Conf senha: '.$confSenha); return $resp;
+
+	
 
 
 	$resp->assign("tela_saida","innerHTML",$tela);
