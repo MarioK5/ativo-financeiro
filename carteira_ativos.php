@@ -1483,7 +1483,7 @@ function salvar_dados($dados)   {
 	
 	$resp->alert('Dados salvos com sucesso!');
 
-	$resp->assign("tela_saida","innerHTML",$tela);
+	$resp->script("window.location.reload(true)");
   
 	return $resp;
 }
