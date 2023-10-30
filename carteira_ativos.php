@@ -251,6 +251,17 @@ function busca_carteiras($idCliente)   {
         	}
 			
 		$tela .= '</table>';	
+	}else{
+		$tela .= '<table border="0" width=100%>
+			      <div class="row" style="color:white; background-color:#BEBEBE;">
+				  <div class="col-xs-6 col-md-2">
+				      <input type="button" value="Criar Nova Carteira"  class="btn btn-success btn-sm" onclick="xajax_cadastrar_carteira(document.getElementById(\'desc_carteira\').value,'.$idCliente.',0);">
+				  </div>
+				  <div class="col-xs-6 col-md-6">
+				      <input type="text" class="form-control" name="desc_carteira" id="desc_carteira" value=""  placeholder="Digite aqui o nome da nova carteira..." autocomplete="off" />
+				  </div>
+			      </div>
+			</table>';
 	}
 
 	$resp->assign("desc_carteira","value","");
