@@ -1333,12 +1333,12 @@ function dados_cliente($dados)   {
 
 	$tela = '<div class="panel-body" id="tela_cadastr">
  		     <div class="row">
-			<div class="col-xs-8 col-md-8">
+			<div class="col-xs-4 col-md-4">
 			    <div class="form-group">
 				<div id="sandbox-container">
 				    <div class="input-group">
-					<div class="form-group">
-                                                <b>*  Campos obrigatórios!</b>
+					<div class="form-group" style="font-size: 20px; color: red;">
+                                                *  Campos obrigatórios!
                                             </div>
 				    </div>
 				</div>
