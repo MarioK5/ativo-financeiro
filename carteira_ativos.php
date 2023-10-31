@@ -1463,9 +1463,15 @@ function salvar_dados($dados,$token)   {
 	$senha      = $dados['senhaCadastro'];
 	$confSenha  = $dados['confirmarSenha'];
 
-	$re = "/@/";
-
-	preg_match_all($re, $email, $tem, PREG_OFFSET_CAPTURE);
+	$re = "@";
+	$tem = 0;
+	
+	$arr = str_split($email,1);
+	    foreach($arr as $value){
+	        if($value==strtolower($re)||$value==strtoupper($re)){
+	            $tem = 1;
+	        }
+	    }
 
 	$resp->alert('O e-mail tem '.$tem); return $resp;
 
