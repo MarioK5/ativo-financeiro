@@ -1344,6 +1344,15 @@ function dados_cliente($dados)   {
 				</div>
 			    </div>
 			</div>
+   			<div class="col-xs-4 col-md-4">
+			    <div class="form-group">
+				<div id="sandbox-container">
+				    <div class="input-group">
+
+				    </div>
+				</div>
+			    </div>
+			</div>
       		    <div class="row">
 			<div class="col-xs-4 col-md-4">
 			    <div class="form-group">
