@@ -1501,7 +1501,7 @@ function salvar_dados($dados,$token)   {
 		    $tem = 1;
 		}
 	}
-	if($tamanhoEmail < 12 || $tem == 0){
+	if($tamanhoEmail < 14 || $tem == 0){
 		$resp->alert('Não foi informado um e-mail valido!'); return $resp;
 	}
 
@@ -1514,7 +1514,7 @@ function salvar_dados($dados,$token)   {
 		    $tem2 = 1;
 		}
 	}
-	if($tamanhoEmail2 < 12 || $tem2 == 0){
+	if($tamanhoEmail2 < 14 || $tem2 == 0){
 		$resp->alert('Não foi informado um e-mail valido para recuperação!'); return $resp;
 	}
 
