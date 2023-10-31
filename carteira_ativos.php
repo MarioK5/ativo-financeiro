@@ -1463,18 +1463,6 @@ function salvar_dados($dados,$token)   {
 	$senha      = $dados['senhaCadastro'];
 	$confSenha  = $dados['confirmarSenha'];
 
-	$re = "@";
-	$tem = 0;
-	
-	$arr = str_split($email,1);
-	    foreach($arr as $value){
-	        if($value==strtolower($re)||$value==strtoupper($re)){
-	            $tem = 1;
-	        }
-	    }
-
-	$resp->alert('O e-mail tem '.$tem); return $resp;
-
 	if(!$nome){
 		$resp->alert('Nome não foi informado!'); return $resp;
 	}
@@ -1503,12 +1491,19 @@ function salvar_dados($dados,$token)   {
 	if($existeMail== 1){
 		$resp->alert('O e-mail '.$email.' já esta cadastrado!'); return $resp;
 	}
+	
 	$tamanhoEmail = strlen($email);
-	$re = "/@/";
-
-	preg_match_all($re, $email, $tem, PREG_OFFSET_CAPTURE);
-
-	$resp->alert('O e-mail tem '.$tem); return $resp;
+	$re = "@";
+	$tem = 0;
+	$arr = str_split($email,1);
+	foreach($arr as $value){
+		if($value==strtolower($re)||$value==strtoupper($re)){
+		    $tem = 1;
+		}
+	}
+	if($tamanhoEmail < 9 || $tem == 0){
+		$resp->alert('Não foi informado um e-mail valido!'); return $resp;
+	}
 
 	$tamanhoSenha = strlen($senha);
 	if($tamanhoSenha < 6){
