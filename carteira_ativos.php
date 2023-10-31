@@ -1337,8 +1337,8 @@ function dados_cliente($dados)   {
 			    <div class="form-group">
 				<div id="sandbox-container">
 				    <div class="input-group">
-					<div class="form-group" style="font-size: 20px; color: red;">
-                                                * <= Campos obrigatórios!
+					<div class="form-group" style="font-size: 18px; color: red;">
+                                                *  Campos obrigatórios!
                                             </div>
 				    </div>
 				</div>
