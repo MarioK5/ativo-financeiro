@@ -1333,7 +1333,7 @@ function dados_cliente($dados)   {
 
 	$tela = '<div class="panel-body" id="tela_cadastr">
  		     <div class="row">
-			<div class="col-xs-4 col-md-4">
+			<div class="col-xs-8 col-md-8">
 			    <div class="form-group">
 				<div id="sandbox-container">
 				    <div class="input-group">
@@ -1344,15 +1344,7 @@ function dados_cliente($dados)   {
 				</div>
 			    </div>
 			</div>
-   			<div class="col-xs-4 col-md-4">
-			    <div class="form-group">
-				<div id="sandbox-container">
-				    <div class="input-group">
-
-				    </div>
-				</div>
-			    </div>
-			</div>
+   		    </div>
       		    <div class="row">
 			<div class="col-xs-4 col-md-4">
 			    <div class="form-group">
