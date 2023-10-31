@@ -1335,10 +1335,11 @@ function dados_cliente($dados)   {
  		     <div class="row">
 			<div class="col-xs-8 col-md-8">
 			    <div class="form-group">
-				<label>Nome</label>
 				<div id="sandbox-container">
 				    <div class="input-group">
-					* - Campos obrigatorios.
+					<div class="form-group">
+                                                <b>*  Campos obrigatórios!</b>
+                                            </div>
 				    </div>
 				</div>
 			    </div>
