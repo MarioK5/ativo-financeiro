@@ -1501,8 +1501,21 @@ function salvar_dados($dados,$token)   {
 		    $tem = 1;
 		}
 	}
-	if($tamanhoEmail < 9 || $tem == 0){
+	if($tamanhoEmail < 12 || $tem == 0){
 		$resp->alert('Não foi informado um e-mail valido!'); return $resp;
+	}
+
+	$tamanhoEmail2 = strlen($emailRecup);
+	$re2 = "@";
+	$tem2 = 0;
+	$arr2 = str_split($emailRecup,1);
+	foreach($arr2 as $value2){
+		if($value2==strtolower($re2)||$value2==strtoupper($re2)){
+		    $tem2 = 1;
+		}
+	}
+	if($tamanhoEmail2 < 12 || $tem2 == 0){
+		$resp->alert('Não foi informado um e-mail valido para recuperação!'); return $resp;
 	}
 
 	$tamanhoSenha = strlen($senha);
