@@ -119,6 +119,20 @@ function gravaToken($token){
 	return $ret;
 }
 
+function reservarToken($token){
+	
+	$conn = OpenCon();
+
+	$sql = "UPDATE CLIENTES 
+			SET NOME = '1'
+			WHERE TOKEN = '{$token}'";
+	
+	$result = mysqli_query($conn,$sql);
+		  mysqli_commit($conn);
+	
+	CloseCon($conn);	
+}
+
 function existeEmail($email){
 	
 	$conn = OpenCon();
