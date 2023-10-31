@@ -1248,6 +1248,8 @@ function reservar_token($token)   {
 
 	$resp = new xajaxResponse("UTF-8");
 
+	reservarToken($token);
+
 	$resp->alert('Token reservado!');
 
 	$texto = '<b><font color="green">* RESERVADO *</font></b>';
