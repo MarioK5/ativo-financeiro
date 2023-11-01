@@ -104,16 +104,23 @@ function busca_dados($dados)   {
 	if (mysqli_num_rows($result) > 0) {
 		while ($row = mysqli_fetch_array($result)) {
             		$token = $row["TOKEN"];
+			$nome  = $row["NOME"];
+
+			if($nome == '1'){
+				$reservado = '<b><font color="green">* RESERVADO *</font></b>';
+			}else{
+				$reservado = '<div id="token_x'.$token.'">
+	     				        <button type="button" class="btn btn-default btn-sm" onclick="xajax_reservar_token('.$token.'); ">
+						     <span class="glyphicon glyphicon-check"> Reservar Token</span>
+					         </button>
+		     				</div>';
+			}
 
 		$tela .= '<tr style="color:black; background-color:white;">
                     		<td>'.$token.'</td>
 		      		<td>
 	  			    <div id="token'.$token.'">
-	   				<div id="token_x'.$token.'">
-     				        <button type="button" class="btn btn-default btn-sm" onclick="xajax_reservar_token('.$token.'); ">
-					     <span class="glyphicon glyphicon-check"> Reservar Token</span>
-				         </button>
-	     				</div>
+	   				'.$reservado.'
 	     			    </div>
      				</td>
                 	  </tr> ';
@@ -1219,16 +1226,23 @@ function gerar_token()   {
 			
 			while ($row = mysqli_fetch_array($result)) {
 	            		$token = $row["TOKEN"];
+				$nome  = $row["NOME"];
+
+			if($nome == '1'){
+				$reservado = '<b><font color="green">* RESERVADO *</font></b>';
+			}else{
+				$reservado = '<div id="token_x'.$token.'">
+	     				        <button type="button" class="btn btn-default btn-sm" onclick="xajax_reservar_token('.$token.'); ">
+						     <span class="glyphicon glyphicon-check"> Reservar Token</span>
+					         </button>
+		     				</div>';
+			}
 	
 			$tela .= '<tr style="color:black; background-color:white;">
 	                    		<td>'.$token.'</td>
 		       			<td>
 	     				    <div id="token'.$token.'">
-		   				<div id="token_x'.$token.'">
-	     				        <button type="button" class="btn btn-default btn-sm" onclick="xajax_reservar_token('.$token.'); ">
-						     <span class="glyphicon glyphicon-check"> Reservar Token</span>
-					         </button>
-		     				</div>
+		   				'.$reservado.'
 		     			    </div>
 	     				</td>
 	                	  </tr> ';
