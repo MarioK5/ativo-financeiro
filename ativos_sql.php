@@ -90,7 +90,7 @@ function listaTokens(){
 	
 	$conn = OpenCon();
 	
-	$sql = "SELECT TOKEN FROM CLIENTES WHERE EMAIL IS NULL";
+	$sql = "SELECT TOKEN, NOME FROM CLIENTES WHERE EMAIL IS NULL";
 
     	$result = mysqli_query($conn,$sql);
 
