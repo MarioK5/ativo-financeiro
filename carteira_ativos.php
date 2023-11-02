@@ -32,6 +32,8 @@ $xajax->registerFunction("dados_cliente");
 $xajax->registerFunction("salvar_dados");
 $xajax->registerFunction("alterar_senha");
 $xajax->registerFunction("recuperar_senha");
+$xajax->registerFunction("mostrar_menu");
+$xajax->registerFunction("gerar_relatorio");
 $xajax->processRequest();
   
 
@@ -164,7 +166,7 @@ function busca_dados($dados)   {
 				    <label>Cliente</label>
 				    <div id="sandbox-container">
 				        <div class="input-group">
-	    					<button type="button" class="btn btn-default btn-xs" onclick="xajax_alterar_senha('.$idCliente.'); ">
+	    					<button type="button" class="btn btn-default btn-xs" onclick="xajax_mostrar_menu('.$idCliente.'); ">
 					 		<span class="glyphicon glyphicon-th-list"></span>
 				     		</button>
 						'.$nome.' '.$sobrenome.'
@@ -1567,18 +1569,25 @@ function salvar_dados($dados,$token)   {
 	return $resp;
 }
 
-function alterar_senha($idCliente)   {
+function mostrar_menu($idCliente)   {
 	
 	$resp = new xajaxResponse("UTF-8");
 
 	 
 	$tela = '<table class="table">
 	                <tr style="color:black; background-color:white;">
-	                     <td  colspan="2">Cliente: '.$idCliente.'</td>
+	                	<td>
+				<button type="button" class="btn btn-default btn-sm" onclick="xajax_alterar_senha('.$idCliente.'); ">
+					<span class="glyphicon glyphicon-pencil"> ALTERAR SENHA</span>
+				</button>
+		     		</td>
 	                </tr>
 		 	<trstyle="color:black; background-color:white;">
-	                     <th></th>
-	                     <th></th>
+	                     <td>
+				<button type="button" class="btn btn-default btn-sm" onclick="xajax_gerar_relatorio('.$idCliente.'); ">
+					<span class="glyphicon glyphicon-file"> GERAR RELATÓRIO</span>
+				</button>
+		     		</td>
 	                </tr>';
 
 	
@@ -1598,11 +1607,39 @@ function alterar_senha($idCliente)   {
 	return $resp;
 }
 
+function alterar_senha()   {
+
+	$resp = new xajaxResponse("UTF-8");
+
+	$resp->alert('Alterar senha: '); return $resp;
+
+	
+
+
+	$resp->assign("tela_saida","innerHTML",$tela);
+  
+	return $resp;
+}
+
 function recuperar_senha()   {
 
 	$resp = new xajaxResponse("UTF-8");
 
 	$resp->alert('Recuperar senha: '); return $resp;
+
+	
+
+
+	$resp->assign("tela_saida","innerHTML",$tela);
+  
+	return $resp;
+}
+
+function gerar_relatorio()   {
+
+	$resp = new xajaxResponse("UTF-8");
+
+	$resp->alert('Gerar relatorio!'); return $resp;
 
 	
 
