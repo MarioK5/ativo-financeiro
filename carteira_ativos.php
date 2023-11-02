@@ -1678,7 +1678,7 @@ function alterar_senha()   {
     			     <div class="form-group">
 				<div id="sandbox-container">
 				    <div class="input-group">  
-					     <button class="btn btn-default btn-sm pull-left" data-dismiss="modal"  type="button"><i class="fa fa-sign-out-alt"></i> Fechar</button>
+					     <button class="btn btn-danger btn-md pull-left" data-dismiss="modal"  type="button"><i class="fa fa-sign-out-alt"></i> Fechar</button>
 				    </div>
   				 </div>
 			     </div>
