@@ -1673,17 +1673,19 @@ function alterar_senha()   {
 			     </div>
 			  </div>
 		    </div>
+      		    <div class="row">
+			<div class="col-xs-2 col-md-2">
+    			     <div class="form-group">
+				<div id="sandbox-container">
+				    <div class="input-group">  
+					     <button class="btn btn-default btn-sm pull-left" data-dismiss="modal"  type="button"><i class="fa fa-sign-out-alt"></i> Fechar</button>
+				    </div>
+  				 </div>
+			     </div>
+			  </div>
+		    </div>
 		</div>';
 
-	
-	
-	 $tela .= ' <br>
-			<tr>
-	                     <td colspan="2">
-			      <button class="btn btn-default btn-sm pull-left" data-dismiss="modal"  type="button"><i class="fa fa-sign-out-alt"></i> Fechar</button>
-	                     </td>                          
-	                 </tr>
-                 </table>';
 
 	$resp->script('$("#myModal2").modal({show: true,keyboard: false,backdrop: "static"})');
 	$resp->assign("motal_conteudo2","innerHTML",$tela);
