@@ -1687,7 +1687,7 @@ tbody,#tela_saida,#tela_inicio{
                                         <div id="sandbox-container">
                                             <div class="input-group">
                                                 <div>
-                                     < !--               <a href="#" class="link-danger" onclick="xajax_recuperar_senha();">Esqueceu a senha! Recupere por aqui...</a> -- >
+                                     <!--               <a href="#" class="link-danger" onclick="xajax_recuperar_senha();">Esqueceu a senha! Recupere por aqui...</a> -->
                                                 </div>
                                             </div>
                                         </div>
