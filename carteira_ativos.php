@@ -1755,7 +1755,7 @@ function gerar_relatorio()   {
 
 	$resp = new xajaxResponse("UTF-8");
 
-	$resp->alert('Gerar relatorio!'); return $resp;
+	$resp->alert('Em construção...'); return $resp;
 
 	
 
