@@ -1692,9 +1692,10 @@ function alterar_senha()   {
 	return $resp;
 }
 
-function salvar_senha($dados,$idCliente)   {
+function salvar_senha($dados, $idCliente)   {
 
 	$resp = new xajaxResponse("UTF-8");
+	
 	$resp->alert('Salvar senha: '); return $resp;
 
 	
