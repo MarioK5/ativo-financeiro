@@ -1733,7 +1733,7 @@ function salvar_senha($dados, $idCliente)   {
 	
 	$resp->alert('Senha Alterada!'); return $resp;
 
-	$resp->script('$("#myModal2").modal({show: false,keyboard: false,backdrop: "static"})');
+	$resp->script('$("#myModal2").modal("hide")');
 
 	
 	return $resp;
