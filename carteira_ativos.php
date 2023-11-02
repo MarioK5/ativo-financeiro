@@ -31,6 +31,7 @@ $xajax->registerFunction("cadastrar_cliente");
 $xajax->registerFunction("dados_cliente");
 $xajax->registerFunction("salvar_dados");
 $xajax->registerFunction("alterar_senha");
+$xajax->registerFunction("salvar_senha");
 $xajax->registerFunction("recuperar_senha");
 $xajax->registerFunction("mostrar_menu");
 $xajax->registerFunction("gerar_relatorio");
@@ -1611,7 +1612,90 @@ function alterar_senha()   {
 
 	$resp = new xajaxResponse("UTF-8");
 
-	$resp->alert('Alterar senha: '); return $resp;
+	$tela = '<div class="panel-body">
+ 		     <div class="row">
+			<div class="col-xs-8 col-md-8">
+			    <div class="form-group">
+				<div id="sandbox-container">
+				    <div class="input-group">
+					<div class="form-group" style="font-size: 18px;">
+                                                ALTERAÇÃO DE SENHA
+                                            </div>
+				    </div>
+				</div>
+			    </div>
+			</div>
+   		    </div>
+      		    <div class="row">
+			<div class="col-xs-4 col-md-4">
+			    <div class="form-group">
+				<label>Informe a senha atual</label>
+				<div id="sandbox-container">
+				    <div class="input-group">
+					<input type="password" class="form-control" name="senhaAtu" id="senhaAtu" value="" style="width: 300px;" autocomplete="off"/>
+				    </div>
+				</div>
+			    </div>
+			</div>
+		    </div>
+		    <div class="row">
+			<div class="col-xs-4 col-md-4">
+			    <div class="form-group">
+				<label>Informe a nova Senha</label>
+				<div id="sandbox-container">
+				    <div class="input-group">
+					<input type="password" class="form-control" name="senhaNew" id="senhaNew" placeholder="Mínimo 6 caracteres" value="" style="width: 300px;"/>
+				    </div>
+				</div>
+			    </div>
+			</div>
+		    </div>
+      		     <div class="row">
+			<div class="col-xs-4 col-md-4">
+			    <div class="form-group">
+				<label>Confirme a Senha</label>
+				<div id="sandbox-container">
+				    <div class="input-group">
+					<input type="password" class="form-control" name="senhaNewConfirmar" id="senhaNewConfirmar"value="" style="width: 300px;" autocomplete="off"/>
+				    </div>
+				</div>
+			    </div>
+			</div>
+		    </div>
+		    <div class="row">
+			<div class="col-xs-2 col-md-2">
+    			     <div class="form-group">
+				<div id="sandbox-container">
+				    <div class="input-group">  
+					    <input type="button" value="Alterar"  class="btn btn-success btn-md btn-block" onclick="xajax_salvar_senha(xajax.getFormValues(\'form_cadastro\'),'.$idCliente.'); return false;">
+				    </div>
+  				 </div>
+			     </div>
+			  </div>
+		    </div>
+		</div>';
+
+	
+	
+	 $tela .= ' <br>
+			<tr>
+	                     <td colspan="2">
+			      <button class="btn btn-default btn-sm pull-left" data-dismiss="modal"  type="button"><i class="fa fa-sign-out-alt"></i> Fechar</button>
+	                     </td>                          
+	                 </tr>
+                 </table>';
+
+	$resp->script('$("#myModal2").modal({show: true,keyboard: false,backdrop: "static"})');
+	$resp->assign("motal_conteudo2","innerHTML",$tela);
+	$resp->script('$("#myModal2 .modal-dialog").css("width", "50%")');
+  
+	return $resp;
+}
+
+function salvar_senha($dados,$idCliente)   {
+
+	$resp = new xajaxResponse("UTF-8");
+	$resp->alert('Salvar senha: '); return $resp;
 
 	
 
