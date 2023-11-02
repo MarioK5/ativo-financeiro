@@ -1667,7 +1667,7 @@ function alterar_senha($idCliente)   {
     			     <div class="form-group">
 				<div id="sandbox-container">
 				    <div class="input-group">  
-					    <input type="button" value="Cadastrar"  class="btn btn-success btn-md btn-block" onclick="xajax_salvar_senha(xajax.getFormValues(\'form_cadastro\'),'.$idCliente.'); return false;">
+					    <input type="button" value=" Alterar"  class="btn btn-success btn-md btn-block" onclick="xajax_salvar_senha(xajax.getFormValues(\'form_cadastro\'),'.$idCliente.'); return false;">
 				    </div>
   				 </div>
 			     </div>
