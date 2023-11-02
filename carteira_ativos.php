@@ -199,6 +199,17 @@ function busca_dados($dados)   {
   		     </td>
 	 
   		</tr>
+    		</div> <div class="col-xs-6 col-md-6">
+		    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog">
+			<div class="modal-dialog">
+			    <div class="modal-content">
+				<div class="modal-body">
+				    <div id="motal_conteudo2"></div>
+				</div>
+			    </div>
+			</div>
+		    </div>
+		</div>
   	</table> ';
 
 
@@ -1557,15 +1568,32 @@ function salvar_dados($dados,$token)   {
 }
 
 function alterar_senha($idCliente)   {
-
+	
 	$resp = new xajaxResponse("UTF-8");
 
-	$resp->alert('Alterar a senha: '.$idCliente); return $resp;
+	 
+	$tela = '<table class="table">
+	                <tr style="color:black; background-color:white;">
+	                     <td  colspan="2">Cliente: '.$idCliente.'</td>
+	                </tr>
+		 	<tr>
+	                     <th>Data do Investimento</th>
+	                     <th>Valor Investido</th>
+	                </tr>';
 
 	
+	
+	 $tela .= ' <br>
+			<tr>
+	                     <td colspan="2">
+			      <button class="btn btn-default btn-sm pull-left" data-dismiss="modal"  type="button"><i class="fa fa-sign-out-alt"></i> Fechar</button>
+	                     </td>                          
+	                 </tr>
+                 </table>';
 
-
-	$resp->assign("tela_saida","innerHTML",$tela);
+	$resp->script('$("#myModal2").modal({show: true,keyboard: false,backdrop: "static"})');
+	$resp->assign("motal_conteudo2","innerHTML",$tela);
+	$resp->script('$("#myModal2 .modal-dialog").css("width", "50%")');
   
 	return $resp;
 }
