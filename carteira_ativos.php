@@ -165,7 +165,7 @@ function busca_dados($dados)   {
 				    <div id="sandbox-container">
 				        <div class="input-group">
 	    					<button type="button" class="btn btn-default btn-xs" onclick="xajax_alterar_senha('.$idCliente.'); ">
-					 		<span class="glyphicon glyphicon-edit"></span>
+					 		<span class="glyphicon glyphicon-th-list"></span>
 				     		</button>
 						'.$nome.' '.$sobrenome.'
 				        </div>
