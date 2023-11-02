@@ -1728,7 +1728,7 @@ function salvar_senha($dados, $idCliente)   {
 	if($validaSenha == 1){
 		alteraSenha($idCliente, $senhaNova);
 	}else{
-		$resp->alert('Senha atual não confere!'); return $resp;
+		$resp->alert('Senha atual informada não confere!'); return $resp;
 	}
 	
 	$resp->alert('Senha Alterada!'); return $resp;
