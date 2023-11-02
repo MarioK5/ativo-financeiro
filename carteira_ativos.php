@@ -1667,7 +1667,7 @@ function alterar_senha($idCliente)   {
     			     <div class="form-group">
 				<div id="sandbox-container">
 				    <div class="input-group">  
-					    <input type="button" value=" Alterar"  class="btn btn-success btn-md btn-block" onclick="xajax_salvar_senha(xajax.getFormValues(\'form_cadastro\'),'.$idCliente.'); return false;">
+					    <input type="button" value="Alterar Senha"  class="btn btn-success btn-md btn-block" onclick="xajax_salvar_senha(xajax.getFormValues(\'form_cadastro\'),'.$idCliente.'); return false;">
 				    </div>
   				 </div>
 			     </div>
@@ -1697,13 +1697,44 @@ function alterar_senha($idCliente)   {
 function salvar_senha($dados, $idCliente)   {
 
 	$resp = new xajaxResponse("UTF-8");
+
+	$senhaAtual = $dados['senhaAtu'];
+	$senhaNova  = $dados['senhaNew'];
+	$senhaConfi = $dados['senhaNewConfirmar'];
+
+	if(!$senhaAtual){
+		$resp->alert('Não foi informado a senha atual!'); return $resp;
+	}
 	
-	$resp->alert('Salvar senha: '); return $resp;
+	if(!$senhaNova){
+		$resp->alert('Senha nova não foi informada!'); return $resp;
+	}
+	
+	if(!$senhaConfi){
+		$resp->alert('Não foi informado a senha de confirmação!'); return $resp;
+	}
+
+	$tamanhoSenha = strlen($senhaNova);
+	if($tamanhoSenha < 6){
+		$resp->alert('A senha nova deve ter no mínimo 6 caracteres!'); return $resp;
+	}
+
+	if(strcmp($senhaNova, $senhaConfi) !== 0){
+		$resp->alert('As senhas informadas são diferentes!'); return $resp;
+	}
+
+	$validaSenha = validaSenhaAtual($idCliente, $senhaAtual);
+
+	if($validaSenha == 1){
+		alteraSenha($idCliente, $senhaNova);
+	}else{
+		$resp->alert('Senha atual não confere!'); return $resp;
+	}
+	
+	$resp->alert('Senha Alterada!'); return $resp;
 
 	
 
-
-	$resp->assign("tela_saida","innerHTML",$tela);
   
 	return $resp;
 }
