@@ -1577,14 +1577,14 @@ function mostrar_menu($idCliente)   {
 	$tela = '<table class="table">
 	                <tr style="color:black; background-color:white;">
 	                	<td>
-				<button type="button" style="width: 100%;" class="btn btn-default btn-sm" onclick="xajax_alterar_senha('.$idCliente.'); ">
+				<button type="button" style="width: 30%;" class="btn btn-default btn-sm" onclick="xajax_alterar_senha('.$idCliente.'); ">
 					<span class="glyphicon glyphicon-pencil"> ALTERAR SENHA</span>
 				</button>
 		     		</td>
 	                </tr>
 		 	<tr style="color:black; background-color:white;">
 	                     <td>
-				<button type="button" class="btn btn-default btn-sm" onclick="xajax_gerar_relatorio('.$idCliente.'); ">
+				<button type="button" style="width: 30%;" class="btn btn-default btn-sm" onclick="xajax_gerar_relatorio('.$idCliente.'); ">
 					<span class="glyphicon glyphicon-file"> GERAR RELATÓRIO</span>
 				</button>
 		     		</td>
