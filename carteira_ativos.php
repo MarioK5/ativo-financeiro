@@ -30,6 +30,7 @@ $xajax->registerFunction("reservar_token");
 $xajax->registerFunction("cadastrar_cliente");
 $xajax->registerFunction("dados_cliente");
 $xajax->registerFunction("salvar_dados");
+$xajax->registerFunction("alterar_senha");
 $xajax->registerFunction("recuperar_senha");
 $xajax->processRequest();
   
@@ -163,6 +164,9 @@ function busca_dados($dados)   {
 				    <label>Cliente</label>
 				    <div id="sandbox-container">
 				        <div class="input-group">
+	    					<button type="button" class="btn btn-default btn-sm" onclick="xajax_alterar_senha('.$idCliente.'); ">
+					 		<span class="glyphicon glyphicon-edit"></span>
+				     		</button>
 						'.$nome.' '.$sobrenome.'
 				        </div>
 				    </div>
@@ -1548,6 +1552,20 @@ function salvar_dados($dados,$token)   {
 	$resp->alert('Dados salvos com sucesso!');
 
 	$resp->script("window.location.reload(true)");
+  
+	return $resp;
+}
+
+function alterar_senha($idCliente)   {
+
+	$resp = new xajaxResponse("UTF-8");
+
+	$resp->alert('Alterar a senha: '.$idCliente); return $resp;
+
+	
+
+
+	$resp->assign("tela_saida","innerHTML",$tela);
   
 	return $resp;
 }
