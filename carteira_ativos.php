@@ -1667,7 +1667,7 @@ function alterar_senha($idCliente)   {
     			     <div class="form-group">
 				<div id="sandbox-container">
 				    <div class="input-group">  
-					    <input type="button" value="Alterar Senha"  class="btn btn-success btn-md btn-block" onclick="xajax_salvar_senha(xajax.getFormValues(\'form_cadastro\'),'.$idCliente.'); return false;">
+					    <input type="button" value="Alterar Senha"  class="btn btn-success btn-md btn-block" onclick="xajax_salvar_senha(xajax.getFormValues(\'form_cadastro\'),'.$idCliente.'); $('#myModal2').modal('hide');">
 				    </div>
   				 </div>
 			     </div>
@@ -1732,10 +1732,8 @@ function salvar_senha($dados, $idCliente)   {
 	}
 	
 	$resp->alert('Senha Alterada!'); return $resp;
-
-	$resp->script('$("#myModal2").modal("hide")');
-
 	
+
 	return $resp;
 }
 
