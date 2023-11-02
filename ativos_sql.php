@@ -38,6 +38,39 @@ function validaAdmin($email){
 	return $ret;
 }
 
+function validaSenhaAtual($idCliente,$enhaAtual){
+	
+	$conn = OpenCon();
+	
+	$ret = 0;
+	
+	$sql = "SELECT 1 FROM CLIENTES WHERE ID = '{$idCliente}' AND SENHA = '{$enhaAtual}'";
+
+    	$result = mysqli_query($conn,$sql);
+	if (mysqli_num_rows($result) > 0) {
+		$ret = 1;
+	}
+
+	CloseCon($conn);
+	
+	return $ret;
+}
+
+function alteraSenha($idCliente,$enhaNova){
+	
+	$conn = OpenCon();
+	
+	$sql = "UPDATE CLIENTES 
+			SET SENHA = '{$enhaNova}'
+			WHERE ID = '{$idCliente}'";
+	
+	$result = mysqli_query($conn,$sql);
+		  mysqli_commit($conn);
+
+	CloseCon($conn);
+	
+}
+
 function buscaID($email){
 	
 	$conn = OpenCon();
@@ -168,29 +201,6 @@ function novoCliente($nome,$sobreNome,$email,$emailRecup,$senha,$endereco,$token
 		mysqli_commit($conn);
 
 	CloseCon($conn);
-}
-
-function alteraCliente($dados){
-	
-	$conn = OpenCon();
-	
-	$nome      = strtoupper($dados['nome']);
-	$sobreNome = strtoupper($dados['sobrenome']);
-    	$senha     = $dados['senha'];
-	$email     = $dados['email'];
-	$endereco  = strtoupper($dados['endereco']);
-	$token     = $dados['token'];
-	
-	$ret   = 0;
-	$lista = "";
-	// oque pose ser alterado?
-	
-
-	
-
-	CloseCon($conn);
-	
-	return $ret;
 }
 
 function cadastroCarteira($descricao, $idCliente){
