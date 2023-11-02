@@ -1582,7 +1582,7 @@ function mostrar_menu($idCliente)   {
 				</button>
 		     		</td>
 	                </tr>
-		 	<trstyle="color:black; background-color:white;">
+		 	<tr style="color:black; background-color:white;">
 	                     <td>
 				<button type="button" class="btn btn-default btn-sm" onclick="xajax_gerar_relatorio('.$idCliente.'); ">
 					<span class="glyphicon glyphicon-file"> GERAR RELATÓRIO</span>
