@@ -1576,9 +1576,9 @@ function alterar_senha($idCliente)   {
 	                <tr style="color:black; background-color:white;">
 	                     <td  colspan="2">Cliente: '.$idCliente.'</td>
 	                </tr>
-		 	<tr>
-	                     <th>Data do Investimento</th>
-	                     <th>Valor Investido</th>
+		 	<trstyle="color:black; background-color:white;">
+	                     <th></th>
+	                     <th></th>
 	                </tr>';
 
 	
