@@ -219,7 +219,7 @@ function busca_dados($dados)   {
     $resp->assign("tela_inicio","innerHTML",'');   
 	}
 } else { 
-		$resp->alert('Email ou senha incotera!'); return $resp;
+		$resp->alert('Email ou senha incorreto!'); return $resp;
         } 
     $script = "xajax_busca_carteiras($idCliente)";
     $resp->script($script);
