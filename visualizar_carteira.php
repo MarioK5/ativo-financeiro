@@ -16,7 +16,7 @@ function busca_dados()
 
     $result = array();
     $result = listar_carteiras();
-$resp->alert('teste : '); return $resp;
+
     if (!empty($result)) {
         $tela .= '<table border="1" width="100%">
                     <tr style="color:white; background-color: #337ab7;">
@@ -32,7 +32,7 @@ $resp->alert('teste : '); return $resp;
             $idCliente = $carteira[2];
 
             // Adiciona um botão de edição para cada item na lista
-            $tela .= "<tr><td>$id</td><td>$descricao</td><td>$idCliente</td><td><button onclick='editarCarteira($id)'>Editar</button></td></tr>";
+     //       $tela .= '<tr><td>$id</td><td>$descricao</td><td>$idCliente</td><td><button onclick='editarCarteira($id)'>Editar</button></td></tr>";
         }
 
         $tela .= '</table>';
