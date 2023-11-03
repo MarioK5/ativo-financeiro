@@ -13,7 +13,7 @@ function busca_dados()
 {
     $resp = new xajaxResponse('UTF-8');
     $tela = '';
-
+$resp->alert('teste : '); return $resp;
     $result = array();
     $result = listar_carteiras();
 
