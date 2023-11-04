@@ -25,7 +25,7 @@ function busca_dados()
                         <th>Cliente</th>
                         <th>Ação</th>
                     </tr>';
-$resp->alert('teste 1' ); return $resp;
+$resp->alert('teste 1'); return $resp;
         foreach ($result as $carteira) {
             $id = $carteira[0];
             $descricao = $carteira[1];
