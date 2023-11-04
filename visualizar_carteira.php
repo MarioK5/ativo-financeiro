@@ -13,10 +13,10 @@ function busca_dados()
 {
     $resp = new xajaxResponse('UTF-8');
     $tela = '';
-$resp->alert('teste 1'); return $resp;
+
     $result = array();
     $result = listar_carteiras();
-
+$resp->alert('teste 1'); return $resp;
     if (!empty($result)) {
         $tela .= '<table border="1" width="100%">
                     <tr style="color:white; background-color: #337ab7;">
