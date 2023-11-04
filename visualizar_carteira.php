@@ -30,9 +30,14 @@ function busca_dados()
             $id = $carteira[0];
             $descricao = $carteira[1];
             $idCliente = $carteira[2];
-
+$resp->alert('teste 1' ); return $resp;
             // Adiciona um botão de edição para cada item na lista
-           $tela .= '<tr><td>$id</td><td>$descricao</td><td>$idCliente</td><td></td></tr>';
+           $tela .= '<tr>
+                       <td></td>
+                       <td></td>
+                       <td></td>
+                       <td></td>
+                    </tr>';
         }
 
         $tela .= '</table>';
