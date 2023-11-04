@@ -13,7 +13,7 @@ function busca_dados()
 {
     $resp = new xajaxResponse('UTF-8');
     $tela = '';
-
+$resp->alert('teste 1'); return $resp;
     $result = array();
     $result = listar_carteiras();
 
@@ -25,7 +25,7 @@ function busca_dados()
                         <th>Cliente</th>
                         <th>Ação</th>
                     </tr>';
-$resp->alert('teste 1'); return $resp;
+
         foreach ($result as $carteira) {
             $id = $carteira[0];
             $descricao = $carteira[1];
