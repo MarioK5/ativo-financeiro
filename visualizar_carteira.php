@@ -16,7 +16,7 @@ function busca_dados()
 
     $result = array();
     $result = listar_carteiras();
-$resp->alert('teste 1'); return $resp;
+
     if (!empty($result)) {
         $tela .= '<table border="1" width="100%">
                     <tr style="color:white; background-color: #337ab7;">
@@ -25,7 +25,7 @@ $resp->alert('teste 1'); return $resp;
                         <th>Cliente</th>
                         <th>Ação</th>
                     </tr>';
-
+$resp->alert('teste 2'); return $resp;
         foreach ($result as $carteira) {
             $id = $carteira[0];
             $descricao = $carteira[1];
