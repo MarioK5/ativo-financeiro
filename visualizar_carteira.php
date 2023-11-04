@@ -32,7 +32,7 @@ function busca_dados()
             $idCliente = $carteira[2];
 
             // Adiciona um botão de edição para cada item na lista
-           $tela .= '<tr><td>$id</td><td>$descricao</td><td>$idCliente</td><td><button onclick='editarCarteira($id)'>Editar</button></td></tr>";
+           $tela .= "<tr><td>$id</td><td>$descricao</td><td>$idCliente</td><td><button onclick='editarCarteira($id)'>Editar</button></td></tr>";
         }
 
         $tela .= '</table>';
