@@ -10,7 +10,7 @@ $xajax->registerFunction("salvarAtivo");
 $xajax->registerFunction("busca_ativos"); //preencher select do form
 $xajax->registerFunction("seleciona_setor");
 $xajax->registerFunction("seleciona_subsetor");
-$xajax->registerFunction("seleciona_seguemento");
+$xajax->registerFunction("seleciona_segmento");
 $xajax->registerFunction("seleciona_ativo");
 $xajax->processRequest();
 function busca_ativos()
@@ -62,7 +62,7 @@ function busca_ativos()
 
     if (!empty($resultSegmentos)) {
         $telaSegmentos .= '<label for="segmentos">Seleciona o segmento: </label>';
-        $telaSegmentos .= '<select name="segmento" id="segmentos">';
+        $telaSegmentos .= '<select name="segmento" id="segmentos onchange="xajax_seleciona_segmento(this.options[this.selectedIndex].value); return false;">';
 
         foreach ($resultSegmentos as $segmentos) {
             $idSegmento = $segmentos[0];
@@ -129,7 +129,7 @@ function seleciona_setor($id)
 
     if (!empty($resultSegmentos)) {
         $telaSegmentos .= '<label for="segmentos">Seleciona o segmento: </label>';
-        $telaSegmentos .= '<select name="segmento" id="segmentos">';
+        $telaSegmentos .= '<select name="segmento" id="segmentos" onchange="xajax_seleciona_segmento(this.options[this.selectedIndex].value); return false;">';
 
         foreach ($resultSegmentos as $segmentos) {
             $idSegmento = $segmentos[0];
@@ -182,7 +182,7 @@ function seleciona_subsetor($id)
 
     if (!empty($resultSegmentos)) {
         $telaSegmentos .= '<label for="segmentos">Seleciona o segmento: </label>';
-        $telaSegmentos .= '<select name="segmento" id="segmentos">';
+        $telaSegmentos .= '<select name="segmento" id="segmentos" onchange="xajax_seleciona_segmento(this.options[this.selectedIndex].value); return false;">';
 
         foreach ($resultSegmentos as $segmentos) {
             $idSegmento = $segmentos[0];
@@ -197,6 +197,40 @@ function seleciona_subsetor($id)
 
     // Lista de Ativos
     $resultAtivos = lista_Ativos($id, 2);
+
+    if (!empty($resultAtivos)) {
+        $tela .= '<label for="ativos">Seleciona o seu ativo na lista abaixo: </label>';
+        $tela .= '<select name="ativos" id="ativos">';
+
+        foreach ($resultAtivos as $ativos) {
+            $id = $ativos[0];
+            $codigoAtivo = $ativos[1];
+            $descricao = $ativos[2];
+            $tela .= "<option value='$id'>$codigoAtivo - $descricao</option>";
+        }
+
+        $tela .= '</select>';
+    }
+
+    $resp->assign("lista_ativos", "innerHTML", $tela);
+
+    return $resp;
+
+
+}
+
+function seleciona_segmento($id)
+{
+
+    $resp = new xajaxResponse('UTF-8');
+    $tela = '';
+    
+    $resp->alert($id);
+    
+
+
+    // Lista de Ativos
+    $resultAtivos = lista_Ativos($id, 1);
 
     if (!empty($resultAtivos)) {
         $tela .= '<label for="ativos">Seleciona o seu ativo na lista abaixo: </label>';
