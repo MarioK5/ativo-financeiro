@@ -112,7 +112,7 @@ function seleciona_setor($id)
 
     if (!empty($resultSubsetores)) {
         $telaSubsetores .= '<label for="subsetores">Seleciona o subsetor: </label>';
-        $telaSubsetores .= '<select name="subsetor" id="subsetores">';
+        $telaSubsetores .= '<select name="subsetor" id="subsetores" onchange="xajax_seleciona_subsetor(this.options[this.selectedIndex].value); return false;">';
 
         foreach ($resultSubsetores as $subsetores) {
             $idSubsetor = $subsetores[0];
