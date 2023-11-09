@@ -182,9 +182,9 @@ function lista_SubSetores($id,$tipo) {
 }
 
 function lista_Segmentos($id,$tipo) {
+    $segmentos = array();
 	if ($tipo == 0) {
 		$result = buscaSegmento(999999, 0);
-		$segmentos = array();
 		if ($result > 0) {
 			while ($row = mysqli_fetch_array($result)) {
 				$idSegmento = $row["ID"];
@@ -194,7 +194,6 @@ function lista_Segmentos($id,$tipo) {
 		}
 	} else if ($tipo == 1){
 		$result = buscaSegmento($id, 0);
-		$segmentos = array();
 		if ($result > 0) {
 			while ($row = mysqli_fetch_array($result)) {
 				$idSegmento = $row["ID"];
@@ -208,11 +207,10 @@ function lista_Segmentos($id,$tipo) {
 			while ($row = mysqli_fetch_array($result)) {
 				$idSubSetor = $row["ID"];
 				$subSetor = buscaSegmento($idSubSetor, 0);
-				$segmentos = array();
 				if ($subSetor > 0) {
-					while ($sec = mysqli_fetch_array($subSetor)) {
-						$idSegmento = $sec["ID"];
-						$descricaoSegmento = $sec["DESCRICAO"];
+					while ($seg = mysqli_fetch_array($subSetor)) {
+						$idSegmento = $seg["ID"];
+						$descricaoSegmento = $seg["DESCRICAO"];
 						$segmentos[] = array($idSegmento, $descricaoSegmento);
 					}
 				}
