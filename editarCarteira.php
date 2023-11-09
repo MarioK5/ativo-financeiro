@@ -164,14 +164,20 @@ function busca_carteira()
 
                     </div>
 
-                    <div class="form-group text-right">
-                        <input type="button" class="btn btn-primary mb-2" value="Novo Ativo" name="novoAtivo"
-                            id="novoAtivo" onclick="redirecionarParaNovoAtivo();">
-                        <input type="button" class="btn btn-primary mb-2" value="Editar Ativos" name="editarAtivos"
-                            id="editarAtivos"
-                            onclick="xajax_salvar_carteiras(xajax.getFormValues('form_cadastro')); return false;">
+                    <div class="form-group">
+                        <div class="d-flex justify-content-end mb-2">
+                            <input type="button" class="btn btn-primary mr-2" value="Novo Ativo" name="novoAtivo"
+                                id="novoAtivo" onclick="redirecionarParaNovoAtivo();">
+                            <input type="button" class="btn btn-primary mr-2" value="Editar Ativos" name="editarAtivos"
+                                id="editarAtivos"
+                                onclick="xajax_salvar_carteiras(xajax.getFormValues('form_cadastro')); return false;">
+                        </div>
                         <div id="lista_ativos" name="lista_ativos" class="panel-body"></div>
                     </div>
+
+
+
+
 
 
                     <input type="button" class="btn btn-primary mb-2" value="Salvar Carteira" name="salvar" id="salvar"
