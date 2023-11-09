@@ -45,7 +45,7 @@ function busca_ativos()
 
     if (!empty($resultSubsetores)) {
         $telaSubsetores .= '<label for="subsetores">Seleciona o subsetor: </label>';
-        $telaSubsetores .= '<select name="subsetor" id="subsetores">';
+        $telaSubsetores .= '<select name="subsetor" id="subsetores" onchange="xajax_seleciona_subsetor(this.options[this.selectedIndex].value); return false;">';
 
         foreach ($resultSubsetores as $subsetores) {
             $idSubsetor = $subsetores[0];
@@ -144,6 +144,59 @@ function seleciona_setor($id)
 
     // Lista de Ativos
     $resultAtivos = lista_Ativos($id, 3);
+
+    if (!empty($resultAtivos)) {
+        $tela .= '<label for="ativos">Seleciona o seu ativo na lista abaixo: </label>';
+        $tela .= '<select name="ativos" id="ativos">';
+
+        foreach ($resultAtivos as $ativos) {
+            $id = $ativos[0];
+            $codigoAtivo = $ativos[1];
+            $descricao = $ativos[2];
+            $tela .= "<option value='$id'>$codigoAtivo - $descricao</option>";
+        }
+
+        $tela .= '</select>';
+    }
+
+    $resp->assign("lista_ativos", "innerHTML", $tela);
+
+    return $resp;
+
+
+}
+
+
+function seleciona_subsetor($id)
+{
+
+    $resp = new xajaxResponse('UTF-8');
+    $tela = '';
+    
+    $telaSegmentos = '';
+    $resp->alert($id);
+    
+
+    // Lista de Segmentos
+    $resultSegmentos = lista_Segmentos($id, 1);
+
+    if (!empty($resultSegmentos)) {
+        $telaSegmentos .= '<label for="segmentos">Seleciona o segmento: </label>';
+        $telaSegmentos .= '<select name="segmento" id="segmentos">';
+
+        foreach ($resultSegmentos as $segmentos) {
+            $idSegmento = $segmentos[0];
+            $descricaoSegmento = $segmentos[1];
+            $telaSegmentos .= "<option value='$idSegmento'>$descricaoSegmento</option>";
+        }
+
+        $telaSegmentos .= '</select></br>';
+    }
+
+    $resp->assign("lista_segmentos", "innerHTML", $telaSegmentos);
+
+    // Lista de Ativos
+    $resultAtivos = lista_Ativos($id, 2);
 
     if (!empty($resultAtivos)) {
         $tela .= '<label for="ativos">Seleciona o seu ativo na lista abaixo: </label>';
