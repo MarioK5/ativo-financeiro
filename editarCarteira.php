@@ -152,13 +152,15 @@ function busca_carteira()
                     <div class="form-group">
                       <label for="formGroupExampleInput">Digite a descrição</label>
                       <input type="text" class="form-control" id="descricaoCarteira" name="descricaoCarteira" placeholder="Digite a descrição">
-                      <input type="button" class="btn btn-primary mb-2 float-right" value="Novo Ativo" name="novoAtivo" id="novoAtivo" onclick="redirecionarParaNovoAtivo();">
-                        <input type="button" class="btn btn-primary mb-2 float-right" value="Editar Ativos" name="editarAtivos" id="editarAtivos" onclick="xajax_salvar_carteiras(xajax.getFormValues('form_cadastro')); return false;">
+                      
                     </div>
                     
                     <div class="form-group">
+                        <input type="button" class="btn btn-primary mb-2 float-right" value="Novo Ativo" name="novoAtivo" id="novoAtivo" onclick="redirecionarParaNovoAtivo();">
+                        <input type="button" class="btn btn-primary mb-2 float-right" value="Editar Ativos" name="editarAtivos" id="editarAtivos" onclick="xajax_salvar_carteiras(xajax.getFormValues('form_cadastro')); return false;">
                         <div id="lista_ativos" name="lista_ativos" class="panel-body"></div>
                     </div>
+                    
                     <input type="button" class="btn btn-primary mb-2" value="Salvar Carteira" name="salvar" id="salvar" onclick="xajax_salvar_carteiras(xajax.getFormValues('form_cadastro')); return false;">
                     <a class="btn btn-primary mb-2" href="visualizar_carteira.php">Cancelar</a>
                 </form>
