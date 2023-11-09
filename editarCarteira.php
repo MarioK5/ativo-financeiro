@@ -16,9 +16,10 @@ $xajax->processRequest();
 
 
 
-function salvar_carteiras($dados){
+function salvar_carteiras($dados)
+{
     $resp = new xajaxResponse();
-    
+
     //$descricaoCarteira = $dados['descricaoCarteira'];
     //echo "<script>alert('$descricaoCarteira');</script>";
 
@@ -28,10 +29,10 @@ function salvar_carteiras($dados){
 
     if (isset($_GET['id'])) {
         $idCarteira = $_GET['id'];
-        salvar_carteira($dados,$idCarteira,1);
+        salvar_carteira($dados, $idCarteira, 1);
         $resp->alert("Cadastrado com sucesso");
     }
-    
+
     return $resp;
 }
 
@@ -39,17 +40,17 @@ function busca_carteira()
 {
     $resp = new xajaxResponse('UTF-8');
     $tela = '';
-    
+
     if (isset($_GET['id'])) {
         $idCarteira = $_GET['id'];
-        
+
         // Buscar descrição da carteira
         $descricao_carteira = vizualizar_carteira($idCarteira);
         $resp->assign("descricaoCarteira", "value", $descricao_carteira);
 
         // Buscar ativos da carteira
         $ativos = listar_ativosCarteira($idCarteira);
-        
+
 
         if (!empty($ativos)) {
             $tela .= '<table border="1" width="100%">
@@ -88,11 +89,11 @@ function busca_carteira()
 
             $tela .= '</table>';
         }
-    
+
     }
 
     $resp->assign("lista_ativos", "innerHTML", $tela);
-    
+
     return $resp;
 }
 
@@ -101,6 +102,7 @@ function busca_carteira()
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <?php $xajax->printJavascript('lib/xajax'); ?>
     <meta charset="UTF-8">
@@ -110,20 +112,23 @@ function busca_carteira()
     <link href="css/styles.css" rel="stylesheet">
 
 
-    
+
 
 
 
     <title>Cadastro de Carteiras</title>
 </head>
+
 <body onload="xajax_busca_carteira();">
     <div class="d-flex" id="wrapper">
         <!-- Sidebar-->
         <div class="border-end bg-white" id="sidebar-wrapper">
             <div class="sidebar-heading border-bottom bg-light">Ativos Financeiros</div>
             <div class="list-group list-group-flush">
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="cadastroCarteira.php">Cadastrar Carteiras</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="visualizar_carteira.php">Visualizar Carteiras</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3"
+                    href="cadastroCarteira.php">Cadastrar Carteiras</a>
+                <a class="list-group-item list-group-item-action list-group-item-light p-3"
+                    href="visualizar_carteira.php">Visualizar Carteiras</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">..</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">..</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">..</a>
@@ -136,7 +141,10 @@ function busca_carteira()
             <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
                 <div class="container-fluid">
                     <button class="btn btn-primary" id="sidebarToggle">Alternar</button>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation"><span
+                            class="navbar-toggler-icon"></span></button>
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
                             <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
@@ -150,21 +158,27 @@ function busca_carteira()
                 <h1 class="mt-4">Atualizar Carteira</h1>
                 <form role="form" id="form_cadastro">
                     <div class="form-group">
-                      <label for="formGroupExampleInput">Digite a descrição</label>
-                      <input type="text" class="form-control" id="descricaoCarteira" name="descricaoCarteira" placeholder="Digite a descrição">
-                      
+                        <label for="formGroupExampleInput">Digite a descrição</label>
+                        <input type="text" class="form-control" id="descricaoCarteira" name="descricaoCarteira"
+                            placeholder="Digite a descrição">
+
                     </div>
-                    
-                    <div class="form-group">
-                        <input type="button" class="btn btn-primary mb-2 float-right" value="Novo Ativo" name="novoAtivo" id="novoAtivo" onclick="redirecionarParaNovoAtivo();">
-                        <input type="button" class="btn btn-primary mb-2 float-right" value="Editar Ativos" name="editarAtivos" id="editarAtivos" onclick="xajax_salvar_carteiras(xajax.getFormValues('form_cadastro')); return false;">
+
+                    <div class="form-group text-right">
+                        <input type="button" class="btn btn-primary mb-2" value="Novo Ativo" name="novoAtivo"
+                            id="novoAtivo" onclick="redirecionarParaNovoAtivo();">
+                        <input type="button" class="btn btn-primary mb-2" value="Editar Ativos" name="editarAtivos"
+                            id="editarAtivos"
+                            onclick="xajax_salvar_carteiras(xajax.getFormValues('form_cadastro')); return false;">
                         <div id="lista_ativos" name="lista_ativos" class="panel-body"></div>
                     </div>
-                    
-                    <input type="button" class="btn btn-primary mb-2" value="Salvar Carteira" name="salvar" id="salvar" onclick="xajax_salvar_carteiras(xajax.getFormValues('form_cadastro')); return false;">
+
+
+                    <input type="button" class="btn btn-primary mb-2" value="Salvar Carteira" name="salvar" id="salvar"
+                        onclick="xajax_salvar_carteiras(xajax.getFormValues('form_cadastro')); return false;">
                     <a class="btn btn-primary mb-2" href="visualizar_carteira.php">Cancelar</a>
                 </form>
-                    
+
             </div>
 
 
@@ -173,22 +187,23 @@ function busca_carteira()
     </div>
 
     <script src="js/bootstrap.bundle.min.js"></script>
- 
+
     <script src="js/bootstrap.js"></script>
 
     <script src="js/sidebarToggle.js"></script>
     <script>
         function redirecionarParaNovoAtivo() {
-        // Obtém a URL atual
-        var urlAtual = window.location.search;
+            // Obtém a URL atual
+            var urlAtual = window.location.search;
 
-        // Extrai o valor do parâmetro "id" da URL
-        var urlParams = new URLSearchParams(urlAtual);
-        var idCarteira = urlParams.get('id');
+            // Extrai o valor do parâmetro "id" da URL
+            var urlParams = new URLSearchParams(urlAtual);
+            var idCarteira = urlParams.get('id');
 
-        // Redireciona para novoAtivo.php com o idCarteira como parâmetro de consulta
-        window.location.href = 'novoAtivo.php?id=' + idCarteira;
+            // Redireciona para novoAtivo.php com o idCarteira como parâmetro de consulta
+            window.location.href = 'novoAtivo.php?id=' + idCarteira;
         }
     </script>
 </body>
+
 </html>
