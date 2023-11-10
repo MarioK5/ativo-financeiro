@@ -20,12 +20,6 @@ function salvar_carteiras($dados)
 {
     $resp = new xajaxResponse();
 
-    //$descricaoCarteira = $dados['descricaoCarteira'];
-    //echo "<script>alert('$descricaoCarteira');</script>";
-
-    //$resp->alert($descricaoCarteira); return $resp;
-    //console.log(xajax.getFormValues('form_cadastro'));
-    //console.log(document.getElementById('descricaoCarteira'));
 
     if (isset($_GET['id'])) {
         $idCarteira = $_GET['id'];
@@ -44,9 +38,6 @@ function busca_carteira()
     if (isset($_GET['id'])) {
         $idCarteira = $_GET['id'];
 
-        // Buscar descrição da carteira
-        $descricao_carteira = vizualizar_carteira($idCarteira);
-        $resp->assign("descricaoCarteira", "value", $descricao_carteira);
 
         // Buscar ativos da carteira
         $ativos = listar_ativosCarteira($idCarteira);
@@ -57,33 +48,26 @@ function busca_carteira()
                         <tr style="color:white; background-color: #337ab7;">
                             <th>Código do Ativo</th>
                             <th>Descrição do Ativo</th>
-                            <th>Valor Investido</th>
-                            <th>Valor Atual</th>
                             <th>Porcentagem Desejada</th>
-                            <th>Porcentagem Atual</th>
-                            <th>Saldo</th>
-                            <th>Quantidade de Ativos</th>
                         </tr>';
 
             foreach ($ativos as $ativo) {
                 $codAtivo = $ativo[0];
                 $descricaoAtivo = $ativo[1];
-                $valorInvestido = $ativo[2];
-                $valorAtual = $ativo[3];
                 $porIncial = $ativo[4];
-                $porAtual = $ativo[5];
-                $saldo = $ativo[6];
-                $quantAtivos = $ativo[7];
+                $idAtivo = $ativo[9];
+
+
 
                 $tela .= "<tr>
                             <td>$codAtivo</td>
                             <td>$descricaoAtivo</td>
-                            <td>$valorInvestido</td>
-                            <td>$valorAtual</td>
-                            <td>$porIncial</td>
-                            <td>$porAtual</td>
-                            <td>$saldo</td>
-                            <td>$quantAtivos</td>
+
+
+                            <td><input type='text' id='porcentagemDesejada_$idAtivo' value='$porIncial'></td>
+
+
+
                         </tr>";
             }
 
@@ -116,7 +100,7 @@ function busca_carteira()
 
 
 
-    <title>Cadastro de Carteiras</title>
+    <title>Editar Ativos</title>
 </head>
 
 <body onload="xajax_busca_carteira();">
@@ -155,14 +139,9 @@ function busca_carteira()
             <!-- Page content-->
 
             <div class="container-fluid">
-                <h1 class="mt-4">Atualizar Carteira</h1>
+                <h1 class="mt-4">Editar Ativos</h1>
                 <form role="form" id="form_cadastro">
-                    <div class="form-group">
-                        <label for="formGroupExampleInput">Digite a descrição</label>
-                        <input type="text" class="form-control" id="descricaoCarteira" name="descricaoCarteira"
-                            placeholder="Digite a descrição">
 
-                    </div>
 
                     <div class="form-group">
                         <div class="d-flex justify-content-end mb-2">
@@ -196,33 +175,7 @@ function busca_carteira()
     <script src="js/bootstrap.js"></script>
 
     <script src="js/sidebarToggle.js"></script>
-    <script>
-        function redirecionarParaNovoAtivo() {
-            // Obtém a URL atual
-            var urlAtual = window.location.search;
 
-            // Extrai o valor do parâmetro "id" da URL
-            var urlParams = new URLSearchParams(urlAtual);
-            var idCarteira = urlParams.get('id');
-
-            // Redireciona para novoAtivo.php com o idCarteira como parâmetro de consulta
-            window.location.href = 'novoAtivo.php?id=' + idCarteira;
-        }
-    </script>
-
-    <script>
-        function redirecionarParaEditarAtivos() {
-            // Obtém a URL atual
-            var urlAtual = window.location.search;
-
-            // Extrai o valor do parâmetro "id" da URL
-            var urlParams = new URLSearchParams(urlAtual);
-            var idCarteira = urlParams.get('id');
-
-            // Redireciona para editaAtivos.php com o idCarteira como parâmetro de consulta
-            window.location.href = 'editaAtivos.php?id=' + idCarteira;
-        }
-    </script>
 </body>
 
 </html>
