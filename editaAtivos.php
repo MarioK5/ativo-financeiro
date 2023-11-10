@@ -20,14 +20,18 @@ function salvar_ativos($ativos)
 {
     $resp = new xajaxResponse();
     $total = 0;
-    foreach ($ativos as $ativo){
-        $total += $ativo["valor"];
-    }
-    if($total == 100){
-        editar_Ativo($ativos);
-        $resp->alert("Porcentagem Desejada Atualizada com sucesso!!");
-    }else{
-        $resp->alert("A soma dos Ativos deve ser igual a 100%");
+    if (isset($_GET['id'])) {
+        $idCarteira = $_GET['id'];
+        foreach ($ativos as $ativo) {
+            $total += $ativo["valor"];
+        }
+        if ($total == 100) {
+            editar_Ativo($ativos);
+            $resp->alert("Porcentagem Desejada Atualizada com sucesso!!");
+            $resp->script("window.location.href = 'editarCarteira.php?id=$idCarteira';");
+        } else {
+            $resp->alert("A soma dos Ativos deve ser igual a 100%");
+        }
     }
 
 
@@ -160,7 +164,8 @@ function busca_ativos()
 
                     <input type="button" class="btn btn-primary mb-2" value="Salvar Ativos" name="salvar" id="salvar"
                         onclick="salvarAtivos();">
-                    <a class="btn btn-primary mb-2" href="visualizar_carteira.php">Cancelar</a>
+                        <input type="button" class="btn btn-primary mb-2" value="Cancelar" name="cancelar" id="cancelar"
+                        onclick="redirecionarEditarCarteira();">
                 </form>
 
             </div>
@@ -178,14 +183,14 @@ function busca_ativos()
 
     <script>
         function salvarAtivos() {
-            var ativos = []; 
+            var ativos = [];
 
- 
+
             var inputs = document.querySelectorAll('input[id^="porcentagemDesejada_"]');
 
             inputs.forEach(function (input) {
                 var idAtivo = input.id.split('_')[1]; // Obtém o ID do ativo
-               
+
                 var valorInput = input.value; // Obtém o valor do input
 
                 // Adiciona o nome do input e o valor ao array de ativos
@@ -195,14 +200,28 @@ function busca_ativos()
                 });
             });
 
-            console.log(ativos); 
+            console.log(ativos);
             xajax_salvar_ativos(ativos);
             return true;
 
-            
+
         }
 
 
+    </script>
+
+<script>
+        function redirecionarEditarCarteira() {
+            // Obtém a URL atual
+            var urlAtual = window.location.search;
+
+            // Extrai o valor do parâmetro "id" da URL
+            var urlParams = new URLSearchParams(urlAtual);
+            var idCarteira = urlParams.get('id');
+
+            // Redireciona para novoAtivo.php com o idCarteira como parâmetro de consulta
+            window.location.href = 'editarCarteira.php?id=' + idCarteira;
+        }
     </script>
 
 </body>
