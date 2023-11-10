@@ -105,7 +105,7 @@ function seleciona_setor($id)
     $tela = '';
     $telaSubsetores = '';
     $telaSegmentos = '';
-    $resp->alert($id);
+    //$resp->alert($id);
     
     // Lista de SubSetores
     $resultSubsetores = lista_SubSetores($id, 1);
@@ -174,7 +174,7 @@ function seleciona_subsetor($id)
     $tela = '';
     
     $telaSegmentos = '';
-    $resp->alert($id);
+    //$resp->alert($id);
     
 
     // Lista de Segmentos
@@ -225,7 +225,7 @@ function seleciona_segmento($id)
     $resp = new xajaxResponse('UTF-8');
     $tela = '';
     
-    $resp->alert($id);
+   // $resp->alert($id);
     
 
 
