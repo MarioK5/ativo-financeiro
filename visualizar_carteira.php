@@ -74,7 +74,11 @@ function busca_dados()
             <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
                 <div class="container-fluid">
                     <button class="btn btn-primary" id="sidebarToggle">Alternar</button>
-                    <!-- Adicione mais elementos de navegação conforme necessário -->
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                        <ul class="navbar-nav ms-auto mt-2 mt-lg-0">
+                            <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
+                        </ul>
+                    </div>
                 </div>
             </nav>
             <!-- Page content-->
