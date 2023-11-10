@@ -19,10 +19,14 @@ $xajax->processRequest();
 function salvar_ativos($ativos)
 {
     $resp = new xajaxResponse();
-
-
+    $total = 0;
+    foreach ($ativos as $ativo){
+        $total += $ativo["valor"];
+    }
+    $resp->alert($total);
 
     return $resp;
+
 }
 
 function busca_ativos()
@@ -188,6 +192,8 @@ function busca_ativos()
 
             // Agora o array "ativos" contém os dados dos ativos (id, nome do input e valor do input)
             console.log(ativos); // Use console.log para verificar os dados no console do navegador
+            xajax_salvar_ativos(ativos);
+            return true;
 
             // Aqui você pode enviar o array "ativos" para o backend via AJAX para salvar os dados no banco de dados
         }
