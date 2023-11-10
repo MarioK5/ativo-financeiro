@@ -23,7 +23,13 @@ function salvar_ativos($ativos)
     foreach ($ativos as $ativo){
         $total += $ativo["valor"];
     }
-    $resp->alert($total);
+    if($total == 100){
+        editar_Ativo($ativos);
+        $resp->alert("Porcentagem Desejada Atualizada com sucesso!!");
+    }else{
+        $resp->alert("A soma dos Ativos deve ser igual a 100%");
+    }
+
 
     return $resp;
 
@@ -172,12 +178,11 @@ function busca_ativos()
 
     <script>
         function salvarAtivos() {
-            var ativos = []; // Cria um array para armazenar os dados dos ativos
+            var ativos = []; 
 
-            // Seleciona todos os inputs da tabela de ativos
+ 
             var inputs = document.querySelectorAll('input[id^="porcentagemDesejada_"]');
 
-            // Itera sobre os inputs e adiciona seus nomes e valores ao array
             inputs.forEach(function (input) {
                 var idAtivo = input.id.split('_')[1]; // Obtém o ID do ativo
                
@@ -190,12 +195,11 @@ function busca_ativos()
                 });
             });
 
-            // Agora o array "ativos" contém os dados dos ativos (id, nome do input e valor do input)
-            console.log(ativos); // Use console.log para verificar os dados no console do navegador
+            console.log(ativos); 
             xajax_salvar_ativos(ativos);
             return true;
 
-            // Aqui você pode enviar o array "ativos" para o backend via AJAX para salvar os dados no banco de dados
+            
         }
 
 
