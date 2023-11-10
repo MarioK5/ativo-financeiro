@@ -62,7 +62,7 @@ function busca_ativos()
 
     if (!empty($resultSegmentos)) {
         $telaSegmentos .= '<label for="segmentos">Seleciona o segmento: </label>';
-        $telaSegmentos .= '<select name="segmento" id="segmentos onchange="xajax_seleciona_segmento(this.options[this.selectedIndex].value); return false;">';
+        $telaSegmentos .= '<select name="segmento" id="segmentos" onchange="xajax_seleciona_segmento(this.options[this.selectedIndex].value); return false;">';
 
         foreach ($resultSegmentos as $segmentos) {
             $idSegmento = $segmentos[0];
