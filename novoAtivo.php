@@ -324,10 +324,7 @@ function salvarAtivo($id)
                     href="cadastroCarteira.php">Cadastrar Carteiras</a>
                 <a class="list-group-item list-group-item-action list-group-item-light p-3"
                     href="visualizar_carteira.php">Visualizar Carteiras</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">..</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">..</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">..</a>
-                <a class="list-group-item list-group-item-action list-group-item-light p-3" href="#!">..</a>
+
             </div>
         </div>
         <!-- Page content wrapper-->
