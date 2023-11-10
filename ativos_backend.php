@@ -51,6 +51,7 @@ function listar_ativosCarteira($idCarteira){
 			$valorInvestido = $row["VALOR_INVESTIDO"];
 			$valorAtual = $row["VALOR_ATUAL_ATIVO"];
 			$porIncial = $row["PORCENTAGEM"];
+            $id = $row["ID"];
 			if ($valorTotal > 0) {
 				$porAtual = (($row["VALOR_ATUAL_ATIVO"] * $row["QTDE_ATIVOS"]) / $valorTotal) * 100;
 			} else {
@@ -58,7 +59,7 @@ function listar_ativosCarteira($idCarteira){
 			}
 			$saldo = ($row["VALOR_ATUAL_ATIVO"] * $row["QTDE_ATIVOS"]) - $valorInvestido;
 			$quantAtivos = $row["QTDE_ATIVOS"];
-			$ativos[] = array($codAtivo, $descricaoAtivo, $valorInvestido,$valorAtual,$porIncial,$porAtual,$saldo,$quantAtivos,$idAtivo);
+			$ativos[] = array($codAtivo, $descricaoAtivo, $valorInvestido,$valorAtual,$porIncial,$porAtual,$saldo,$quantAtivos,$idAtivo,$id);
 		}
 	}
 	return $ativos;
