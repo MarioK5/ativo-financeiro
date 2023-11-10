@@ -67,7 +67,7 @@ function listar_ativosCarteira($idCarteira){
 
 function salvar_Ativo($idAtivo, $idCarteira) {
 	$res = listaAtivosCarteira($idCarteira);
-	if($res > 0){
+	if(!empty($res)){
 		cadastroAtivoCarteira($idAtivo, $idCarteira, 0);
 	} else{
 		cadastroAtivoCarteira($idAtivo, $idCarteira, 100);
