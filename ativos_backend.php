@@ -66,7 +66,12 @@ function listar_ativosCarteira($idCarteira){
 }
 
 function salvar_Ativo($idAtivo, $idCarteira) {
+	$result = listaAtivosCarteira($idCarteira);
+	if($result > 0){
 		cadastroAtivoCarteira($idAtivo, $idCarteira, 0);
+	} else{
+		cadastroAtivoCarteira($idAtivo, $idCarteira, 100);
+	}
 }
 
 function editar_Ativo($ativos) {
