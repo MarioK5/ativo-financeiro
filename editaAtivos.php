@@ -144,12 +144,6 @@ function busca_carteira()
 
 
                     <div class="form-group">
-                        <div class="d-flex justify-content-end mb-2">
-                            <input type="button" class="btn btn-primary mr-2" value="Novo Ativo" name="novoAtivo"
-                                id="novoAtivo" onclick="redirecionarParaNovoAtivo();">
-                            <input type="button" class="btn btn-primary mr-2" value="Editar Ativos" name="editarAtivos" id="editarAtivos"
-                            onclick="redirecionarParaEditarAtivos();">
-                        </div>
                         <div id="lista_ativos" name="lista_ativos" class="panel-body"></div>
                     </div>
 
@@ -158,8 +152,8 @@ function busca_carteira()
 
 
 
-                    <input type="button" class="btn btn-primary mb-2" value="Salvar Carteira" name="salvar" id="salvar"
-                        onclick="xajax_salvar_carteiras(xajax.getFormValues('form_cadastro')); return false;">
+                    <input type="button" class="btn btn-primary mb-2" value="Salvar Ativos" name="salvar" id="salvar"
+                        onclick="salvarAtivos();">
                     <a class="btn btn-primary mb-2" href="visualizar_carteira.php">Cancelar</a>
                 </form>
 
@@ -175,6 +169,35 @@ function busca_carteira()
     <script src="js/bootstrap.js"></script>
 
     <script src="js/sidebarToggle.js"></script>
+
+    <script>
+        function salvarAtivos() {
+            var ativos = []; // Cria um array para armazenar os dados dos ativos
+
+            // Seleciona todos os inputs da tabela de ativos
+            var inputs = document.querySelectorAll('input[id^="porcentagemDesejada_"]');
+
+            // Itera sobre os inputs e adiciona seus nomes e valores ao array
+            inputs.forEach(function (input) {
+                var idAtivo = input.id.split('_')[1]; // Obtém o ID do ativo
+               
+                var valorInput = input.value; // Obtém o valor do input
+
+                // Adiciona o nome do input e o valor ao array de ativos
+                ativos.push({
+                    id: idAtivo,
+                    valor: valorInput
+                });
+            });
+
+            // Agora o array "ativos" contém os dados dos ativos (id, nome do input e valor do input)
+            console.log(ativos); // Use console.log para verificar os dados no console do navegador
+
+            // Aqui você pode enviar o array "ativos" para o backend via AJAX para salvar os dados no banco de dados
+        }
+
+
+    </script>
 
 </body>
 
