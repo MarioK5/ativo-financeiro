@@ -69,9 +69,11 @@ function salvar_Ativo($idAtivo, $idCarteira) {
 		cadastroAtivoCarteira($idAtivo, $idCarteira, 0);
 }
 
-function editar_Ativo($idAtivoCliente, $perc) {
-	if (!empty($perc)) {
-		alteraAtivoCarteira($idAtivoCliente, $perc);
+function editar_Ativo($ativos) {
+	if (!empty($ativos)) {
+        foreach ($ativos as $ativo) {
+            alteraAtivoCarteira($ativo["id"], $ativo["valor"]);
+        }
 	}
 }
 
