@@ -67,7 +67,7 @@ function listar_ativosCarteira($idCarteira){
 
 function salvar_Ativo($idAtivo, $idCarteira) {
 	$res = listaAtivosCarteira($idCarteira);
-	if(!empty($res)){
+	if(!empty(mysqli_fetch_array($res))){
 		cadastroAtivoCarteira($idAtivo, $idCarteira, 0);
 	} else{
 		cadastroAtivoCarteira($idAtivo, $idCarteira, 100);
