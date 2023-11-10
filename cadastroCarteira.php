@@ -24,7 +24,7 @@ function salvar_carteiras($dados){
     //console.log(document.getElementById('descricaoCarteira'));
 
 
-    salvar_carteira($dados,0);
+    salvar_carteira($dados,0,0);
     $resp->alert("Cadastrado com sucesso");
     $resp->assign("descricaoCarteira", "value", "");
     return $resp;
