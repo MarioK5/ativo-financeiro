@@ -6,8 +6,8 @@ require_once("lib/xajax/xajax.inc.php");
 
 $xajax = new xajax();
 $xajax->setCharEncoding('UTF-8');
-$xajax->registerFunction("salvar_carteiras");
-$xajax->registerFunction("busca_carteira");
+$xajax->registerFunction("salvar_ativos");
+$xajax->registerFunction("busca_ativos");
 
 $xajax->processRequest();
 
@@ -16,21 +16,16 @@ $xajax->processRequest();
 
 
 
-function salvar_carteiras($dados)
+function salvar_ativos($ativos)
 {
     $resp = new xajaxResponse();
 
 
-    if (isset($_GET['id'])) {
-        $idCarteira = $_GET['id'];
-        salvar_carteira($dados, $idCarteira, 1);
-        $resp->alert("Cadastrado com sucesso");
-    }
 
     return $resp;
 }
 
-function busca_carteira()
+function busca_ativos()
 {
     $resp = new xajaxResponse('UTF-8');
     $tela = '';
@@ -64,7 +59,8 @@ function busca_carteira()
                             <td>$descricaoAtivo</td>
 
 
-                            <td><input type='text' id='porcentagemDesejada_$idAtivo' value='$porIncial'></td>
+                            <td><input type='number' step='any' id='porcentagemDesejada_$idAtivo' value='$porIncial'></td>
+
 
 
 
@@ -103,7 +99,7 @@ function busca_carteira()
     <title>Editar Ativos</title>
 </head>
 
-<body onload="xajax_busca_carteira();">
+<body onload="xajax_busca_ativos();">
     <div class="d-flex" id="wrapper">
         <!-- Sidebar-->
         <div class="border-end bg-white" id="sidebar-wrapper">
