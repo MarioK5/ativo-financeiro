@@ -1240,17 +1240,11 @@ function gravar_investimento($dados)   {
 	$idCarteira       = $dados['idCarteiraInvest'];
 	$novoInvestimento = $dados['novoValorInvest'];
 
-	$resp->alert('ID cliente'.$idCliente);
-	$resp->alert('ID carteira'.$idCarteira);
-	$resp->alert('Novo investimento'.$novoInvestimento);
-
 	for($i = 0; $i < count($dados);$i++){
-		$valoFormatado = str_replace(',','.',$dados['n_newValor'][$i]);
+		$valoFormatado_x = str_replace('.','',$dados['n_newValor'][$i]);
+		$valoFormatado = str_replace(',','.',$valoFormatado_x;
 		$soma_investimento += $valoFormatado;
-		$resp->alert('antes de formatar'.$dados['n_newValor'][$i]);
-		$resp->alert('valor formatado'.$valoFormatado);
 	}
-	$resp->alert('soma do investimento'.$soma_investimento);
 
 	if($soma_investimento == $novoInvestimento){
 
