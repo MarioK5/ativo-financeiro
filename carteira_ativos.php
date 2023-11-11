@@ -158,7 +158,7 @@ function busca_dados($dados)   {
         	}
 	}
 
-			$resp->alert('O e-mail é : '.$idCliente);
+	//		$resp->alert('O e-mail é : '.$idCliente);
    
 	$tela .= '<table border="0" width=100%>
                 <tr>
@@ -528,6 +528,8 @@ function editar_ativo_carteira($idCarteira, $idCliente)   {
 	$tela   = "";
 	$result = 0;
 	$ind = 0;
+
+	$resp->alert($idCliente);
 
 	$descrCarteira = listaDescri($idCarteira,1);
 	
