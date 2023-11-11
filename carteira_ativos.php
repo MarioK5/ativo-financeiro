@@ -1257,7 +1257,8 @@ function gravar_investimento($dados)   {
 			if (mysqli_num_rows($result) > 0) {
 				while ($row = mysqli_fetch_array($result)) {
 
-					$valoFormatado = str_replace(',','.',$dados['n_newValor'][$j]);	
+					$valoFormatado_x = str_replace('.','',$dados['n_newValor'][$j]);
+					$valoFormatado = str_replace(',','.',$valoFormatado_x);
 					if($valoFormatado > 0){
 						cadastroInvestimento($idCarteira, $idAtivoInvest, $valoFormatado);
 					}
