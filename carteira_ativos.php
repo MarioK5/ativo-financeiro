@@ -1238,8 +1238,6 @@ function gravar_investimento($dados)   {
 	$idCliente        = $dados['idClienteInvest'];
 	$idCarteira       = $dados['idCarteiraInvest'];
 	$novoInvestimento = $dados['novoValorInvest'];
-	
-	$resp->alert('cliente '.$idCliente); return $resp;
 
 	for($i = 0; $i < count($dados);$i++){
 		$valoFormatado_x = str_replace('.','',$dados['n_newValor'][$i]);
