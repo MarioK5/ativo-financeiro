@@ -158,7 +158,7 @@ function busca_dados($dados)   {
         	}
 	}
 
-	global $idCliente;
+	$GLOBALS['cliente'] = $idCliente;
 
 	//		$resp->alert('O e-mail é : '.$idCliente);
    
@@ -239,7 +239,7 @@ function busca_carteiras()   {
 	
 	$tela = '';
 
-	$resp->alert('Carteiras do cliente: '.$idCliente); return $resp;
+	$resp->alert('Carteiras do cliente: '.$GLOBALS['cliente']); return $resp;
 
 	$result = listaCarteiras($idCliente);
 	
