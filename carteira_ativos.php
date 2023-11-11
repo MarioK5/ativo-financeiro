@@ -376,6 +376,10 @@ function busca_ativos($idCliente)   {
             		$idCarteira[$ind] = $row["ID"];
             		$descricao[$ind]  = $row["DESCRICAO"];
             		$idCliente[$ind]  = $row["ID_CLIENTE"];
+
+			$resp->alert('O id da carteira é : '.$idCarteira[$ind]);
+			$resp->alert('O id descricao é : '.$descricao[$ind]);
+			$resp->alert('O id do cliente é : '.$idCliente[$ind]);
 					
 		$tela .= '<div class="row">
     				<div class="col-xs-6 col-md-4">
