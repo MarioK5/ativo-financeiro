@@ -516,14 +516,53 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
 				        <tr style="color:#696969; background-color:#DCDCDC;">
 						<th>Codigo</th>
 						<th>Empresa</th>
-						<th colspan="2">Meta %</th>
+						<th>Meta %</th>
 						<th>Qtde<br>Ativos</th>
 						<th>Valor<br>Investido</th>
 						<th>Valor Atual<br>Ativo</th>
-						<th>Valor Atual<br>Investido</th>
+						<th colspan="2">Valor Atual<br>Investido</th>
 					</tr>';
 	
+	$result = listaAtivosCarteira($idCarteira);
+
+		$valorInvestidoAtual = 0;
 	
+		if (mysqli_num_rows($result) > 0) {
+			while ($row = mysqli_fetch_array($result)) {
+				$idAtivoCliente  = $row["ID"];
+				$idAtivo         = $row["ID_ATIVO"];
+            			$idCarteiraAtivo = $row["ID_CARTEIRA"];
+				$codigo          = $row["CODIGO"];
+				$desc_Ativo      = $row["DESCRICAO"];
+				$porcentagem     = $row["PORCENTAGEM"];
+				$qtde_ativos     = $row["QTDE_ATIVOS"];
+				$valor_investido = $row["VALOR_INVESTIDO"];
+				$valor_atual_ativo = $row["VALOR_ATUAL_ATIVO"];
+				$valorInvestidoAtual = ($valor_atual_ativo * $qtde_ativos);
+
+				$tela .= '<div class="row">
+		    					<div class="col-xs-6 col-md-4">
+							    <tr>
+								<td>'.$codigo.'</td>
+								<td>'.$desc_Ativo.'</td>
+								<td>
+									<input type="text" class="form-control" name="n_perc[]'.$ind.'" id="n_perc[]'.$ind.'" value="'.number_format($porcentagem,0,",",".").'" style="width: 50px;" />
+								</td>
+								<td>'.$qtde_ativos.'</td>
+								<td>'.number_format($valor_investido,2,",",".").'</td>
+								<td>'.number_format($valor_atual_ativo,2,",",".").'</td>
+								<td colspan="2">'.number_format($valorInvestidoAtual,2,",",".").'</td>
+		                			    </tr>
+							</div>
+						    </div>
+	  				<input type="hidden" id="idAtivoCliente[]'.$ind.'" name="idAtivoCliente[]'.$ind.'" value="'.$idAtivoCliente.'" />
+	 				<input type="hidden" id="idAtivoCodigo[]'.$ind.'" name="idAtivoCodigo[]'.$ind.'" value="'.$codigo.'" />
+					<input type="hidden" id="idCliente" name="idCliente" value="'.$dados['ididCliente'].'" />
+					<input type="hidden" id="n_cont" name="n_cont" value="'.$ind.'" />';
+				$valorInvestidoAtual = 0;
+				$ind++;
+			}
+		}
 		   	     
     		 $tela .= '	</div>
 			   </div>
