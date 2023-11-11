@@ -1240,6 +1240,10 @@ function gravar_investimento($dados)   {
 	$idCarteira       = $dados['idCarteiraInvest'];
 	$novoInvestimento = $dados['novoValorInvest'];
 
+	$resp->alert('ID cliente'.$idCliente);
+	$resp->alert('ID carteira'.$idCarteira);
+	$resp->alert('Novo investimento'.$novoInvestimento);
+
 	for($i = 0; $i < count($dados);$i++){
 		$valoFormatado = str_replace(',','.',$dados['n_newValor'][$i]);
 		$soma_investimento += $valoFormatado;
