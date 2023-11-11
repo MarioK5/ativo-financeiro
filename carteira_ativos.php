@@ -512,6 +512,15 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
 						<td colspan="8">
 		   					<div id="tela_ativo" class="panel-body"></div>
 						</td>
+					</tr>
+				        <tr style="color:#696969; background-color:#DCDCDC;">
+						<th>Codigo</th>
+						<th>Empresa</th>
+						<th colspan="2">Meta %</th>
+						<th>Qtde<br>Ativos</th>
+						<th>Valor<br>Investido</th>
+						<th>Valor Atual<br>Ativo</th>
+						<th>Valor Atual<br>Investido</th>
 					</tr>';
 	
 	
