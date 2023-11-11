@@ -158,9 +158,6 @@ function busca_dados($dados)   {
         	}
 	}
 
-	$globals = $GLOBALS;
-	$globals['cliente'] = $idCliente;
-
 	//		$resp->alert('O e-mail é : '.$idCliente);
    
 	$tela .= '<table border="0" width=100%>
@@ -187,7 +184,7 @@ function busca_dados($dados)   {
                     <td>
 		    	<div class="row">
                                 <div class="col-xs-6 col-md-3">
-                                    <input type="button" id="btn_carteira" value="Minhas Carteiras"  class="btn btn-primary btn-md btn-block" onclick="xajax_busca_carteiras(); return false;">
+                                    <input type="button" id="btn_carteira" value="Minhas Carteiras"  class="btn btn-primary btn-md btn-block" onclick="xajax_busca_carteiras('.$idCliente.'); return false;">
 				</div>
 				<div class="col-xs-6 col-md-3">
                                      <input type="button" id="btn_ativos" value="Meus Ativos"  class="btn btn-primary btn-md btn-block" onclick="xajax_busca_ativos('.$idCliente.'); return false;">
@@ -226,7 +223,7 @@ function busca_dados($dados)   {
 } else { 
 		$resp->alert('Email ou senha incorreto!'); return $resp;
         } 
-    $script = "xajax_busca_carteiras()";
+    $script = "xajax_busca_carteiras('.$idCliente.')";
     $resp->script($script);
     
     $resp->assign("tela_saida","innerHTML",$tela);
@@ -234,13 +231,13 @@ function busca_dados($dados)   {
    return $resp;
 }
 
-function busca_carteiras()   {
+function busca_carteiras($idCliente)   {
 
 	$resp = new xajaxResponse("UTF-8");
 	
 	$tela = '';
 
-	$resp->alert('Carteiras do cliente: '.$GLOBALS['cliente']); return $resp;
+	$resp->alert('Carteiras do cliente: '.$idCliente); return $resp;
 
 	$result = listaCarteiras($idCliente);
 	
