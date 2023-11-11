@@ -1086,6 +1086,8 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 	$tela = '';
 	$ind = 0;
 
+	$resp->alert('cliente '.$idCliente); return $resp;
+
 	if($valorInvest > 0){
 
 	$tela .= '<table class="table" border="0" width=100%>
