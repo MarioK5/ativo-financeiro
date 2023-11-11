@@ -363,6 +363,8 @@ function busca_ativos($idCliente)   {
 	$perc_atual = 0;
 	$ind = 0;
 
+	$resp->alert('O cliente é : '.$idCliente); 
+
 	$result = listaCarteiras($idCliente);
 	
 	if (mysqli_num_rows($result) > 0) {
