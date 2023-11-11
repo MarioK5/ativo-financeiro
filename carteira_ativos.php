@@ -1247,8 +1247,6 @@ function gravar_investimento($dados)   {
 	}
 
 	if($soma_investimento == $novoInvestimento){
-
-		cadastroInvestimento($idCarteira, $novoInvestimento);
 			
 		for($j = 0; $j < count($dados);$j++){
 
@@ -1258,8 +1256,12 @@ function gravar_investimento($dados)   {
 	
 			if (mysqli_num_rows($result) > 0) {
 				while ($row = mysqli_fetch_array($result)) {
-					
+
 					$valoFormatado = str_replace(',','.',$dados['n_newValor'][$j]);	
+					if($valoFormatado > 0){
+						cadastroInvestimento($idCarteira, $idAtivoInvest, $valoFormatado);
+					}
+					
 					$novoValorAtivo = ($valoFormatado + $row["VALOR_INVESTIDO"]);
 					$novaQtdeAtivos = ($dados['n_newAtivos'][$j] + $row["QTDE_ATIVOS"]);
 					
