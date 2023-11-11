@@ -363,8 +363,6 @@ function busca_ativos($idCliente)   {
 	$perc_atual = 0;
 	$ind = 0;
 
-	$resp->alert('O cliente é : '.$idCliente); 
-
 	$result = listaCarteiras($idCliente);
 	
 	if (mysqli_num_rows($result) > 0) {
@@ -375,23 +373,18 @@ function busca_ativos($idCliente)   {
 			$ind++;
             		$idCarteira[$ind] = $row["ID"];
             		$descricao[$ind]  = $row["DESCRICAO"];
-            		$idCliente[$ind]  = $row["ID_CLIENTE"];
-
-			$resp->alert('O id da carteira é : '.$idCarteira[$ind]);
-			$resp->alert('O id descricao é : '.$descricao[$ind]);
-			$resp->alert('O id do cliente é : '.$idCliente[$ind]);
 					
 		$tela .= '<div class="row">
     				<div class="col-xs-6 col-md-4">
 					<tr style="color:white; background-color:#2F4F4F;">
 				     	     <th colspan="7">'.$descricao[$ind].'</th>
 	       				     <th colspan="1" style="text-align: right;">
-							<button type="button" class="btn btn-default btn-xs" onclick="xajax_editar_ativo_carteira('.$idCarteira[$ind].','.$idCliente[$ind].');">
+							<button type="button" class="btn btn-default btn-xs" onclick="xajax_editar_ativo_carteira('.$idCarteira[$ind].','.$idCliente.');">
 							<span class="glyphicon glyphicon-edit"> Editar</span>
 							</button>
 					     </th>
 	  				     <th colspan="1" style="text-align: right;">
-				   		 <input type="button" value="Adicionar Ativo"  class="btn btn-success btn-xs" onclick="xajax_cadastrar_ativo('.$idCarteira[$ind].','.$idCliente[$ind].'); ">
+				   		 <input type="button" value="Adicionar Ativo"  class="btn btn-success btn-xs" onclick="xajax_cadastrar_ativo('.$idCarteira[$ind].','.$idCliente.'); ">
 					     </th>
 	 				</tr>
       					<tr style="color:#696969; background-color:#DCDCDC;">
