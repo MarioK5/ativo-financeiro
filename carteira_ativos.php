@@ -158,7 +158,8 @@ function busca_dados($dados)   {
         	}
 	}
 
-	$GLOBALS['cliente'] = $idCliente;
+	$globals = $GLOBALS;
+	$globals['cliente'] = $idCliente;
 
 	//		$resp->alert('O e-mail é : '.$idCliente);
    
