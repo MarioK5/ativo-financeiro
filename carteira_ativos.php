@@ -773,7 +773,6 @@ function busca_investimentos($idCliente)   {
 			$ind++;
             		$idCarteira[$ind]     = $row["ID"];
             		$descricao[$ind]      = $row["DESCRICAO"];
-            		$idCliente[$ind]      = $row["ID_CLIENTE"];
 			$valorCarteira[$ind]  = $row["VALOR"];
 					
 		$tela .= '<div class="row">
