@@ -616,6 +616,8 @@ function gravar_editar_ativo($dados)   {
 
 	$idCliente = $dados['ididCliente'];
 
+	$resp->alert('Cliente: '.$idCliente); return $resp;
+
 	for($i = 0; $i < count($dados);$i++){
 		$soma_perc += $dados['n_perc'][$i];
 	}
@@ -1876,7 +1878,7 @@ tbody,#tela_saida,#tela_inicio{
                                         <div id="sandbox-container">
                                             <div class="input-group">
                                                 <div>
-                                                    <a href="#" class="link-primary" onclick="xajax_cadastrar_cliente();">Cacastrar novo Cliente.</a>
+                                                    <a href="#" class="link-primary" onclick="xajax_cadastrar_cliente();">Cadastrar novo Cliente.</a>
                                                 </div>
                                             </div>
                                         </div>
