@@ -467,6 +467,8 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
 
 	$descrCarteira = listaDescri($idCarteira,1);
 
+	$resp->alert('O cliente é : '.$idCliente); 
+
 	$tela   = "";
 	$result = 0;
 
