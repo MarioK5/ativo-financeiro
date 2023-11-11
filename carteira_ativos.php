@@ -466,7 +466,7 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
 
 	$descrCarteira = listaDescri($idCarteira,1);
 
-	$resp->alert('O cliente é : '.$idCliente); 
+//	$resp->alert('O cliente é : '.$idCliente); 
 
 	$tela   = "";
 	$result = 0;
@@ -530,7 +530,7 @@ function editar_ativo_carteira($idCarteira, $idCliente)   {
 	$result = 0;
 	$ind = 0;
 
-	$resp->alert('O cliente é : '.$idCliente); 
+//	$resp->alert('O cliente é : '.$idCliente); 
 
 	$descrCarteira = listaDescri($idCarteira,1);
 	
@@ -621,7 +621,7 @@ function gravar_editar_ativo($dados)   {
 
 	$idCliente = $dados['ididCliente'];
 
-	$resp->alert('Cliente : '.$idCliente); return $resp;
+//	$resp->alert('Cliente : '.$idCliente); return $resp;
 
 	for($i = 0; $i < count($dados);$i++){
 		$soma_perc += $dados['n_perc'][$i];
