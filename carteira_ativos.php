@@ -237,8 +237,6 @@ function busca_carteiras($idCliente)   {
 	
 	$tela = '';
 
-	$resp->alert('Carteiras do cliente: '.$idCliente); return $resp;
-
 	$result = listaCarteiras($idCliente);
 	
 	if (mysqli_num_rows($result) > 0) {
@@ -787,7 +785,7 @@ function busca_investimentos($idCliente)   {
 	    					 <button type="button" class="btn btn-default btn-xs" onclick="xajax_historico_carteira('.$idCarteira[$ind].');">
 							<span class="glyphicon glyphicon-time"> Histórico</span>
 							</button>
-				   		 <input type="button" value="Adicionar Investimento" class="btn btn-success btn-xs" onclick="xajax_adicionar_investimento('.$idCliente[$ind].','.$idCarteira[$ind].')">
+				   		 <input type="button" value="Adicionar Investimento" class="btn btn-success btn-xs" onclick="xajax_adicionar_investimento('.$idCliente.','.$idCarteira[$ind].')">
 					     </th>
 	 				</tr>
       					<tr style="color:#696969; background-color:#DCDCDC;">
