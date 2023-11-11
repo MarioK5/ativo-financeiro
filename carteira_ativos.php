@@ -1242,7 +1242,7 @@ function gravar_investimento($dados)   {
 
 	for($i = 0; $i < count($dados);$i++){
 		$valoFormatado_x = str_replace('.','',$dados['n_newValor'][$i]);
-		$valoFormatado = str_replace(',','.',$valoFormatado_x;
+		$valoFormatado = str_replace(',','.',$valoFormatado_x);
 		$soma_investimento += $valoFormatado;
 	}
 
