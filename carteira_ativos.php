@@ -150,7 +150,7 @@ function busca_dados($dados)   {
 
 	$resultID = buscaID($email);
 
-		$resp->alert('O e-mail é : '.$resultID);
+	//	$resp->alert('O e-mail é : '.$resultID);
 
 	if (mysqli_num_rows($resultID) > 0) {
 		while ($row = mysqli_fetch_array($resultID)) {
