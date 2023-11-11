@@ -523,7 +523,7 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
 						<th colspan="2">Valor Atual<br>Investido</th>
 					</tr>';
 	
-	$result = listaAtivosCarteira($idCarteira);
+		$result = listaAtivosCarteira($idCarteira);
 
 		$valorInvestidoAtual = 0;
 	
@@ -564,7 +564,13 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
 			}
 		}
 		   	     
-    		 $tela .= '	</div>
+    		 $tela .= '	<tr> 
+				     <td colspan="8" style="text-align: right;">
+					<input type="button" value="Gravar"  class="btn btn-success btn-sm" onclick="xajax_gravar_editar_ativo(xajax.getFormValues(\'form_cadastro\')); return false;">
+					<input type="button" value="Cancelar"  class="btn btn-danger btn-sm" onclick="xajax_busca_ativos('.$dados['ididCliente'].'); return false;" >
+				     </td>
+				</tr>
+   </div>
 			   </div>
 			</table>';
 
