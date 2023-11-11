@@ -42,7 +42,7 @@ function busca_dados($dados)   {
 
 	$resp = new xajaxResponse("UTF-8");
 
-//	$resp->alert('O e-mail é : '.$dados['email']); return $resp;
+	$resp->alert('O e-mail é : '.$dados['email']); 
 
 	$tela  = '';
 
@@ -149,6 +149,8 @@ function busca_dados($dados)   {
 	}else{
 
 	$resultID = buscaID($email);
+
+		$resp->alert('O e-mail é : '.$resultID);
 
 	if (mysqli_num_rows($resultID) > 0) {
 		while ($row = mysqli_fetch_array($resultID)) {
