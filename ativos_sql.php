@@ -466,7 +466,7 @@ function buscaSetor(){
 	
 	$conn = OpenCon();
 	
-	$sql = "SELECT ID, DESCRICAO FROM SETOR";
+	$sql = "SELECT ID, DESCRICAO FROM SETOR ORDER BY DESCRICAO ";
 
 	$result = mysqli_query($conn,$sql);
 
@@ -490,7 +490,8 @@ function buscaSubSetor($setor,$tipo){
 	}
 	
 	$sql = "SELECT ID, DESCRICAO, ID_SETOR FROM SUBSETOR
- 		$temTipo ";
+ 		$temTipo
+   		ORDER BY DESCRICAO ";
 
 	$result = mysqli_query($conn,$sql);
 
@@ -514,7 +515,8 @@ function buscaSegmento($subSetor,$tipo){
 	}
 	
 	$sql = "SELECT ID, DESCRICAO, ID_SUBSETOR FROM SEGMENTO
- 		$temTipo ";
+ 		$temTipo
+   		ORDER BY DESCRICAO ";
 
 	$result = mysqli_query($conn,$sql);
 
@@ -543,7 +545,8 @@ function buscaAtivo($ativo,$tipo){
 			DESCRICAO,
 			VALOR AS VALOR_ATUAL_ATIVO
    			FROM ATIVOS
- 		$temTipo ";
+ 		$temTipo
+   		ORDER BY CODIGO ";
 
 	$result = mysqli_query($conn,$sql);
 
