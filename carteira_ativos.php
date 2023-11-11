@@ -1083,7 +1083,7 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 	$tela = '';
 	$ind = 0;
 
-	$resp->alert('cliente '.$idCliente); return $resp;
+//	$resp->alert('cliente '.$idCliente); return $resp;
 
 	if($valorInvest > 0){
 
