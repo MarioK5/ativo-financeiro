@@ -1247,7 +1247,10 @@ function gravar_investimento($dados)   {
 	for($i = 0; $i < count($dados);$i++){
 		$valoFormatado = str_replace(',','.',$dados['n_newValor'][$i]);
 		$soma_investimento += $valoFormatado;
+		$resp->alert('antes de formatar'.$dados['n_newValor'][$i]);
+		$resp->alert('valor formatado'.$valoFormatado);
 	}
+	$resp->alert('soma do investimento'.$soma_investimento);
 
 	if($soma_investimento == $novoInvestimento){
 
