@@ -1216,18 +1216,9 @@ function historico_carteira($idCarteira)   {
 			while ($row = mysqli_fetch_array($result)) {
 
 				$data_invest  = $row["DATA"];
-				$idAtivo      = $row["ID_ATIVO"];
-				$valor_invest = $row["VALOR"];
-
-			$result2 = codigoEmpresa($idAtivo);
-				if (mysqli_num_rows($result2) > 0) {
-					while ($row2 = mysqli_fetch_array($result2)) {
-	
-						$codigo   = $row2["CODIGO"];
-						$empresa  = $row2["DESCRICAO"];
-					}
-				}
-				
+				$codigo       = $row["CODIGO"];
+				$empresa      = $row["DESCRICAO"];
+				$valor_invest = $row["VALOR"];	
 
 			$tela .= '<tr style="color:black; background-color:white;">
 					<td>'.$data_invest.'</td>
