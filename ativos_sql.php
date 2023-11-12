@@ -280,7 +280,7 @@ function listaInvestimentos($idCarteira){
 		WHERE INVESTIMENTO.ID_CARTEIRA = '{$idCarteira}'
 		AND ATIVOS_CLIENTE.ID_ATIVO = ATIVOS.ID
 		AND ATIVOS_CLIENTE.ID = INVESTIMENTO.ID_ATIVO
-		ORDER BY DATA,ATIVOS.CODIGO";
+		ORDER BY date_format(DATA,'%Y/%m/%d'), ATIVOS.CODIGO";
 
    	$result = mysqli_query($conn,$sql);
 
