@@ -286,6 +286,22 @@ function listaInvestimentos($idCarteira){
 	return $result;
 }
 
+function codigoEmpresa($idAtivoInvestimento){
+	
+	$conn = OpenCon();
+	
+	$sql = "SELECT ATIVOS.CODIGO, ATIVOS.DESCRICAO
+		FROM ATIVOS_CLIENTE, ATIVOS
+		WHERE ATIVOS_CLIENTE.ID_ATIVO = ATIVOS.ID
+		AND ATIVOS_CLIENTE.ID  = '{$idAtivoInvestimento}' ";
+
+   	$result = mysqli_query($conn,$sql);
+
+	CloseCon($conn);
+	
+	return $result;
+}
+
 function listaAtivosCarteira($idCarteira){
 	
 	$conn = OpenCon();
