@@ -1162,7 +1162,7 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 								<td>'.number_format($valor_atual_investido,2,",",".").'</td>
 								<td>'.number_format($valor_atual_ativo[$ind],2,",",".").'</td>
 								<td>'.number_format($perc_atual,2,",",".").'</td>
-								<td>'.number_format($novo_perc,2,",",".").'</td>
+								<td id="novoPerc[]'.$ind.'">'.number_format($novo_perc,2,",",".").'</td>
 								<td>==></td>
 								<td>
 									<input type="text" class="form-control" name="n_newAtivos[]'.$ind.'" id="n_newAtivos[]'.$ind.'" value="'.number_format($ativosSugeridos,0,",",".").'" style="width: 40px;" />
@@ -1308,6 +1308,7 @@ function calcularAtivos($dados, $ind)   {
 	$novoAtivo = round(($dados['n_newValor'][$ind] / $dados['valorAtualAtivo'][$ind]),0);
 
 	$resp->assign("n_newAtivos[]".$ind,"value",$novoAtivo);
+	$resp->assign("novoPerc[]".$ind,"value",1);
   
 	return $resp;
 }
