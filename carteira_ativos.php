@@ -1128,7 +1128,7 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 				$valor_atual_investido = ($qtde_ativos[$ind] * $valor_atual_ativo[$ind]);
 				$saldo = ($valor_atual_investido - $valor_investido[$ind]);
 
-				$result2 = somaValorTotalAtualAtivos($idCarteiraAtivo[$ind]);
+				$result2 = somaValorTotalAtualAtivos($idCarteira);
 				
 				while ($row2 = mysqli_fetch_array($result2)) {
 					$valor_total_carteira = $row2["VALOR_TOTAL"];
@@ -1147,7 +1147,7 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 					}
 				}
 				if ($valor_total_carteira> 0) {
-					$novo_perc = ((($valor_atual_investido + $valorSugerido) / $valor_total_carteira)*100);
+					$novo_perc = ((($valor_atual_ativo[$ind] + $valorSugerido) / $valor_total_carteira)*100);
 				}else{
 					$novo_perc = (($valorSugerido / $valorInvest)*100);
 				}
