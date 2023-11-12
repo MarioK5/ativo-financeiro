@@ -851,6 +851,11 @@ function adicionar_investimento($idCliente, $idCarteira)   {
 	$resp = new xajaxResponse("UTF-8");
 
 	$descrCarteira = listaDescri($idCarteira,1);
+
+	$result = listaAtivosCarteira($idCarteira);
+	
+	if (mysqli_num_rows($result) > 0) {
+			
 	
 	$tela .= '<table border="0" width=100%>
 			 <tr style="color:white; background-color:#2F4F4F; height: 35px;">
@@ -872,6 +877,9 @@ function adicionar_investimento($idCliente, $idCarteira)   {
 			</tr>
 
 		</table>';
+	}else{
+		$resp->alert('Não tem ativos na carteira: '.$descrCarteira.'!'); 
+	}
 
     	$resp->assign("tela_cliente","innerHTML",$tela);
 	
