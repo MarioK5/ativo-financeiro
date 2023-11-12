@@ -1170,11 +1170,13 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 									<input type="text" class="form-control" name="n_newAtivos[]'.$ind.'" id="n_newAtivos[]'.$ind.'" value="'.number_format($ativosSugeridos,0,",",".").'" readonly="readonly" style="width: 45px;" />
 								</td>
 								<td>
-									<input type="text" class="form-control" name="n_newValor[]'.$ind.'" id="n_newValor[]'.$ind.'" onchange="xajax_calcularAtivos(xajax.getFormValues(\'form_cadastro\'),'.$ind.')" value="'.number_format($valorSugerido,2,",",".").'" style="width: 100px;" />				
+									<input type="text" class="form-control" name="n_newValor[]'.$ind.'" id="n_newValor[]'.$ind.'" onchange="xajax_calcularAtivos(xajax.getFormValues(\'form_cadastro\'),'.$ind.')" value="'.number_format($valorSugerido,2,",",".").'" style="width: 110px;" />				
 		                	</tr>
 		   			<input type="hidden" id="valorAtualAtivo[]'.$ind.'" name="valorAtualAtivo[]'.$ind.'" value="'.$valor_atual_ativo[$ind].'" />
-					<input type="hidden" id="idAtivoInvestimento[]'.$ind.'" name="idAtivoInvestimento[]'.$ind.'" value="'.$idAtivoCarteira[$ind].'" />
+					<input type="hidden" id="quantiAtivos[]'.$ind.'" name="quantiAtivos[]'.$ind.'" value="'.$qtde_ativos[$ind].'" />
+     					<input type="hidden" id="idAtivoInvestimento[]'.$ind.'" name="idAtivoInvestimento[]'.$ind.'" value="'.$idAtivoCarteira[$ind].'" />
 					<input type="hidden" id="novoValorInvest" name="novoValorInvest" value="'.$valorInvest.'" />
+     					<input type="hidden" id="valorTotalCarteira" name="valorTotalCarteira" value="'.$valor_total_carteira.'" />
      					<input type="hidden" id="idCarteiraInvest" name="idCarteiraInvest" value="'.$idCarteira.'" />
  					<input type="hidden" id="idClienteInvest" name="idClienteInvest" value="'.$idCliente.'" />';
 				$ind++;
@@ -1307,10 +1309,24 @@ function calcularAtivos($dados, $ind)   {
 
 	$resp = new xajaxResponse("UTF-8");
 
-	$novoAtivo = round(($dados['n_newValor'][$ind] / $dados['valorAtualAtivo'][$ind]),0);
+	$qtde_ativos          = $dados['quantiAtivos'][$ind];
+	$valor_atual_ativo    = $dados['valorAtualAtivo'][$ind];
+	$novoValorSugerido    = $dados['n_newValor'][$ind]
+	$valorInvest          = $dados['novoValorInvest'];
+	$valor_total_carteira = $dados['valorTotalCarteira'];
+	
+	$valor_atual_investido = $qtde_ativos * $valor_atual_ativo;
+
+	$novoAtivo = round(($novoValorSugerido / $valor_atual_ativo),0);
+
+	if ($valor_total_carteira > 0) {
+		$novo_perc = ((($valor_atual_investido + $novoValorSugerido) / ($valor_total_carteira + $valorInvest))*100);
+	}else{
+		$novo_perc = (($novoValorSugerido / $valorInvest)*100);
+	}
 
 	$resp->assign("n_newAtivos[]".$ind,"value",$novoAtivo);
-	$resp->assign("novoPerc[]".$ind,"value",1);
+	$resp->assign("novoPerc[]".$ind,"value",$novo_perc);
   
 	return $resp;
 }
