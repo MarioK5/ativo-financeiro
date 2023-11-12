@@ -1147,7 +1147,7 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 					}
 				}
 				if ($valor_total_carteira> 0) {
-					$novo_perc = ((($valor_atual_ativo[$ind] + $valorSugerido) / $valor_total_carteira)*100);
+					$novo_perc = ((($valor_atual_ativo[$ind] + $valorSugerido) / ($valor_total_carteira + $valorInvest))*100);
 				}else{
 					$novo_perc = (($valorSugerido / $valorInvest)*100);
 				}
