@@ -1201,10 +1201,12 @@ function historico_carteira($idCarteira)   {
 	 
 	$tela = '<table class="table">
 	                <tr style="color:black; background-color:white;">
-	                     <td  colspan="2">Carteira: '.$descrCarteira.'</td>
+	                     <td  colspan="4">Carteira: '.$descrCarteira.'</td>
 	                </tr>
 		 	<tr>
 	                     <th>Data do Investimento</th>
+		      	     <th>Codigo</th>
+			     <th>Empresa</th>
 	                     <th>Valor Investido</th>
 	                </tr>';
 
@@ -1213,11 +1215,24 @@ function historico_carteira($idCarteira)   {
 		if (mysqli_num_rows($result) > 0) {
 			while ($row = mysqli_fetch_array($result)) {
 
-				$data_invest = $row["DATA"];
+				$data_invest  = $row["DATA"];
+				$idAtivo      = $row["ID_ATIVO"];
 				$valor_invest = $row["VALOR"];
+
+			$result2 = codigoEmpresa($idAtivo);
+				if (mysqli_num_rows($result2) > 0) {
+					while ($row2 = mysqli_fetch_array($result2)) {
+	
+						$codigo   = $row["CODIGO"];
+						$empresa  = $row["DESCRICAO"];
+					}
+				}
+				
 
 			$tela .= '<tr style="color:black; background-color:white;">
 					<td>'.$data_invest.'</td>
+				        <td>'.$codigo.'</td>
+				        <td>'.$empresa.'</td>
 					<td>R$ '.number_format($valor_invest,2,",",".").'</td>
 				</tr>';
 				
