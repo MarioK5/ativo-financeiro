@@ -275,25 +275,12 @@ function listaInvestimentos($idCarteira){
 	
 	$conn = OpenCon();
 	
-	$sql = "SELECT date_format(DATA,'%d/%m/%Y') AS DATA, VALOR, ID_ATIVO FROM INVESTIMENTO
-		WHERE ID_CARTEIRA = '{$idCarteira}'
-      		ORDER BY DATA";
-
-   	$result = mysqli_query($conn,$sql);
-
-	CloseCon($conn);
-	
-	return $result;
-}
-
-function codigoEmpresa($idAtivoInvestimento){
-	
-	$conn = OpenCon();
-	
-	$sql = "SELECT ATIVOS.CODIGO, ATIVOS.DESCRICAO
-		FROM ATIVOS_CLIENTE, ATIVOS
-		WHERE ATIVOS_CLIENTE.ID_ATIVO = ATIVOS.ID
-		AND ATIVOS_CLIENTE.ID  = '{$idAtivoInvestimento}' ";
+	$sql = "SELECT date_format(DATA,'%d/%m/%Y') AS DATA, INVESTIMENTO.VALOR, ATIVOS.CODIGO, ATIVOS.DESCRICAO
+		FROM ATIVOS_CLIENTE, ATIVOS, INVESTIMENTO
+		WHERE INVESTIMENTO.ID_CARTEIRA = '{$idCarteira}'
+		AND ATIVOS_CLIENTE.ID_ATIVO = ATIVOS.ID
+		AND ATIVOS_CLIENTE.ID = INVESTIMENTO.ID_ATIVO
+		ORDER BY DATA,ATIVOS.CODIGO";
 
    	$result = mysqli_query($conn,$sql);
 
