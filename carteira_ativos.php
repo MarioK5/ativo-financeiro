@@ -1147,7 +1147,7 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 					}
 				}
 				if ($valor_total_carteira> 0) {
-					$novo_perc = ((($valor_atual_ativo[$ind] + $valorSugerido) / ($valor_total_carteira + $valorInvest))*100);
+					$novo_perc = ((($valor_atual_investido + $valorSugerido) / ($valor_total_carteira + $valorInvest))*100);
 				}else{
 					$novo_perc = (($valorSugerido / $valorInvest)*100);
 				}
@@ -1159,7 +1159,7 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 								<td>'.$desc_Ativo[$ind].'</td>
 								<td>'.number_format($porcentagem[$ind],0,",",".").'</td>
 								<td>'.$qtde_ativos[$ind].'</td>
-								<td>'.number_format($valor_investido[$ind],2,",",".").'</td>
+								<td>'.number_format($valor_atual_investido,2,",",".").'</td>
 								<td>'.number_format($valor_atual_ativo[$ind],2,",",".").'</td>
 								<td>'.number_format($perc_atual,2,",",".").'</td>
 								<td>'.number_format($novo_perc,2,",",".").'</td>
