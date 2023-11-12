@@ -1162,10 +1162,12 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 								<td>'.number_format($valor_atual_investido,2,",",".").'</td>
 								<td>'.number_format($valor_atual_ativo[$ind],2,",",".").'</td>
 								<td>'.number_format($perc_atual,2,",",".").'</td>
-								<td><div id="novoPerc[]'.$ind.'" value="">'.number_format($novo_perc,2,",",".").'</div></td>
+								<td>
+									<input type="text" class="form-control" name="novoPerc[]'.$ind.'" id="novoPerc[]'.$ind.'" value="'.number_format($novo_perc,2,",",".").'" readonly="readonly" style="width: 80px;" />
+							 	</td>
 								<td>==></td>
 								<td>
-									<input type="text" class="form-control" name="n_newAtivos[]'.$ind.'" id="n_newAtivos[]'.$ind.'" value="'.number_format($ativosSugeridos,0,",",".").'" style="width: 40px;" />
+									<input type="text" class="form-control" name="n_newAtivos[]'.$ind.'" id="n_newAtivos[]'.$ind.'" value="'.number_format($ativosSugeridos,0,",",".").'" style="width: 45px;" />
 								</td>
 								<td>
 									<input type="text" class="form-control" name="n_newValor[]'.$ind.'" id="n_newValor[]'.$ind.'" onchange="xajax_calcularAtivos(xajax.getFormValues(\'form_cadastro\'),'.$ind.')" value="'.number_format($valorSugerido,2,",",".").'" style="width: 100px;" />				
