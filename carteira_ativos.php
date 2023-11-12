@@ -1223,8 +1223,8 @@ function historico_carteira($idCarteira)   {
 				if (mysqli_num_rows($result2) > 0) {
 					while ($row2 = mysqli_fetch_array($result2)) {
 	
-						$codigo   = $row["CODIGO"];
-						$empresa  = $row["DESCRICAO"];
+						$codigo   = $row2["CODIGO"];
+						$empresa  = $row2["DESCRICAO"];
 					}
 				}
 				
@@ -1241,7 +1241,7 @@ function historico_carteira($idCarteira)   {
 	
 	 $tela .= ' <br>
 			<tr>
-	                     <td colspan="2">
+	                     <td colspan="4">
 			      <button class="btn btn-default btn-sm pull-left" data-dismiss="modal"  type="button"><i class="fa fa-sign-out-alt"></i> Fechar</button>
 	                     </td>                          
 	                 </tr>
