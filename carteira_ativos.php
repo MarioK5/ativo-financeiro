@@ -878,7 +878,7 @@ function adicionar_investimento($idCliente, $idCarteira)   {
 
 		</table>';
 	}else{
-		$resp->alert('Não tem ativos na carteira: '.$descrCarteira.'!'); 
+		$resp->alert('Não tem ativos na carteira: '.$descrCarteira); return $resp;
 	}
 
     	$resp->assign("tela_cliente","innerHTML",$tela);
