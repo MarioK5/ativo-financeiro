@@ -1311,7 +1311,7 @@ function calcularAtivos($dados, $ind)   {
 
 	$qtde_ativos          = $dados['quantiAtivos'][$ind];
 	$valor_atual_ativo    = $dados['valorAtualAtivo'][$ind];
-	$novoValorSugerido    = $dados['n_newValor'][$ind]
+	$novoValorSugerido    = $dados['n_newValor'][$ind];
 	$valorInvest          = $dados['novoValorInvest'];
 	$valor_total_carteira = $dados['valorTotalCarteira'];
 	
