@@ -1003,10 +1003,10 @@ function ativo_select($dados)   {
 							<input type="hidden" class="form-control" name="idAtivoCliente[]'.$ind.'" id="idAtivoCliente[]'.$ind.'" value="'.$idAtivo.'" />
 							<input type="hidden" id="tipoGravar" name="tipoGravar" value="1" />
 						</td>
-						<td style="width: 120px;">0</td>
-						<td style="width: 120px;">0</td>
-						<td style="width: 120px;">'.number_format($valor_ativo,2,",",".").'</td>
-						<td style="width: 120px;" colspan="2">0</td>
+						<td style="width: 100px;">0</td>
+						<td style="width: 100px;">0</td>
+						<td style="width: 100px;">'.number_format($valor_ativo,2,",",".").'</td>
+						<td style="width: 100px;" colspan="2">0</td>
 	     				 </tr>
 	  			</table>';
 			$ind++;
