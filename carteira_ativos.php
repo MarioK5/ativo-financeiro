@@ -506,11 +506,6 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
 						    </div>
 						</td>
 	                		</tr>
-		   			<tr>
-						<td colspan="8">
-		   					<div id="tela_ativo" class="panel-body"></div>
-						</td>
-					</tr>
 				        <tr style="color:#696969; background-color:#DCDCDC;">
 						<th>Codigo</th>
 						<th>Empresa</th>
@@ -562,7 +557,12 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
 			}
 		}
 		   	     
-    		 $tela .= '	<tr> 
+    		 $tela .= '	<tr>
+					<td colspan="8">
+						<div id="tela_ativo" class="panel-body"></div>
+					</td>
+				</tr>
+     				<tr> 
 				     <td colspan="8" style="text-align: right;">
 					<input type="button" value="Gravar"  class="btn btn-success btn-sm" onclick="xajax_gravar_editar_ativo(xajax.getFormValues(\'form_cadastro\')); return false;">
 					<input type="button" value="Cancelar"  class="btn btn-danger btn-sm" onclick="xajax_busca_ativos('.$idCliente.'); return false;" >
@@ -984,99 +984,41 @@ function ativo_select($dados)   {
 
 	$resp = new xajaxResponse("UTF-8");
 
-	$ind = 0;
-
-	$tela = '<table  border="0" width=100%>
- 		<tr style="color:#696969; background-color:#DCDCDC;">
-			<th>Codigo</th>
-			<th>Empresa</th>
-			<th colspan="2">Meta %</th>
-			<th>Qtde<br>Ativos</th>
-			<th>Valor<br>Investido</th>
-			<th>Valor Atual<br>Ativo</th>
-			<th>Valor Atual<br>Investido</th>
-		</tr>';
+	$ind = $dados['n_cont'];
+	
 
 	$result = buscaAtivo($dados['tipo_ativo'],1);
 
 	if (mysqli_num_rows($result) > 0) {
-			while ($row = mysqli_fetch_array($result)) {
-				$idAtivo     = $row["ID"];
-            			$idSegmento  = $row["ID_SEGMENTO"];
-				$codigo      = $row["CODIGO"];
-				$desc_Ativo  = $row["DESCRICAO"];
-				$valor_ativo = $row["VALOR_ATUAL_ATIVO"];
+		while ($row = mysqli_fetch_array($result)) {
+			$idAtivo     = $row["ID"];
+			$idSegmento  = $row["ID_SEGMENTO"];
+			$codigo      = $row["CODIGO"];
+			$desc_Ativo  = $row["DESCRICAO"];
+			$valor_ativo = $row["VALOR_ATUAL_ATIVO"];
 
-				$tela .= '<div class="row">
-		    					<div class="col-xs-6 col-md-4">
-							    <tr>
-								<td>'.$codigo.'</td>
-								<td>'.$desc_Ativo.'</td>
-								<td></td>
-								<td>
-									<input type="text" class="form-control" name="n_perc[]'.$ind.'" id="n_perc[]'.$ind.'" value="" style="width: 50px;" />
-	 								<input type="hidden" class="form-control" name="idAtivoCliente[]'.$ind.'" id="idAtivoCliente[]'.$ind.'" value="'.$idAtivo.'" />
-	  								<input type="hidden" id="tipoGravar" name="tipoGravar" value="1" />
-								</td>
-								<td>0</td>
-								<td>0</td>
-								<td>'.number_format($valor_ativo,2,",",".").'</td>
-								<td>0</td>
-		                			    </tr>
-							</div>
-						    </div>';
-				$ind++;
-			}
-
-		$result = listaAtivosCarteira($dados['idCarteiraCliente']);
-
-		$valorInvestidoAtual = 0;
-	
-		if (mysqli_num_rows($result) > 0) {
-			while ($row = mysqli_fetch_array($result)) {
-				$idAtivoCliente  = $row["ID"];
-				$idAtivo         = $row["ID_ATIVO"];
-            			$idCarteiraAtivo = $row["ID_CARTEIRA"];
-				$codigo          = $row["CODIGO"];
-				$desc_Ativo      = $row["DESCRICAO"];
-				$porcentagem     = $row["PORCENTAGEM"];
-				$qtde_ativos     = $row["QTDE_ATIVOS"];
-				$valor_investido = $row["VALOR_INVESTIDO"];
-				$valor_atual_ativo = $row["VALOR_ATUAL_ATIVO"];
-				$valorInvestidoAtual = ($valor_atual_ativo * $qtde_ativos);
-
-				$tela .= '<div class="row">
-		    					<div class="col-xs-6 col-md-4">
-							    <tr>
-								<td>'.$codigo.'</td>
-								<td>'.$desc_Ativo.'</td>
-								<td>'.number_format($porcentagem,0,",",".").'</td>
-								<td>
-									<input type="text" class="form-control" name="n_perc[]'.$ind.'" id="n_perc[]'.$ind.'" value="" style="width: 50px;" />
-								</td>
-								<td>'.$qtde_ativos.'</td>
-								<td>'.number_format($valor_investido,2,",",".").'</td>
-								<td>'.number_format($valor_atual_ativo,2,",",".").'</td>
-								<td>'.number_format($valorInvestidoAtual,2,",",".").'</td>
-		                			    </tr>
-							</div>
-						    </div>
-	  				<input type="hidden" id="idAtivoCliente[]'.$ind.'" name="idAtivoCliente[]'.$ind.'" value="'.$idAtivoCliente.'" />
-	 				<input type="hidden" id="idAtivoCodigo[]'.$ind.'" name="idAtivoCodigo[]'.$ind.'" value="'.$codigo.'" />
-					<input type="hidden" id="idCliente" name="idCliente" value="'.$dados['ididCliente'].'" />
-					<input type="hidden" id="n_cont" name="n_cont" value="'.$ind.'" />';
-				$valorInvestidoAtual = 0;
-				$ind++;
-			}
+			$tela .= '<div class="row">
+						<div class="col-xs-6 col-md-4">
+						    <tr>
+							<td>'.$codigo.'</td>
+							<td>'.$desc_Ativo.'</td>
+							<td></td>
+							<td>
+								<input type="text" class="form-control" name="n_perc[]'.$ind.'" id="n_perc[]'.$ind.'" value="" style="width: 50px;" />
+								<input type="hidden" class="form-control" name="idAtivoCliente[]'.$ind.'" id="idAtivoCliente[]'.$ind.'" value="'.$idAtivo.'" />
+								<input type="hidden" id="tipoGravar" name="tipoGravar" value="1" />
+							</td>
+							<td>0</td>
+							<td>0</td>
+							<td>'.number_format($valor_ativo,2,",",".").'</td>
+							<td>0</td>
+						    </tr>
+						</div>
+					    </div>';
+			$ind++;
 		}
+
 	}
-		$tela .= '<tr> 
-				<td colspan="8" style="text-align: right;">
-				<input type="button" value="Gravar"  class="btn btn-success btn-sm" onclick="xajax_gravar_editar_ativo(xajax.getFormValues(\'form_cadastro\')); return false;">
-    				<input type="button" value="Cancelar"  class="btn btn-danger btn-sm" onclick="xajax_busca_ativos('.$dados['ididCliente'].'); return false;" >
-     				</td>
-			</tr>
-   		</table>';
 
 
 	$resp->assign("tela_ativo","innerHTML",$tela);
@@ -1910,12 +1852,15 @@ function gerar_relatorio()   {
         <link href="lib/bootstrap/css/bootstrap-multiselect.css" rel="stylesheet">
         <link href="lib/bootstrap-select-master/dist/css/bootstrap-select.min.css" rel="stylesheet">
         
-        <script type="text/javascript" language="JavaScript"></script>
-<script> 
-
+<script type="text/javascript" language="JavaScript">
 	
-		
-</script> 
+	function incluiAtivo() {
+		novoCampo = $("tr.linhas:last").clone();
+		novoCampo.find("input").val("");
+		novoCampo.insertAfter("tr.linhas2:last");
+	}
+	
+</script>
 
 <style type="text/css">
     .container{
