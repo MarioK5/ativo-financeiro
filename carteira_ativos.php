@@ -557,7 +557,7 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
 			}
 		}
 		   	     
-    		 $tela .= '	<div id="tela_ativo'.$ind.'" class="panel-body"></div>
+    		 $tela .= '	<div id="tela_ativo" class="panel-body"></div>
      				<tr> 
 				     <td colspan="8" style="text-align: right;">
 					<input type="button" value="Gravar"  class="btn btn-success btn-sm" onclick="xajax_gravar_editar_ativo(xajax.getFormValues(\'form_cadastro\')); return false;">
@@ -978,10 +978,7 @@ function tipo_ativo($dados) {
 
 function ativo_select($dados)   {
 
-	$resp = new xajaxResponse("UTF-8");
-
-	$ind = $dados['n_cont'];
-	
+	$resp = new xajaxResponse("UTF-8");	
 
 	$result = buscaAtivo($dados['tipo_ativo'],1);
 
@@ -1007,15 +1004,14 @@ function ativo_select($dados)   {
 					<td>'.number_format($valor_ativo,2,",",".").'</td>
 					<td>0</td>
 				  </tr>
-      				  div id="tela_ativo'.$ind.'" class="panel-body"></div>';
+      				  div id="tela_ativo" class="panel-body"></div>';
 			$ind++;
 		}
 
 	}
 
-	$linha = ($ind - 1);
 
-	$resp->assign("tela_ativo"$linha,"innerHTML",$tela);
+	$resp->assign("tela_ativo","innerHTML",$tela);
   
 	return $resp;
 }
