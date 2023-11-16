@@ -998,12 +998,12 @@ function ativo_select($dados)   {
    					<tr>
 	   					<td style="width: 50px;">'.$codigo.'</td>
 						<td style="width: 200px;">'.$desc_Ativo.'</td>
-						<td style="width: 50px;">
+						<td style="width: 100px;">
 							<input type="text" class="form-control" name="n_perc[]'.$ind.'" id="n_perc[]'.$ind.'" value="" style="width: 50px;" />
 							<input type="hidden" class="form-control" name="idAtivoCliente[]'.$ind.'" id="idAtivoCliente[]'.$ind.'" value="'.$idAtivo.'" />
 							<input type="hidden" id="tipoGravar" name="tipoGravar" value="1" />
 						</td>
-						<td style="width: 50px;">0</td>
+						<td style="width: 100px;">0</td>
 						<td style="width: 100px;">0</td>
 						<td style="width: 100px;">'.number_format($valor_ativo,2,",",".").'</td>
 						<td style="width: 100px;" colspan="2">0</td>
