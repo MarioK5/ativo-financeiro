@@ -1005,7 +1005,7 @@ function ativo_select($dados)   {
 						</td>
 						<td style="width: 100px;">0</td>
 						<td style="width: 100px;">0</td>
-						<td style="width: 100px;">'.number_format($valor_ativo,2,",",".").'</td>
+						<td style="width: 120px;">'.number_format($valor_ativo,2,",",".").'</td>
 						<td style="width: 100px;" colspan="2">0</td>
 	     				 </tr>
 	  			</table>';
