@@ -996,7 +996,7 @@ function ativo_select($dados)   {
 
 			$tela .= '<table border="0" width=100%>
    					<tr>
-	   					<td style="width: 50px;">'.$codigo.'</td>
+	   					<td style="width: 50px; text-align: left;">'.$codigo.'</td>
 						<td style="width: 200px;">'.$desc_Ativo.'</td>
 						<td style="width: 100px;">
 							<input type="text" class="form-control" name="n_perc[]'.$ind.'" id="n_perc[]'.$ind.'" value="" style="width: 50px;" />
