@@ -557,7 +557,9 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
 			}
 		}
 		   	     
-    		 $tela .= '	<div id="tela_ativo" class="panel-body"></div>
+    		 $tela .= '	<tr>
+       					<div id="tela_ativo" class="panel-body"></div>
+       				</tr>
      				<tr> 
 				     <td colspan="8" style="text-align: right;">
 					<input type="button" value="Gravar"  class="btn btn-success btn-sm" onclick="xajax_gravar_editar_ativo(xajax.getFormValues(\'form_cadastro\')); return false;">
@@ -990,8 +992,7 @@ function ativo_select($dados)   {
 			$desc_Ativo  = $row["DESCRICAO"];
 			$valor_ativo = $row["VALOR_ATUAL_ATIVO"];
 
-			$tela .= '<tr>
-					<td>'.$codigo.'</td>
+			$tela .= '	<td>'.$codigo.'</td>
 					<td>'.$desc_Ativo.'</td>
 					<td></td>
 					<td>
@@ -1002,9 +1003,7 @@ function ativo_select($dados)   {
 					<td>0</td>
 					<td>0</td>
 					<td>'.number_format($valor_ativo,2,",",".").'</td>
-					<td>0</td>
-				  </tr>
-      				  div id="tela_ativo" class="panel-body"></div>';
+					<td>0</td>';
 			$ind++;
 		}
 
