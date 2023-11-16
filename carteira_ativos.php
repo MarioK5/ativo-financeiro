@@ -996,18 +996,17 @@ function ativo_select($dados)   {
 
 			$tela .= '<table border="0" width=100%>
    					<tr>
-	   					<td>'.$codigo.'</td>
-						<td>'.$desc_Ativo.'</td>
-						<td></td>
-						<td>
+	   					<td width=8%>'.$codigo.'</td>
+						<td width=22%>'.$desc_Ativo.'</td>
+						<td width=10%>
 							<input type="text" class="form-control" name="n_perc[]'.$ind.'" id="n_perc[]'.$ind.'" value="" style="width: 50px;" />
 							<input type="hidden" class="form-control" name="idAtivoCliente[]'.$ind.'" id="idAtivoCliente[]'.$ind.'" value="'.$idAtivo.'" />
 							<input type="hidden" id="tipoGravar" name="tipoGravar" value="1" />
 						</td>
-						<td>0</td>
-						<td>0</td>
-						<td>'.number_format($valor_ativo,2,",",".").'</td>
-						<td>0</td>
+						<td width=10%>0</td>
+						<td width=10%>0</td>
+						<td width=8%>'.number_format($valor_ativo,2,",",".").'</td>
+						<td width=12% colspan="2">0</td>
 	     				 </tr>
 	  			</table>';
 			$ind++;
