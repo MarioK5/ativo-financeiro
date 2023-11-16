@@ -994,7 +994,8 @@ function ativo_select($dados)   {
 			$desc_Ativo  = $row["DESCRICAO"];
 			$valor_ativo = $row["VALOR_ATUAL_ATIVO"];
 
-			$tela .= '	<td>'.$codigo.'</td>
+			$tela .= '<tr>
+   					<td>'.$codigo.'</td>
 					<td>'.$desc_Ativo.'</td>
 					<td></td>
 					<td>
@@ -1005,7 +1006,8 @@ function ativo_select($dados)   {
 					<td>0</td>
 					<td>0</td>
 					<td>'.number_format($valor_ativo,2,",",".").'</td>
-					<td>0</td>';
+					<td>0</td>
+     				 </tr>';
 			$ind++;
 		}
 
