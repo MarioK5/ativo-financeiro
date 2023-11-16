@@ -994,7 +994,7 @@ function ativo_select($dados)   {
 			$desc_Ativo  = $row["DESCRICAO"];
 			$valor_ativo = $row["VALOR_ATUAL_ATIVO"];
 
-			$tela .= '<table>
+			$tela .= '<table border="0" width=100%>
    					<tr>
 	   					<td>'.$codigo.'</td>
 						<td>'.$desc_Ativo.'</td>
