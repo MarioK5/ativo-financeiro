@@ -536,15 +536,15 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
 				$tela .= '<div class="row">
 		    					<div class="col-xs-6 col-md-4">
 							    <tr>
-								<td>'.$codigo.'</td>
-								<td>'.$desc_Ativo.'</td>
-								<td>
+								<td width=8%>'.$codigo.'</td>
+								<td width=22%>'.$desc_Ativo.'</td>
+								<td width=10%>
 									<input type="text" class="form-control" name="n_perc[]'.$ind.'" id="n_perc[]'.$ind.'" value="'.number_format($porcentagem,0,",",".").'" style="width: 50px;" />
 								</td>
-								<td>'.$qtde_ativos.'</td>
-								<td>'.number_format($valor_investido,2,",",".").'</td>
-								<td>'.number_format($valor_atual_ativo,2,",",".").'</td>
-								<td colspan="2">'.number_format($valorInvestidoAtual,2,",",".").'</td>
+								<td width=8%>'.$qtde_ativos.'</td>
+								<td width=10%>'.number_format($valor_investido,2,",",".").'</td>
+								<td width=10%>'.number_format($valor_atual_ativo,2,",",".").'</td>
+								<td width=12% colspan="2">'.number_format($valorInvestidoAtual,2,",",".").'</td>
 		                			    </tr>
 							</div>
 						    </div>
