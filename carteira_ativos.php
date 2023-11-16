@@ -536,7 +536,7 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
 				$tela .= '<div class="row">
 		    					<div class="col-xs-6 col-md-4">
 							    <tr>
-								<td style="width: 50px;">'.$codigo.'</td>
+								<td style="width: 400px;">'.$codigo.'</td>
 								<td style="width: 200px;">'.$desc_Ativo.'</td>
 								<td style="width: 50px;">
 									<input type="text" class="form-control" name="n_perc[]'.$ind.'" id="n_perc[]'.$ind.'" value="'.number_format($porcentagem,0,",",".").'" style="width: 50px;" />
