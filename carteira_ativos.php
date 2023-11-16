@@ -558,7 +558,9 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
 		}
 		   	     
     		 $tela .= '	<tr>
+       					<td colspan="8">
        					<div id="tela_ativo" class="panel-body"></div>
+	    				</td>
        				</tr>
      				<tr> 
 				     <td colspan="8" style="text-align: right;">
@@ -566,7 +568,7 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
 					<input type="button" value="Cancelar"  class="btn btn-danger btn-sm" onclick="xajax_busca_ativos('.$idCliente.'); return false;" >
 				     </td>
 				</tr>
-   </div>
+   				</div>
 			   </div>
 			</table>';
 
