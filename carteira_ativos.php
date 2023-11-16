@@ -994,20 +994,22 @@ function ativo_select($dados)   {
 			$desc_Ativo  = $row["DESCRICAO"];
 			$valor_ativo = $row["VALOR_ATUAL_ATIVO"];
 
-			$tela .= '<tr>
-   					<td>'.$codigo.'</td>
-					<td>'.$desc_Ativo.'</td>
-					<td></td>
-					<td>
-						<input type="text" class="form-control" name="n_perc[]'.$ind.'" id="n_perc[]'.$ind.'" value="" style="width: 50px;" />
-						<input type="hidden" class="form-control" name="idAtivoCliente[]'.$ind.'" id="idAtivoCliente[]'.$ind.'" value="'.$idAtivo.'" />
-						<input type="hidden" id="tipoGravar" name="tipoGravar" value="1" />
-					</td>
-					<td>0</td>
-					<td>0</td>
-					<td>'.number_format($valor_ativo,2,",",".").'</td>
-					<td>0</td>
-     				 </tr>';
+			$tela .= '<table>
+   					<tr>
+	   					<td>'.$codigo.'</td>
+						<td>'.$desc_Ativo.'</td>
+						<td></td>
+						<td>
+							<input type="text" class="form-control" name="n_perc[]'.$ind.'" id="n_perc[]'.$ind.'" value="" style="width: 50px;" />
+							<input type="hidden" class="form-control" name="idAtivoCliente[]'.$ind.'" id="idAtivoCliente[]'.$ind.'" value="'.$idAtivo.'" />
+							<input type="hidden" id="tipoGravar" name="tipoGravar" value="1" />
+						</td>
+						<td>0</td>
+						<td>0</td>
+						<td>'.number_format($valor_ativo,2,",",".").'</td>
+						<td>0</td>
+	     				 </tr>
+	  			</table>';
 			$ind++;
 		}
 
