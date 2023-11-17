@@ -1142,7 +1142,47 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 						$lista[$z]["NOVO_PERC"] = (($lista[$z]["SUGERIDO_NEW"] / $valorInvest1)*100);
 					}
 				}
-			
+
+				if($valorInvest2 > 0){
+					
+				}else{
+					for($x = 0; $x < count($lista);$x++){
+				
+					$ativosSugeridos = ($lista[$x]["SUGERIDO_NEW"] / $lista[$x]["VALOR_ATUAL_ATIVO"]);
+	
+					if ($valor_total_carteira> 0) {
+						$novo_perc = (($lista[$x]["VALOR_ATUAL_INVESTIDO"] / ($valor_total_carteira + $valorInvest1))*100);
+					}else{
+						$novo_perc = (($lista[$x]["SUGERIDO_NEW"] / $valorInvest1)*100);
+					}
+					
+					$tela .= '<tr>
+									<td>'.$lista[$x]["CODIGO"].'</td>
+									<td>'.$lista[$x]["DESCRICAO"].'</td>
+									<td>'.number_format($lista[$x]["PORCENTAGEM"],0,",",".").'</td>
+									<td>'.$lista[$x]["QTDE_ATIVOS"].'</td>
+									<td>'.number_format($lista[$x]["VALOR_ATUAL_INVESTIDO"],2,",",".").'</td>
+									<td>'.number_format($lista[$x]["VALOR_ATUAL_ATIVO"],2,",",".").'</td>
+									<td>'.number_format($lista[$x]["PERC_ATU"],2,",",".").'</td>
+									<td>==></td>
+									<td>
+										<input type="text" class="form-control" name="novoPerc[]'.$x.'" id="novoPerc[]'.$x.'" value="'.number_format($novo_perc,2,",",".").'" readonly="readonly" style="width: 70px;" />
+								 	</td>
+									<td>
+										<input type="text" class="form-control" name="n_newAtivos[]'.$x.'" id="n_newAtivos[]'.$x.'" value="'.number_format($ativosSugeridos,0,",",".").'" readonly="readonly" style="width: 45px;" />
+									</td>
+									<td>
+										<input type="text" class="form-control" name="n_newValor[]'.$x.'" id="n_newValor[]'.$x.'" onchange="xajax_calcularAtivos(xajax.getFormValues(\'form_cadastro\'),'.$x.')" value="'.number_format($lista[$x]["SUGERIDO_NEW"],2,",",".").'" style="width: 110px;" />				
+			                	</tr>
+			   			<input type="hidden" id="valorAtualAtivo[]'.$x.'" name="valorAtualAtivo[]'.$x.'" value="'.$lista[$x]["VALOR_ATUAL_ATIVO"].'" />
+						<input type="hidden" id="quantiAtivos[]'.$x.'" name="quantiAtivos[]'.$x.'" value="'.$lista[$x]["QTDE_ATIVOS"].'" />
+	     					<input type="hidden" id="idAtivoInvestimento[]'.$x.'" name="idAtivoInvestimento[]'.$x.'" value="'.$lista[$x]["ID"].'" />
+						<input type="hidden" id="novoValorInvest" name="novoValorInvest" value="'.$valorInvest1.'" />
+	     					<input type="hidden" id="valorTotalCarteira" name="valorTotalCarteira" value="'.$valor_total_carteira.'" />
+	     					<input type="hidden" id="idCarteiraInvest" name="idCarteiraInvest" value="'.$idCarteira.'" />
+	 					<input type="hidden" id="idClienteInvest" name="idClienteInvest" value="'.$idCliente.'" />';
+					}
+				}
 					
 			
 			$tela .= '<tr> 
