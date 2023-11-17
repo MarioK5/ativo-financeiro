@@ -489,18 +489,17 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
 	  					</td>
 						<td colspan="2">
 		   				    <div name="n_sub_setor" id="n_sub_setor" style="width: 200px;" > 
-					                              
+					                '.combo_subSetor($idCarteira, $idCliente).'             
 						    </div>
 	  					</td>
 						<td colspan="2">
 		   				    <div name="n_segmento" id="n_segmento" style="width: 200px;" > 
-					                              
+					                '.combo_segmento($idCarteira, $idCliente).'            
 						    </div>
 	  					</td>
 						<td colspan="2">
       							<div name="n_ativo" id="n_ativo" style="width: 200px;" > 
-			   					<div name="n_ativo2" id="n_ativo2" style="width: 200px;" >
-		     						</div>
+							'.combo_ativo($idCarteira, $idCliente).'    
 		   					</div>
 						</td>
 	                		</tr>
@@ -571,8 +570,6 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
 			   </div>
 			</table>';
 
-	$script = "xajax_tipo_ativo(999999)";
-    	$resp->script($script);
     	$resp->assign("tela_cliente","innerHTML",$tela);
 	
 	return $resp;
@@ -903,6 +900,60 @@ function combo_setor($idCarteira, $idCliente) {
     return $ret;
 }
 
+function combo_subSetor($idCarteira, $idCliente) {
+	$ret = '<input type="hidden" id="idCarteiraCliente" name="idCarteiraCliente" value="'.$idCarteira.'" />
+ 		<input type="hidden" id="ididCliente" name="ididCliente" value="'.$idCliente.'" />
+ 		<select  onchange="xajax_tipo_segmento(xajax.getFormValues(\'form_cadastro\'))" id="tipo_subSetor" name="tipo_subSetor" class="form-control">
+                <option value="" disabled selected></option>';
+
+	$result = buscaSubSetor(999999,0);
+	
+		if (mysqli_num_rows($result) > 0) {
+			while ($row = mysqli_fetch_array($result)) {
+				$ret .= '<option value='.$row["ID"].'>'.$row["DESCRICAO"].'</option>' ;
+			}
+		}
+    
+    	$ret .= '</select>';
+    return $ret;
+}
+
+function combo_segmento($idCarteira, $idCliente) {
+	$ret = '<input type="hidden" id="idCarteiraCliente" name="idCarteiraCliente" value="'.$idCarteira.'" />
+ 		<input type="hidden" id="ididCliente" name="ididCliente" value="'.$idCliente.'" />
+ 		<select  onchange="xajax_tipo_ativo(xajax.getFormValues(\'form_cadastro\'))" id="tipo_segmento" name="tipo_segmento" class="form-control">
+                <option value="" disabled selected></option>';
+
+	$result = buscaSegmento(999999,0);
+	
+		if (mysqli_num_rows($result) > 0) {
+			while ($row = mysqli_fetch_array($result)) {
+				$ret .= '<option value='.$row["ID"].'>'.$row["DESCRICAO"].'</option>' ;
+			}
+		}
+    
+    	$ret .= '</select>';
+    return $ret;
+}
+
+function combo_ativo($idCarteira, $idCliente) {
+	$ret = '<input type="hidden" id="idCarteiraCliente" name="idCarteiraCliente" value="'.$idCarteira.'" />
+ 		<input type="hidden" id="ididCliente" name="ididCliente" value="'.$idCliente.'" />
+ 		<select onchange="xajax_ativo_select(xajax.getFormValues(\'form_cadastro\'))"  id="tipo_ativo" name="tipo_ativo" class="form-control">
+                <option value="" disabled selected></option>';
+
+	$result = buscaAtivo(999999,0);
+	
+		if (mysqli_num_rows($result) > 0) {
+			while ($row = mysqli_fetch_array($result)) {
+				$ret .= '<option value='.$row["ID"].'>'.$row["DESCRICAO"].'</option>' ;
+			}
+		}
+    
+    	$ret .= '</select>';
+    return $ret;
+}
+
 function tipo_subSetor($dados) {
 
 	$resp = new xajaxResponse("UTF-8");
@@ -942,7 +993,6 @@ function tipo_segmento($dados) {
     
     	$ret .= '</select>';
 
-	$resp->assign("n_ativo2","innerHTML","");
 	$resp->assign("n_segmento","innerHTML",$ret);
   
 	return $resp;
@@ -955,22 +1005,8 @@ function tipo_ativo($dados) {
 	
 	$ret = '<select onchange="xajax_ativo_select(xajax.getFormValues(\'form_cadastro\'))"  id="tipo_ativo" name="tipo_ativo" class="form-control">
                 <option value="" disabled selected></option>';
-
-	if($dados == 999999){
-		$tp_segmento = 999999;
-		$divAtivos = "n_ativo2";
-	}else{
-		if($dados['tipo_segmento'] == 999999){
-			$tp_segmento = 999999;
-			$divAtivos = "n_ativo2";
-		}else{
-			$tp_segmento = $dados['tipo_segmento'];
-			$divAtivos = "n_ativo";
-		}
-	}
 	
-	
-	$result = buscaAtivo($tp_segmento,0);
+	$result = buscaAtivo($dados['tipo_segmento'],0);
 	
 		if (mysqli_num_rows($result) > 0) {
 			while ($row = mysqli_fetch_array($result)) {
