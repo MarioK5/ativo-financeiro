@@ -940,7 +940,7 @@ function combo_ativo($idCarteira, $idCliente) {
 	$ret = '<input type="hidden" id="idCarteiraCliente" name="idCarteiraCliente" value="'.$idCarteira.'" />
  		<input type="hidden" id="ididCliente" name="ididCliente" value="'.$idCliente.'" />
  		<select onchange="xajax_ativo_select(xajax.getFormValues(\'form_cadastro\'))"  id="tipo_ativo" name="tipo_ativo" class="form-control">
-                <option value="999999" selected>TODOS</option>';
+                <option value="999999" selected></option>';
 
 	$result = buscaAtivo(999999,0);
 	
@@ -1004,7 +1004,7 @@ function tipo_ativo($dados) {
 //	$resp->alert('Investimentos do cliente: '.$dados['tipo_subSetor']); return $resp;
 	
 	$ret = '<select onchange="xajax_ativo_select(xajax.getFormValues(\'form_cadastro\'))"  id="tipo_ativo" name="tipo_ativo" class="form-control">
-                <option value="999999" selected>TODOS</option>';
+                <option value="999999" selected></option>';
 	
 	$result = buscaAtivo($dados['tipo_segmento'],0);
 	
