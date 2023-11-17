@@ -682,9 +682,9 @@ function gravar_editar_ativo($dados)   {
 	}
 
 	if($soma_perc == 100){
-		for($j = 0; $j < count($dados['tipoGravar']);$j++){
+		for($j = 0; $j < count($dados);$j++){
 			
-$resp->alert('tipoGravar : '.$dados['tipoGravar']);
+$resp->alert('tipoGravar : '.$dados['tipoGravar'][$j]);
 $resp->alert('idAtivoCliente : '.$dados['idAtivoCliente'][$j]);
 $resp->alert('n_perc : '.$dados['n_perc'][$j]);
 			
