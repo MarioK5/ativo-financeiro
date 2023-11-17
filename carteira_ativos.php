@@ -1158,7 +1158,7 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 					$ativosSugeridos = ($lista[$x]["SUGERIDO_NEW"] / $lista[$x]["VALOR_ATUAL_ATIVO"]);
 	
 					if ($valor_total_carteira > 0) {
-						$novo_perc = (($lista[$x]["VALOR_ATUAL_INVESTIDO"] + $lista[$n]["SUGERIDO_NEW"] / ($valor_total_carteira + $valorInvest))*100);
+						$novo_perc = (($lista[$x]["VALOR_ATUAL_INVESTIDO"] + $lista[$n]["SUGERIDO_NEW"] / ($valor_total_carteira + $valorInvest2))*100);
 					}else{
 						$novo_perc = (($lista[$x]["SUGERIDO_NEW"] / $valorInvest)*100);
 					}
