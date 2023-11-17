@@ -1046,7 +1046,7 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 				<th>Qtde Ativos<br>Sugerido</th>
     				<th>Valor sugerido</th>
 			  </tr> ';	
-$resp->alert('aqui '); return $resp;
+
 	$result2 = somaValorTotalAtualAtivos($idCarteira);
 			
 			while ($row2 = mysqli_fetch_array($result2)) {
@@ -1063,137 +1063,7 @@ $resp->alert('aqui '); return $resp;
 
 	$result = listaAtivosCarteira($idCarteira);
 	
-		if (mysqli_num_rows($result) > 0) {
-			while ($row = mysqli_fetch_array($result)) {
-
-				$idAtivoCarteira[$ind] = $row["ID"];
-				$idAtivo[$ind]         = $row["ID_ATIVO"];
-            			$idCarteiraAtivo[$ind] = $row["ID_CARTEIRA"];
-				$codigo[$ind]          = $row["CODIGO"];
-				$desc_Ativo[$ind]      = $row["DESCRICAO"];
-				$porcentagem[$ind]     = $row["PORCENTAGEM"];
-				$qtde_ativos[$ind]     = $row["QTDE_ATIVOS"];
-				$valor_investido[$ind] = $row["VALOR_INVESTIDO"];
-				$valor_atual_ativo[$ind] = $row["VALOR_ATUAL_ATIVO"];
-				
-				$valor_atual_investido = ($qtde_ativos[$ind] * $valor_atual_ativo[$ind]);
-				
-				if ($valor_total_carteira> 0) {
-					$perc_atual = (($valor_atual_investido / $valor_total_carteira)*100);
-				}
-
-				if($perc_atual == 0){
-					$valorSugerido = (($porcentagem[$ind] / 100) * $valorInvest1);
-				}else{
-					if($perc_atual < $porcentagem[$ind]){
-						$valorSugerido = ((($porcentagem[$ind] + ($porcentagem[$ind] - $perc_atual)) / 100) * $valorInvest1);
-					}else{
-						$valorSugerido = ((($porcentagem[$ind] - ($perc_atual - $porcentagem[$ind])) / 100) * $valorInvest1);
-					}
-				}
-
-				$lista[$ind]["ID"]          = $row["ID"];
-				$lista[$ind]["ID_ATIVO"]    = $row["ID_ATIVO"];
-				$lista[$ind]["ID_CARTEIRA"] = $row["ID_CARTEIRA"];
-				$lista[$ind]["CODIGO"]      = $row["CODIGO"];
-				$lista[$ind]["DESCRICAO"]   = $row["DESCRICAO"];
-				$lista[$ind]["PORCENTAGEM"] = $row["PORCENTAGEM"];
-				$lista[$ind]["QTDE_ATIVOS"] = $row["QTDE_ATIVOS"];
-				$lista[$ind]["VALOR_INVESTIDO"]   = $row["VALOR_INVESTIDO"];
-				$lista[$ind]["VALOR_ATUAL_ATIVO"] = $row["VALOR_ATUAL_ATIVO"];
-				$lista[$ind]["SUGERIDO"]     = $valorSugerido;
-				$lista[$ind]["PERC_ATU"]     = $perc_atual;
-				$lista[$ind]["SUGERIDO_NEW"] = 0;
-				$lista[$ind]["VALOR_ATUAL_INVESTIDO"] = 0;
-				$lista[$ind]["NOVO_PERC"]     = 0;
-
-				$ind++;
-				}
-
-				$somaPositivo = 0;
-				$somaNegativo = 0;
-
-				for($y = 0; $y < count($lista);$y++){
-
-						if($lista[$y]["SUGERIDO"] < 0){
-							$somaNegativo += $lista[$y]["SUGERIDO"];
-						}else{
-							$somaPositivo += $lista[$y]["SUGERIDO"];
-						}
-					
-				}
-
-				for($z = 0; $z < count($lista);$z++){
-
-					$valor_atual_investido = ($lista[$z]["QTDE_ATIVOS"] * $lista[$z]["VALOR_ATUAL_ATIVO"]);
-	
-					if ($lista[$z]["SUGERIDO"] > 0) {
-						$valorSugerido = ($lista[$z["SUGERIDO"] + (($lista[$z]["SUGERIDO"] / $somaPositivo ) * ($somaNegativo )));
-						$lista[$z]["SUGERIDO_NEW"] = $valorSugerido;
-					}else{
-						$valorSugerido = 0;
-					}
-	
-					$lista[$z]["VALOR_ATUAL_INVESTIDO"] = ($valor_atual_investido + $lista[$z]["SUGERIDO_NEW"]);
-					
-					if ($valor_total_carteira> 0) {
-						$lista[$z]["NOVO_PERC"] = (($lista[$z]["VALOR_ATUAL_INVESTIDO"] / ($valor_total_carteira + $valorInvest1))*100);
-					}else{
-						$lista[$z]["NOVO_PERC"] = (($lista[$z]["SUGERIDO_NEW"] / $valorInvest1)*100);
-					}
-				}
-
-				if($valorInvest2 > 0){
-					
-				}else{
-					for($x = 0; $x < count($lista);$x++){
-				
-					$ativosSugeridos = ($lista[$x]["SUGERIDO_NEW"] / $lista[$x]["VALOR_ATUAL_ATIVO"]);
-	
-					if ($valor_total_carteira> 0) {
-						$novo_perc = (($lista[$x]["VALOR_ATUAL_INVESTIDO"] / ($valor_total_carteira + $valorInvest1))*100);
-					}else{
-						$novo_perc = (($lista[$x]["SUGERIDO_NEW"] / $valorInvest1)*100);
-					}
-					
-					$tela .= '<tr>
-									<td>'.$lista[$x]["CODIGO"].'</td>
-									<td>'.$lista[$x]["DESCRICAO"].'</td>
-									<td>'.number_format($lista[$x]["PORCENTAGEM"],0,",",".").'</td>
-									<td>'.$lista[$x]["QTDE_ATIVOS"].'</td>
-									<td>'.number_format($lista[$x]["VALOR_ATUAL_INVESTIDO"],2,",",".").'</td>
-									<td>'.number_format($lista[$x]["VALOR_ATUAL_ATIVO"],2,",",".").'</td>
-									<td>'.number_format($lista[$x]["PERC_ATU"],2,",",".").'</td>
-									<td>==></td>
-									<td>
-										<input type="text" class="form-control" name="novoPerc[]'.$x.'" id="novoPerc[]'.$x.'" value="'.number_format($novo_perc,2,",",".").'" readonly="readonly" style="width: 70px;" />
-								 	</td>
-									<td>
-										<input type="text" class="form-control" name="n_newAtivos[]'.$x.'" id="n_newAtivos[]'.$x.'" value="'.number_format($ativosSugeridos,0,",",".").'" readonly="readonly" style="width: 45px;" />
-									</td>
-									<td>
-										<input type="text" class="form-control" name="n_newValor[]'.$x.'" id="n_newValor[]'.$x.'" onchange="xajax_calcularAtivos(xajax.getFormValues(\'form_cadastro\'),'.$x.')" value="'.number_format($lista[$x]["SUGERIDO_NEW"],2,",",".").'" style="width: 110px;" />				
-			                	</tr>
-			   			<input type="hidden" id="valorAtualAtivo[]'.$x.'" name="valorAtualAtivo[]'.$x.'" value="'.$lista[$x]["VALOR_ATUAL_ATIVO"].'" />
-						<input type="hidden" id="quantiAtivos[]'.$x.'" name="quantiAtivos[]'.$x.'" value="'.$lista[$x]["QTDE_ATIVOS"].'" />
-	     					<input type="hidden" id="idAtivoInvestimento[]'.$x.'" name="idAtivoInvestimento[]'.$x.'" value="'.$lista[$x]["ID"].'" />
-						<input type="hidden" id="novoValorInvest" name="novoValorInvest" value="'.$valorInvest1.'" />
-	     					<input type="hidden" id="valorTotalCarteira" name="valorTotalCarteira" value="'.$valor_total_carteira.'" />
-	     					<input type="hidden" id="idCarteiraInvest" name="idCarteiraInvest" value="'.$idCarteira.'" />
-	 					<input type="hidden" id="idClienteInvest" name="idClienteInvest" value="'.$idCliente.'" />';
-					}
-				}
-			
-				
-			
-			$tela .= '<tr> 
-					<td colspan="10" style="text-align: right;">
-					<input type="button" value="Gravar"  class="btn btn-success btn-sm" onclick="xajax_gravar_investimento(xajax.getFormValues(\'form_cadastro\')); return false;" >
-     					<input type="button" value="Cancelar"  class="btn btn-danger btn-sm" onclick="xajax_busca_investimentos('.$idCliente.'); return false;" >
-	     				</td>
-				</tr>
-    			</table">';
-			}
+		
 		
 	}else{
 		$resp->alert('O valor do investimento deve ser informado '); return $resp;
