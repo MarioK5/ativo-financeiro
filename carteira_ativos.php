@@ -569,7 +569,7 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
 			   </div>
 			</table>';
 
-	$script = "xajax_tipo_ativo('form_cadastro')";
+	$script = "xajax_tipo_ativo(\'form_cadastro\')";
     	$resp->script($script);
     	$resp->assign("tela_cliente","innerHTML",$tela);
 	
@@ -940,7 +940,7 @@ function tipo_segmento($dados) {
     
     	$ret .= '</select>';
 
-	$resp->assign("n_ativo2","innerHTML","");
+	//$resp->assign("n_ativo","innerHTML","");
 	$resp->assign("n_segmento","innerHTML",$ret);
   
 	return $resp;
