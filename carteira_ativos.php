@@ -886,7 +886,7 @@ function combo_setor($idCarteira, $idCliente) {
 	$ret = '<input type="hidden" id="idCarteiraCliente" name="idCarteiraCliente" value="'.$idCarteira.'" />
  		<input type="hidden" id="ididCliente" name="ididCliente" value="'.$idCliente.'" />
  		<select onchange="xajax_tipo_subSetor(xajax.getFormValues(\'form_cadastro\'))" id="tipo_setor" name="tipo_setor" class="form-control">
-                <option value="" disabled selected></option>';
+                <option value="999999" selected>TODOS</option>';
 
 	$result = buscaSetor();
 	
@@ -904,7 +904,7 @@ function combo_subSetor($idCarteira, $idCliente) {
 	$ret = '<input type="hidden" id="idCarteiraCliente" name="idCarteiraCliente" value="'.$idCarteira.'" />
  		<input type="hidden" id="ididCliente" name="ididCliente" value="'.$idCliente.'" />
  		<select  onchange="xajax_tipo_segmento(xajax.getFormValues(\'form_cadastro\'))" id="tipo_subSetor" name="tipo_subSetor" class="form-control">
-                <option value="" disabled selected></option>';
+                <option value="999999" selected>TODOS</option>';
 
 	$result = buscaSubSetor(999999,0);
 	
@@ -922,7 +922,7 @@ function combo_segmento($idCarteira, $idCliente) {
 	$ret = '<input type="hidden" id="idCarteiraCliente" name="idCarteiraCliente" value="'.$idCarteira.'" />
  		<input type="hidden" id="ididCliente" name="ididCliente" value="'.$idCliente.'" />
  		<select  onchange="xajax_tipo_ativo(xajax.getFormValues(\'form_cadastro\'))" id="tipo_segmento" name="tipo_segmento" class="form-control">
-                <option value="" disabled selected></option>';
+                <option value="999999" selected>TODOS</option>';
 
 	$result = buscaSegmento(999999,0);
 	
@@ -940,7 +940,7 @@ function combo_ativo($idCarteira, $idCliente) {
 	$ret = '<input type="hidden" id="idCarteiraCliente" name="idCarteiraCliente" value="'.$idCarteira.'" />
  		<input type="hidden" id="ididCliente" name="ididCliente" value="'.$idCliente.'" />
  		<select onchange="xajax_ativo_select(xajax.getFormValues(\'form_cadastro\'))"  id="tipo_ativo" name="tipo_ativo" class="form-control">
-                <option value="" disabled selected></option>';
+                <option value="999999" selected>TODOS</option>';
 
 	$result = buscaAtivo(999999,0);
 	
@@ -959,7 +959,7 @@ function tipo_subSetor($dados) {
 	$resp = new xajaxResponse("UTF-8");
 	
 	$ret = '<select  onchange="xajax_tipo_segmento(xajax.getFormValues(\'form_cadastro\'))" id="tipo_subSetor" name="tipo_subSetor" class="form-control">
-                <option value="" disabled selected></option>';
+                <option value="999999" selected>TODOS</option>';
 
 	$result = buscaSubSetor($dados['tipo_setor'],0);
 	
@@ -981,7 +981,7 @@ function tipo_segmento($dados) {
 	$resp = new xajaxResponse("UTF-8");
 	
 	$ret = '<select  onchange="xajax_tipo_ativo(xajax.getFormValues(\'form_cadastro\'))" id="tipo_segmento" name="tipo_segmento" class="form-control">
-                <option value="" disabled selected></option>';
+                <option value="999999" selected>TODOS</option>';
 
 	$result = buscaSegmento($dados['tipo_subSetor'],0);
 	
@@ -1004,7 +1004,7 @@ function tipo_ativo($dados) {
 //	$resp->alert('Investimentos do cliente: '.$dados['tipo_subSetor']); return $resp;
 	
 	$ret = '<select onchange="xajax_ativo_select(xajax.getFormValues(\'form_cadastro\'))"  id="tipo_ativo" name="tipo_ativo" class="form-control">
-                <option value="" disabled selected></option>';
+                <option value="999999" selected>TODOS</option>';
 	
 	$result = buscaAtivo($dados['tipo_segmento'],0);
 	
