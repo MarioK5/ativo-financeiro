@@ -1113,7 +1113,15 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 				$somaPositivo = 0;
 				$somaNegativo = 0;
 
-				
+				for($y = 0; $y < count($lista);$y++){
+
+						if($lista[$y]["SUGERIDO"] < 0){
+							$somaNegativo += $lista[$y]["SUGERIDO"];
+						}else{
+							$somaPositivo += $lista[$y]["SUGERIDO"];
+						}
+					
+				}
 			
 				
 			
