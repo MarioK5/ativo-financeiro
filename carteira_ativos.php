@@ -499,11 +499,6 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
 	  					</td>
 						<td colspan="2">
       						    <div name="n_ativo" id="n_ativo" style="width: 200px;" > 
-		   				    <div name="n_ativo2" id="n_ativo2" style="width: 200px;" > 
-					                <button type="button" class="btn btn-default btn-xs" onclick="xajax_tipo_ativo(xajax.getFormValues(\'form_cadastro\'))" id="tipo_segmento" name="tipo_segmento" value="999999">
-							<span class="glyphicon glyphicon-search"> Listar</span>
-							</button>
-						    </div>
 						</td>
 	                		</tr>
 				        <tr style="color:#696969; background-color:#DCDCDC;">
@@ -567,12 +562,15 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
 				     <td colspan="8" style="text-align: right;">
 					<input type="button" value="Gravar"  class="btn btn-success btn-sm" onclick="xajax_gravar_editar_ativo(xajax.getFormValues(\'form_cadastro\')); return false;">
 					<input type="button" value="Cancelar"  class="btn btn-danger btn-sm" onclick="xajax_busca_ativos('.$idCliente.'); return false;" >
+     					<input type="hidden" id="tipo_segmento" name="tipo_segmento" value="999999" />';
 				     </td>
 				</tr>
    				</div>
 			   </div>
 			</table>';
 
+	$script = "xajax_tipo_ativo('form_cadastro')";
+    	$resp->script($script);
     	$resp->assign("tela_cliente","innerHTML",$tela);
 	
 	return $resp;
@@ -956,12 +954,10 @@ function tipo_ativo($dados) {
 	$ret = '<select onchange="xajax_ativo_select(xajax.getFormValues(\'form_cadastro\'))"  id="tipo_ativo" name="tipo_ativo" class="form-control">
                 <option value="" disabled selected></option>';
 
-	if($dados['tipo_segmento'] == 999999){
-		$tp_segmento = 999999;
-		$divAtivos = "n_ativo2";
+	if($dados['tipo_segmento'] == ){
+		$tp_segmento = ;
 	}else{
 		$tp_segmento = $dados['tipo_segmento'];
-		$divAtivos = "n_ativo";
 	}
 	
 	$result = buscaAtivo($tp_segmento,0);
@@ -974,7 +970,7 @@ function tipo_ativo($dados) {
     
     	$ret .= '</select>';
 
-	$resp->assign($divAtivos,"innerHTML",$ret);
+	$resp->assign("n_ativo","innerHTML",$ret);
   
 	return $resp;
 }
@@ -1388,7 +1384,7 @@ function gerar_token()   {
 	$resp = new xajaxResponse("UTF-8");
 
 	$maxID = maxIdToken();
-	$numeral = rand(100000, 999999);
+	$numeral = rand(100000, );
 	$novoToken = ($maxID.$numeral);
 
 	$gravou = gravaToken($novoToken);
