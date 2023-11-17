@@ -1128,10 +1128,18 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 					$valor_atual_investido = ($lista[$z]["QTDE_ATIVOS"] * $lista[$z]["VALOR_ATUAL_ATIVO"]);
 	
 					if($lista[$z]["SUGERIDO"] > 0) {
-					$resp->alert('maior que zero '); 
-						
+						$valorSugerido = ($lista[$z]["SUGERIDO"]  + (($lista[$z]["SUGERIDO"] / $somaPositivo ) * ($somaNegativo )));
+						$lista[$z]["SUGERIDO_NEW"] = $valorSugerido;
 					}else{
-						$resp->alert('menor que zero '); 
+						$valorSugerido = 0;
+					}
+	
+					$lista[$z]["VALOR_ATUAL_INVESTIDO"] = ($valor_atual_investido + $lista[$z]["SUGERIDO_NEW"]);
+					
+					if ($valor_total_carteira> 0) {
+						$lista[$z]["NOVO_PERC"] = (($lista[$z]["VALOR_ATUAL_INVESTIDO"] / ($valor_total_carteira + $valorInvest1))*100);
+					}else{
+						$lista[$z]["NOVO_PERC"] = (($lista[$z]["SUGERIDO_NEW"] / $valorInvest1)*100);
 					}
 				}
 			
