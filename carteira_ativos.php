@@ -1062,7 +1062,6 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 				$valor_atual_ativo[$ind] = $row["VALOR_ATUAL_ATIVO"];
 				
 				$valor_atual_investido = ($qtde_ativos[$ind] * $valor_atual_ativo[$ind]);
-				$saldo = ($valor_atual_investido - $valor_investido[$ind]);
 
 				$result2 = somaValorTotalAtualAtivos($idCarteira);
 				
@@ -1082,45 +1081,86 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 						$valorSugerido = ((($porcentagem[$ind] - ($perc_atual - $porcentagem[$ind])) / 100) * $valorInvest);
 					}
 				}
+
+				$lista[$ind]["ID"]          = $row["ID"];
+				$lista[$ind]["ID_ATIVO"]    = $row["ID_ATIVO"];
+				$lista[$ind]["ID_CARTEIRA"] = $row["ID_CARTEIRA"];
+				$lista[$ind]["CODIGO"]      = $row["CODIGO"];
+				$lista[$ind]["DESCRICAO"]   = $row["DESCRICAO"];
+				$lista[$ind]["PORCENTAGEM"] = $row["PORCENTAGEM"];
+				$lista[$ind]["QTDE_ATIVOS"] = $row["QTDE_ATIVOS"];
+				$lista[$ind]["VALOR_INVESTIDO"]   = $row["VALOR_INVESTIDO"];
+				$lista[$ind]["VALOR_ATUAL_ATIVO"] = $row["VALOR_ATUAL_ATIVO"];
+				$lista[$ind]["SUGERIDO"]     = $valorSugerido;
+				$lista[$ind]["PERC_ATU"]     = $perc_atual;
+
+				$ind++;
+				}
+
+				$somaPositivo = 0;
+				$somaNegativo = 0;
+
+				for($y = 0; $y < count($lista);$y++){
+
+						if($lista[$y]["SUGERIDO"] < 0){
+							$somaNegativo += $lista[$y]["SUGERIDO"];
+						}else{
+							$somaPositivo += $lista[$y]["SUGERIDO"];
+						}
+					
+				}
+
+				for($x = 0; $x < count($lista);$x++){
+
+					$valor_atual_investido = ($lista[$x]["QTDE_ATIVOS"] * $lista[$x]["VALOR_ATUAL_ATIVO"]);
+
+				$result2 = somaValorTotalAtualAtivos($idCarteira);
+				
+				while ($row2 = mysqli_fetch_array($result2)) {
+					$valor_total_carteira = $row2["VALOR_TOTAL"];
+				}
+
+				if ($lista[$x]["SUGERIDO"] > 0) {
+					$valorSugerido = ($lista[$x]["SUGERIDO"] + (($lista[$x]["SUGERIDO"] / $somaPositivo ) * ($somaNegativo )));
+				}else{
+					$valorSugerido = 0;
+				}
+
+				$ativosSugeridos = ($valorSugerido / $lista[$x]["VALOR_ATUAL_ATIVO"]);
+
 				if ($valor_total_carteira> 0) {
 					$novo_perc = ((($valor_atual_investido + $valorSugerido) / ($valor_total_carteira + $valorInvest))*100);
 				}else{
 					$novo_perc = (($valorSugerido / $valorInvest)*100);
 				}
-
-				$ativosSugeridos = ($valorSugerido / $valor_atual_ativo[$ind]);
 				
 				$tela .= '<tr>
-								<td>'.$codigo[$ind].'</td>
-								<td>'.$desc_Ativo[$ind].'</td>
-								<td>'.number_format($porcentagem[$ind],0,",",".").'</td>
-								<td>'.$qtde_ativos[$ind].'</td>
+								<td>'.$lista[$x]["CODIGO"].'</td>
+								<td>'.$lista[$x]["DESCRICAO"].'</td>
+								<td>'.number_format($lista[$x]["PORCENTAGEM"],0,",",".").'</td>
+								<td>'.$lista[$x]["QTDE_ATIVOS"].'</td>
 								<td>'.number_format($valor_atual_investido,2,",",".").'</td>
-								<td>'.number_format($valor_atual_ativo[$ind],2,",",".").'</td>
-								<td>'.number_format($perc_atual,2,",",".").'</td>
+								<td>'.number_format($lista[$x]["VALOR_ATUAL_ATIVO"],2,",",".").'</td>
+								<td>'.number_format($lista[$x]["PERC_ATU"],2,",",".").'</td>
 								<td>==></td>
 								<td>
-									<input type="text" class="form-control" name="novoPerc[]'.$ind.'" id="novoPerc[]'.$ind.'" value="'.number_format($novo_perc,2,",",".").'" readonly="readonly" style="width: 70px;" />
+									<input type="text" class="form-control" name="novoPerc[]'.$x.'" id="novoPerc[]'.$x.'" value="'.number_format($novo_perc,2,",",".").'" readonly="readonly" style="width: 70px;" />
 							 	</td>
 								<td>
-									<input type="text" class="form-control" name="n_newAtivos[]'.$ind.'" id="n_newAtivos[]'.$ind.'" value="'.number_format($ativosSugeridos,0,",",".").'" readonly="readonly" style="width: 45px;" />
+									<input type="text" class="form-control" name="n_newAtivos[]'.$x.'" id="n_newAtivos[]'.$x.'" value="'.number_format($ativosSugeridos,0,",",".").'" readonly="readonly" style="width: 45px;" />
 								</td>
 								<td>
-									<input type="text" class="form-control" name="n_newValor[]'.$ind.'" id="n_newValor[]'.$ind.'" onchange="xajax_calcularAtivos(xajax.getFormValues(\'form_cadastro\'),'.$ind.')" value="'.number_format($valorSugerido,2,",",".").'" style="width: 110px;" />				
+									<input type="text" class="form-control" name="n_newValor[]'.$x.'" id="n_newValor[]'.$x.'" onchange="xajax_calcularAtivos(xajax.getFormValues(\'form_cadastro\'),'.$x.')" value="'.number_format($valorSugerido,2,",",".").'" style="width: 110px;" />				
 		                	</tr>
-		   			<input type="hidden" id="valorAtualAtivo[]'.$ind.'" name="valorAtualAtivo[]'.$ind.'" value="'.$valor_atual_ativo[$ind].'" />
-					<input type="hidden" id="quantiAtivos[]'.$ind.'" name="quantiAtivos[]'.$ind.'" value="'.$qtde_ativos[$ind].'" />
-     					<input type="hidden" id="idAtivoInvestimento[]'.$ind.'" name="idAtivoInvestimento[]'.$ind.'" value="'.$idAtivoCarteira[$ind].'" />
+		   			<input type="hidden" id="valorAtualAtivo[]'.$x.'" name="valorAtualAtivo[]'.$x.'" value="'.$lista[$x]["VALOR_ATUAL_ATIVO"].'" />
+					<input type="hidden" id="quantiAtivos[]'.$x.'" name="quantiAtivos[]'.$x.'" value="'.$lista[$x]["QTDE_ATIVOS"].'" />
+     					<input type="hidden" id="idAtivoInvestimento[]'.$x.'" name="idAtivoInvestimento[]'.$x.'" value="'.$lista[$x]["ID"].'" />
 					<input type="hidden" id="novoValorInvest" name="novoValorInvest" value="'.$valorInvest.'" />
      					<input type="hidden" id="valorTotalCarteira" name="valorTotalCarteira" value="'.$valor_total_carteira.'" />
      					<input type="hidden" id="idCarteiraInvest" name="idCarteiraInvest" value="'.$idCarteira.'" />
  					<input type="hidden" id="idClienteInvest" name="idClienteInvest" value="'.$idCliente.'" />';
-				$ind++;
 				}
-				$valorSugerido   = 0;
-				$ativosSugeridos = 0;
-				$valorInvest     = 0;
-				$ind = 0;
+			
 			$tela .= '<tr> 
 					<td colspan="10" style="text-align: right;">
 					<input type="button" value="Gravar"  class="btn btn-success btn-sm" onclick="xajax_gravar_investimento(xajax.getFormValues(\'form_cadastro\')); return false;" >
