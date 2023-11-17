@@ -1046,7 +1046,7 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 				<th>Qtde Ativos<br>Sugerido</th>
     				<th>Valor sugerido</th>
 			  </tr> ';	
-
+$resp->alert('aqui '); return $resp;
 	$result2 = somaValorTotalAtualAtivos($idCarteira);
 			
 			while ($row2 = mysqli_fetch_array($result2)) {
@@ -1055,7 +1055,7 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 
 	if($valorInvest > ($valor_total_carteira * 2)){
 		$valorInvest1 = ($valor_total_carteira * 2);
-		$valorInvest2 = $valorInvest - $valorInvest1;
+		$valorInvest2 = ($valorInvest - $valorInvest1);
 	}else{
 		$valorInvest1 = $valorInvest;
 		$valorInvest2 = 0;
@@ -1126,12 +1126,6 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 				for($z = 0; $z < count($lista);$z++){
 
 					$valor_atual_investido = ($lista[$z]["QTDE_ATIVOS"] * $lista[$z]["VALOR_ATUAL_ATIVO"]);
-
-					$result2 = somaValorTotalAtualAtivos($idCarteira);
-					
-					while ($row2 = mysqli_fetch_array($result2)) {
-						$valor_total_carteira = $row2["VALOR_TOTAL"];
-					}
 	
 					if ($lista[$z]["SUGERIDO"] > 0) {
 						$valorSugerido = ($lista[$z["SUGERIDO"] + (($lista[$z]["SUGERIDO"] / $somaPositivo ) * ($somaNegativo )));
@@ -1140,12 +1134,12 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 						$valorSugerido = 0;
 					}
 	
-					$lista[$z]["VALOR_ATUAL_INVESTIDO"] = ($valor_atual_investido + $valorSugerido);
+					$lista[$z]["VALOR_ATUAL_INVESTIDO"] = ($valor_atual_investido + $lista[$z]["SUGERIDO_NEW"]);
 					
 					if ($valor_total_carteira> 0) {
-						$lista[$z]["NOVO_PERC"] = ((($valor_atual_investido + $valorSugerido) / ($valor_total_carteira + $valorInvest1))*100);
+						$lista[$z]["NOVO_PERC"] = (($lista[$z]["VALOR_ATUAL_INVESTIDO"] / ($valor_total_carteira + $valorInvest1))*100);
 					}else{
-						$lista[$z]["NOVO_PERC"] = (($valorSugerido / $valorInvest1)*100);
+						$lista[$z]["NOVO_PERC"] = (($lista[$z]["SUGERIDO_NEW"] / $valorInvest1)*100);
 					}
 				}
 
