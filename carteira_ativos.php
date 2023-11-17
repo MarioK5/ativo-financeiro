@@ -1063,7 +1063,98 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 
 	$result = listaAtivosCarteira($idCarteira);
 	
-		
+	if (mysqli_num_rows($result) > 0) {
+			while ($row = mysqli_fetch_array($result)) {
+
+				$idAtivoCarteira[$ind] = $row["ID"];
+				$idAtivo[$ind]         = $row["ID_ATIVO"];
+            			$idCarteiraAtivo[$ind] = $row["ID_CARTEIRA"];
+				$codigo[$ind]          = $row["CODIGO"];
+				$desc_Ativo[$ind]      = $row["DESCRICAO"];
+				$porcentagem[$ind]     = $row["PORCENTAGEM"];
+				$qtde_ativos[$ind]     = $row["QTDE_ATIVOS"];
+				$valor_investido[$ind] = $row["VALOR_INVESTIDO"];
+				$valor_atual_ativo[$ind] = $row["VALOR_ATUAL_ATIVO"];
+				
+				$valor_atual_investido = ($qtde_ativos[$ind] * $valor_atual_ativo[$ind]);
+				
+				if ($valor_total_carteira> 0) {
+					$perc_atual = (($valor_atual_investido / $valor_total_carteira)*100);
+				}
+
+				if($perc_atual == 0){
+					$valorSugerido = (($porcentagem[$ind] / 100) * $valorInvest1);
+				}else{
+					if($perc_atual < $porcentagem[$ind]){
+						$valorSugerido = ((($porcentagem[$ind] + ($porcentagem[$ind] - $perc_atual)) / 100) * $valorInvest1);
+					}else{
+						$valorSugerido = ((($porcentagem[$ind] - ($perc_atual - $porcentagem[$ind])) / 100) * $valorInvest1);
+					}
+				}
+
+				$lista[$ind]["ID"]          = $row["ID"];
+				$lista[$ind]["ID_ATIVO"]    = $row["ID_ATIVO"];
+				$lista[$ind]["ID_CARTEIRA"] = $row["ID_CARTEIRA"];
+				$lista[$ind]["CODIGO"]      = $row["CODIGO"];
+				$lista[$ind]["DESCRICAO"]   = $row["DESCRICAO"];
+				$lista[$ind]["PORCENTAGEM"] = $row["PORCENTAGEM"];
+				$lista[$ind]["QTDE_ATIVOS"] = $row["QTDE_ATIVOS"];
+				$lista[$ind]["VALOR_INVESTIDO"]   = $row["VALOR_INVESTIDO"];
+				$lista[$ind]["VALOR_ATUAL_ATIVO"] = $row["VALOR_ATUAL_ATIVO"];
+				$lista[$ind]["SUGERIDO"]     = $valorSugerido;
+				$lista[$ind]["PERC_ATU"]     = $perc_atual;
+				$lista[$ind]["SUGERIDO_NEW"] = 0;
+				$lista[$ind]["VALOR_ATUAL_INVESTIDO"] = 0;
+				$lista[$ind]["NOVO_PERC"]     = 0;
+
+				$ind++;
+				}
+
+				$somaPositivo = 0;
+				$somaNegativo = 0;
+
+				for($y = 0; $y < count($lista);$y++){
+
+						if($lista[$y]["SUGERIDO"] < 0){
+							$somaNegativo += $lista[$y]["SUGERIDO"];
+						}else{
+							$somaPositivo += $lista[$y]["SUGERIDO"];
+						}
+					
+				}
+
+				for($z = 0; $z < count($lista);$z++){
+
+					$valor_atual_investido = ($lista[$z]["QTDE_ATIVOS"] * $lista[$z]["VALOR_ATUAL_ATIVO"]);
+	
+					if ($lista[$z]["SUGERIDO"] > 0) {
+						$valorSugerido = ($lista[$z["SUGERIDO"] + (($lista[$z]["SUGERIDO"] / $somaPositivo ) * ($somaNegativo )));
+						$lista[$z]["SUGERIDO_NEW"] = $valorSugerido;
+					}else{
+						$valorSugerido = 0;
+					}
+	
+					$lista[$z]["VALOR_ATUAL_INVESTIDO"] = ($valor_atual_investido + $lista[$z]["SUGERIDO_NEW"]);
+					
+					if ($valor_total_carteira> 0) {
+						$lista[$z]["NOVO_PERC"] = (($lista[$z]["VALOR_ATUAL_INVESTIDO"] / ($valor_total_carteira + $valorInvest1))*100);
+					}else{
+						$lista[$z]["NOVO_PERC"] = (($lista[$z]["SUGERIDO_NEW"] / $valorInvest1)*100);
+					}
+				}
+
+				
+			
+				
+			
+			$tela .= '<tr> 
+					<td colspan="10" style="text-align: right;">
+					<input type="button" value="Gravar"  class="btn btn-success btn-sm" onclick="xajax_gravar_investimento(xajax.getFormValues(\'form_cadastro\')); return false;" >
+     					<input type="button" value="Cancelar"  class="btn btn-danger btn-sm" onclick="xajax_busca_investimentos('.$idCliente.'); return false;" >
+	     				</td>
+				</tr>
+    			</table">';
+			}	
 		
 	}else{
 		$resp->alert('O valor do investimento deve ser informado '); return $resp;
