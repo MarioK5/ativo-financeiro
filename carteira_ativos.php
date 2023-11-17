@@ -982,8 +982,9 @@ function tipo_ativo($dados) {
 
 function ativo_select($dados)   {
 
-	$resp = new xajaxResponse("UTF-8");	
-
+	$resp = new xajaxResponse("UTF-8");
+	
+	$ind = $dados['n_cont'];
 	$result = buscaAtivo($dados['tipo_ativo'],1);
 
 	if (mysqli_num_rows($result) > 0) {
@@ -1008,6 +1009,10 @@ function ativo_select($dados)   {
 						<td style="width: 120px;">'.number_format($valor_ativo,2,",",".").'</td>
 						<td style="width: 100px;" colspan="2">0</td>
 	     				 </tr>
+	   				<input type="hidden" id="idAtivoCliente[]'.$ind.'" name="idAtivoCliente[]'.$ind.'" value="'.$idAtivoCliente.'" />
+	 				<input type="hidden" id="idAtivoCodigo[]'.$ind.'" name="idAtivoCodigo[]'.$ind.'" value="'.$codigo.'" />
+					<input type="hidden" id="idCliente" name="idCliente" value="'.$idCliente.'" />
+					<input type="hidden" id="n_cont" name="n_cont" value="'.$ind.'" />';
 	  			</table>';
 			$ind++;
 		}
