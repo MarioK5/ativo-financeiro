@@ -1154,12 +1154,12 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 				}else{
 					for($x = 0; $x < count($lista);$x++){
 				
-					$ativosSugeridos = ($valorSugerido / $lista[$x]["VALOR_ATUAL_ATIVO"]);
+					$ativosSugeridos = ($lista[$x]["SUGERIDO_NEW"] / $lista[$x]["VALOR_ATUAL_ATIVO"]);
 	
 					if ($valor_total_carteira> 0) {
-						$novo_perc = ((($valor_atual_investido + $valorSugerido) / ($valor_total_carteira + $valorInvest))*100);
+						$novo_perc = (($lista[$x]["VALOR_ATUAL_INVESTIDO"] / ($valor_total_carteira + $valorInvest1))*100);
 					}else{
-						$novo_perc = (($valorSugerido / $valorInvest)*100);
+						$novo_perc = (($lista[$x]["SUGERIDO_NEW"] / $valorInvest1)*100);
 					}
 					
 					$tela .= '<tr>
@@ -1167,7 +1167,7 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 									<td>'.$lista[$x]["DESCRICAO"].'</td>
 									<td>'.number_format($lista[$x]["PORCENTAGEM"],0,",",".").'</td>
 									<td>'.$lista[$x]["QTDE_ATIVOS"].'</td>
-									<td>'.number_format($valor_atual_investido,2,",",".").'</td>
+									<td>'.number_format($lista[$x]["VALOR_ATUAL_INVESTIDO"],2,",",".").'</td>
 									<td>'.number_format($lista[$x]["VALOR_ATUAL_ATIVO"],2,",",".").'</td>
 									<td>'.number_format($lista[$x]["PERC_ATU"],2,",",".").'</td>
 									<td>==></td>
@@ -1178,12 +1178,12 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 										<input type="text" class="form-control" name="n_newAtivos[]'.$x.'" id="n_newAtivos[]'.$x.'" value="'.number_format($ativosSugeridos,0,",",".").'" readonly="readonly" style="width: 45px;" />
 									</td>
 									<td>
-										<input type="text" class="form-control" name="n_newValor[]'.$x.'" id="n_newValor[]'.$x.'" onchange="xajax_calcularAtivos(xajax.getFormValues(\'form_cadastro\'),'.$x.')" value="'.number_format($valorSugerido,2,",",".").'" style="width: 110px;" />				
+										<input type="text" class="form-control" name="n_newValor[]'.$x.'" id="n_newValor[]'.$x.'" onchange="xajax_calcularAtivos(xajax.getFormValues(\'form_cadastro\'),'.$x.')" value="'.number_format($lista[$x]["SUGERIDO_NEW"],2,",",".").'" style="width: 110px;" />				
 			                	</tr>
 			   			<input type="hidden" id="valorAtualAtivo[]'.$x.'" name="valorAtualAtivo[]'.$x.'" value="'.$lista[$x]["VALOR_ATUAL_ATIVO"].'" />
 						<input type="hidden" id="quantiAtivos[]'.$x.'" name="quantiAtivos[]'.$x.'" value="'.$lista[$x]["QTDE_ATIVOS"].'" />
 	     					<input type="hidden" id="idAtivoInvestimento[]'.$x.'" name="idAtivoInvestimento[]'.$x.'" value="'.$lista[$x]["ID"].'" />
-						<input type="hidden" id="novoValorInvest" name="novoValorInvest" value="'.$valorInvest.'" />
+						<input type="hidden" id="novoValorInvest" name="novoValorInvest" value="'.$valorInvest1.'" />
 	     					<input type="hidden" id="valorTotalCarteira" name="valorTotalCarteira" value="'.$valor_total_carteira.'" />
 	     					<input type="hidden" id="idCarteiraInvest" name="idCarteiraInvest" value="'.$idCarteira.'" />
 	 					<input type="hidden" id="idClienteInvest" name="idClienteInvest" value="'.$idCliente.'" />';
