@@ -1016,7 +1016,7 @@ function tipo_ativo($dados) {
     
     	$ret .= '</select>';
 
-	$resp->assign($divAtivos,"innerHTML",$ret);
+	$resp->assign("n_ativo","innerHTML",$ret);
   
 	return $resp;
 }
