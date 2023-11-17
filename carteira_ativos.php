@@ -984,7 +984,8 @@ function ativo_select($dados)   {
 
 	$resp = new xajaxResponse("UTF-8");
 	
-	$ind = $dados['n_cont'];
+	$ind = ($dados['n_cont'] + 1);
+	$lin = $dados['n_cont'];
 	
 	$result = buscaAtivo($dados['tipo_ativo'],1);
 
