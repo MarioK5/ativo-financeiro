@@ -550,8 +550,8 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
 						    </div>
 	  				<input type="hidden" id="idAtivoCliente[]'.$ind.'" name="idAtivoCliente[]'.$ind.'" value="'.$idAtivoCliente.'" />
 	 				<input type="hidden" id="idAtivoCodigo[]'.$ind.'" name="idAtivoCodigo[]'.$ind.'" value="'.$codigo.'" />
+      					<input type="hidden" id="tipoGravar[]'.$ind.'" name="tipoGravar[]'.$ind.'" value="0" />
 					<input type="hidden" id="idCliente" name="idCliente" value="'.$idCliente.'" />
-     					<input type="hidden" id="tipoGravar" name="tipoGravar" value="0" />
 					<input type="hidden" id="n_cont" name="n_cont" value="'.$ind.'" />';
 				$valorInvestidoAtual = 0;
 				$ind++;
@@ -1008,7 +1008,7 @@ function ativo_select($dados)   {
 						<td style="width: 120px;">
 							<input type="text" class="form-control" name="n_perc[]'.$ind.'" id="n_perc[]'.$ind.'" value="" style="width: 50px;" />
 							<input type="hidden" class="form-control" name="idAtivoCliente[]'.$ind.'" id="idAtivoCliente[]'.$ind.'" value="'.$idAtivo.'" />
-							<input type="hidden" id="tipoGravar" name="tipoGravar" value="1" />
+							<input type="hidden" id="tipoGravar[]'.$ind.'" name="tipoGravar[]'.$ind.'" value="1" />
 						</td>
 						<td style="width: 100px;">0</td>
 						<td style="width: 100px;">0</td>
