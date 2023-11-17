@@ -1128,10 +1128,10 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 					$valor_atual_investido = ($lista[$z]["QTDE_ATIVOS"] * $lista[$z]["VALOR_ATUAL_ATIVO"]);
 	
 					if($lista[$z]["SUGERIDO"] > 0) {
-					//	$valorSugerido = ($lista[$z["SUGERIDO"] + (($lista[$z]["SUGERIDO"] / $somaPositivo ) * ($somaNegativo )));
+					$resp->alert('maior que zero '); 
 						
 					}else{
-						$valorSugerido = 0;
+						$resp->alert('menor que zero '); 
 					}
 				}
 			
