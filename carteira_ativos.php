@@ -359,7 +359,7 @@ function inativar_carteira($idCarteira)   {
 
 	$resp = new xajaxResponse("UTF-8");
 
-	$resp->alert('Excluir carteira...'); return $resp;
+	$resp->alert('Inativar carteira...'); return $resp;
 	
 	$resp->assign("tela_cliente","innerHTML",$tela);
   
