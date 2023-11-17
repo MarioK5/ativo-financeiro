@@ -571,6 +571,8 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
 			   </div>
 			</table>';
 
+	$script = "xajax_tipo_ativo(999999)";
+    	$resp->script($script);
     	$resp->assign("tela_cliente","innerHTML",$tela);
 	
 	return $resp;
@@ -954,13 +956,19 @@ function tipo_ativo($dados) {
 	$ret = '<select onchange="xajax_ativo_select(xajax.getFormValues(\'form_cadastro\'))"  id="tipo_ativo" name="tipo_ativo" class="form-control">
                 <option value="" disabled selected></option>';
 
-	if($dados['tipo_segmento'] == 999999){
+	if($dados == 999999){
 		$tp_segmento = 999999;
 		$divAtivos = "n_ativo2";
 	}else{
-		$tp_segmento = $dados['tipo_segmento'];
-		$divAtivos = "n_ativo";
+		if($dados['tipo_segmento'] == 999999){
+			$tp_segmento = 999999;
+			$divAtivos = "n_ativo2";
+		}else{
+			$tp_segmento = $dados['tipo_segmento'];
+			$divAtivos = "n_ativo";
+		}
 	}
+	
 	
 	$result = buscaAtivo($tp_segmento,0);
 	
