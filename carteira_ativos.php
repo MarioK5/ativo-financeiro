@@ -1168,7 +1168,7 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 									<td>'.$lista[$x]["DESCRICAO"].'</td>
 									<td>'.number_format($lista[$x]["PORCENTAGEM"],0,",",".").'</td>
 									<td>'.$lista[$x]["QTDE_ATIVOS"].'</td>
-									<td>'.number_format($lista[$x]["VALOR_ATUAL_INVESTIDO"],2,",",".").'</td>
+									<td>'.number_format($lista[$x]["VALOR_INVESTIDO"],2,",",".").'</td>
 									<td>'.number_format($lista[$x]["VALOR_ATUAL_ATIVO"],2,",",".").'</td>
 									<td>'.number_format($lista[$x]["PERC_ATU"],2,",",".").'</td>
 									<td>==></td>
@@ -1205,7 +1205,7 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 									<td>'.$lista[$x]["DESCRICAO"].'</td>
 									<td>'.number_format($lista[$x]["PORCENTAGEM"],0,",",".").'</td>
 									<td>'.$lista[$x]["QTDE_ATIVOS"].'</td>
-									<td>'.number_format($lista[$x]["VALOR_ATUAL_INVESTIDO"],2,",",".").'</td>
+									<td>'.number_format($lista[$x]["VALOR_INVESTIDO"],2,",",".").'</td>
 									<td>'.number_format($lista[$x]["VALOR_ATUAL_ATIVO"],2,",",".").'</td>
 									<td>'.number_format($lista[$x]["PERC_ATU"],2,",",".").'</td>
 									<td>==></td>
