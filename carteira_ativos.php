@@ -986,6 +986,7 @@ function ativo_select($dados)   {
 	
 	$ind = ($dados['n_cont'] + 1);
 	$lin = $dados['n_cont'];
+	$idCliente = $dados['idCliente'];
 	
 	$result = buscaAtivo($dados['tipo_ativo'],1);
 
