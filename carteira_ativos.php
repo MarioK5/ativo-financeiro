@@ -640,8 +640,8 @@ function editar_ativo_carteira($idCarteira, $idCliente)   {
 			                                                <input type="text" name="n_perc[]'.$ind.'" id="n_perc[]'.$ind.'" value="'.number_format($porcentagem,0,",",".").'" class="form-control" >
 						   			<input type="hidden" id="idAtivoCliente[]'.$ind.'" name="idAtivoCliente[]'.$ind.'" value="'.$idAtivoCliente.'" />
 	    								<input type="hidden" id="idAtivoCodigo[]'.$ind.'" name="idAtivoCodigo[]'.$ind.'" value="'.$codigo.'" />
+	     								<input type="hidden" id="tipoGravar[]'.$ind.'" name="tipoGravar[]'.$ind.'" value="0" />
 	      								<input type="hidden" id="ididCliente" name="ididCliente" value="'.$idCliente.'" />
-	       								<input type="hidden" id="tipoGravar" name="tipoGravar" value="0" />
 									<input type="hidden" id="n_cont" name="n_cont" value="'.$ind.'" />
 			                                            </div>
 			                                        </div>
@@ -677,14 +677,16 @@ function gravar_editar_ativo($dados)   {
 
 	$idCliente = $dados['ididCliente'];
 
-//	$resp->alert('Cliente : '.$idCliente); return $resp;
-
 	for($i = 0; $i < count($dados);$i++){
 		$soma_perc += $dados['n_perc'][$i];
 	}
 
 	if($soma_perc == 100){
-		for($j = 0; $j < count($dados);$j++){
+		for($j = 0; $j < count($dados['tipoGravar']);$j++){
+			
+$resp->alert('tipoGravar : '.$dados['tipoGravar']);
+$resp->alert('idAtivoCliente : '.$dados['idAtivoCliente'][$j]);
+$resp->alert('n_perc : '.$dados['n_perc'][$j]);
 			
 			if(($dados['tipoGravar'] == 1) && ($j == 0)){
 				cadastroAtivoCarteira($dados['idAtivoCliente'][$j], $dados['idCarteiraCliente'], $dados['n_perc'][$j]);
@@ -1015,8 +1017,8 @@ function ativo_select($dados)   {
 	     				 </tr>
 	   				<input type="hidden" id="idAtivoCliente[]'.$ind.'" name="idAtivoCliente[]'.$ind.'" value="'.$idAtivoCliente.'" />
 	 				<input type="hidden" id="idAtivoCodigo[]'.$ind.'" name="idAtivoCodigo[]'.$ind.'" value="'.$codigo.'" />
+      					<input type="hidden" id="tipoGravar[]'.$ind.'" name="tipoGravar[]'.$ind.'" value="1" />
 					<input type="hidden" id="idCliente" name="idCliente" value="'.$idCliente.'" />
-     					<input type="hidden" id="tipoGravar" name="tipoGravar" value="1" />
 					<input type="hidden" id="n_cont" name="n_cont" value="'.$ind.'" />
 	  			</table>';
 			$ind++;
