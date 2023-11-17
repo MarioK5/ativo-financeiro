@@ -1115,9 +1115,14 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 				$valor_total_carteira = $row2["VALOR_TOTAL"];
 			}
 
-	if($valorInvest > ($valor_total_carteira * 2)){
-		$valorInvest1 = ($valor_total_carteira * 2);
-		$valorInvest2 = ($valorInvest - $valorInvest1);
+	if($valor_total_carteira > 0){
+		if($valorInvest > ($valor_total_carteira * 2)){
+			$valorInvest1 = ($valor_total_carteira * 2);
+			$valorInvest2 = ($valorInvest - $valorInvest1);
+		}else{
+			$valorInvest1 = $valorInvest;
+			$valorInvest2 = 0;
+		}
 	}else{
 		$valorInvest1 = $valorInvest;
 		$valorInvest2 = 0;
