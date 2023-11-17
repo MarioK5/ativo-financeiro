@@ -1176,7 +1176,7 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 										<input type="text" class="form-control" name="novoPerc[]'.$x.'" id="novoPerc[]'.$x.'" value="'.number_format($novo_perc,2,",",".").'" readonly="readonly" style="width: 70px;" />
 								 	</td>
 									<td>
-										<input type="text" class="form-control" name="n_newAtivos[]'.$x.'" id="n_newAtivos[]'.$x.'" value="'.number_format($ativosSugeridos,0,",",".").'" readonly="readonly" style="width: 50px;" />
+										<input type="text" class="form-control" name="n_newAtivos[]'.$x.'" id="n_newAtivos[]'.$x.'" value="'.number_format($ativosSugeridos,0,",",".").'" readonly="readonly" style="width: 60px;" />
 									</td>
 									<td>
 										<input type="text" class="form-control" name="n_newValor[]'.$x.'" id="n_newValor[]'.$x.'" onchange="xajax_calcularAtivos(xajax.getFormValues(\'form_cadastro\'),'.$x.')" value="'.number_format($lista[$x]["SUGERIDO_NEW"],2,",",".").'" style="width: 110px;" />				
@@ -1213,7 +1213,7 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 										<input type="text" class="form-control" name="novoPerc[]'.$x.'" id="novoPerc[]'.$x.'" value="'.number_format($novo_perc,2,",",".").'" readonly="readonly" style="width: 70px;" />
 								 	</td>
 									<td>
-										<input type="text" class="form-control" name="n_newAtivos[]'.$x.'" id="n_newAtivos[]'.$x.'" value="'.number_format($ativosSugeridos,0,",",".").'" readonly="readonly" style="width: 45px;" />
+										<input type="text" class="form-control" name="n_newAtivos[]'.$x.'" id="n_newAtivos[]'.$x.'" value="'.number_format($ativosSugeridos,0,",",".").'" readonly="readonly" style="width: 60px;" />
 									</td>
 									<td>
 										<input type="text" class="form-control" name="n_newValor[]'.$x.'" id="n_newValor[]'.$x.'" onchange="xajax_calcularAtivos(xajax.getFormValues(\'form_cadastro\'),'.$x.')" value="'.number_format($lista[$x]["SUGERIDO_NEW"],2,",",".").'" style="width: 110px;" />				
