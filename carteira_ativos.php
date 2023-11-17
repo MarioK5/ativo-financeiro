@@ -569,8 +569,8 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
 			   </div>
 			</table>';
 
-	$script = "xajax_tipo_ativo(\'form_cadastro\')";
-    	$resp->script($script);
+//	$script = "xajax_tipo_ativo(\'form_cadastro\')";
+//    	$resp->script($script);
     	$resp->assign("tela_cliente","innerHTML",$tela);
 	
 	return $resp;
