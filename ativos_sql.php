@@ -341,6 +341,20 @@ function alteraCarteira($descricao, $idCliente, $idCarteira){
 	return $ret;
 }
 
+function inativarCarteira($idCliente, $idCarteira){
+	
+	$conn = OpenCon();
+	
+	$sql = "UPDATE CARTEIRA SET
+ 			SITUACAO  = 1
+    		WHERE ID_CLIENTE = '{$idCliente}'
+      		  AND ID = '{$idCarteira}'";
+	
+	$result = mysqli_query($conn,$sql);
+		  mysqli_commit($conn);
+
+}
+
 function alteraAtivoCarteira($idAtivoCliente, $novaPorcentagem){
 	
 	$conn = OpenCon();
