@@ -610,7 +610,7 @@ function editar_ativo_carteira($idCarteira, $idCliente)   {
 	
 	$tela .= '<table border="0" width=100% class="table">
  			<div class="row">
-    				<div class="col-xs-6 col-md-4">
+    				<div class="col-xs-8 col-md-8">
 					<tr style="color:white; background-color:#2F4F4F;">
 				     	     <th colspan="7">'.$descrCarteira.'</th>
 	 				</tr>
@@ -656,7 +656,7 @@ function editar_ativo_carteira($idCarteira, $idCliente)   {
 			                                    <div class="form-group">
 			                                        <div id="sandbox-container">
 			                                            <div class="input-group">
-			                                                <input type="text" name="n_perc[]'.$ind.'" id="n_perc[]'.$ind.'" value="'.number_format($porcentagem,0,",",".").'" class="form-control" >
+			                                                <input type="text" name="n_perc[]'.$ind.'" id="n_perc[]'.$ind.'" value="'.number_format($porcentagem,0,",",".").'" class="form-control" style="width: 50px;" >
 						   			<input type="hidden" id="idAtivoCliente[]'.$ind.'" name="idAtivoCliente[]'.$ind.'" value="'.$idAtivoCliente.'" />
 	    								<input type="hidden" id="idAtivoCodigo[]'.$ind.'" name="idAtivoCodigo[]'.$ind.'" value="'.$codigo.'" />
 	     								<input type="hidden" id="tipoGravar[]'.$ind.'" name="tipoGravar[]'.$ind.'" value="0" />
