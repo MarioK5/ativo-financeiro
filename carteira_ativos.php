@@ -355,13 +355,18 @@ function editar_carteira($idCliente, $idCarteira)   {
 	return $resp;
 }
 
-function inativar_carteira($idCarteira)   {
+function inativar_carteira($idCliente, $idCarteira)   {
 
 	$resp = new xajaxResponse("UTF-8");
 
 	$resp->alert('Inativar carteira...'); return $resp;
+
 	
-	$resp->assign("tela_cliente","innerHTML",$tela);
+	
+	$script = "xajax_busca_carteiras($idCliente)";
+	$resp->script($script);
+    
+	$resp->assign("tela_saida","innerHTML",$tela);
   
 	return $resp;
 }
