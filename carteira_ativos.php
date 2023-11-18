@@ -652,7 +652,7 @@ function editar_ativo_carteira($idCarteira, $idCliente)   {
 						<td>'.number_format($valor_investido,2,",",".").'</td>
 						<td>'.$qtde_ativos.'</td>
 						<td>
-      							<div class="col-xs-4 col-md-4">
+      							<div class="col-xs-2 col-md-2">
 			                                    <div class="form-group">
 			                                        <div id="sandbox-container">
 			                                            <div class="input-group">
