@@ -344,7 +344,7 @@ function editar_carteira($idCliente, $idCarteira)   {
     				<div class="col-xs-6 col-md-6">
 					<input type="button" value="Gravar"  class="btn btn-success btn-sm" onclick="xajax_cadastrar_carteira(document.getElementById(\'novo_nome_carteira\').value,'.$idCliente.','.$idCarteira.'); ">
 					<input type="button" value="Cancelar"  class="btn btn-danger btn-sm" onclick="xajax_busca_carteiras('.$idCliente.'); return false;" >
-     					<input type="button" value="Excluir"  class="btn btn-warning btn-sm" onclick="xajax_inativar_carteira('.$idCarteira.'); return false;" >
+     					<input type="button" value="Excluir"  class="btn btn-warning btn-sm" onclick="xajax_inativar_carteira('.$idCliente.','.$idCarteira.'); return false;" >
 				</div>
 			    </div>
 			</div>
