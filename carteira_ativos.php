@@ -15,6 +15,7 @@ $xajax->registerFunction("editar_carteira");
 $xajax->registerFunction("inativar_carteira");
 $xajax->registerFunction("cadastrar_ativo");
 $xajax->registerFunction("editar_ativo_carteira");
+$xajax->registerFunction("vender_ativo_carteira");
 $xajax->registerFunction("gravar_editar_ativo");
 $xajax->registerFunction("excluir_ativo_carteira");
 $xajax->registerFunction("tipo_subSetor");
@@ -611,7 +612,7 @@ function editar_ativo_carteira($idCarteira, $idCliente)   {
  			<div class="row">
     				<div class="col-xs-6 col-md-4">
 					<tr style="color:white; background-color:#2F4F4F;">
-				     	     <th colspan="6">'.$descrCarteira.'</th>
+				     	     <th colspan="7">'.$descrCarteira.'</th>
 	 				</tr>
       					<tr style="color:#696969; background-color:#DCDCDC;">
 						<th>Codigo</th>
@@ -620,6 +621,7 @@ function editar_ativo_carteira($idCarteira, $idCliente)   {
 						<th>Qtde Ativos</th>
       						<th>Meta %</th>
 						<th>Excluir</th>
+      						<th>Vender</th>
 	                		</tr> 
 				</div>
 			    </div> ';
@@ -670,6 +672,11 @@ function editar_ativo_carteira($idCarteira, $idCliente)   {
 							<span class="glyphicon glyphicon-remove"></span>
 						        </button>
 					      </td>
+	   				      <td>
+					      		<button type="button" class="btn btn-default btn-sm" onclick="xajax_vender_ativo_carteira('.$idAtivoCliente.','.$idCliente.','.$idCarteira.'); ">
+							<span class="glyphicon glyphicon-usd"></span>
+						        </button>
+					      </td>
 		                	 </tr> ';
 				$ind++;
 				}
@@ -687,6 +694,24 @@ function editar_ativo_carteira($idCarteira, $idCliente)   {
 	return $resp;
 }
 
+function vender_ativo_carteira($idAtivoCliente, $idCliente, $idCarteira)   {
+
+	$resp = new xajaxResponse("UTF-8");
+
+
+	if(1 == 3){
+		
+	}else{
+		$resp->alert('Não existem ativos para vender!'); return $resp;
+	}
+	
+	$resp->alert('Venda finalizada!'); 
+
+	$script = "xajax_busca_ativos($idCliente)";
+    	$resp->script($script);
+	$resp->assign("tela_cliente","innerHTML","");
+	return $resp;
+}
 
 function gravar_editar_ativo($dados)   {
 
