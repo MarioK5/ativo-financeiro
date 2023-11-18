@@ -359,9 +359,15 @@ function inativar_carteira($idCliente, $idCarteira)   {
 
 	$resp = new xajaxResponse("UTF-8");
 
-	$resp->alert('Inativar carteira...'); return $resp;
 	$tela   = "";
 	
+	$result = listaAtivosCarteira($idCarteira);
+
+	if (mysqli_num_rows($result) > 0) {
+		$resp->alert('Carteira tem atinos, não pode ser eliminada!'); return $resp;
+	}else{
+		$resp->alert('Carteira pode ser eliminada!'); return $resp;
+	}
 	
 	$script = "xajax_busca_carteiras($idCliente)";
 	$resp->script($script);
