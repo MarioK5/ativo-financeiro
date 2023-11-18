@@ -360,7 +360,7 @@ function inativar_carteira($idCliente, $idCarteira)   {
 	$resp = new xajaxResponse("UTF-8");
 
 	$resp->alert('Inativar carteira...'); return $resp;
-
+	$tela   = "";
 	
 	
 	$script = "xajax_busca_carteiras($idCliente)";
