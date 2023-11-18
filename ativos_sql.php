@@ -262,6 +262,7 @@ function listaCarteiras($idCliente){
 				WHERE CARTEIRA.ID = ATIVOS_CLIENTE.ID_CARTEIRA),0) VALOR
 		FROM CARTEIRA
 		WHERE ID_CLIENTE = '{$idCliente}'
+  		AND SITUACAO = 0
 		ORDER BY CARTEIRA.DESCRICAO ";
 
    	$result = mysqli_query($conn,$sql);
