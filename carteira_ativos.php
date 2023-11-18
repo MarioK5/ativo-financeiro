@@ -358,8 +358,6 @@ function editar_carteira($idCliente, $idCarteira)   {
 function inativar_carteira($idCliente, $idCarteira)   {
 
 	$resp = new xajaxResponse("UTF-8");
-
-	$tela   = "";
 	
 	$result = listaAtivosCarteira($idCarteira);
 
@@ -372,8 +370,6 @@ function inativar_carteira($idCliente, $idCarteira)   {
 	
 	$script = "xajax_busca_carteiras($idCliente)";
 	$resp->script($script);
-    
-	$resp->assign("tela_saida","innerHTML",$tela);
   
 	return $resp;
 }
