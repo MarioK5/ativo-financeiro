@@ -290,9 +290,15 @@ function listaInvestimentos($idCarteira){
 	return $result;
 }
 
-function listaAtivosCarteira($idCarteira){
+function listaAtivosCarteira($idCarteira, $id){
 	
 	$conn = OpenCon();
+
+	if($id == 0){
+		$temID = '';
+	}else{
+		$temID = "AND ATIVOS_CLIENTE.ID = '{$id}'";
+	}
 	
 	$sql = "SELECT  ATIVOS_CLIENTE.ID,
 			ATIVOS_CLIENTE.ID_ATIVO,
@@ -306,6 +312,7 @@ function listaAtivosCarteira($idCarteira){
 		   FROM ATIVOS_CLIENTE, ATIVOS
 		  WHERE ATIVOS_CLIENTE.ID_ATIVO = ATIVOS.ID
 		    AND ATIVOS_CLIENTE.ID_CARTEIRA = '{$idCarteira}'
+      		  $temID
       		ORDER BY ATIVOS.DESCRICAO";
 
    	$result = mysqli_query($conn,$sql);
