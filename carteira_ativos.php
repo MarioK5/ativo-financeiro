@@ -360,7 +360,7 @@ function inativar_carteira($idCliente, $idCarteira)   {
 
 	$resp = new xajaxResponse("UTF-8");
 	
-	$result = listaAtivosCarteira($idCarteira);
+	$result = listaAtivosCarteira($idCarteira,0);
 
 	if (mysqli_num_rows($result) > 0) {
 		$resp->alert('Carteira tem atinos, não pode ser eliminada!'); return $resp;
@@ -420,7 +420,7 @@ function busca_ativos($idCliente)   {
 				</div>
 			    </div> ';	
 
-	$result2 = listaAtivosCarteira($idCarteira[$ind]);
+	$result2 = listaAtivosCarteira($idCarteira[$ind],0);
 	
 		if (mysqli_num_rows($result2) > 0) {
 			while ($row2 = mysqli_fetch_array($result2)) {
@@ -534,7 +534,7 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
 						<th colspan="2">Valor Atual<br>Investido</th>
 					</tr>';
 	
-		$result = listaAtivosCarteira($idCarteira);
+		$result = listaAtivosCarteira($idCarteira,0);
 
 		$valorInvestidoAtual = 0;
 	
@@ -626,7 +626,7 @@ function editar_ativo_carteira($idCarteira, $idCliente)   {
 				</div>
 			    </div> ';
 
-	$result = listaAtivosCarteira($idCarteira);
+	$result = listaAtivosCarteira($idCarteira,0);
 	
 		if (mysqli_num_rows($result) > 0) {
 			while ($row = mysqli_fetch_array($result)) {
@@ -698,9 +698,16 @@ function vender_ativo_carteira($idAtivoCliente, $idCliente, $idCarteira)   {
 
 	$resp = new xajaxResponse("UTF-8");
 
+	$result = listaAtivosCarteira($idCarteira, $idAtivoCliente);
 
-	if(1 == 3){
-		
+	if (mysqli_num_rows($result) > 0) {
+			while ($row = mysqli_fetch_array($result)) {
+				$qtde_ativos     = $row["QTDE_ATIVOS"];
+			}
+	}
+	
+	if($qtde_ativos > 0){
+		$resp->alert('Tem '.$qtde_ativos.' ativos, falta implementar a venda!'); return $resp;
 	}else{
 		$resp->alert('Não existem ativos para vender!'); return $resp;
 	}
@@ -754,7 +761,7 @@ function excluir_ativo_carteira($idAtivoCarteira, $excluir, $idCliente, $idCarte
 		excluirAtivoCarteira($idAtivoCarteira);
 		
 		$ind = 0;
-		$result = listaAtivosCarteira($idCarteira);
+		$result = listaAtivosCarteira($idCarteira,0);
 	
 		if (mysqli_num_rows($result) > 0) {
 
@@ -847,7 +854,7 @@ function busca_investimentos($idCliente)   {
 		                    </div>
 				</div>';	
 
-			$result2 = listaAtivosCarteira($idCarteira[$ind]);
+			$result2 = listaAtivosCarteira($idCarteira[$ind],0);
 	
 			if (mysqli_num_rows($result2) > 0) {
 			while ($row2 = mysqli_fetch_array($result2)) {
@@ -893,7 +900,7 @@ function adicionar_investimento($idCliente, $idCarteira)   {
 
 	$descrCarteira = listaDescri($idCarteira,1);
 
-	$result = listaAtivosCarteira($idCarteira);
+	$result = listaAtivosCarteira($idCarteira,0);
 	
 	if (mysqli_num_rows($result) > 0) {
 			
@@ -1161,7 +1168,7 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 		$valorInvest2 = 0;
 	}
 
-	$result = listaAtivosCarteira($idCarteira);
+	$result = listaAtivosCarteira($idCarteira,0);
 	
 	if (mysqli_num_rows($result) > 0) {
 			while ($row = mysqli_fetch_array($result)) {
