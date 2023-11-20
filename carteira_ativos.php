@@ -745,7 +745,7 @@ function vender_ativo_carteira($idAtivoCliente, $idCliente, $idCarteira)   {
 				<label>Quantidade para vender</label>
 				<div id="sandbox-container">
 				    <div class="input-group">
-					<input type="text" class="form-control" name="qtdeVenda" id="qtdeVenda" value="" style="width: 100px;" autofocus/>
+					<input type="text" class="form-control" name="qtdeVenda" id="qtdeVenda" value="" style="width: 100px;"/>
 				    </div>
 				</div>
 			    </div>
@@ -779,7 +779,7 @@ function vender_ativo_carteira($idAtivoCliente, $idCliente, $idCarteira)   {
 	}
 	
 	$resp->script('$("#myModal2").modal({show: true,keyboard: false,backdrop: "static"})');
-	$resp->script('$(this).find("[autofocus]").focus()');
+	$resp->script('$("#qtdeVenda").modal({focus: true})');
 	$resp->assign("motal_conteudo2","innerHTML",$tela);
 	$resp->script('$("#myModal2 .modal-dialog").css("width", "50%")');
 	return $resp;
