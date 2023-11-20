@@ -791,7 +791,7 @@ function salvar_venda($dados, $idCliente, $idAtivoCliente,  $idCarteira)   {
 	}
 
 	if($qtdeVenda > $qtdeAtual){
-		$resp->alert('Quantidade para venda não pode ser maior que a disponível atual!'); return $resp;
+		$resp->alert('Quantidade para venda não pode ser maior que a disponível!'); return $resp;
 	}
 
 	$result = listaAtivosCarteira($idCarteira, $idAtivoCliente);
@@ -812,7 +812,7 @@ function salvar_venda($dados, $idCliente, $idAtivoCliente,  $idCarteira)   {
 	
 	//vendaAtivoCarteira($idAtivoCliente, $n_qtdeAtivos, $n_valorAtivos)
 	
-	$resp->alert('Gravar venda, validar com cliente se deve gravar no historico esse valor de venda...'); return $resp;
+	$resp->alert('Gravar venda, validar com cliente se deve gravar no historico esse valor de venda...');
 
 	
 	$resp->script('$("#myModal2").modal("hide")');
