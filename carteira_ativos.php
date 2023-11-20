@@ -1216,7 +1216,7 @@ function ativo_select($dados)   {
 					<input type="hidden" id="n_cont" name="n_cont" value="'.$ind.'" />
      					<tr>
 						<td style="width: 100px;" colspan="8">
-      							<div id="tela_ativo'.$lin2.'" class="panel-body"  style="margin-left: -10px;"></div>
+      							<div id="tela_ativo'.$lin2.'" class="panel-body"  style="margin-left: -15px;"></div>
       						</td>
 	     				 </tr>
 	  			</table>';
