@@ -1228,7 +1228,7 @@ function ativo_select($dados)   {
 	}
 
 
-	$resp->assign("tela_ativo'.$lin1.'","innerHTML",$tela);
+	$resp->assign("tela_ativo"$lin1,"innerHTML",$tela);
   
 	return $resp;
 }
