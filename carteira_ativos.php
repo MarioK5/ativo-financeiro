@@ -810,7 +810,7 @@ function salvar_venda($dados, $idCliente, $idAtivoCliente,  $idCarteira)   {
 		$n_valorAtivos = 0;
 	}
 	
-	//vendaAtivoCarteira($idAtivoCliente, $n_qtdeAtivos, $n_valorAtivos)
+	vendaAtivoCarteira($idAtivoCliente, $n_qtdeAtivos, $n_valorAtivos)
 	
 	$resp->alert('Gravar venda, validar com cliente se deve gravar no historico esse valor de venda...');
 
