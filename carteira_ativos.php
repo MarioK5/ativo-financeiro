@@ -579,7 +579,7 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
 		   	     
     		 $tela .= '	<tr>
        					<td colspan="8">
-       					<div id="tela_ativo" class="panel-body"  style="margin-left: -10px;"></div>
+       					<div id="tela_ativo'.$ind.'" class="panel-body"  style="margin-left: -10px;"></div>
 	    				</td>
        				</tr>
      				<tr> 
@@ -1212,6 +1212,11 @@ function ativo_select($dados)   {
       					<input type="hidden" id="tipoGravar[]'.$ind.'" name="tipoGravar[]'.$ind.'" value="1" />
 					<input type="hidden" id="idCliente" name="idCliente" value="'.$idCliente.'" />
 					<input type="hidden" id="n_cont" name="n_cont" value="'.$ind.'" />
+     					<tr>
+						<td style="width: 100px;" colspan="8">
+      							<div id="tela_ativo'.$ind.'" class="panel-body"  style="margin-left: -10px;"></div>
+      						</td>
+	     				 </tr>
 	  			</table>';
 			$ind++;
 		}
@@ -1219,7 +1224,7 @@ function ativo_select($dados)   {
 	}
 
 
-	$resp->assign("tela_ativo","innerHTML",$tela);
+	$resp->assign("tela_ativo'.$lin.'","innerHTML",$tela);
   
 	return $resp;
 }
