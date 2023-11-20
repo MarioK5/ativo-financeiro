@@ -377,6 +377,21 @@ function alteraAtivoCarteira($idAtivoCliente, $novaPorcentagem){
 	CloseCon($conn);	
 }
 
+function vendaAtivoCarteira($idAtivoCliente, $n_qtdeAtivos, $n_valorAtivos){
+	
+	$conn = OpenCon();
+
+	$sql = "UPDATE ATIVOS_CLIENTE
+ 		SET QTDE_ATIVOS = '{$n_qtdeAtivos}',
+    		VALOR = '{$n_valorAtivos}'
+    		WHERE ID = '{$idAtivoCliente}'";
+	
+	$result = mysqli_query($conn,$sql);
+		  mysqli_commit($conn);
+	
+	CloseCon($conn);	
+}
+
 function buscaValorAtivoCarteira($idAtivoCliente){
 	
 	$conn = OpenCon();
