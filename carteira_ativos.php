@@ -16,6 +16,7 @@ $xajax->registerFunction("inativar_carteira");
 $xajax->registerFunction("cadastrar_ativo");
 $xajax->registerFunction("editar_ativo_carteira");
 $xajax->registerFunction("vender_ativo_carteira");
+$xajax->registerFunction("salvar_venda");
 $xajax->registerFunction("gravar_editar_ativo");
 $xajax->registerFunction("excluir_ativo_carteira");
 $xajax->registerFunction("tipo_subSetor");
@@ -707,16 +708,89 @@ function vender_ativo_carteira($idAtivoCliente, $idCliente, $idCarteira)   {
 	}
 	
 	if($qtde_ativos > 0){
-		$resp->alert('Tem '.$qtde_ativos.' ativos, falta implementar a venda!'); return $resp;
+		$tela = '<div class="panel-body">
+ 		     <div class="row">
+			<div class="col-xs-8 col-md-8">
+			    <div class="form-group">
+				<div id="sandbox-container">
+				    <div class="input-group">
+					<div class="form-group" style="font-size: 18px;">
+                                                Venda de Ativos
+                                            </div>
+				    </div>
+				</div>
+			    </div>
+			</div>
+   		    </div>
+      		    <div class="row">
+			<div class="col-xs-4 col-md-4">
+			    <div class="form-group">
+				<label>Quantidade de ativos atualmente</label>
+				<div id="sandbox-container">
+				    <div class="input-group">
+					<input type="text" class="form-control" name="qtdeAtu" id="qtdeAtu" value="'.$qtde_ativos.'" readonly="readonly" style="width: 100px;"/>
+				    </div>
+				</div>
+			    </div>
+			</div>
+		    </div>
+		    <div class="row">
+			<div class="col-xs-4 col-md-4">
+			    <div class="form-group">
+				<label>Quantidade para vender</label>
+				<div id="sandbox-container">
+				    <div class="input-group">
+					<input type="text" class="form-control" name="qtdeVenda" id="qtdeVenda" value="" style="width: 100px;"/>
+				    </div>
+				</div>
+			    </div>
+			</div>
+		    </div>
+		    <div class="row">
+			<div class="col-xs-2 col-md-2">
+    			     <div class="form-group">
+				<div id="sandbox-container">
+				    <div class="input-group">  
+					    <input type="button" value="Finalizar Venda"  class="btn btn-success btn-md btn-block" onclick="xajax_salvar_venda(xajax.getFormValues(\'form_cadastro\'),'.$idCliente.','.$idAtivoCliente.'); ">
+				    </div>
+  				 </div>
+			     </div>
+			  </div>
+		    </div>
+      		    <div class="row">
+			<div class="col-xs-2 col-md-2">
+    			     <div class="form-group">
+				<div id="sandbox-container">
+				    <div class="input-group">  
+					     <button class="btn btn-danger btn-md pull-left" data-dismiss="modal"  type="button"><i class="fa fa-sign-out-alt"></i> Cancelar</button>
+				    </div>
+  				 </div>
+			     </div>
+			  </div>
+		    </div>
+		</div>';
 	}else{
 		$resp->alert('Não existem ativos para vender!'); return $resp;
 	}
 	
-	$resp->alert('Venda finalizada!'); 
+	$resp->script('$("#myModal2").modal({show: true,keyboard: false,backdrop: "static"})');
+	$resp->assign("motal_conteudo2","innerHTML",$tela);
+	$resp->script('$("#myModal2 .modal-dialog").css("width", "50%")');
+	return $resp;
+}
 
+function salvar_venda($dados, $idCliente, $idAtivoCliente)   {
+
+	$resp = new xajaxResponse("UTF-8");
+
+	
+	$resp->alert('Gravar venda, sendo implementado!'); return $resp;
+
+	
+	$resp->script('$("#myModal2").modal("hide")');
 	$script = "xajax_busca_ativos($idCliente)";
     	$resp->script($script);
-	$resp->assign("tela_cliente","innerHTML","");
+
 	return $resp;
 }
 
