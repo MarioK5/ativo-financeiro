@@ -816,7 +816,7 @@ function salvar_venda($dados, $idCliente, $idAtivoCliente,  $idCarteira)   {
 
 	
 	$resp->script('$("#myModal2").modal("hide")');
-	$script = "xajax_busca_ativos($idCliente)";
+	$script = "xajax_editar_ativo_carteira($idCarteira, $idCliente)";
     	$resp->script($script);
 
 	return $resp;
