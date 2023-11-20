@@ -577,6 +577,10 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
 				$ind++;
 			}
 		}
+
+		if($ind == 0){
+			$ind++;
+		}
 		   	     
     		 $tela .= '	<tr>
        					<td colspan="8">
