@@ -1302,7 +1302,7 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 				}
 
 				if($perc_atual == 0){
-					$valorSugerido = (($porcentagem[$ind] / 100) * $valorInvest1);
+					$valorSugerido = ((($porcentagem[$ind] / 100) * 2) * $valorInvest1);
 				}else{
 					if($perc_atual < $porcentagem[$ind]){
 						$valorSugerido = ((($porcentagem[$ind] + ($porcentagem[$ind] - $perc_atual)) / 100) * $valorInvest1);
