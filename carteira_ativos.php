@@ -728,7 +728,7 @@ function vender_ativo_carteira($idAtivoCliente, $idCliente, $idCarteira)   {
 				<label>Quantidade de ativos atualmente</label>
 				<div id="sandbox-container">
 				    <div class="input-group">
-					<input type="text" class="form-control" name="qtdeAtu" id="qtdeAtu" value="'.$qtde_ativos.'" readonly="readonly" style="width: 100px;"/>
+					<input type="text" class="form-control" name="qtdeAtual" id="qtdeAtual" value="'.$qtde_ativos.'" readonly="readonly" style="width: 100px;"/>
 				    </div>
 				</div>
 			    </div>
@@ -751,7 +751,7 @@ function vender_ativo_carteira($idAtivoCliente, $idCliente, $idCarteira)   {
     			     <div class="form-group">
 				<div id="sandbox-container">
 				    <div class="input-group">  
-					    <input type="button" value="Finalizar Venda"  class="btn btn-success btn-md btn-block" onclick="xajax_salvar_venda(xajax.getFormValues(\'form_cadastro\'),'.$idCliente.','.$idAtivoCliente.'); ">
+					    <input type="button" value="Finalizar Venda"  class="btn btn-success btn-md btn-block" onclick="xajax_salvar_venda(xajax.getFormValues(\'form_cadastro\'),'.$idCliente.','.$idAtivoCliente.','. $idCarteira.'); ">
 				    </div>
   				 </div>
 			     </div>
@@ -779,12 +779,40 @@ function vender_ativo_carteira($idAtivoCliente, $idCliente, $idCarteira)   {
 	return $resp;
 }
 
-function salvar_venda($dados, $idCliente, $idAtivoCliente)   {
+function salvar_venda($dados, $idCliente, $idAtivoCliente,  $idCarteira)   {
 
 	$resp = new xajaxResponse("UTF-8");
 
+	$qtdeAtual = $dados['qtdeAtual'];
+	$qtdeVenda = $dados['qtdeVenda'];
+
+	if($qtdeVenda <= 0){
+		$resp->alert('Quantidade para venda não é valida!'); return $resp;
+	}
+
+	if($qtdeVenda > $qtdeAtual){
+		$resp->alert('Quantidade para venda não pode ser maior que a disponível atual!'); return $resp;
+	}
+
+	$result = listaAtivosCarteira($idCarteira, $idAtivoCliente);
+
+	if (mysqli_num_rows($result) > 0) {
+			while ($row = mysqli_fetch_array($result)) {
+				$valor_investido   = $row["VALOR_INVESTIDO"];
+				$valor_atual_ativo = $row["VALOR_ATUAL_ATIVO"];
+			}
+	}
+
+	$n_qtdeAtivos = ($qtdeAtual - $qtdeVenda);
+	$n_valorAtivos = ($valor_investido - ($valor_atual_ativo * $qtdeVenda));
+
+	if($n_valorAtivos < 0){
+		$n_valorAtivos = 0;
+	}
 	
-	$resp->alert('Gravar venda, sendo implementado!'); return $resp;
+	//vendaAtivoCarteira($idAtivoCliente, $n_qtdeAtivos, $n_valorAtivos)
+	
+	$resp->alert('Gravar venda, validar com cliente se deve gravar no historico esse valor de venda...'); return $resp;
 
 	
 	$resp->script('$("#myModal2").modal("hide")');
