@@ -490,6 +490,7 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
 
 	$tela   = "";
 	$result = 0;
+	$ind    = 0;
 
 	$tela .= '<table border="0" width=100% class="table">
  			<div class="row">
