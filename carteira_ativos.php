@@ -1179,9 +1179,12 @@ function ativo_select($dados)   {
 
 	$resp = new xajaxResponse("UTF-8");
 	
-	$ind = ($dados['n_cont'] + 1);
-	$lin = $dados['n_cont'];
+	$ind = $dados['n_cont'];
+	$lin1 = $dados['n_cont'];
+	$lin2 = ($dados['n_cont'] + 1);
 	$idCliente = $dados['idCliente'];
+
+	$resp->alert('linha '.$ind);
 	
 	$result = buscaAtivo($dados['tipo_ativo'],1);
 
@@ -1214,7 +1217,7 @@ function ativo_select($dados)   {
 					<input type="hidden" id="n_cont" name="n_cont" value="'.$ind.'" />
      					<tr>
 						<td style="width: 100px;" colspan="8">
-      							<div id="tela_ativo'.$ind.'" class="panel-body"  style="margin-left: -10px;"></div>
+      							<div id="tela_ativo'.$lin2.'" class="panel-body"  style="margin-left: -10px;"></div>
       						</td>
 	     				 </tr>
 	  			</table>';
@@ -1224,7 +1227,7 @@ function ativo_select($dados)   {
 	}
 
 
-	$resp->assign("tela_ativo'.$lin.'","innerHTML",$tela);
+	$resp->assign("tela_ativo'.$lin1.'","innerHTML",$tela);
   
 	return $resp;
 }
