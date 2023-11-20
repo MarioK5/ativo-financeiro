@@ -778,7 +778,8 @@ function vender_ativo_carteira($idAtivoCliente, $idCliente, $idCarteira)   {
 		$resp->alert('Não existem ativos para vender!'); return $resp;
 	}
 	
-	$resp->script('$("#myModal2").modal({show: true,keyboard: false,backdrop: "static",$(this).find("[autofocus]").focus();})');
+	$resp->script('$("#myModal2").modal({show: true,keyboard: false,backdrop: "static"})');
+	$resp->script('$(this).find("[autofocus]").focus()');
 	$resp->assign("motal_conteudo2","innerHTML",$tela);
 	$resp->script('$("#myModal2 .modal-dialog").css("width", "50%")');
 	return $resp;
