@@ -806,7 +806,7 @@ function salvar_venda($dados, $idCliente, $idAtivoCliente,  $idCarteira)   {
 	$n_qtdeAtivos = ($qtdeAtual - $qtdeVenda);
 	$n_valorAtivos = ($valor_investido - ($valor_atual_ativo * $qtdeVenda));
 
-	if($n_valorAtivos < 0){
+	if($n_valorAtivos < 0 || $n_qtdeAtivos == 0){
 		$n_valorAtivos = 0;
 	}
 	
