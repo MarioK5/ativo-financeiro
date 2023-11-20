@@ -812,7 +812,7 @@ function salvar_venda($dados, $idCliente, $idAtivoCliente,  $idCarteira)   {
 	
 	vendaAtivoCarteira($idAtivoCliente, $n_qtdeAtivos, $n_valorAtivos);
 	
-	$resp->alert('Gravar venda, validar com cliente se deve gravar no historico esse valor de venda...');
+	$resp->alert('Venda realizada!');
 
 	
 	$resp->script('$("#myModal2").modal("hide")');
