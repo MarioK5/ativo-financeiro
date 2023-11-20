@@ -1214,8 +1214,6 @@ function ativo_select($dados)   {
 						<td style="width: 200px;">'.$desc_Ativo.'</td>
 						<td style="width: 120px;">
 							<input type="text" class="form-control" name="n_perc[]'.$ind.'" id="n_perc[]'.$ind.'" value="" style="width: 50px;" />
-							<input type="hidden" class="form-control" name="idAtivoCliente[]'.$ind.'" id="idAtivoCliente[]'.$ind.'" value="'.$idAtivo.'" />
-							<input type="hidden" id="tipoGravar[]'.$ind.'" name="tipoGravar[]'.$ind.'" value="1" />
 						</td>
 						<td style="width: 100px;">0</td>
 						<td style="width: 100px;">0</td>
