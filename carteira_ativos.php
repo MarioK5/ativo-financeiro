@@ -1179,9 +1179,9 @@ function ativo_select($dados)   {
 
 	$resp = new xajaxResponse("UTF-8");
 	
-	$ind = $dados['n_cont'];
-	$lin1 = $dados['n_cont'];
-	$lin2 = ($dados['n_cont'] + 1);
+	$ind = ($dados['n_cont'] + 1);
+	$lin1 = ($dados['n_cont'] + 1);
+	$lin2 = ($dados['n_cont'] + 2);
 	$idCliente = $dados['idCliente'];
 
 	$resp->alert('linha '.$ind);
