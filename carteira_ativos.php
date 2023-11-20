@@ -841,16 +841,8 @@ function gravar_editar_ativo($dados)   {
 		for($j = 0; $j < count($dados['idAtivoCliente']);$j++){
 			
 			if($dados['tipoGravar'][$j] == 1){
-$resp->alert('inserir'); 
-$resp->alert('ativo '.$dados['idAtivoCliente'][$j]);
-$resp->alert('perc '.$dados['n_perc'][$j]);
-				
 				cadastroAtivoCarteira($dados['idAtivoCliente'][$j], $dados['idCarteiraCliente'], $dados['n_perc'][$j]);
 			}else{
-$resp->alert('alterar');
-$resp->alert('ativo '.$dados['idAtivoCliente'][$j]);
-$resp->alert('perc '.$dados['n_perc'][$j]);
-
 				alteraAtivoCarteira($dados['idAtivoCliente'][$j], $dados['n_perc'][$j]); 
 			}
 		}
