@@ -1182,9 +1182,10 @@ function ativo_select($dados)   {
 	$ind = ($dados['n_cont'] + 1);
 	$lin1 = ($dados['n_cont'] + 1);
 	$lin2 = ($dados['n_cont'] + 2);
+	
 	$idCliente = $dados['idCliente'];
 
-	$resp->alert('linha '.$ind);
+	$resp->alert('linha '.$lin1);
 	
 	$result = buscaAtivo($dados['tipo_ativo'],1);
 
