@@ -1209,7 +1209,7 @@ function ativo_select($dados)   {
 						<td style="width: 120px;">'.number_format($valor_ativo,2,",",".").'</td>
 						<td style="width: 100px;" colspan="2">0</td>
 	     				 </tr>
-	   				<input type="hidden" id="idAtivoCliente[]'.$ind.'" name="idAtivoCliente[]'.$ind.'" value="'.$idAtivoCliente.'" />
+	   				<input type="hidden" id="idAtivoCliente[]'.$ind.'" name="idAtivoCliente[]'.$ind.'" value="'.$idAtivo.'" />
 	 				<input type="hidden" id="idAtivoCodigo[]'.$ind.'" name="idAtivoCodigo[]'.$ind.'" value="'.$codigo.'" />
       					<input type="hidden" id="tipoGravar[]'.$ind.'" name="tipoGravar[]'.$ind.'" value="1" />
 					<input type="hidden" id="idCliente" name="idCliente" value="'.$idCliente.'" />
