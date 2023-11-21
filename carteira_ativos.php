@@ -745,7 +745,7 @@ function vender_ativo_carteira($idAtivoCliente, $idCliente, $idCarteira)   {
 				<label>Quantidade para vender</label>
 				<div id="sandbox-container">
 				    <div class="input-group">
-					<input type="text" class="form-control" name="qtdeVenda" id="qtdeVenda" value="" style="width: 100px;" autofocus="autofocus"/>
+					<input type="text" class="form-control" name="qtdeVenda" id="qtdeVenda" value="" style="width: 100px;" />
 				    </div>
 				</div>
 			    </div>
