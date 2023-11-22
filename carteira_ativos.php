@@ -1501,19 +1501,19 @@ function historico_carteira($idCarteira)   {
 				$tipo         = $row["TIPO"];
 
 			if($tipo == 'I'){
-				$v_invest = $valor_invest;
+				$v_invest = "R$ '.number_format($valor_invest,2,",",".").'";
 				$v_venda  = 0;
 			}else{
 				$v_invest = 0;
-				$v_venda  = $valor_invest;
+				$v_venda  = "R$ '.number_format($valor_invest,2,",",".").'";
 			}
 
 			$tela .= '<tr style="color:black; background-color:white;">
 					<td>'.$data_invest.'</td>
 				        <td>'.$codigo.'</td>
 				        <td>'.$empresa.'</td>
-					<td>R$ '.number_format($v_invest,2,",",".").'</td>
-     					<td>R$ '.number_format($v_venda,2,",",".").'</td>
+					<td>'.$v_invest.'</td>
+     					<td>'.$v_venda.'</td>
 				</tr>';
 				
 			}
