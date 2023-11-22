@@ -1512,8 +1512,8 @@ function historico_carteira($idCarteira)   {
 					<td>'.$data_invest.'</td>
 				        <td>'.$codigo.'</td>
 				        <td>'.$empresa.'</td>
-					<td>R$ '.number_format($v_invest,2,",",".").'</td>
-     					<td>R$ '.number_format($v_venda,2,",",".").'</td>
+					<td style="text-align: right;">R$ '.number_format($v_invest,2,",",".").'</td>
+     					<td style="text-align: right;">R$ '.number_format($v_venda,2,",",".").'</td>
 				</tr>';
 				
 			}
