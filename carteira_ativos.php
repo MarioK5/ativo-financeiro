@@ -781,8 +781,7 @@ function vender_ativo_carteira($idAtivoCliente, $idCliente, $idCarteira)   {
 	$resp->script('$("#myModal2").modal({show: true,keyboard: false,backdrop: "static"})');
 	$resp->assign("motal_conteudo2","innerHTML",$tela);
 	$resp->script('$("#myModal2 .modal-dialog").css("width", "50%")');
-	$script = 'document.getElementById("qtdeVenda").focus()';
-	$resp->script($script);
+	
 	return $resp;
 }
 
