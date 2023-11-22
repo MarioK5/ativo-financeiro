@@ -1475,7 +1475,7 @@ function historico_carteira($idCarteira)   {
 	
 	$resp = new xajaxResponse("UTF-8");
 
-	$vazio = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
+	$vazio = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 	$descrCarteira = listaDescri($idCarteira,1);
 	 
 	$tela = '<table class="table">
