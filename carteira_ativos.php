@@ -1481,7 +1481,7 @@ function historico_carteira($idCarteira)   {
 	                <tr style="color:black; background-color:white;">
 	                     <td  colspan="5">Carteira: '.$descrCarteira.'</td>
 	                </tr>
-		 	<tr>
+		 	<tr style="text-align: center;">
 	                     <th>Data do Investimento</th>
 		      	     <th>Codigo</th>
 			     <th>Empresa</th>
