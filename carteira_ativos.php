@@ -1479,13 +1479,14 @@ function historico_carteira($idCarteira)   {
 	 
 	$tela = '<table class="table">
 	                <tr style="color:black; background-color:white;">
-	                     <td  colspan="4">Carteira: '.$descrCarteira.'</td>
+	                     <td  colspan="5">Carteira: '.$descrCarteira.'</td>
 	                </tr>
 		 	<tr>
 	                     <th>Data do Investimento</th>
 		      	     <th>Codigo</th>
 			     <th>Empresa</th>
 	                     <th>Valor Investido</th>
+		      	     <th>Valor Venda</th>
 	                </tr>';
 
 	$result = listaInvestimentos($idCarteira);
@@ -1496,13 +1497,23 @@ function historico_carteira($idCarteira)   {
 				$data_invest  = $row["DATA"];
 				$codigo       = $row["CODIGO"];
 				$empresa      = $row["DESCRICAO"];
-				$valor_invest = $row["VALOR"];	
+				$valor_invest = $row["VALOR"];
+				$tipo         = $row["TIPO"];
+
+			if($tipo == 'I'){
+				$v_invest = $valor_invest;
+				$v_venda  = 0;
+			}else{
+				$v_invest = 0;
+				$v_venda  = $valor_invest;
+			}
 
 			$tela .= '<tr style="color:black; background-color:white;">
 					<td>'.$data_invest.'</td>
 				        <td>'.$codigo.'</td>
 				        <td>'.$empresa.'</td>
-					<td>R$ '.number_format($valor_invest,2,",",".").'</td>
+					<td>R$ '.number_format($v_invest,2,",",".").'</td>
+     					<td>R$ '.number_format($v_venda,2,",",".").'</td>
 				</tr>';
 				
 			}
@@ -1510,7 +1521,7 @@ function historico_carteira($idCarteira)   {
 	
 	 $tela .= ' <br>
 			<tr>
-	                     <td colspan="4">
+	                     <td colspan="5">
 			      <button class="btn btn-default btn-sm pull-left" data-dismiss="modal"  type="button"><i class="fa fa-sign-out-alt"></i> Fechar</button>
 	                     </td>                          
 	                 </tr>
