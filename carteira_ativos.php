@@ -1475,6 +1475,7 @@ function historico_carteira($idCarteira)   {
 	
 	$resp = new xajaxResponse("UTF-8");
 
+	$vazio = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 	$descrCarteira = listaDescri($idCarteira,1);
 	 
 	$tela = '<table class="table">
@@ -1512,8 +1513,8 @@ function historico_carteira($idCarteira)   {
 					<td>'.$data_invest.'</td>
 				        <td>'.$codigo.'</td>
 				        <td>'.$empresa.'</td>
-					<td style="text-align: right;">R$ '.number_format($v_invest,2,",",".").'&nbsp;&nbsp;&nbsp;&nbsp;</td>
-     					<td style="text-align: right;">R$ '.number_format($v_venda,2,",",".").'&nbsp;&nbsp;&nbsp;&nbsp;</td>
+					<td style="text-align: right;">R$ '.number_format($v_invest,2,",",".").$vazio.'</td>
+     					<td style="text-align: right;">R$ '.number_format($v_venda,2,",",".").$vazio.'</td>
 				</tr>';
 				
 			}
