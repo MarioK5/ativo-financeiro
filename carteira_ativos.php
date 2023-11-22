@@ -1548,7 +1548,7 @@ function gravar_investimento($dados)   {
 					$valoFormatado_x = str_replace('.','',$dados['n_newValor'][$j]);
 					$valoFormatado = str_replace(',','.',$valoFormatado_x);
 					if($valoFormatado > 0){
-						cadastroInvestimento($idCarteira, $idAtivoInvest, $valoFormatado);
+						cadastroInvestimento($idCarteira, $idAtivoInvest, $valoFormatado,'I');
 					}
 					
 					$novoValorAtivo = ($valoFormatado + $row["VALOR_INVESTIDO"]);
