@@ -222,12 +222,12 @@ function cadastroCarteira($descricao, $idCliente){
 	return $ret;
 }
 
-function cadastroInvestimento($idCarteira, $idAtivo, $valor){
+function cadastroInvestimento($idCarteira, $idAtivo, $valor, $tipo){
 	
 	$conn = OpenCon();
 	
-	$sql = "INSERT INTO INVESTIMENTO (ID_CARTEIRA, ID_ATIVO, VALOR, DATA)
-        	VALUES('{$idCarteira}','{$idAtivo}','{$valor}',current_date())";
+	$sql = "INSERT INTO INVESTIMENTO (ID_CARTEIRA, ID_ATIVO, VALOR, DATA, TIPO)
+        	VALUES('{$idCarteira}','{$idAtivo}','{$valor}',current_date(),'{$tipo}')";
 
 	$result = mysqli_query($conn,$sql);
 		  mysqli_commit($conn);
