@@ -345,7 +345,7 @@ function editar_carteira($idCliente, $idCarteira)   {
 				</div>
     				<div class="col-xs-6 col-md-6">
 					<input type="button" value="Gravar"  class="btn btn-success btn-sm" onclick="xajax_cadastrar_carteira(document.getElementById(\'novo_nome_carteira\').value,'.$idCliente.','.$idCarteira.'); ">
-					<input type="button" value="Cancelar"  class="btn btn-danger btn-sm" onclick="xajax_busca_carteiras('.$idCliente.'); return false;" >
+					<input type="button" value="Voltar"  class="btn btn-secondary btn-sm" onclick="xajax_busca_carteiras('.$idCliente.'); return false;" >
      					<input type="button" value="Excluir"  class="btn btn-warning btn-sm" onclick="xajax_inativar_carteira('.$idCliente.','.$idCarteira.'); return false;" >
 				</div>
 			    </div>
@@ -590,7 +590,7 @@ function cadastrar_ativo($idCarteira, $idCliente)   {
      				<tr> 
 				     <td colspan="8" style="text-align: right;">
 					<input type="button" value="Gravar"  class="btn btn-success btn-sm" onclick="xajax_gravar_editar_ativo(xajax.getFormValues(\'form_cadastro\')); return false;">
-					<input type="button" value="Cancelar"  class="btn btn-danger btn-sm" onclick="xajax_busca_ativos('.$idCliente.'); return false;" >
+					<input type="button" value="Voltar"  class="btn btn-secondary btn-sm" onclick="xajax_busca_ativos('.$idCliente.'); return false;" >
 				     </td>
 				</tr>
    				</div>
@@ -690,7 +690,7 @@ function editar_ativo_carteira($idCarteira, $idCliente)   {
 		$tela .= '<tr> 
 				<td colspan="6" style="text-align: right;">
 				<input type="button" value="Gravar"  class="btn btn-success btn-sm" onclick="xajax_gravar_editar_ativo(xajax.getFormValues(\'form_cadastro\')); return false;">
-     				<input type="button" value="Cancelar"  class="btn btn-danger btn-sm" onclick="xajax_busca_ativos('.$idCliente.'); return false;" >
+     				<input type="button" value="Voltar"  class="btn btn-secondary btn-sm" onclick="xajax_busca_ativos('.$idCliente.'); return false;" >
      				</td>
 			</tr>
       		</table>';
@@ -767,7 +767,7 @@ function vender_ativo_carteira($idAtivoCliente, $idCliente, $idCarteira)   {
     			     <div class="form-group">
 				<div id="sandbox-container">
 				    <div class="input-group">  
-					     <button class="btn btn-danger btn-md pull-left" data-dismiss="modal"  type="button"><i class="fa fa-sign-out-alt"></i> Cancelar</button>
+					     <button class="btn btn-secondary btn-md pull-left" data-dismiss="modal"  type="button"><i class="fa fa-sign-out-alt"></i> Cancelar</button>
 				    </div>
   				 </div>
 			     </div>
@@ -1456,7 +1456,7 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 			$tela .= '<tr> 
 					<td colspan="10" style="text-align: right;">
 					<input type="button" value="Gravar"  class="btn btn-success btn-sm" onclick="xajax_gravar_investimento(xajax.getFormValues(\'form_cadastro\')); return false;" >
-     					<input type="button" value="Cancelar"  class="btn btn-danger btn-sm" onclick="xajax_busca_investimentos('.$idCliente.'); return false;" >
+     					<input type="button" value="Voltar"  class="btn btn-secondary btn-sm" onclick="xajax_busca_investimentos('.$idCliente.'); return false;" >
 	     				</td>
 				</tr>
     			</table">';
@@ -1717,7 +1717,7 @@ function cadastrar_cliente()   {
     				    <div class="form-group">
                                         <div id="sandbox-container">
                                             <div class="input-group">
-	     					 <input type="button" value="Cancelar"  class="btn btn-danger btn-md btn-block"  onclick="location.reload(true);">
+	     					 <input type="button" value="Voltar"  class="btn btn-secondary btn-md btn-block"  onclick="location.reload(true);">
                                             </div>
                                         </div>
                                      </div>
@@ -1857,7 +1857,7 @@ function dados_cliente($dados)   {
 			    <div class="form-group">
 				<div id="sandbox-container">
 				    <div class="input-group">
-					 <input type="button" value="Cancelar"  class="btn btn-danger btn-md btn-block"  onclick="location.reload(true);">
+					 <input type="button" value="Voltar"  class="btn btn-secondary btn-md btn-block"  onclick="location.reload(true);">
 				    </div>
 				</div>
 			     </div>
@@ -2065,7 +2065,7 @@ function alterar_senha($idCliente)   {
     			     <div class="form-group">
 				<div id="sandbox-container">
 				    <div class="input-group">  
-					     <button class="btn btn-danger btn-md pull-left" data-dismiss="modal"  type="button"><i class="fa fa-sign-out-alt"></i> Cancelar</button>
+					     <button class="btn btn-secondary btn-md pull-left" data-dismiss="modal"  type="button"><i class="fa fa-sign-out-alt"></i> Cancelar</button>
 				    </div>
   				 </div>
 			     </div>
