@@ -1285,12 +1285,14 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 
 	$result = listaAtivosCarteira($idCarteira,0);
 	
+	$numAtivos = mysqli_num_rows($result);
+	
 	if (mysqli_num_rows($result) > 0) {
 			while ($row = mysqli_fetch_array($result)) {
 
 				$idAtivoCarteira[$ind] = $row["ID"];
 				$idAtivo[$ind]         = $row["ID_ATIVO"];
-            			$idCarteiraAtivo[$ind] = $row["ID_CARTEIRA"];
+            	$idCarteiraAtivo[$ind] = $row["ID_CARTEIRA"];
 				$codigo[$ind]          = $row["CODIGO"];
 				$desc_Ativo[$ind]      = $row["DESCRICAO"];
 				$porcentagem[$ind]     = $row["PORCENTAGEM"];
@@ -1305,8 +1307,14 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 				}
 
 				if($perc_atual == 0){
-					$valorSugerido = ((($porcentagem[$ind] / 100) * 2) * $valorInvest1);
-					$perc_atual = (($valorSugerido / $valor_total_carteira)*100);
+					if($numAtivos > 1){
+						$valorSugerido = ((($porcentagem[$ind] / 100) * 2) * $valorInvest1);
+						$perc_atual = (($valorSugerido / $valor_total_carteira)*100);
+					}else{
+						$valorSugerido = (($porcentagem[$ind] / 100) * $valorInvest1);
+						$perc_atual = (($valorSugerido / $valor_total_carteira)*100);
+					}
+					
 				}else{
 					if($perc_atual < $porcentagem[$ind]){
 						$valorSugerido = ((($porcentagem[$ind] + ($porcentagem[$ind] - $perc_atual)) / 100) * $valorInvest1);
