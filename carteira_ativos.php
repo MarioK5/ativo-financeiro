@@ -1375,7 +1375,7 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 	
 					$lista[$z]["VALOR_ATUAL_INVESTIDO"] = ($valor_atual_investido + $lista[$z]["SUGERIDO_NEW"]);
 					
-					if ($valor_total_carteira> 0) {
+					if ($valor_total_carteira > 0) {
 						if($numAtivos > 1){
 							$lista[$z]["NOVO_PERC"] = (($lista[$z]["VALOR_ATUAL_INVESTIDO"] / ($valor_total_carteira + $valorInvest1))*100);
 						}else{
@@ -1389,10 +1389,14 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 				if($valorInvest2 > 0){
 					
 					for($n = 0; $n < count($lista);$n++){
-						if($lista[$n]["NOVO_PERC"] < $lista[$n]["PORCENTAGEM"]){
-							$lista[$n]["SUGERIDO_NEW"] += ((($lista[$n]["PORCENTAGEM"] + ($lista[$n]["PORCENTAGEM"] - $lista[$n]["NOVO_PERC"])) / 100) * $valorInvest2);
+						if($numAtivos > 1){
+							if($lista[$n]["NOVO_PERC"] < $lista[$n]["PORCENTAGEM"]){
+								$lista[$n]["SUGERIDO_NEW"] += ((($lista[$n]["PORCENTAGEM"] + ($lista[$n]["PORCENTAGEM"] - $lista[$n]["NOVO_PERC"])) / 100) * $valorInvest2);
+							}else{
+								$lista[$n]["SUGERIDO_NEW"] += ((($lista[$n]["PORCENTAGEM"] - ($lista[$n]["NOVO_PERC"] - $lista[$n]["PORCENTAGEM"])) / 100) * $valorInvest2);
+							}
 						}else{
-							$lista[$n]["SUGERIDO_NEW"] += ((($lista[$n]["PORCENTAGEM"] - ($lista[$n]["NOVO_PERC"] - $lista[$n]["PORCENTAGEM"])) / 100) * $valorInvest2);
+							$lista[$n]["SUGERIDO_NEW"] += $valorInvest2;
 						}
 					}
 
