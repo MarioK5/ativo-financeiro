@@ -1302,8 +1302,12 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 				
 				$valor_atual_investido = ($qtde_ativos[$ind] * $valor_atual_ativo[$ind]);
 				
-				if ($valor_total_carteira> 0) {
-					$perc_atual = (($valor_atual_investido / $valor_total_carteira)*100);
+				if ($valor_total_carteira > 0) {
+					if($numAtivos > 1){
+						$perc_atual = (($valor_atual_investido / $valor_total_carteira)*100);
+					}else{
+						$perc_atual = 100;
+					}
 				}
 
 				if($perc_atual == 0){
