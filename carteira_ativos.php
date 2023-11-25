@@ -1269,11 +1269,20 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 			while ($row2 = mysqli_fetch_array($result2)) {
 				$valor_total_carteira = $row2["VALOR_TOTAL"];
 			}
+			
+	$result = listaAtivosCarteira($idCarteira,0);
+	
+	$numAtivos = mysqli_num_rows($result);
 
 	if($valor_total_carteira > 0){
-		if($valorInvest > ($valor_total_carteira * 2)){
-			$valorInvest1 = ($valor_total_carteira * 2);
-			$valorInvest2 = ($valorInvest - $valorInvest1);
+		if($numAtivos > 1){
+			if($valorInvest > ($valor_total_carteira * 2)){
+				$valorInvest1 = ($valor_total_carteira * 2);
+				$valorInvest2 = ($valorInvest - $valorInvest1);
+			}else{
+				$valorInvest1 = $valorInvest;
+				$valorInvest2 = 0;
+			}
 		}else{
 			$valorInvest1 = $valorInvest;
 			$valorInvest2 = 0;
@@ -1282,10 +1291,6 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 		$valorInvest1 = $valorInvest;
 		$valorInvest2 = 0;
 	}
-
-	$result = listaAtivosCarteira($idCarteira,0);
-	
-	$numAtivos = mysqli_num_rows($result);
 	
 	if (mysqli_num_rows($result) > 0) {
 			while ($row = mysqli_fetch_array($result)) {
@@ -1389,15 +1394,11 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 				if($valorInvest2 > 0){
 					
 					for($n = 0; $n < count($lista);$n++){
-						if($numAtivos > 1){
 							if($lista[$n]["NOVO_PERC"] < $lista[$n]["PORCENTAGEM"]){
 								$lista[$n]["SUGERIDO_NEW"] += ((($lista[$n]["PORCENTAGEM"] + ($lista[$n]["PORCENTAGEM"] - $lista[$n]["NOVO_PERC"])) / 100) * $valorInvest2);
 							}else{
 								$lista[$n]["SUGERIDO_NEW"] += ((($lista[$n]["PORCENTAGEM"] - ($lista[$n]["NOVO_PERC"] - $lista[$n]["PORCENTAGEM"])) / 100) * $valorInvest2);
 							}
-						}else{
-							$lista[$n]["SUGERIDO_NEW"] += $valorInvest2;
-						}
 					}
 
 					for($x = 0; $x < count($lista);$x++){
