@@ -1317,11 +1317,16 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 
 				if($perc_atual == 0){
 					if($numAtivos > 1){
-						$valorSugerido = ((($porcentagem[$ind] / 100) * 2) * $valorInvest1);
-						$perc_atual = (($valorSugerido / $valor_total_carteira)*100);
+						if(valor_total_carteira > 0){
+							$valorSugerido = ((($porcentagem[$ind] / 100) * 2) * $valorInvest1);
+							$perc_atual = (($valorSugerido / $valor_total_carteira)*100);
+						}else{
+							$valorSugerido = (($porcentagem[$ind] / 100) * $valorInvest1);
+							$perc_atual = $porcentagem[$ind];
+						}	
 					}else{
 						$valorSugerido = (($porcentagem[$ind] / 100) * $valorInvest1);
-						$perc_atual = (($valorSugerido / $valor_total_carteira)*100);
+						$perc_atual = 100;
 					}
 					
 				}else{
