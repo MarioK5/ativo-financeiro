@@ -1313,8 +1313,6 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 					}else{
 						$perc_atual = 100;
 					}
-				}else{
-					$valor_total_carteira = $valorInvest1;
 				}
 
 				if($perc_atual == 0){
