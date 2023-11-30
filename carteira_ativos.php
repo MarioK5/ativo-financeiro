@@ -700,14 +700,26 @@ function editar_ativo_carteira($idCarteira, $idCliente)   {
 		                	 </tr> ';
 				$ind++;
 				}
+			
+				$tela .= '<tr> 
+					<td colspan="6" style="text-align: right;">
+						<input type="button" value="Gravar"  class="btn btn-success btn-sm" onclick="xajax_gravar_editar_ativo(xajax.getFormValues(\'form_cadastro\')); return false;">
+						<input type="button" value="Voltar"  class="btn btn-secondary btn-sm" onclick="xajax_busca_ativos('.$idCliente.'); return false;" >
+					</td>
+				</tr>
+				</table>';
+			
+			}else{
+				
+				$tela .= '<tr> 
+					<td colspan="6" style="text-align: right;">
+						<input type="button" value="Voltar"  class="btn btn-secondary btn-sm" onclick="xajax_busca_ativos('.$idCliente.'); return false;" >
+					</td>
+				</tr>
+				</table>';
+			
 			}
-		$tela .= '<tr> 
-				<td colspan="6" style="text-align: right;">
-				<input type="button" value="Gravar"  class="btn btn-success btn-sm" onclick="xajax_gravar_editar_ativo(xajax.getFormValues(\'form_cadastro\')); return false;">
-     				<input type="button" value="Voltar"  class="btn btn-secondary btn-sm" onclick="xajax_busca_ativos('.$idCliente.'); return false;" >
-     				</td>
-			</tr>
-      		</table>';
+		
 	
 	$resp->assign("tela_cliente","innerHTML",$tela);
   
