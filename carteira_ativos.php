@@ -383,6 +383,7 @@ function excluir_carteira($idCliente, $idCarteira)   {
 	inativarCarteira($idCliente, $idCarteira);
 	$resp->alert('Carteira eliminada!');
 	
+	$resp->script('$("#myModal2").modal("hide")');
 	$script = "xajax_busca_carteiras($idCliente)";
 	$resp->script($script);
 	
