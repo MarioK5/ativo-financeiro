@@ -362,6 +362,8 @@ function inativar_carteira($idCliente, $idCarteira)   {
 	$resp = new xajaxResponse("UTF-8");
 	
 	$result = listaAtivosCarteira($idCarteira,0);
+	
+	confirmacao();
 
 	if (mysqli_num_rows($result) > 0) {
 		$resp->alert('Carteira tem atinos, não pode ser eliminada!'); return $resp;
@@ -779,7 +781,6 @@ function vender_ativo_carteira($idAtivoCliente, $idCliente, $idCarteira)   {
 	}
 	
 	$resp->script('$("#myModal2").modal({show: true,keyboard: false,backdrop: "static"})');
-	$resp->script('xajax.$("qtdeVenda").focus();');
 	$resp->assign("motal_conteudo2","innerHTML",$tela);
 	$resp->script('$("#myModal2 .modal-dialog").css("width", "50%")');
 	
@@ -2214,11 +2215,14 @@ function gerar_relatorio()   {
         
 <script type="text/javascript" language="JavaScript">
 	
-	function incluiAtivo() {
-		novoCampo = $("tr.linhas:last").clone();
-		novoCampo.find("input").val("");
-		novoCampo.insertAfter("tr.linhas2:last");
-	}
+	function confirmacao() {
+     var resposta = confirm("Deseja realmente excluir essa carteira?");
+     if (resposta == true) {
+          alert("ok precionado");
+     }else{
+		 alert("Cancelar precionado");
+	 }
+}
 	
 </script>
 
