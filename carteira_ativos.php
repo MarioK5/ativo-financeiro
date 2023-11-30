@@ -363,7 +363,7 @@ function inativar_carteira($idCliente, $idCarteira)   {
 	
 	$result = listaAtivosCarteira($idCarteira,0);
 	
-	confirmacao();
+	$resp->confirm('Tem certeza que quer excluir a carteira?');
 
 	if (mysqli_num_rows($result) > 0) {
 		$resp->alert('Carteira tem atinos, não pode ser eliminada!'); return $resp;
@@ -2215,14 +2215,6 @@ function gerar_relatorio()   {
         
 <script type="text/javascript" language="JavaScript">
 	
-	function confirmacao() {
-     var resposta = confirm("Deseja realmente excluir essa carteira?");
-     if (resposta == true) {
-          alert("ok precionado");
-     }else{
-		 alert("Cancelar precionado");
-	 }
-}
 	
 </script>
 
