@@ -826,8 +826,6 @@ function confirmar_inativar_carteira($idCliente, $idCarteira)   {
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="row">
 				<div class="col-xs-2 col-md-2">
     			    <div class="form-group">
 						<div id="sandbox-container">
