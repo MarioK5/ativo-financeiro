@@ -369,7 +369,7 @@ function inativar_carteira($idCliente, $idCarteira)   {
 	if (mysqli_num_rows($result) > 0) {
 		$resp->alert('Carteira tem atinos, não pode ser eliminada!'); return $resp;
 	}else{
-		$script = "xajax_confirmar_inativar_carteira($$idCliente, $idCarteira)";
+		$script = "xajax_confirmar_inativar_carteira($idCliente, $idCarteira)";
 		$resp->script($script);
 	}
 	
