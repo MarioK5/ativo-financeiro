@@ -13,6 +13,8 @@ $xajax->registerFunction("busca_investimentos");
 $xajax->registerFunction("cadastrar_carteira");
 $xajax->registerFunction("editar_carteira");
 $xajax->registerFunction("inativar_carteira");
+$xajax->registerFunction("confirmar_inativar_carteira");
+$xajax->registerFunction("excluir_carteira");
 $xajax->registerFunction("cadastrar_ativo");
 $xajax->registerFunction("editar_ativo_carteira");
 $xajax->registerFunction("vender_ativo_carteira");
@@ -363,18 +365,27 @@ function inativar_carteira($idCliente, $idCarteira)   {
 	
 	$result = listaAtivosCarteira($idCarteira,0);
 	
-	$resp->confirm('Tem certeza que quer excluir a carteira?');
 
 	if (mysqli_num_rows($result) > 0) {
 		$resp->alert('Carteira tem atinos, não pode ser eliminada!'); return $resp;
 	}else{
-		inativarCarteira($idCliente, $idCarteira);
-		$resp->alert('Carteira eliminada!');
+		$script = "xajax_confirmar_inativar_carteira($$idCliente, $idCarteira)";
+		$resp->script($script);
 	}
+	
+	return $resp;
+}
+
+function excluir_carteira($idCliente, $idCarteira)   {
+
+	$resp = new xajaxResponse("UTF-8");
+	
+	inativarCarteira($idCliente, $idCarteira);
+	$resp->alert('Carteira eliminada!');
 	
 	$script = "xajax_busca_carteiras($idCliente)";
 	$resp->script($script);
-  
+	
 	return $resp;
 }
 
@@ -779,6 +790,56 @@ function vender_ativo_carteira($idAtivoCliente, $idCliente, $idCarteira)   {
 	}else{
 		$resp->alert('Não existem ativos para vender!'); return $resp;
 	}
+	
+	$resp->script('$("#myModal2").modal({show: true,keyboard: false,backdrop: "static"})');
+	$resp->assign("motal_conteudo2","innerHTML",$tela);
+	$resp->script('$("#myModal2 .modal-dialog").css("width", "50%")');
+	
+	return $resp;
+}
+
+function confirmar_inativar_carteira($idCliente, $idCarteira)   {
+
+	$resp = new xajaxResponse("UTF-8");
+
+		$tela = '<div class="panel-body">
+ 		    <div class="row">
+				<div class="col-xs-8 col-md-8">
+					<div class="form-group">
+						<div id="sandbox-container">
+							<div class="input-group">
+								<div class="form-group" style="font-size: 18px;">
+									Tem certeza que deseja excluir essa carteira?
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+   		    </div>
+			<div class="row">
+				<div class="col-xs-2 col-md-2">
+					<div class="form-group">
+						<div id="sandbox-container">
+							<div class="input-group">  
+								<input type="button" value="Confirmar"  class="btn btn-danger btn-md btn-block" onclick="xajax_excluir_carteira('.$idCliente.','. $idCarteira.'); ">
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-xs-2 col-md-2">
+    			    <div class="form-group">
+						<div id="sandbox-container">
+							<div class="input-group">  
+								<button class="btn btn-secondary btn-md pull-left" data-dismiss="modal"  type="button"><i class="fa fa-sign-out-alt"></i> Cancelar</button>
+							</div>
+						</div>
+					</div>
+				</div>
+		    </div>
+		</div>';
+
 	
 	$resp->script('$("#myModal2").modal({show: true,keyboard: false,backdrop: "static"})');
 	$resp->assign("motal_conteudo2","innerHTML",$tela);
