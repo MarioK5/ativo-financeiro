@@ -1318,11 +1318,16 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 				}
 
 				if($numAtivos > 1){
-					if($perc_atual < $porcentagem[$ind]){
-						$valorSugerido = ((($porcentagem[$ind] + ($porcentagem[$ind] - $perc_atual)) / 100) * $valorInvest1);
+					if(perc_atual == 0){
+						$valorSugerido = (($porcentagem[$ind] / 100) * $valorInvest1);
 					}else{
-						$valorSugerido = ((($porcentagem[$ind] - ($perc_atual - $porcentagem[$ind])) / 100) * $valorInvest1);
+						if($perc_atual < $porcentagem[$ind]){
+							$valorSugerido = ((($porcentagem[$ind] + ($porcentagem[$ind] - $perc_atual)) / 100) * $valorInvest1);
+						}else{
+							$valorSugerido = ((($porcentagem[$ind] - ($perc_atual - $porcentagem[$ind])) / 100) * $valorInvest1);
+						}
 					}
+						
 				}else{
 					$valorSugerido = (($porcentagem[$ind] / 100) * $valorInvest1);
 				}
@@ -1399,9 +1404,9 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 					$ativosSugeridos = ($lista[$x]["SUGERIDO_NEW"] / $lista[$x]["VALOR_ATUAL_ATIVO"]);
 	
 					if ($valor_total_carteira > 0) {
-						$novo_perc = round(((($lista[$x]["VALOR_INVESTIDO"] + $lista[$x]["SUGERIDO_NEW"]) / ($valor_total_carteira + $valorInvest))*100),0);
+						$novo_perc = ((($lista[$x]["VALOR_INVESTIDO"] + $lista[$x]["SUGERIDO_NEW"]) / ($valor_total_carteira + $valorInvest))*100);
 					}else{
-						$novo_perc = round((($lista[$x]["SUGERIDO_NEW"] / $valorInvest)*100),0);
+						$novo_perc = (($lista[$x]["SUGERIDO_NEW"] / $valorInvest)*100);
 					}
 					
 					$tela .= '<tr>
@@ -1436,9 +1441,9 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 					$ativosSugeridos = ($lista[$x]["SUGERIDO_NEW"] / $lista[$x]["VALOR_ATUAL_ATIVO"]);
 	
 					if ($valor_total_carteira> 0) {
-						$novo_perc = round((($lista[$x]["VALOR_ATUAL_INVESTIDO"] / ($valor_total_carteira + $valorInvest1))*100),0);
+						$novo_perc = (($lista[$x]["VALOR_ATUAL_INVESTIDO"] / ($valor_total_carteira + $valorInvest1))*100);
 					}else{
-						$novo_perc = round((($lista[$x]["SUGERIDO_NEW"] / $valorInvest1)*100),0);
+						$novo_perc = (($lista[$x]["SUGERIDO_NEW"] / $valorInvest1)*100);
 					}
 					
 					$tela .= '<tr>
