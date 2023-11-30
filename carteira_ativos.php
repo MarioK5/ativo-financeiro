@@ -1315,28 +1315,16 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 					}
 				}
 
-				if($perc_atual == 0){
-					if($numAtivos > 1){
-						if(valor_total_carteira > 0){
-							$valorSugerido = ((($porcentagem[$ind] / 100) * 2) * $valorInvest1);
-						}else{
-							$valorSugerido = (($porcentagem[$ind] / 100) * $valorInvest1);
-						}	
+				if($numAtivos > 1){
+					if($perc_atual < $porcentagem[$ind]){
+						$valorSugerido = ((($porcentagem[$ind] + ($porcentagem[$ind] - $perc_atual)) / 100) * $valorInvest1);
 					}else{
-						$valorSugerido = (($porcentagem[$ind] / 100) * $valorInvest1);
+						$valorSugerido = ((($porcentagem[$ind] - ($perc_atual - $porcentagem[$ind])) / 100) * $valorInvest1);
 					}
-					
 				}else{
-					if($numAtivos > 1){
-						if($perc_atual < $porcentagem[$ind]){
-							$valorSugerido = ((($porcentagem[$ind] + ($porcentagem[$ind] - $perc_atual)) / 100) * $valorInvest1);
-						}else{
-							$valorSugerido = ((($porcentagem[$ind] - ($perc_atual - $porcentagem[$ind])) / 100) * $valorInvest1);
-						}
-					}else{
-						$valorSugerido = (($porcentagem[$ind] / 100) * $valorInvest1);
-					}
+					$valorSugerido = (($porcentagem[$ind] / 100) * $valorInvest1);
 				}
+
 				
 
 				$lista[$ind]["ID"]          = $row["ID"];
