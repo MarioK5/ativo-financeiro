@@ -812,7 +812,7 @@ function confirmar_inativar_carteira($idCliente, $idCarteira)   {
 						<div id="sandbox-container">
 							<div class="input-group">
 								<div class="form-group" style="font-size: 18px;">
-									Tem certeza de excluir a carteira '.$descrCarteira.'?
+									Tem certeza em excluir a carteira '.$descrCarteira.'?
 								</div>
 							</div>
 						</div>
