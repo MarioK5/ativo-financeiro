@@ -802,6 +802,8 @@ function vender_ativo_carteira($idAtivoCliente, $idCliente, $idCarteira)   {
 function confirmar_inativar_carteira($idCliente, $idCarteira)   {
 
 	$resp = new xajaxResponse("UTF-8");
+	
+	$descrCarteira = listaDescri($idCarteira,1);
 
 		$tela = '<div class="panel-body">
  		    <div class="row">
@@ -810,7 +812,7 @@ function confirmar_inativar_carteira($idCliente, $idCarteira)   {
 						<div id="sandbox-container">
 							<div class="input-group">
 								<div class="form-group" style="font-size: 18px;">
-									Tem certeza que deseja excluir essa carteira?
+									Tem certeza que deseja excluir a carteira '.descrCarteira.'?
 								</div>
 							</div>
 						</div>
