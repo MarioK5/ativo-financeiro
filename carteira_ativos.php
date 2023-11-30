@@ -807,7 +807,7 @@ function confirmar_inativar_carteira($idCliente, $idCarteira)   {
 
 		$tela = '<div class="panel-body">
  		    <div class="row">
-				<div class="col-xs-8 col-md-8">
+				<div class="col-xs-16 col-md-16">
 					<div class="form-group">
 						<div id="sandbox-container">
 							<div class="input-group">
