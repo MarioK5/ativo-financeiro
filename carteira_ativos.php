@@ -1315,7 +1315,7 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 					}
 				}
 
-		/*		if($perc_atual == 0){
+				if($perc_atual == 0){
 					if($numAtivos > 1){
 						if(valor_total_carteira > 0){
 							$valorSugerido = (($porcentagem[$ind] / 100) * $valorInvest1);
@@ -1339,36 +1339,8 @@ function destinar_investimento($valorInvest, $idCarteira, $idCliente)   {
 					}else{
 						$valorSugerido = (($porcentagem[$ind] / 100) * $valorInvest1);
 					}
-				}*/
-				
-				if($perc_atual == 0){
-					if($numAtivos > 1){
-						if(valor_total_carteira > 0){
-							$valorSugerido = (($porcentagem[$ind] / 100) * (valor_total_carteira + $valorInvest1));
-							$perc_atual = (($valorSugerido / $valorInvest1)*100);
-						}else{
-							$valorSugerido = (($porcentagem[$ind] / 100) * $valorInvest1);
-							$perc_atual = $porcentagem[$ind];
-						}	
-					}else{
-						$valorSugerido = (($porcentagem[$ind] / 100) * $valorInvest1);
-						$perc_atual = 100;
-					}
-					
-				}else{
-					if($numAtivos > 1){
-						if($perc_atual < $porcentagem[$ind]){
-							$valorSugerido = ((($porcentagem[$ind] + ($porcentagem[$ind] - $perc_atual)) / 100) * (valor_total_carteira + $valorInvest1));
-							$perc_atual = (($valorSugerido / $valorInvest1)*100);
-						}else{
-							$valorSugerido = ((($porcentagem[$ind] - ($perc_atual - $porcentagem[$ind])) / 100) * (valor_total_carteira + $valorInvest1));
-							$perc_atual = (($valorSugerido / $valorInvest1)*100);
-						}
-					}else{
-						$valorSugerido = (($porcentagem[$ind] / 100) * $valorInvest1);
-						$perc_atual = 100;
-					}
 				}
+				
 
 				$lista[$ind]["ID"]          = $row["ID"];
 				$lista[$ind]["ID_ATIVO"]    = $row["ID_ATIVO"];
