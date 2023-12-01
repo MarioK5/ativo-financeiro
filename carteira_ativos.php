@@ -19,8 +19,10 @@ $xajax->registerFunction("cadastrar_ativo");
 $xajax->registerFunction("editar_ativo_carteira");
 $xajax->registerFunction("vender_ativo_carteira");
 $xajax->registerFunction("salvar_venda");
+$xajax->registerFunction("salvar_incluir");
 $xajax->registerFunction("gravar_editar_ativo");
 $xajax->registerFunction("excluir_ativo_carteira");
+$xajax->registerFunction("incluir_ativo_carteira");
 $xajax->registerFunction("tipo_subSetor");
 $xajax->registerFunction("tipo_segmento");
 $xajax->registerFunction("tipo_ativo");
@@ -672,32 +674,37 @@ function editar_ativo_carteira($idCarteira, $idCliente)   {
 						<td>'.number_format($valor_investido,2,",",".").'</td>
 						<td>'.$qtde_ativos.'</td>
 						<td>
-      							<div class="col-xs-2 col-md-2">
-			                                    <div class="form-group">
-			                                        <div id="sandbox-container">
-			                                            <div class="input-group">
-			                                                <input type="text" name="n_perc[]'.$ind.'" id="n_perc[]'.$ind.'" value="'.number_format($porcentagem,0,",",".").'" class="form-control" style="width: 50px;" >
-						   			<input type="hidden" id="idAtivoCliente[]'.$ind.'" name="idAtivoCliente[]'.$ind.'" value="'.$idAtivoCliente.'" />
-	    								<input type="hidden" id="idAtivoCodigo[]'.$ind.'" name="idAtivoCodigo[]'.$ind.'" value="'.$codigo.'" />
-	     								<input type="hidden" id="tipoGravar[]'.$ind.'" name="tipoGravar[]'.$ind.'" value="0" />
-	      								<input type="hidden" id="ididCliente" name="ididCliente" value="'.$idCliente.'" />
-									<input type="hidden" id="n_cont" name="n_cont" value="'.$ind.'" />
-			                                            </div>
-			                                        </div>
-			                                    </div>
-			                                </div>	
-				      		</td>
+							<div class="col-xs-2 col-md-2">
+								<div class="form-group">
+									<div id="sandbox-container">
+										<div class="input-group">
+											<input type="text" name="n_perc[]'.$ind.'" id="n_perc[]'.$ind.'" value="'.number_format($porcentagem,0,",",".").'" class="form-control" style="width: 50px;" >
+											<input type="hidden" id="idAtivoCliente[]'.$ind.'" name="idAtivoCliente[]'.$ind.'" value="'.$idAtivoCliente.'" />
+											<input type="hidden" id="idAtivoCodigo[]'.$ind.'" name="idAtivoCodigo[]'.$ind.'" value="'.$codigo.'" />
+											<input type="hidden" id="tipoGravar[]'.$ind.'" name="tipoGravar[]'.$ind.'" value="0" />
+											<input type="hidden" id="ididCliente" name="ididCliente" value="'.$idCliente.'" />
+											<input type="hidden" id="n_cont" name="n_cont" value="'.$ind.'" />
+										</div>
+									</div>
+								</div>
+							</div>	
+						</td>
 						<td>
-					      		<button type="button" class="btn btn-default btn-sm" onclick="xajax_excluir_ativo_carteira('.$idAtivoCliente.','.$excluir.','.$idCliente.','.$idCarteira.'); ">
-							<span class="glyphicon glyphicon-remove"></span>
-						        </button>
-					      </td>
-	   				      <td>
-					      		<button type="button" class="btn btn-default btn-sm" onclick="xajax_vender_ativo_carteira('.$idAtivoCliente.','.$idCliente.','.$idCarteira.'); ">
-							<span class="glyphicon glyphicon-usd"></span>
-						        </button>
-					      </td>
-		                	 </tr> ';
+							<button type="button" class="btn btn-default btn-sm" onclick="xajax_excluir_ativo_carteira('.$idAtivoCliente.','.$excluir.','.$idCliente.','.$idCarteira.'); ">
+								<span class="glyphicon glyphicon-remove"></span>
+							</button>
+						</td>
+						<td>
+							<button type="button" class="btn btn-default btn-sm" onclick="xajax_vender_ativo_carteira('.$idAtivoCliente.','.$idCliente.','.$idCarteira.'); ">
+								<span class="glyphicon glyphicon-usd"></span>
+							</button>
+					    </td>
+						<td>
+							<button type="button" class="btn btn-default btn-sm" onclick="xajax_incluir_ativo_carteira('.$idAtivoCliente.','.$idCliente.','.$idCarteira.'); ">
+								<span class="glyphicon glyphicon-usd"></span>
+							</button>
+					    </td>
+					</tr> ';
 				$ind++;
 				}
 			
@@ -811,6 +818,69 @@ function vender_ativo_carteira($idAtivoCliente, $idCliente, $idCarteira)   {
 	return $resp;
 }
 
+function incluir_ativo_carteira($idAtivoCliente, $idCliente, $idCarteira)   {
+
+	$resp = new xajaxResponse("UTF-8");
+
+	
+		$tela = '<div class="panel-body">
+ 		     <div class="row">
+			<div class="col-xs-8 col-md-8">
+			    <div class="form-group">
+				<div id="sandbox-container">
+				    <div class="input-group">
+					<div class="form-group" style="font-size: 18px;">
+                                                Incluir quantidade de ativos
+                                            </div>
+				    </div>
+				</div>
+			    </div>
+			</div>
+   		    </div>
+		    <div class="row">
+			<div class="col-xs-4 col-md-4">
+			    <div class="form-group">
+				<label>Quantidade para incluir</label>
+				<div id="sandbox-container">
+				    <div class="input-group">
+					<input type="text" class="form-control" name="qtdeIncluir" id="qtdeIncluir" value="" style="width: 100px;" />
+				    </div>
+				</div>
+			    </div>
+			</div>
+		    </div>
+		    <div class="row">
+			<div class="col-xs-2 col-md-2">
+    			     <div class="form-group">
+				<div id="sandbox-container">
+				    <div class="input-group">  
+					    <input type="button" value="Finalizar Venda"  class="btn btn-success btn-md btn-block" onclick="xajax_salvar_incluir(xajax.getFormValues(\'form_cadastro\'),'.$idCliente.','.$idAtivoCliente.','. $idCarteira.'); ">
+				    </div>
+  				 </div>
+			     </div>
+			  </div>
+		    </div>
+      		    <div class="row">
+			<div class="col-xs-2 col-md-2">
+    			     <div class="form-group">
+				<div id="sandbox-container">
+				    <div class="input-group">  
+					     <button class="btn btn-secondary btn-md pull-left" data-dismiss="modal"  type="button"><i class="fa fa-sign-out-alt"></i> Cancelar</button>
+				    </div>
+  				 </div>
+			     </div>
+			  </div>
+		    </div>
+		</div>';
+
+	
+	$resp->script('$("#myModal2").modal({show: true,keyboard: false,backdrop: "static"})');
+	$resp->assign("motal_conteudo2","innerHTML",$tela);
+	$resp->script('$("#myModal2 .modal-dialog").css("width", "50%")');
+	
+	return $resp;
+}
+
 function confirmar_inativar_carteira($idCliente, $idCarteira)   {
 
 	$resp = new xajaxResponse("UTF-8");
@@ -902,6 +972,27 @@ function salvar_venda($dados, $idCliente, $idAtivoCliente,  $idCarteira)   {
 	$resp->script('$("#myModal2").modal("hide")');
 	$script = "xajax_editar_ativo_carteira($idCarteira, $idCliente)";
     	$resp->script($script);
+
+	return $resp;
+}
+
+function salvar_incluir($dados, $idCliente, $idAtivoCliente,  $idCarteira)   {
+
+	$resp = new xajaxResponse("UTF-8");
+
+	$qtdeVenda = $dados['qtdeIncluir'];
+
+	if($qtdeVenda <= 0){
+		$resp->alert('Quantidade para venda não é valida!'); return $resp;
+	}
+
+	
+	$resp->alert('Inclussão em desenvolvimrnto!');
+
+	
+	$resp->script('$("#myModal2").modal("hide")');
+	$script = "xajax_editar_ativo_carteira($idCarteira, $idCliente)";
+    $resp->script($script);
 
 	return $resp;
 }
