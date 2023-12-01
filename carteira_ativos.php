@@ -981,7 +981,7 @@ function salvar_incluir($dados, $idCliente, $idAtivoCliente,  $idCarteira)   {
 
 	$qtdeIncluir = $dados['qtdeIncluir'];
 
-	if($qtdeVenda <= 0){
+	if($qtdeIncluir <= 0){
 		$resp->alert('Quantidade deve ser maior que zero!'); return $resp;
 	}
 
