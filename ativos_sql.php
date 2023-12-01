@@ -377,7 +377,7 @@ function alteraAtivoCarteira($idAtivoCliente, $novaPorcentagem){
 	CloseCon($conn);	
 }
 
-function vendaAtivoCarteira($idAtivoCliente, $n_qtdeAtivos, $n_valorAtivos){
+function atualizaAtivoCarteira($idAtivoCliente, $n_qtdeAtivos, $n_valorAtivos){
 	
 	$conn = OpenCon();
 
