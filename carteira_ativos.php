@@ -836,7 +836,7 @@ function confirmar_inativar_carteira($idCliente, $idCarteira)   {
 					<div class="form-group">
 						<div id="sandbox-container">
 							<div class="input-group">  
-								<input type="button" value="Confirmar"  class="btn btn-danger btn-md btn-block" onclick="xajax_excluir_carteira('.$idCliente.','. $idCarteira.'); ">
+								<input type="button" value="Confirmar"  class="btn btn-success btn-md btn-block" onclick="xajax_excluir_carteira('.$idCliente.','. $idCarteira.'); ">
 							</div>
 						</div>
 					</div>
@@ -845,7 +845,7 @@ function confirmar_inativar_carteira($idCliente, $idCarteira)   {
     			    <div class="form-group">
 						<div id="sandbox-container">
 							<div class="input-group">  
-								<button class="btn btn-secondary btn-md pull-left" data-dismiss="modal"  type="button"><i class="fa fa-sign-out-alt"></i> Cancelar</button>
+								<button class="btn btn-danger btn-md pull-left" data-dismiss="modal"  type="button"><i class="fa fa-sign-out-alt"></i> Cancelar</button>
 							</div>
 						</div>
 					</div>
