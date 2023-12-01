@@ -979,13 +979,8 @@ function salvar_incluir($dados, $idCliente, $idAtivoCliente,  $idCarteira)   {
 
 	$resp = new xajaxResponse("UTF-8");
 
-	$qtdeIncluir = $dados['qtdeIncluir'];
-
-	$resp->alert('Quantidade ativos '.$qtdeIncluir); 
-	$resp->alert('Quantidade ativos '.$idCliente); 
-	$resp->alert('Quantidade ativos '.$idAtivoCliente); 
-	$resp->alert('Quantidade ativos '.$idCarteira); return $resp;
-
+	$qtdeIncluir = $dados['qtdeIncluir']; 
+	
 	if($qtdeIncluir <= 0){
 		$resp->alert('Quantidade deve ser maior que zero!'); return $resp;
 	}
@@ -1000,6 +995,7 @@ function salvar_incluir($dados, $idCliente, $idAtivoCliente,  $idCarteira)   {
 				$idAtivoInvest     = $row["ID_ATIVO"];
 			}
 		}
+	$resp->alert('Quantidade ativos '.$idAtivoInvest); return $resp;
 	if(!$valor_investido){ $valor_investido = 0;}
 	if(!$qtde_ativos){ $qtde_ativos = 0;}
 	
