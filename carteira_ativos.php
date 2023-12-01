@@ -962,7 +962,7 @@ function salvar_venda($dados, $idCliente, $idAtivoCliente,  $idCarteira)   {
 		$n_valorAtivos = 0;
 	}
 	
-	vendaAtivoCarteira($idAtivoCliente, $n_qtdeAtivos, $n_valorAtivos);
+	atualizaAtivoCarteira($idAtivoCliente, $n_qtdeAtivos, $n_valorAtivos);
 	cadastroInvestimento($idCarteira, $idAtivoCliente, $hist_valorAtivos,'V');
 	
 	$resp->alert('Venda realizada!');
@@ -997,12 +997,12 @@ function salvar_incluir($dados, $idCliente, $idAtivoCliente,  $idCarteira)   {
 	if(!$valor_investido){ $valor_investido = 0;}
 	if(!$qtde_ativos){ $qtde_ativos = 0;}
 	
-	$valorCalculado  = (($qtdeIncluir * $valor_atual_ativo) +  $valor_investido);
-	$qtdeIncluirCalc = ($qtdeIncluir + $qtde_ativos);
+	$n_valorAtivos = (($qtdeIncluir * $valor_atual_ativo) +  $valor_investido);
+	$n_qtdeAtivos  = ($qtdeIncluir + $qtde_ativos);
 
+	atualizaAtivoCarteira($idAtivoCliente, $n_qtdeAtivos, $n_valorAtivos);
 	
-	
-	$resp->alert('Inclussão em desenvolvimento!');
+	$resp->alert('Inclussão realizada!');
 	
 	$resp->script('$("#myModal2").modal("hide")');
 	$script = "xajax_editar_ativo_carteira($idCarteira, $idCliente)";
