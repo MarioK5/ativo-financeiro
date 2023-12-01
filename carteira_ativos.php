@@ -982,11 +982,11 @@ function salvar_incluir($dados, $idCliente, $idAtivoCliente,  $idCarteira)   {
 	$qtdeVenda = $dados['qtdeIncluir'];
 
 	if($qtdeVenda <= 0){
-		$resp->alert('Quantidade para venda não é valida!'); return $resp;
+		$resp->alert('Quantidade deve ser maior que zero!'); return $resp;
 	}
 
 	
-	$resp->alert('Inclussão em desenvolvimrnto!');
+	$resp->alert('Inclussão em desenvolvimento!');
 
 	
 	$resp->script('$("#myModal2").modal("hide")');
