@@ -1005,6 +1005,7 @@ function salvar_incluir($dados, $idCliente, $idAtivoCliente,  $idCarteira)   {
 	$resp->alert('Inclussão realizada!');
 	
 	$resp->script('$("#myModal2").modal("hide")');
+	$resp->assign("qtdeIncluir","value","");
 	$script = "xajax_editar_ativo_carteira($idCarteira, $idCliente)";
     	$resp->script($script);
 
