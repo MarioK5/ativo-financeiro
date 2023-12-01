@@ -702,7 +702,7 @@ function editar_ativo_carteira($idCarteira, $idCliente)   {
 					    </td>
 						<td>
 							<button type="button" class="btn btn-default btn-sm" onclick="xajax_incluir_ativo_carteira('.$idAtivoCliente.','.$idCliente.','.$idCarteira.'); ">
-								<span class="glyphicon glyphicon-usd"></span>
+								<span class="glyphicon glyphicon-plus-sign"></span>
 							</button>
 					    </td>
 					</tr> ';
@@ -841,7 +841,7 @@ function incluir_ativo_carteira($idAtivoCliente, $idCliente, $idCarteira)   {
 		    <div class="row">
 			<div class="col-xs-4 col-md-4">
 			    <div class="form-group">
-				<label>Quantidade para incluir</label>
+				<label>Quantidade a incluir</label>
 				<div id="sandbox-container">
 				    <div class="input-group">
 					<input type="text" class="form-control" name="qtdeIncluir" id="qtdeIncluir" value="" style="width: 100px;" />
@@ -860,13 +860,11 @@ function incluir_ativo_carteira($idAtivoCliente, $idCliente, $idCarteira)   {
   				 </div>
 			     </div>
 			  </div>
-		    </div>
-      		    <div class="row">
 			<div class="col-xs-2 col-md-2">
     			     <div class="form-group">
 				<div id="sandbox-container">
 				    <div class="input-group">  
-					     <button class="btn btn-secondary btn-md pull-left" data-dismiss="modal"  type="button"><i class="fa fa-sign-out-alt"></i> Cancelar</button>
+					     <button class="btn btn-danger btn-md pull-left" data-dismiss="modal"  type="button"><i class="fa fa-sign-out-alt"></i> Cancelar</button>
 				    </div>
   				 </div>
 			     </div>
