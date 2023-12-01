@@ -992,6 +992,7 @@ function salvar_incluir($dados, $idCliente, $idAtivoCliente,  $idCarteira)   {
 				$valor_atual_ativo = $row["VALOR_ATUAL_ATIVO"];
 				$valor_investido   = $row["VALOR_INVESTIDO"];
 				$qtde_ativos       = $row["QTDE_ATIVOS"];
+				$idAtivoInvest       = $row["ID_ATIVO"];
 			}
 		}
 	if(!$valor_investido){ $valor_investido = 0;}
@@ -999,8 +1000,10 @@ function salvar_incluir($dados, $idCliente, $idAtivoCliente,  $idCarteira)   {
 	
 	$n_valorAtivos = (($qtdeIncluir * $valor_atual_ativo) +  $valor_investido);
 	$n_qtdeAtivos  = ($qtdeIncluir + $qtde_ativos);
-
+	$valoFormatado = str_replace(',','.',$n_valorAtivos);
+	
 	atualizaAtivoCarteira($idAtivoCliente, $n_qtdeAtivos, $n_valorAtivos);
+	cadastroInvestimento($idCarteira, $idAtivoInvest, $valoFormatado,'I');
 	
 	$resp->alert('Inclussão realizada!');
 	
