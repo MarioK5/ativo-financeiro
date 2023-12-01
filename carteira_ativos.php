@@ -644,7 +644,7 @@ function editar_ativo_carteira($idCarteira, $idCliente)   {
       						<th>Meta %</th>
 						<th>Excluir</th>
       						<th>Vender</th>
-	    				<!--	<th>Incluir</th> -->
+	    					<th>Incluir</th> 
 	                		</tr> 
 				</div>
 			    </div> ';
@@ -700,11 +700,11 @@ function editar_ativo_carteira($idCarteira, $idCliente)   {
 								<span class="glyphicon glyphicon-usd"></span>
 							</button>
 					    </td>
-					<!--	<td>
+						<td>
 							<button type="button" class="btn btn-default btn-sm" onclick="xajax_incluir_ativo_carteira('.$idAtivoCliente.','.$idCliente.','.$idCarteira.'); ">
 								<span class="glyphicon glyphicon-plus-sign"></span>
 							</button>
-					    </td> -->
+					    </td> 
 					</tr> ';
 				$ind++;
 				}
