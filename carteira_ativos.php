@@ -854,7 +854,7 @@ function incluir_ativo_carteira($idAtivoCliente, $idCliente, $idCarteira)   {
     			     <div class="form-group">
 				<div id="sandbox-container">
 				    <div class="input-group">  
-					    <input type="button" value="Finalizar Venda"  class="btn btn-success btn-md btn-block" onclick="xajax_salvar_incluir(xajax.getFormValues(\'form_cadastro\'),'.$idCliente.','.$idAtivoCliente.','. $idCarteira.'); ">
+					    <input type="button" value="Gravar"  class="btn btn-success btn-md btn-block" onclick="xajax_salvar_incluir(xajax.getFormValues(\'form_cadastro\'),'.$idCliente.','.$idAtivoCliente.','. $idCarteira.'); ">
 				    </div>
   				 </div>
 			     </div>
