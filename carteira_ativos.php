@@ -984,7 +984,7 @@ function salvar_incluir($dados, $idCliente, $idAtivoCliente,  $idCarteira)   {
 	$resp->alert('Quantidade ativos '.$qtdeIncluir); 
 	$resp->alert('Quantidade ativos '.$idCliente); 
 	$resp->alert('Quantidade ativos '.$idAtivoCliente); 
-	$resp->alert('Quantidade ativos '.$idCarteira); return $resp
+	$resp->alert('Quantidade ativos '.$idCarteira); return $resp;
 
 	if($qtdeIncluir <= 0){
 		$resp->alert('Quantidade deve ser maior que zero!'); return $resp;
