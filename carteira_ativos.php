@@ -634,7 +634,7 @@ function editar_ativo_carteira($idCarteira, $idCliente)   {
  			<div class="row">
     				<div class="col-xs-8 col-md-8">
 					<tr style="color:white; background-color:#2F4F4F;">
-				     	     <th colspan="7">'.$descrCarteira.'</th>
+				     	     <th colspan="8">'.$descrCarteira.'</th>
 	 				</tr>
       					<tr style="color:#696969; background-color:#DCDCDC;">
 						<th>Codigo</th>
@@ -644,6 +644,7 @@ function editar_ativo_carteira($idCarteira, $idCliente)   {
       						<th>Meta %</th>
 						<th>Excluir</th>
       						<th>Vender</th>
+	    					<th>Incluir</th>
 	                		</tr> 
 				</div>
 			    </div> ';
