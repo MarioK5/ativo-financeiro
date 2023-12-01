@@ -985,13 +985,28 @@ function salvar_incluir($dados, $idCliente, $idAtivoCliente,  $idCarteira)   {
 		$resp->alert('Quantidade deve ser maior que zero!'); return $resp;
 	}
 
+	$result = listaAtivosCarteira($idCarteira,$idAtivoCliente);
+	
+		if (mysqli_num_rows($result) > 0) {
+			while ($row = mysqli_fetch_array($result)) {
+				$valor_atual_ativo = $row["VALOR_ATUAL_ATIVO"];
+				$valor_investido   = $row["VALOR_INVESTIDO"];
+				$qtde_ativos       = $row["QTDE_ATIVOS"];
+			}
+		}
+	if(!$valor_investido){ $valor_investido = 0;}
+	if(!$qtde_ativos){ $qtde_ativos = 0;}
+	
+	$valorCalculado  = (($qtdeIncluir * $valor_atual_ativo) +  $valor_investido);
+	$qtdeIncluirCalc = ($qtdeIncluir + $qtde_ativos);
+
+	
 	
 	$resp->alert('Inclussão em desenvolvimento!');
-
 	
 	$resp->script('$("#myModal2").modal("hide")');
 	$script = "xajax_editar_ativo_carteira($idCarteira, $idCliente)";
-    $resp->script($script);
+    	$resp->script($script);
 
 	return $resp;
 }
